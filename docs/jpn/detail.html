@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<title>日本語 WordNet (wn-ja)</title>
+</head>
+<!-- Background white, links blue (unvisited), navy (visited), red
+(active) -->
+<body>
+
+<h1 align='center'>日本語 WordNet</h1>
+<p align="center">
+<a href="index.html">概要</a> *
+<a href="downloads.html">リリース・ダウンロード</a> *
+<a href="bib.html">参考文献</a> *
+<a href="links.html">関連プロジェクト</a> *
+<a href="../index.en.html">English</a> 
+</p>
+
+<h2>日本語ワードネットとは？</h2>
+日本語ワードネットは日本語の概念辞書です。個々の概念はそれぞれ「synset」という単位にまとめられており、それらが他のsynsetと意味的に結びついています。<br>
+本辞書は、英語ワードネットをもとに構築されました。
+<h3>検索について</h3>
+左フレームの<a href="compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?usrname=&gridmode=wnja">「WordNet 検索」</a>からお試しいただけます。<br>
+<h4>日本語or英語から検索</h4>
+「Lookup Word (or Synset)」ウィンドウに単語を入力し、「Language」で言語を選択して「Search WN」を押してください。<br>
+検索結果から該当するsynset offsetのリンクをクリックすると、synsetの内容が表示されます。<br>
+<font color="#ff0000">注) 英語から検索される場合、大文字ではhitしませんので、固有名を検索する際であっても必ず全て小文字でご入力ください。</font>
+<h4>synset offset(synset番号、後述)から検索</h4>
+言語の選択は必要ありません。「Lookup Word (or Synset)」ウィンドウに番号を入力し、そのまま「Search WN」を押してください。
+
+<h2>スクリーンショット</h2>
+<!-- <img src="../synset_screenshot.png" alt="screenshot" width=1165 height=375> -->
+<img src="../pics/synset_screenshot-v1_1.png" alt="screenshot" width=1112 height=388>
+
+<ul>
+  <li><font color="#ff0000" size="4">1</font> synset番号(synset offset)</li>
+  <li><font color="#ff0000" size="4">2</font> 同義語(synonym)</li>
+  <li><font color="#ff0000" size="4">3</font> 定義文・例文(gloss)</li>
+  <li><font color="#ff0000" size="4">4</font> 関連synsetとのリンク</li>
+  <li><font color="#ff0000" size="4">5</font> 他の言語資源とのリンク</li>
+  <li><font color="#ff0000" size="4">6</font> 画像 (no longer working)</li>
+</ul>
+
+<h3><font color="#ff0000">1</font> synset番号(synset offset)</h3>
+<p>「8ケタの数字+"-(半角ハイフン)"+アルファベット」で表されています。アルファベットは品詞を表していて、それぞれ<br><ul><li>n= 名詞</li><li>v= 動詞</li><li>a= 形容詞</li><li>r= 副詞</li></ul><br>を表しています。
+品詞についてのもう少し具体的な内容説明は<a href="#syno_details">こちら</a>の節で行います。以下、「8ケタの数字+"-(半角ハイフン)"+アルファベット」は、全てsynset番号を表します。
+</p>
+
+<h3><font color="#ff0000">2</font> 同義語(synonym)</h3>
+<p>
+その概念を言い表すのに使用される語です。英語のものは英語ワードネットのもので、日本語のものは複数の他言語ワードネットと対日辞書を用いて作成しました。その後ある程度までは人手で修正しましたが、まだチェックしきれていないものも残っており、誤りが含まれている、あるいは含まれるべきものが含まれていないという場合もございます。
+同義語の扱いについての詳しい話は<a href="#syno_details">こちら</a>。
+</p>
+<h3><font color="#ff0000">3</font> 定義文・例文(gloss)</h3>
+<p>
+英文は英語ワードネットのもので、日本語は当方で翻訳したものです。そのsynsetの意味するところがダイレクトに伝わりやすいように、翻訳の際は意訳をなるべく避けました。専門用語や日本語スピーカーにとって馴染みの薄い概念は訳しづらく、誤りが多少含まれている場合もあります。また、まずは全てのsynsetに日本語訳を付けることに重点を置いたため、それ以外にも誤訳や関連synsetと照らし合わせて不適切な訳もまだ残っていると思われます。そのような訳を発見された場合、是非<a href="mailto:jwordnet@gmail.com">こちら</a>までお知らせください。
+</p>
+<h3><font color="#ff0000">4</font> 関連synsetとのリンク</h3>
+そのsynsetと関連するsynsetとのリンク情報です。それぞれ以下の事柄を意味します(<a href="http://ja.wikipedia.org/wiki/WordNet">Wikipedia</a>にも詳しい説明があります)。<br>
+<font size="2">注1) リンクの日本語名はまだ仮のものです<br>
+注2) 全てのsynsetに日本語synonymが付与されているわけではありませんので、例では英語synonymを使用しました</font>
+</p>
+<table border="3" cellpadding="5">
+  <caption><strong>リンクの名称と意味</strong></caption>
+  <tr>
+    <th>省略名</th>
+    <th>非省略名</th>
+    <th>日本語名</th>
+    <th>意味</th>
+    <th>例</th>
+  </tr>
+  <tr>
+    <td>Hype</td>
+    <td>Hypernym</td>
+    <td>上位語</td>
+    <td>当該synsetが相手synsetに包含される</td>
+    <td>"canis familiaris"(02084071-n)は"domestic animal"(01317541-n)と"canid"(02083346-n)に包含される</td>
+  </tr>
+  <tr>
+    <td>Hypo</td>
+    <td>Hyponym</td>
+    <td>下位語</td>
+    <td>当該synsetが相手synsetを包含する</td>
+    <td>"canis familiaris"(02084071-n)は"toy canis familiaris"(02085374-n),"mutt"(02084861-n),"pooch"(02084732-n),...を包含する</td>
+  </tr>
+  <tr>
+    <td>Mprt</td>
+    <td>Meronyms --- Part</td>
+    <td>被構成要素(部分)</td>
+    <td>当該synsetが相手synsetという部分によって構成される</td>
+    <td>"canis familiaris"(02084071-n)は"flag"(02158846-n)を一部分として持つ</td>
+  </tr>
+
+  <tr>
+    <td>Hprt</td>
+    <td>Holonyms --- Part</td>
+    <td>構成要素(部分)</td>
+    <td>当該synsetが部分として相手synsetを構成する</td>
+    <td>"flag"(02158846-n)は"canis familiaris"(02084071-n)や"cervid"(02430045-n)の一部分である</td>
+  </tr>
+  <tr>
+    <td>Hmem</td>
+    <td>Holonyms --- Member</td>
+    <td>構成要素(構成員)</td>
+    <td>当該synsetが相手synsetの構成員である</td>
+    <td>"canis familiaris"(02084071-n)は"02083863-n"(canis)や"pack"(07994941-n)の構成員である</td>
+  </tr>
+  <tr>
+    <td>Mmem</td>
+    <td>Meronyms --- Member</td>
+    <td>被構成要素(構成員)</td>
+    <td>当該synsetが相手synsetという構成員によって構成される</td>
+    <td>"canis"(02083863-n)は"canis familiaris"(02084071-n)や" jackal"(02115096-n)、"wolf"(02114100-n)を構成員として持つ</td>
+  </tr>
+  <tr>
+    <td>Msub</td>
+    <td>Meronyms --- Substance</td>
+    <td>被構成要素(物質・材料)</td>
+    <td>当該synsetが相手synsetという物質or材料によって構成される</td>
+    <td>"ozone"(14972807-n)は"atomic number 8"(14648100-n)という物質を構成要素として持つ</td>
+  </tr>
+  <tr>
+    <td>Hsub</td>
+    <td>Holonyms --- Substance</td>
+    <td>構成要素(物質・材料)</td>
+    <td>当該synsetが相手synsetを構成する物質or材料である</td>
+    <td>"atomic number 8"(14648100-n)は"ozone"(14972807-n)や"water"(14845743-n)、"air"(14841267-n)を構成する物質である</td>
+  </tr>
+  <tr>
+    <td>Dmnc</td>
+    <td>Domain --- Category</td>
+    <td>被包含領域(カテゴリ)</td>
+    <td>当該synsetが相手synsetのカテゴリに属する</td>
+    <td>"comet"(09251407-n)は"astronomy"(06095022-n)のカテゴリに属する</td>
+  </tr>
+  <tr>
+    <td>Dmtc</td>
+    <td>In Domain --- Category</td>
+    <td>包含領域(カテゴリ)</td>
+    <td>当該synseが相手synsetが属するカテゴリである</td>
+    <td>"astronomy"(06095022-n)というカテゴリには"uprise"(01970348-v)や"absolute magnitude"(05090979-n)が属している</td>
+  </tr>
+  <tr>
+    <td>Dmnu</td>
+    <td>Domain --- Usage</td>
+    <td>被包含領域(語法)</td>
+    <td>当該synsetの用法が相手synsetの領域に限られる</td>
+    <td>"jean"(03594734-n)の用法は"plural form"(06295235-n)に限定される</td>
+  </tr>
+  <tr>
+    <td>Dmtu</td>
+    <td>In Domain --- Usage</td>
+    <td>包含領域(語法)</td>
+    <td>当該synsetの領域が相手synsetの用法を規定する</td>
+    <td>"plural form"(06295235-n)は"jean"(03594734-n)の用法を規定する</td>
+  </tr>
+  <tr>
+    <td>Dmnr</td>
+    <td>Domain --- Region</td>
+    <td>被包含領域(地域)</td>
+    <td>当該synsetが相手synsetの地域に属するものである</td>
+    <td>"sake"(07891433-n)は"nippon"(08921850-n)という地域に属している</td>
+  </tr>
+  <tr>
+    <td>Dmtr</td>
+    <td>In Domain --- Region</td>
+    <td>包含領域(地域)</td>
+    <td>当該synsetが相手synsetの属する地域である</td>
+    <td>"nippon"(08921850-n)は"sake"(07891433-n)の属する地域である</td>
+  </tr>
+  <tr>
+    <td>Inst</td>
+    <td>Instances</td>
+    <td>例</td>
+    <td>当該synsetは相手synsetの例である</td>
+    <td>"seiji ozawa"(11219502-n)は"director"(09952539-n)の例である</td>
+  </tr>
+  <tr>
+    <td>Hasi</td>
+    <td>Has Instance</td>
+    <td>例あり</td>
+    <td>当該synsetは相手synsetを例として持つ</td>
+    <td>"director"(09952539-n)は"seiji ozawa"(11219502-n)を例に持つ</td>
+  </tr>
+  <tr>
+    <td>Enta</td>
+    <td>Entails</td>
+    <td>含意</td>
+    <td>当該synsetを行う場合、必ず相手synsetも行っている</td>
+    <td>"fleece"(02319050-v)を行う場合、必ず"charge"(02320374-v)も行っている</td>
+  </tr>
+  <tr>
+    <td>Caus</td>
+    <td>Causes</td>
+    <td>引き起こし</td>
+    <td>当該synsetを行うと、相手synsetを引き起こす</td>
+    <td>"project"(02138075-v)を行うと、"appear"(00422090-v)を引き起こす	</td>
+  </tr>
+  <tr>
+    <td>Also</td>
+    <td>See also</td>
+    <td>関連</td>
+    <td>当該synsetと相手synsetとの間に何らかの関連がある</td>
+    <td>"white"(00393105-a)は"light"(00408660-a)との間に何らかの関連がある</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Attr</td>
+    <td rowspan="2">Attributes</td>
+    <td rowspan="2">属性</td>
+    <td>(a=形容詞のsynsetから見て)当該synsetが相手synsetという属性を表す際に使われる</td>
+    <td>"white"(00393105-a)は"value"(04979425-n)という属性を表す際に使われる</td>
+  </tr>
+  <tr>
+    <td>(n=名詞のsynsetから見て)当該synsetという属性を表す際に相手synsetを使う</td>
+    <td>"value"(04979425-n)という属性を表すのに"white"(00393105-a)を使う</td>
+  </tr>
+  <tr>
+    <td>Sim</td>
+    <td>Similar to</td>
+    <td>近似</td>
+    <td>当該synsetは表す意味が相手synsetと近似している</td>
+    <td>"white"(00393105-a)は意味が"albescent"(00393422-a)と近似している</td>
+  </tr>
+</table>
+<h3><font color="#ff0000">5</font> 他の言語資源とのリンク</h3>
+<p>
+情報の補強のために他の概念辞書の情報ともリンクしています。
+
+<h4>SUMO: Suggested Upper Merged Ontology</h4>
+
+IEEEからリリースされている概念辞書で、英語ワードネットとのリンク情報もリリースされているため、日本語ワードネットでもそのまま利用しています。
+"⊂"はそのsynsetがSUMOの概念に包含される、"="はSUMOの概念と合致している、ということを表しています。
+
+
+<!-- 1.0には入らないのでcommentout<h4>日本語語彙大系</h4>	NTTが作成した概念辞書です。こちらは有料の辞書なので、日本語ワードネットからは日本語語彙大系にある項目名とのリンク情報のみご参照いただけます。また、この情報から日本語語彙大系の階層構造を再現することは実質上不可能と思われます。-->
+</ul>
+</p>
+<h3><font color="#ff0000">6</font> 画像</h3>
+<p>
+「<a href="pics.html">画像</a>」のページをご覧ください。
+</p>
+
+<h2><a name="syno_details"> 品詞・同義語詳細</a></h2>
+<h3>synset番号と品詞の関係について</h3>
+<p>
+synset番号の末尾は品詞を表していますが、これは英語ワードネットのものをそのまま利用しているため、日本語の品詞と異なる場合があります。<br>具体的には、おおよそ以下のものを含んでいます。</p>
+<!--<h5>n=名詞</h5> 名詞、複合名詞、名詞句
+<h5>v=動詞</h5> 和語動詞(ウ段で終止する動詞)、サ変動詞(後ろに「する」を付けて使用する動詞)、複合動詞、動詞句(00017031-v「いびきをかく」等)
+<h5>a=形容詞</h5> 形容詞、形容動詞、連体詞、接頭詞(00793426-a「準-」等)、動詞を加工したもの(「XXした」「XXする」等、連体修飾の形)
+<h5>r=副詞</h5> 副詞、形容詞連用形、副詞句-->
+<table border="3" cellpadding="5">
+  <caption><strong>品詞対応表</strong></caption>
+  <tr>
+    <th>末尾</th>
+    <th>意味する(英語での)品詞</th>
+    <th>対応する(日本語の)品詞</th>
+    <th>説明</th>
+    <th>実際の登録例</th>
+  </tr>
+  <tr>
+    <td><strong>n</strong></td>
+    <td>名詞</td>
+    <td>名詞<br>複合名詞</td>
+    <td><br>2つ以上の名詞が組み合わさったもの</td>
+    <td>「犬」<br>「品質管理」</td>
+  </tr>
+  <tr>
+    <td><strong>v</strong></td>
+    <td>動詞</td>
+    <td>和語動詞<br>サ変動詞<br>複合動詞<br>動詞句</td>
+    <td>ウ段で終止する動詞<br>後ろに「する」を付けて使用する動詞<br>2つ以上の動詞が組み合わさったもの<br>「目的語+動詞」</td>
+    <td>「書く」<br>「勉強」<font size="2" color="#ff0000">注)</font><br>「引き抜く」<br>「いびきをかく」</td>
+  </tr>
+  <tr>
+    <td><strong>a</strong></td>
+    <td>形容詞</td>
+    <td>形容詞<br>形容動詞<br>形容動詞<br>連体詞<br>接頭詞<br>動詞を加工したもの</td>
+    <td>終止形が「XXい」である形容詞<br>終止形が「XXだ」である形容詞<br>終止形が「XXたり」である形容詞<br>自立語と考えられ、名詞を修飾するが活用しないもの<br>非自立語で、常に名詞の直前にあってその名詞を修飾するもの<br>動詞を連体修飾形に加工したもの</td>
+    <td>「早い」<br>「勤勉」<font size="2" color="#ff0000">注)</font><br>「溌刺たる」<br>「ほんの」<br>「準-」<br>「酔った」</td>
+  </tr>
+  <tr>
+    <td><strong>r</strong></td>
+    <td>副詞</td>
+    <td>副詞<br>形容詞連用形<br>副詞句</td>
+    <td><br>「XXい」→「XXく」、「XXだ」→「XXに」、「XXたり」→「XXと」<br></td>
+    <td>「直接」<br>「注意深く」、「慎重に」、「堂々と」<br>「終始一貫して」</td></td>
+  </tr>
+</table>
+<font size="2" color="#ff0000">注) </font><font size="2">次回以降のバージョンで、サ変動詞は「XXする」(「勉強する」等)、形容動詞は「XXだ」(「勤勉だ」等)に登録形を変更する可能性があります。</font>
+<h3>実際の同義語</h3>
+
+<h5>選定について</h5>
+人手でチェックした際には、なるべく概念を的確に言い表せる語を選定しました。そのため、日本語の同義語が、英語の同義語の一般的な訳と異なる場合があります。<br>
+例えば、海洋動物の"seal"は「アザラシ」と訳されることが一般的ですが、正しくは「アザラシ、アシカなどの総称」ですので、"seal"(02076196-n)の同義語に「アザラシ」を登録しておりません。<br>
+「アザラシ」は下位概念の"earless seal"(02079389-n)の意味するところと合致していますので、こちらの同義語に登録しています。<br>
+ただ、実際のsynsetには定義に適切に当てはまる語だけでなく、本来は下位概念に当たるものが含まれている場合があります。例えば「犬」(02084071-n)の同義語に含まれる「洋犬」です。<br>
+これは合致するsynsetが現在存在しないための仮の措置で、新しいsynsetを作成するなど、順次対応して行く予定です。<br>
+<!--また、現在では使用頻度の低い語も同義語に含まれている場合もあります。-->
+<h5>敬語・俗語</h5>
+敬語や俗語等の扱いはsynsetごとに異なっています。<br>
+通常は"mother"(10332385-n)の同義語に「母」とその尊敬語である「母御」が含まれているように、同一synsetの同義語として扱っていますが、"marihuana"(02949691-n)「マリファナ」と、その俗称"weed"(03990834-n)「草」が別個のsynsetになっている場合もあります。<br>
+この扱いの差は英語ワードネットに由来する(英語ワードネットのsynsetの定義や、synsetどうしの関係性を改変していない)もので、これに対応する場合は英語ワードネットと歩調を合わせて行うことになると思われます。
+<h5>表記等について</h5>
+日本語ワードネットの同義語には基本的にカッコや記号を使用していません(接頭詞につける「-」を除く)。<br>
+これはコンピュータに読み込ませることを念頭に置いたためでもありますが、カッコ等による補足がないと概念に合致しないものは基本的に同義語として不適切であると考えているためです。<br>
+また、現状では表記の異なりに対して対応できておりません。<br>
+例えば「引き抜く」も「引きぬく」も「ひき抜く」も「ひきぬく」も全く別個の語として扱われています。こちらも整理を進めて行く予定です。<br>
+ただし、「読み」に関しての対応は未定で、例えば「止める」が「とめる」なのか「やめる」なのかは明示しておりません。
+
+<h5>品詞ごとに</h5>
+<h5>n=名詞</h5>
+一般的な国語辞典で名詞と形容動詞の両方の品詞を付与されている語は、基本的にn=名詞のsynsetには登録していません。<br>
+例えば、「粗悪」の場合、「粗悪を極める」という表現が可能なので名詞にも見えますが、本質は形容動詞であり、
+また、「XXを極める」などの数種の表現に限られてしまいますので、a=形容詞のsynsetにのみ登録し、その代わりに「粗悪さ」
+をn=名詞のsynsetに登録しています。<br>
+<!--もちろん、明確に名詞として使える語はn=名詞とa=形容詞の両方に登録しています。-->
+<h5>v=動詞</h5>
+終止形、あるいは(サ変動詞単独の場合)「する」を取った形で登録しています。<br>
+動詞句は極力避けましたが、概念を言い表すために避けられない場合は同義語に登録している場合もあります。<br>
+例えば"snore"(00017031-v)に対する「いびきをかく」については、英語では"snore"という自動詞的な言い表し方をしますが、日本語ではどんなに簡潔にしても「いびきをかく」としか表現しようがないために登録してあります。
+<h5>a=形容詞</h5>
+<!--「XXの」「XX性」の扱いまだまとっまっていない-->
+形容詞(終止形が「XXい」となるもの)は終止形で、形容動詞(終止形が「XXだ」となるもの)は「だ」を取った形(=語幹、例えば「簡単」という形)で登録しています。<br>
+ただし、終止形が「XXたり」となる文語由来の形容動詞は「XXたる」の形となっています。<br>
+また、英語の形容詞には日本語における連体詞や接頭詞のようなものも含まれるので、a=形容詞のsynsetの同義語として登録しています。<br>
+このうち接頭詞は「XX-」のように後ろに「-(半角ハイフン)」を付けた形にしています。<br>
+<!--動詞の加工形については実際の用法に合わせたという記述も必要-->
+<h5>r=副詞</h5>
+日本語において副詞に分類されるものの他に、形容動詞の連用形「XXく」、形容動詞の連用形「XXに」、終止形が「XXたり」である形容動詞の連用形「XXと」も含まれます。
+</p>
+<p>
+<h2>その他</h2>
+<h3>期待した情報がhitしないときは...</h3>
+表記を変えてみてください。<br>
+前述しましたが、異表記への対応ができておりません。漢字⇔仮名、送り仮名の違いでhitするものが変わってくる可能性があります。<br>
+あるいは、hitしたsynsetの上位or下位のsynsetも参照してみてください。<br>
+前述の"seal"と「アザラシ」の関係のように、本当は意味的にずれがある、という場合があります。
+
+<h3>検索フォームが使いにくいと感じられる場合は...</h3>
+他に当機構言語グリッドプロジェクトによるものや、有志の方が作成して下さった検索ページがございます。<br>
+また、日本語ワードネットのデータは無償でご利用いただけますし(<a href='../license.txt'>ライセンス</a>もご覧ください)、数種のプログラミング言語のフロントエンドも有志の方が作成してくださいました(Perlは当プロジェクトによります)ので、経験のある方は是非自作にご挑戦ください。<br>
+これらは<a href="index.html">「概要」</a>のページからリンクしております。
+
+<hr>
+<address>
+<strong><a href="http://www3.ntu.edu.sg/home/fcbond/">Francis Bond</a></strong> 
+&lt;<a href="mailto:bond@ieee.org">bond@ieee.org</a>&gt;
+<br>
+<br> <a href="http://linguistics.hss.ntu.edu.sg/">Linguistics and Multilingual Studies</a>
+<br> <a href="http://www.ntu.edu.sg/">Nanyang Technological University</a>
+<br> &amp;
+<br><a href="http://www.nict.go.jp/index.html">情報通信研究機構</a>  
+</address>
+
+</body>
+</html>

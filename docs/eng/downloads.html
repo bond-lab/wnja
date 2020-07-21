@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<title>wn-ja: Release</title>
+</head>
+<!-- Background white, links blue (unvisited), navy (visited), red
+(active) -->
+<body>
+
+<h1 align='center'>Japanese WordNet: Current Release & Downloads</h1>
+<p align="center"> 
+<a href="index.html">Introduction</a> *
+<a href="bib.html">References</a> *
+<a href="links.html">Links</a> *
+<a href="../index.ja.html">日本語</a> 
+</p>
+
+
+
+<h3><a name="downloads">Downloads</a></h3>
+
+<h4>Japanese WordNet (1.1) *current* [2010-10-22]</h4>
+
+<p> 57,238  concepts (synsets); 93,834 words;  158,058 senses (synset-word pairs)
+<p> 135,692 definitions;  48,276 examples
+
+
+<ul>
+  <li>License:
+    <ul>
+      <li>For Japanese data: <a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+	   to BSD)
+      <li>For English data:  <a href='http://wordnet.princeton.edu/wordnet/license/'>License</a>
+      </ul>
+  <li><a href='../data/1.1/wnjpn.db.gz'>Japanese Wordnet and English
+  WordNet in an sqlite3 database</a>
+    <ul>
+      <li>Includes links to images (OCAL) and ontology (SUMO)
+      </ul>
+  <li><a href='../data/1.1/jpn_wn_lmf.xml.gz'>Japanese Wordnet as
+  WordNet-LMF (xml)</a> 
+    <ul>
+      <li>This gives all the information needed for a functioning
+      WordNet
+      </ul>
+  <li><a href='../data/1.1/wnjpn-ok.tab.gz'>Just Japanese Words
+      linked to Princeton WordNet Synsets</a>
+    <ul>
+      <li>Only words with reasonable confidence
+      <li>This is the minimal amount of information
+      </ul>
+    <li><a href='../data/1.1/wnjpn-all.tab.gz'>Just Japanese Words linked to
+ Princeton WordNet Synsets</a> (including low confidence and bad links)
+<pre>
+04468005-n	汽車	hand
+04468005-n	普通列車	XXXX
+</pre>
+ <li><a href='../data/1.1/wnjpn-def.tab.gz'>Japanese definitions
+  paired with Princeton WordNet definitions</a>
+   <pre>
+04468005-n	0 	public transport provided by a line of railway cars coupled together and drawn by a locomotive	結合され機関車で引かれる一連の鉄道車両によって提供される公共輸送機関
+</pre>
+ <li><a href='../data/1.1/wnjpn-exe.tab.gz'>Japanese examples
+  paired with Princeton WordNet examples</a>
+<pre>
+04468005-n	0	express trains don't stop at Princeton Junction	急行列車はプリンストンジャンクションには止まらない
+</pre>
+
+</ul>
+
+
+
+<p><strong>Disclaimer</strong>: We estimate that this release contains
+  errors in as many as 5% of entries.  We decided to spend more effort
+  in increasing the cover than in checking.  As we translate the
+  glosses and sense tag text, we expect to fix many of the errors.
+  The definitions and examples are translated from English and may not
+  match the synsets exactly.
+
+<p> We  welcome <a href='mailto:jwordnet@gmail.com'>feedback</a>.
+
+<h5>Note on Licence Compliance</h5>
+<p>If you use the Japanese wordnet data in some way online or in an
+  application, please provide a link to the Japanese WordNet site in
+  one of the following forms (or the equivalent in a langauge of your choice):
+
+<!--
+<p><a href="http://nlpwww.nict.go.jp/wn-ja/index.en.html">Japanese Wordnet (vXX) © NICT, 2009-2010</a>
+<br>or
+<br><a href="http://nlpwww.nict.go.jp/wn-ja/index.en.html">Japanese Wordnet (vXX), copyright NICT, 2009-2010</a>
+<br>linked to <tt>http://nlpwww.nict.go.jp/wn-ja/index.en.html</tt>
+<br>or
+<br><a href="http://nlpwww.nict.go.jp/wn-ja/">日本語ワードネット（XX版）© 情報通信研究機構, 2009-2010</a>　
+<br>linked to <tt>http://nlpwww.nict.go.jp/wn-ja/</tt>
+-->
+
+<p><a href="http://compling.hss.ntu.edu.sg/wnja/index.en.html">Japanese
+    Wordnet (vXX) © 2009-2011 NICT, 2012-2015 Francis Bond and 2016-2017 Francis Bond, Takayuki Kuribayashi</a>
+<br>linked to <tt>http://compling.hss.ntu.edu.sg/wnja/index.en.html</tt>
+<br>or
+<br><a href="http://compling.hss.ntu.edu.sg/wnja/index.ja.html">日本語ワードネット
+    （XX版）© 2009-2011 NICT, 2012-2015 Francis Bond and 2016-2017 Francis Bond, Takayuki Kuribayashi</a>　
+<br>linked to <tt>http://compling.hss.ntu.edu.sg/wnja/index.ja.html</tt>
+
+
+<p>If you are redistributing the data, then you must distribute the license with it.
+
+<h4>Open Clipart Library</h4>
+<ul>
+  <li><a href='../data/wn-ocal.tgz'>Princeton WordNet Synsets and Open ClipArt Library images</a>
+      (png+svg: 37 MB)
+  <br>Combined together in one handy download
+  <br>Public Domain
+  <li><a href='../data/wn-ocal.tab'>Open ClipArt Library filenames linked to Princeton WordNet Synsets</a>
+  <br>Combine with Images from
+  <a href='http://download.openclipart.org/downloads/0.18/'>OCAL v 0.18</a>
+  <br>Public domain
+</ul>
+
+<h4> <a name='jsemcor'>Japanese Semantic Corpus (Jsemcor)</a></h4>
+<p>This is a partially sense tagged corpus of Japanese.  It was
+created by translating the SemCor corpus, and transferring the tags
+from English to Japanese <a href='../eng/bib.html#Bond:Baldwin:Fothergill:Uchimoto:2012'>(Bond et al. 2012)</a>.
+It is released under the same <a href='../license.txt'>license</a> as the Japanese Wordnet.
+
+<p><a href='../data/jsemcor/jsemcor-2012-01.tgz'>Download</a>
+  <ul>
+    <li>14,000 sentences
+    <li>380,000 words
+    <li>150,000 content words
+    <li>58,000 sense tags
+    </ul>
+
+
+<h4> <a name="synonymsdatabase">Japanese WordNet Synonyms Database</a></h4>
+
+<p>Japanese WordNet Synonyms Database is a collection of 11,753 synonym pairs, which were created using synsets in Japanese WordNet version 1.1. Word pairs were generated using words in a synset, which is a cluster of words that share the same sense. Then, only word pairs that were manually annotated as synonym pairs were included in the database. For instance, under synset 00623862-n, there are words such as '<i>izakoza, komarimono, koshoo, toraburu</i>'. From this list of words, we created pairs such as '<i>izakoza/komarimono</i>', '<i>izakoza/koshoo</i>', '<i>izakoza/toraburu</i>'. From the word pairs, only the ones that were manually annotated as a synonym pair such as '<i>izakoza/toraburu</i>' were included in the database. For the detail, please refer to readme file (readme.e.ver.1.0.pdf) attached with the data.
+
+　<ul/>
+ <li><a href='../data/1.1/wnjpn-syn-database.1.0.zip'>Japanese WordNet Synonyms Database ver.1.0
+  Japanese WordNet Synonyms Database</a>
+　</ul>
+    
+
+<h3><a name="todo">ToDo</a></h3>
+
+<ul>
+  <li>Planned
+    <ul>
+      <li>Sense tag some corpora
+      <li>Add new synsets for concepts not in the current WordNet
+    </ul>
+  <li>Wishlist
+    <ul>
+      <li>Link to JMDict, Wadoku Jiten, ...
+    </ul>
+</ul>
+
+<h3><a name="older">Older Versions</a></h3>
+
+<h4>Japanese WordNet (1.0)</h4>
+
+<p> 56,741  concepts (synsets); 92,241 words;  157,398 senses (synset-word pairs)
+<p> 135,692 definitions;  48,276 examples  ()
+
+
+<ul>
+  <li>License:
+    <ul>
+      <li>For Japanese data: <a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+	   to BSD)
+      <li>For English data:  <a href='http://wordnet.princeton.edu/wordnet/license/'>License</a>
+      </ul>
+  <li><a href='../data/1.0/wnjpn.db.gz'>Japanese Wordnet and English
+  WordNet in an sqlite3 database</a>
+    <ul>
+      <li>Includes links to images (OCAL) and ontology (SUMO)
+      </ul>
+  <li><a href='../data/1.0/jpn_wn_lmf.xml.gz'>Japanese Wordnet as
+  WordNet-LMF (xml)</a> 
+    <ul>
+      <li>This gives all the information needed for a functioning
+      WordNet
+      </ul>
+  <li><a href='../data/1.0/wnjpn-ok.tab.gz'>Just Japanese Words
+      linked to Princeton WordNet Synsets</a>
+    <ul>
+      <li>Only words with reasonable confidence
+      <li>This is the minimal amount of information
+      </ul>
+    <li><a href='../data/1.0/wnjpn-all.tab.gz'>Just Japanese Words linked to
+ Princeton WordNet Synsets</a> (including low confidence and bad links)
+ <li><a href='../data/1.0/wnjpn-def.tab.gz'>Japanese definitions
+  paired with Princeton WordNet definitions</a>
+ <li><a href='../data/1.0/wnjpn-exe.tab.gz'>Japanese examples
+  paired with Princeton WordNet examples</a>
+
+</ul>
+
+<h4>Japanese WordNet (0.92)</h4>
+
+<p>49,655 concepts (synsets); 87,133 words; 146,811 senses (synset-word pairs).
+
+
+<ul>
+  <li><a href='../data/0.92/wnjpn.db.gz'>Japanese Wordnet and English
+  WordNet in an sqlite3 database</a>
+    <ul>
+      <li>Includes links to images (OCAL) and ontology (SUMO)
+      </ul>
+  <li><a href='../data/0.92/jpn_wn_lmf.xml.gz'>Japanese Wordnet as
+  WordNet-LMF (xml)</a> 
+    <ul>
+      <li>This gives all the information needed for a functioning
+      WordNet
+      <li><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+	</ul>
+  <li><a href='../data/0.92/wnjpn-ok.tab.gz'>Just Japanese Words
+  linked to Princeton WordNet Synsets</a>
+ <ul>
+    <li>Only words with reasonable confidence
+    <li>This is the minimal amount of information
+    <li><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+      </ul>
+    <li><a href='../data/0.92/wnjpn-all.tab.gz'>Just Japanese Words linked to
+ Princeton WordNet Synsets</a> (including low confidence and bad links)
+</ul>
+
+
+
+<h4>Japanese WordNet (0.91)</h4>
+
+<p>50,739 concepts (synsets); 88,146 words; 151,831 senses (synset-word pairs).
+
+<ul>
+  <li><a href='../data/0.91/wnjpn.db.gz'>Japanese Wordnet and English
+  WordNet in an sqlite3 database</a>
+    <ul>
+      <li>Includes links to images (OCAL) and ontology (SUMO)
+      </ul>
+  <li><a href='../data/0.91/jpn_wn_lmf.xml.gz'>Japanese Wordnet as
+  WordNet-LMF (xml)</a> 
+    <ul>
+      <li>This gives all the information needed for a functioning
+      WordNet
+      <li><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+	</ul>
+  <li><a href='../data/0.91/wnjpn-ok.tab.gz'>Just Japanese Words
+  linked to Princeton WordNet Synsets</a>
+ <ul>
+    <li>Only words with reasonable confidence
+    <li>This is the minimal amount of information
+    <li><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+      </ul>
+    <li><a href='../data/0.91/wnjpn-all.tab.gz'>Just Japanese Words linked to
+ Princeton WordNet Synsets</a> (including low confidence and bad links)
+</ul>
+
+
+
+<h4>Japanese WordNet 0.90 (first release)</h4>
+
+<p>49,190 concepts (synsets); 85,966 words; 156,684 senses (synset-word pairs).
+
+<ul>
+  <li><a href='../data/0.90/wnjpn-0.9.db.gz'>Wn-Ja 0.9: Japanese Wordnet and Princeton WordNet in an sqlite3 database</a>
+  <li><a href='../data/0.90/jpn_09_090302.xml.gz'>Wn-Ja 0.9: Japanese Wordnet and
+  Princeton WordNet as WordNet-LMF (xml)</a>
+  <br>This gives all the information needed for a functioning WordNet
+  <br><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+  <li><a href='../data/0.90/wnjpn-0.9.tab.gz'>Wn-Ja 0.9: Just Japanese Words linked to Princeton WordNet Synsets</a>
+  <br>This is the minimal amount of information
+  <br><a href='../license.txt'>License</a> (Like Princeton WordNet: similar
+  to BSD)
+</ul>
+
+
+<hr>
+<address>
+<strong><a href="http://www3.ntu.edu.sg/home/fcbond/">Francis Bond</a></strong> 
+&lt;<a href="mailto:bond@ieee.org">bond@ieee.org</a>&gt;
+<br>
+<br> <a href="http://linguistics.hss.ntu.edu.sg/">Linguistics and Multilingual Studies</a>
+<br> <a href="http://www.ntu.edu.sg/">Nanyang Technological University</a>
+<br> &amp;
+<br><a href="http://www.nict.go.jp/index.html">National Institute of 
+  Information and Communications Technology</a>  
+</address>
+</body>
+</html>

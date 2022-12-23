@@ -1,3 +1,4 @@
+Copyright: 2021-2022 Francis Bond, Takayuki Kuribayashi
 Copyright: 2018-2020 Francis Bond	   
 Copyright: 2016-2017 Francis Bond, Takayuki Kuribayashi
 Copyright: 2012-2015 Francis Bond	   
@@ -21,10 +22,7 @@ will comply with these terms and conditions:
   database and documentation, including modifications that you make
   for internal use or for distribution.
   
-Japanese WordNet Copyright 2009-2011 by the National Institute of
-Information and Communications Technology (NICT); 2012-2015 by Francis
-Bond; 2016-2017 Francis Bond, Takayuki Kuribayashi.  All rights reserved.
-  
+ 
 THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND NICT MAKES NO
 REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.  BY WAY OF EXAMPLE,
 BUT NOT LIMITATION, NICT MAKES NO REPRESENTATIONS OR WARRANTIES OF

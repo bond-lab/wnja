@@ -1,1 +1,9 @@
 *~
+tmp
+.venv/
+__pycache__/
+*.pyc
+wnja.log
+detect_sahen.log
+wnja-*.xml
+reports/

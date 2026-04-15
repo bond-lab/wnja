@@ -1,0 +1,30 @@
+[project]
+name = "wnja"
+version = "2.0"
+description = "Japanese WordNet build scripts"
+dynamic = []
+requires-python = ">=3.10"
+authors = [
+    { name = "Francis Bond", email = "bond@ieee.org" },
+]
+dependencies = [
+    "wn>=1.0.0",
+    "wn_edit",
+    "jamdict>=0.1a11",
+    "jamdict_data>=1.5",
+    "pytest>=7.0",
+    "tomli-w>=1.0",
+]
+
+[tool.uv.sources]
+wn_edit = { path = "/home/bond/git/wn_edit", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]

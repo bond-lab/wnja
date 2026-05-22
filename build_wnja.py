@@ -323,6 +323,43 @@ def load_sahen_set(path: Path) -> frozenset[str]:
 # Build output LMF structures
 # ---------------------------------------------------------------------------
 
+def _merge_by_lemma_pos(entries: list[dict]) -> list[dict]:
+    """Merge LexicalEntry dicts that share (writtenForm, partOfSpeech).
+
+    Combines senses (deduplicated by synset id) and forms (deduplicated by
+    writtenForm). The first-seen entry's id and metadata are kept.
+
+    Args:
+        entries: List of LexicalEntry dicts as produced by make_lexical_entry.
+
+    Returns:
+        New list with one entry per (writtenForm, partOfSpeech) pair.
+    """
+    merged: dict[tuple[str, str], dict] = {}
+    for entry in entries:
+        lf = entry["lemma"]["writtenForm"]
+        pos = entry["lemma"]["partOfSpeech"]
+        key = (lf, pos)
+        if key not in merged:
+            merged[key] = entry
+        else:
+            existing = merged[key]
+            existing_ss = {s["synset"] for s in existing.get("senses", [])}
+            for sense in entry.get("senses", []):
+                if sense["synset"] not in existing_ss:
+                    existing_ss.add(sense["synset"])
+                    existing.setdefault("senses", []).append(sense)
+            existing_wf = {
+                existing["lemma"]["writtenForm"],
+                *(f.get("writtenForm", "") for f in existing.get("forms", [])),
+            }
+            for form in entry.get("forms", []):
+                if form.get("writtenForm", "") not in existing_wf:
+                    existing_wf.add(form["writtenForm"])
+                    existing.setdefault("forms", []).append(form)
+    return list(merged.values())
+
+
 def build_entries(
     l2senses: dict[tuple[str, str], list[tuple[str, float]]],
     forms: dict[tuple[str, str], list[tuple[str, str]]],
@@ -389,34 +426,7 @@ def build_entries(
             )
             entries.append(entry)
 
-    # Merge entries with the same (lemma, pos): combine senses and forms.
-    # Arises when the same lemma has multiple hno values in wn+var that
-    # map to overlapping or identical synset sets.
-    merged: dict[tuple[str, str], dict] = {}
-    for entry in entries:
-        lf = entry["lemma"]["writtenForm"]
-        pos = entry["lemma"]["partOfSpeech"]
-        key = (lf, pos)
-        if key not in merged:
-            merged[key] = entry
-        else:
-            existing = merged[key]
-            # Merge senses
-            existing_ss = {s["synset"] for s in existing.get("senses", [])}
-            for sense in entry.get("senses", []):
-                if sense["synset"] not in existing_ss:
-                    existing_ss.add(sense["synset"])
-                    existing.setdefault("senses", []).append(sense)
-            # Merge forms (avoid duplicating writtenForms already present)
-            existing_wf = {
-                existing["lemma"]["writtenForm"],
-                *(f.get("writtenForm", "") for f in existing.get("forms", [])),
-            }
-            for form in entry.get("forms", []):
-                if form.get("writtenForm", "") not in existing_wf:
-                    existing_wf.add(form["writtenForm"])
-                    existing.setdefault("forms", []).append(form)
-    deduped = list(merged.values())
+    deduped = _merge_by_lemma_pos(entries)
     if len(deduped) < len(entries):
         log.info("  merged %d entries into %d by (lemma, pos)",
                  len(entries), len(deduped))
@@ -652,7 +662,11 @@ def main() -> None:
     )
     log.info("  %d pass-through entries added", len(pass_entries))
 
-    all_entries = main_entries + pass_entries
+    combined = main_entries + pass_entries
+    all_entries = _merge_by_lemma_pos(combined)
+    n_cross = len(combined) - len(all_entries)
+    if n_cross:
+        log.info("  merged %d cross-pipeline duplicate (lemma, pos) entries", n_cross)
 
     # Collect all synset nums referenced by output senses
     all_synset_nums: set[str] = set()

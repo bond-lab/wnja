@@ -11,7 +11,7 @@ checkpoint database. Designed to be reusable for OMW-cmn and OMW-ind with flag c
 
 | Source | Contents | Used for |
 |--------|----------|----------|
-| `wnja.xml` (build output) | Japanese definitions, examples, lemmas | All checks |
+| `wnja-2.0.xml` (build output) | Japanese definitions, examples, lemmas | All checks |
 | `/home/bond/git/NTUMC/build/wn-ntumc-eng.xml` | English definitions for ~120K synsets | Definition check (primary English) |
 | `omw-en:2.0` (via `wn`) | Standard PWN English definitions | Definition check (fallback) |
 | Kotobank, ja.wiktionary | Dictionary evidence for lemmas | Lemma check, cached |
@@ -21,7 +21,7 @@ synsets (`wnja-70xxxx` through `wnja-95xxxx`) have no PWN counterpart but may st
 ntumc-eng.
 
 **English source priority:** ntumc-eng.xml first (closer to what the translators worked from),
-omw-en:2.0 as fallback. Flag `en_source` in output so discrepancies are traceable.
+omw-en:2.0 as fallback. Store `en_source` in output so discrepancies are traceable.
 
 **Important:** `omw-en` is currently loaded three times in the wn DB. Before querying, check
 lexicon versions with `{(lx.id, lx.version) for lx in wn.lexicons()}` and use
@@ -34,7 +34,7 @@ lexicon versions with `{(lx.id, lx.version) for lx in wn.lexicons()}` and use
 ```
 audit/
   db.py              — SQLite layer: write results, skip already-done rows, cache web fetches
-  loader.py          — parse wnja.xml + ntumc-eng.xml; build synset cross-reference dict
+  loader.py          — parse wnja-2.0.xml + ntumc-eng.xml; build synset cross-reference dict
   tokenizer.py       — pluggable segmenters: jpn=fugashi, cmn=jieba, ind=str.split
   web_lookup.py      — kotobank + ja.wiktionary fetch with 1 req/s rate limit
   llm.py             — MLX interface; prompt templates; response parser
@@ -53,11 +53,12 @@ audit/
 ```sql
 CREATE TABLE results (
     synset_id   TEXT NOT NULL,
-    check_type  TEXT NOT NULL,   -- 'example', 'definition', 'lemma'
-    item        TEXT,            -- example text, or lemma under scrutiny
+    check_type  TEXT NOT NULL,   -- 'example', 'example_llm', 'definition', 'lemma'
+    item        TEXT NOT NULL DEFAULT '',  -- example text, lemma, or '' for whole-synset checks
     verdict     TEXT NOT NULL,   -- 'OK', 'DRIFT', 'WRONG', 'MISMATCH', 'DOUBTFUL', 'NO'
     evidence    TEXT,
     source_url  TEXT,
+    en_source   TEXT,            -- 'ntumc-eng', 'omw-en:2.0', or NULL when not applicable
     model       TEXT,
     ts          REAL,
     PRIMARY KEY (synset_id, check_type, item)
@@ -71,23 +72,25 @@ CREATE TABLE web_cache (
 ```
 
 Every script skips rows already in `results` on restart, so a crash loses at most one batch.
+`item` is deliberately non-null: SQLite permits multiple `NULL` values in composite keys, which
+would break deduplication for definition rows.
 
 ---
 
-## Stage 0: Example↔lemma check (programmatic, no LLM)
+## Stage 0: Example↔lemma check (programmatic)
 
 **Goal:** flag examples that contain no form of any synset lemma — likely copy-pasted from a
 different synset, or using an orthographic variant not in `vars_tk17`.
 
 **Algorithm:**
 1. For each synset with at least one example:
-   - Collect all `writtenForm` values for every lemma in the synset (from `vars_tk17` data,
-     not just the canonical form)
+   - Collect all `writtenForm` values from every output `LexicalEntry` whose `Sense` points to
+     the synset: include both `Lemma` and `Form` elements, not just canonical forms
+   - Optionally supplement this set from `vars_tk17` when the source `(lemma, hno)` is known, but
+     treat the generated LMF as authoritative because passthrough/Japan-specific entries may not
+     be represented cleanly in `vars_tk17`
    - Tokenise the example with `fugashi` (MeCab), collect surface forms and base forms
    - If the intersection is empty → flag `MISMATCH`
-2. For `MISMATCH` cases, also run a quick LLM check: "Does this example sentence illustrate
-   the concept [definition]?" — catches cases where the example is thematically correct but
-   uses a synonym or pronoun instead of the lemma
 
 **Output:** rows in `results` with `check_type='example'`, verdict `OK` or `MISMATCH`.
 
@@ -95,6 +98,14 @@ different synset, or using an orthographic variant not in `vars_tk17`.
 
 **Reuse for Chinese/Indonesian:** swap `fugashi` for `jieba` (cmn) or `str.split` (ind).
 The rest is identical.
+
+### Optional Stage 0b: Mismatch triage (LLM)
+
+For `MISMATCH` cases only, run a quick LLM check: "Does this example sentence illustrate the
+concept [definition]?" This catches cases where the example is thematically correct but uses a
+synonym, pronoun, inflected expression, or omitted argument instead of a listed lemma.
+
+**Output:** rows in `results` with `check_type='example_llm'`, verdict `OK` or `MISMATCH`.
 
 ---
 
@@ -104,9 +115,9 @@ The rest is identical.
 source.
 
 **Algorithm:**
-1. For each synset, retrieve:
+1. For each synset with at least one Japanese definition, retrieve:
    - English definition from ntumc-eng.xml (preferred) or omw-en:2.0 (fallback)
-   - Japanese definition from wnja.xml
+   - Japanese definition from wnja-2.0.xml
    - POS + a few English member lemmas (for context)
 2. Batch 10 synsets per prompt
 3. LLM verdict per synset: `OK` / `DRIFT` / `WRONG`
@@ -142,6 +153,9 @@ parsing fails.
 - Generation dominates: 200 tok ÷ 50 tok/s = 4 s per batch
 - Total: ~13 hours — run overnight
 
+**Scope:** run over synsets with Japanese definitions. Skip empty stubs and relation-only
+fallback synsets so LLM time is not spent on entries without Japanese content.
+
 **Reuse:** fully language-agnostic; change `--ref-lmf` and `--lmf` flags only.
 
 ---
@@ -157,12 +171,13 @@ parsing fails.
 
 Flag lemmas that are *absent from JMdict* (using `jamdict`) as high-priority candidates.
 Rare/unknown lemmas are not necessarily wrong, but they're worth checking. Also flag any lemma
-where the synset has a very low confidence score (e.g., `mono`=0.71) — these came from
-monosemous automatic alignment and are more likely to be errors.
+where all relevant senses have `confidenceScore <= 0.72` (`mono`=0.71 and `multi`=0.72).
+These automatic alignments are more likely to contain errors than `mlsn` or hand mappings.
 
 ### Step 2b — Web fetch
 
-For each flagged lemma, fetch (with 1 req/s rate limit, results cached in `web_cache`):
+For each flagged lemma, fetch (with 1 req/s rate limit, retry/backoff, and results cached in
+`web_cache`; cache failed fetches too so restarts do not hammer the same URLs):
 - `https://kotobank.jp/search?q={lemma}&t=ja` → extract first definition/category
 - `https://ja.wiktionary.org/wiki/{lemma}` → extract first definition line
 
@@ -192,22 +207,41 @@ LLM check at ~10 s/lemma = ~8 hours.
 metadata in the LMF, read it directly. Otherwise join back to `wn+var_tk17.tab` which has
 the scores.
 
+For this repo, confidence metadata is preserved as `Sense/@confidenceScore`; use the output LMF
+as the primary source.
+
+---
+
+## Dependencies
+
+Runtime dependencies already present in `pyproject.toml`: `wn`, `wn_edit`, `jamdict`,
+`jamdict_data`.
+
+Additional audit dependencies to add before implementation:
+- Japanese tokenisation: `fugashi` plus a MeCab dictionary package such as `unidic-lite` or
+  `ipadic`
+- Web fetch/parsing: `httpx` or `requests`, plus `beautifulsoup4`
+- Local LLM inference: MLX/MLX-LM packages compatible with the selected model
+
+For Chinese/Indonesian reuse, add language-specific extras only when needed (`jieba` for cmn;
+plain whitespace tokenisation is enough for the initial ind pass).
+
 ---
 
 ## Command-line interface
 
 ```bash
 # Stage 0 only
-python -m audit.cli --lmf build/wnja.xml --lang jpn --check examples
+python -m audit.cli --lmf wnja-2.0.xml --lang jpn --check examples
 
 # Stage 1 (definition accuracy), full run
-python -m audit.cli --lmf build/wnja.xml --lang jpn \
+python -m audit.cli --lmf wnja-2.0.xml --lang jpn \
     --ref-lmf /home/bond/git/NTUMC/build/wn-ntumc-eng.xml \
     --check definitions --model mlx-community/gemma-3-27b-it-4bit \
     --batch-size 10 --db audit.db
 
 # Stage 2 (lemma check), flagged candidates only
-python -m audit.cli --lmf build/wnja.xml --lang jpn \
+python -m audit.cli --lmf wnja-2.0.xml --lang jpn \
     --ref-lmf /home/bond/git/NTUMC/build/wn-ntumc-eng.xml \
     --check lemmas --db audit.db
 
@@ -230,7 +264,7 @@ TSV columns for human review and for feeding back into `tweak_wnja.py`:
 
 ```
 synset_id        check_type   item      verdict   evidence                         source_url
-wnja-00001740-a  definition   (null)    OK        faithful translation              (null)
+wnja-00001740-a  definition             OK        faithful translation              (null)
 wnja-03000001-n  lemma        磯巾着    NO        kotobank: sea anemone, not follower  https://kotobank.jp/...
 wnja-00100200-v  example      文…       MISMATCH  example uses 泳ぐ, not in lemma set  (null)
 ```
@@ -242,19 +276,17 @@ HTML report groups by verdict and severity, sorted by `NO` > `WRONG` > `MISMATCH
 
 ## Open questions for review
 
-1. **Which English source to prefer?** ntumc-eng.xml is recommended (closer to translators'
-   source), but some synsets have slightly different definitions there vs. omw-en. The plan
-   is to use ntumc-eng first and flag which source was used — but this could be changed.
+1. **Which English source to prefer?** Decision: use ntumc-eng.xml first (closer to translators'
+   source), then omw-en:2.0 as fallback. Store the chosen source in `results.en_source`.
 
-2. **Confidence threshold for lemma pre-filter (Stage 2a):** `mono`=0.71 and below? Or
-   include `multi`=0.72? Worth deciding before running so the pre-filter size is manageable.
+2. **Confidence threshold for lemma pre-filter (Stage 2a):** Decision: include senses with
+   `confidenceScore <= 0.72`, covering both `mono`=0.71 and `multi`=0.72.
 
-3. **Second-pass Claude review:** the plan is that Claude handles `DOUBTFUL` cases
-   interactively, fetching web evidence where needed. Any objection to this?
+3. **Second-pass Claude review:** Decision: allow interactive review for `DOUBTFUL` cases after
+   cached evidence has been saved, so each review is reproducible.
 
-4. **Scope of definition check:** should it run over all 119K synsets including those without
-   Japanese lemmas (definition-only synsets)? The script handles this, but clarifying the
-   scope affects Stage 1 runtime.
+4. **Scope of definition check:** Decision: run over synsets with Japanese definitions. Skip
+   empty stubs and relation-only fallback synsets.
 
-5. **Kotobank rate limits:** kotobank may throttle aggressive fetching. The 1 req/s ceiling
-   is conservative — adjustable without changing the rest of the pipeline.
+5. **Kotobank rate limits:** Decision: start with 1 req/s plus retry/backoff and cache failed
+   fetches as well as successful responses.

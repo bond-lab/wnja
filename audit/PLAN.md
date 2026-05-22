@@ -52,15 +52,18 @@ audit/
 
 ```sql
 CREATE TABLE results (
-    synset_id   TEXT NOT NULL,
-    check_type  TEXT NOT NULL,   -- 'example', 'example_llm', 'definition', 'lemma'
-    item        TEXT NOT NULL DEFAULT '',  -- example text, lemma, or '' for whole-synset checks
-    verdict     TEXT NOT NULL,   -- 'OK', 'DRIFT', 'WRONG', 'MISMATCH', 'DOUBTFUL', 'NO'
-    evidence    TEXT,
-    source_url  TEXT,
-    en_source   TEXT,            -- 'ntumc-eng', 'omw-en:2.0', or NULL when not applicable
-    model       TEXT,
-    ts          REAL,
+    synset_id     TEXT NOT NULL,
+    check_type    TEXT NOT NULL,   -- 'example', 'example_llm', 'definition', 'lemma'
+    item          TEXT NOT NULL DEFAULT '',  -- example text, lemma, or '' for whole-synset checks
+    verdict       TEXT NOT NULL,   -- 'OK', 'DRIFT', 'WRONG', 'MISMATCH', 'DOUBTFUL', 'NO'
+    evidence      TEXT,
+    matched_lemma TEXT,            -- writtenForm that matched (example check only; NULL on MISMATCH)
+    match_start   INTEGER,         -- Unicode char offset of match start in item (NULL on MISMATCH)
+    match_end     INTEGER,         -- Unicode char offset of match end, exclusive (NULL on MISMATCH)
+    source_url    TEXT,
+    en_source     TEXT,            -- 'ntumc-eng', 'omw-en:2.0', or NULL when not applicable
+    model         TEXT,
+    ts            REAL,
     PRIMARY KEY (synset_id, check_type, item)
 );
 
@@ -93,6 +96,16 @@ different synset, or using an orthographic variant not in `vars_tk17`.
    - If the intersection is empty → flag `MISMATCH`
 
 **Output:** rows in `results` with `check_type='example'`, verdict `OK` or `MISMATCH`.
+For every row (including `OK`), store:
+- `matched_lemma` — the `writtenForm` that matched (NULL on MISMATCH)
+- `match_start` / `match_end` — Unicode character offsets in the example string (NULL on MISMATCH)
+
+Match strategy (in order, stopping at first success):
+1. Exact substring search of every `writtenForm` in the synset's form set. Position via
+   `str.find()`. Leftmost match is stored.
+2. MeCab tokenization — check each token's surface form and dictionary base form against the
+   form set. Position accumulated from token character lengths.
+3. No match found → `MISMATCH`.
 
 **Estimated time:** minutes (MeCab is fast; LLM only on flagged subset).
 

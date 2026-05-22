@@ -79,3 +79,6 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 - **Remaining W203/W202**: merge `main_entries + pass_entries` by (lemma, pos) in `main()`
 - **W307**: per-case review of 464 cross-synset duplicate definitions
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
+- **Adjective types**: merge data on -na/-no adjective
+- **Merge TUFS data**
+

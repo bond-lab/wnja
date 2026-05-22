@@ -403,3 +403,20 @@ def test_greeting_exclamative_synset(synset_id, expected_lemma, def_fragment,
                 lemmas.add(lemma.get("writtenForm"))
     assert expected_lemma in lemmas, \
         f"{synset_id}: expected lemma '{expected_lemma}' not found; got {lemmas}"
+
+
+# ---------------------------------------------------------------------------
+# Cross-pipeline merge (W203/W202)
+# ---------------------------------------------------------------------------
+
+def test_no_duplicate_lemma_pos(entries_by_lemma):
+    """Each (writtenForm, partOfSpeech) pair must appear in exactly one entry.
+
+    Duplicates indicate that wn+var and passthrough entries for the same lemma
+    were not merged, causing W203/W202 validation warnings.
+    """
+    dupes = {key for key, entries in entries_by_lemma.items() if len(entries) > 1}
+    assert not dupes, (
+        f"{len(dupes)} duplicate (lemma, pos) pairs found: "
+        + ", ".join(f"{w!r}/{p}" for w, p in sorted(dupes)[:10])
+    )

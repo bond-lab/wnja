@@ -112,11 +112,11 @@ class Generator:
 
     def _generate_raw(self, prompt: str, max_tokens: int) -> str:
         from mlx_lm import generate  # type: ignore[import]
+        # temperature API varies across mlx_lm versions; omit it and use library default
         return generate(
             self._model,
             self._tokenizer,
             prompt=prompt,
             max_tokens=max_tokens,
-            temperature=self.temp,
             verbose=False,
         ).strip()

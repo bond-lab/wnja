@@ -82,14 +82,19 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument(
         "--model",
         default="mlx-community/gemma-3-27b-it-4bit",
-        help="Model id: MLX repo (e.g. mlx-community/gemma-3-27b-it-4bit) "
-             "or Ollama tag (e.g. gemma3:27b).",
+        help="MLX model repo id, e.g. mlx-community/gemma-3-27b-it-4bit "
+             "or mlx-community/Qwen2.5-32B-Instruct-4bit.",
     )
     p.add_argument(
-        "--backend",
-        choices=["mlx", "ollama"],
-        default="mlx",
-        help="LLM backend for Stages 1 and 2.",
+        "--prompt-style",
+        choices=["zero-shot", "few-shot"],
+        default="zero-shot",
+        help="Prompt style for Stage 1 definition check.",
+    )
+    p.add_argument(
+        "--run-name",
+        default=None,
+        help="Short display name for this run (stored in the runs table).",
     )
     p.add_argument(
         "--batch-size",
@@ -168,8 +173,17 @@ def main(argv: list[str] | None = None) -> None:
         eng = load_lmf(args.ref_lmf)
         log.info("  %d synsets loaded", len(eng))
 
-        generator = Generator(backend=args.backend, model=args.model)
-        run_def_check(current, eng, db, generator, batch_size=args.batch_size)
+        generator = Generator(model=args.model)
+        db.register_run(
+            model=args.model,
+            prompt_style=args.prompt_style,
+            short_name=args.run_name,
+        )
+        run_def_check(
+            current, eng, db, generator,
+            prompt_style=args.prompt_style,
+            batch_size=args.batch_size,
+        )
 
     if run_lemmas:
         log.warning("Stage 2 (lemma check) not yet implemented.")

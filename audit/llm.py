@@ -1,20 +1,21 @@
-"""LLM interface for batched audit checks.
+"""MLX-based LLM interface for the wnja audit pipeline.
 
-Supports two backends, selected via the ``backend`` parameter:
+Uses ``mlx_lm`` with Apple Silicon unified memory (M4 Max target).
+Supports both a raw ``generate()`` call and a structured ``chat()`` call
+that applies the model's own chat template (system + user turns).
 
-mlx
-    Uses ``mlx_lm`` (Apple Silicon, fastest on M4 Max).
-    Requires: ``pip install mlx-lm``
-
-ollama
-    Uses the Ollama HTTP API at ``http://localhost:11434``.
-    Requires: Ollama running locally with the target model pulled.
-    ``model`` should be the Ollama model tag, e.g. ``gemma3:27b``.
+Using chat() is strongly preferred for instruct-tuned models (Gemma 3 it,
+Qwen2.5 Instruct) because it applies the correct special tokens and role
+delimiters that the model was fine-tuned on.
 
 Usage::
 
-    gen = Generator(backend="mlx", model="mlx-community/gemma-3-27b-it-4bit")
-    response = gen.generate(prompt, max_tokens=512)
+    gen = Generator("mlx-community/gemma-3-27b-it-4bit")
+    response = gen.chat(
+        system="You are a linguistics expert.",
+        user="Evaluate these definitions: ...",
+        max_tokens=512,
+    )
 """
 from __future__ import annotations
 
@@ -24,103 +25,98 @@ log = logging.getLogger(__name__)
 
 
 class Generator:
-    """Thin wrapper around an LLM backend.
+    """Wrapper around mlx_lm for single-model inference.
 
     Args:
-        backend: ``'mlx'`` or ``'ollama'``.
-        model: Model identifier (MLX repo id or Ollama tag).
-        max_tokens: Default token budget for generation.
+        model: MLX model repo id, e.g. 'mlx-community/gemma-3-27b-it-4bit'
+            or 'mlx-community/Qwen2.5-32B-Instruct-4bit'.
+        max_tokens: Default generation budget.
+        temp: Sampling temperature. Use 0.0 for deterministic output.
     """
 
     def __init__(
         self,
-        backend: str = "mlx",
         model: str = "mlx-community/gemma-3-27b-it-4bit",
         max_tokens: int = 512,
+        temp: float = 0.0,
     ) -> None:
-        self.backend = backend
-        self.model = model
+        self.model_id = model
         self.max_tokens = max_tokens
-        self._mlx_model = None
-        self._mlx_tokenizer = None
+        self.temp = temp
+        self._model = None
+        self._tokenizer = None
+        self._load()
 
-        if backend == "mlx":
-            self._load_mlx()
-        elif backend == "ollama":
-            self._check_ollama()
-        else:
-            raise ValueError(f"Unknown backend: {backend!r}. Use 'mlx' or 'ollama'.")
-
-    # ------------------------------------------------------------------
-    # Backend initialisation
-    # ------------------------------------------------------------------
-
-    def _load_mlx(self) -> None:
+    def _load(self) -> None:
         try:
             from mlx_lm import load  # type: ignore[import]
-        except ImportError as e:
+        except ImportError as exc:
             raise ImportError(
-                "mlx_lm is not installed. Run: pip install mlx-lm"
-            ) from e
-        log.info("Loading MLX model %s …", self.model)
-        self._mlx_model, self._mlx_tokenizer = load(self.model)
-        log.info("MLX model loaded.")
-
-    def _check_ollama(self) -> None:
-        import urllib.request
-        try:
-            urllib.request.urlopen("http://localhost:11434/api/tags", timeout=3)
-        except Exception as e:
-            raise RuntimeError(
-                "Ollama is not reachable at http://localhost:11434. "
-                "Start Ollama and ensure the model is pulled."
-            ) from e
+                "mlx_lm is not installed. On Apple Silicon run: pip install mlx-lm"
+            ) from exc
+        log.info("Loading MLX model %s …", self.model_id)
+        self._model, self._tokenizer = load(self.model_id)
+        log.info("Model loaded.")
 
     # ------------------------------------------------------------------
-    # Generation
+    # Public API
     # ------------------------------------------------------------------
 
-    def generate(self, prompt: str, max_tokens: int | None = None) -> str:
-        """Generate a response for *prompt*.
+    def chat(
+        self,
+        system: str,
+        user: str,
+        max_tokens: int | None = None,
+    ) -> str:
+        """Generate a response using the model's chat template.
+
+        Applies ``tokenizer.apply_chat_template`` with system and user roles
+        so that instruct models receive properly formatted input.
 
         Args:
-            prompt: The full prompt string to send to the model.
+            system: System prompt (task description, output format rules).
+            user: User turn (the actual data to evaluate this call).
             max_tokens: Token budget; defaults to ``self.max_tokens``.
 
         Returns:
-            Generated text as a plain string (no surrounding whitespace).
+            Generated text, stripped of surrounding whitespace.
         """
-        n = max_tokens or self.max_tokens
-        if self.backend == "mlx":
-            return self._generate_mlx(prompt, n)
-        return self._generate_ollama(prompt, n)
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ]
+        prompt = self._tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        return self._generate_raw(prompt, max_tokens or self.max_tokens)
 
-    def _generate_mlx(self, prompt: str, max_tokens: int) -> str:
+    def generate(self, prompt: str, max_tokens: int | None = None) -> str:
+        """Generate from a raw prompt string (no chat template applied).
+
+        Use ``chat()`` instead for instruct models.
+
+        Args:
+            prompt: Raw prompt string.
+            max_tokens: Token budget; defaults to ``self.max_tokens``.
+
+        Returns:
+            Generated text, stripped of surrounding whitespace.
+        """
+        return self._generate_raw(prompt, max_tokens or self.max_tokens)
+
+    # ------------------------------------------------------------------
+    # Internal
+    # ------------------------------------------------------------------
+
+    def _generate_raw(self, prompt: str, max_tokens: int) -> str:
         from mlx_lm import generate  # type: ignore[import]
-        result = generate(
-            self._mlx_model,
-            self._mlx_tokenizer,
+        return generate(
+            self._model,
+            self._tokenizer,
             prompt=prompt,
             max_tokens=max_tokens,
+            temp=self.temp,
             verbose=False,
-        )
-        return result.strip()
-
-    def _generate_ollama(self, prompt: str, max_tokens: int) -> str:
-        import json
-        import urllib.request
-
-        payload = json.dumps({
-            "model": self.model,
-            "prompt": prompt,
-            "stream": False,
-            "options": {"num_predict": max_tokens},
-        }).encode()
-        req = urllib.request.Request(
-            "http://localhost:11434/api/generate",
-            data=payload,
-            headers={"Content-Type": "application/json"},
-        )
-        with urllib.request.urlopen(req, timeout=300) as resp:
-            data = json.loads(resp.read())
-        return data.get("response", "").strip()
+        ).strip()

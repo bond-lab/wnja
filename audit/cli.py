@@ -82,13 +82,36 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument(
         "--model",
         default="mlx-community/gemma-3-27b-it-4bit",
-        help="MLX model id for LLM-based checks (Stages 1 and 2).",
+        help="Model id: MLX repo (e.g. mlx-community/gemma-3-27b-it-4bit) "
+             "or Ollama tag (e.g. gemma3:27b).",
+    )
+    p.add_argument(
+        "--backend",
+        choices=["mlx", "ollama"],
+        default="mlx",
+        help="LLM backend for Stages 1 and 2.",
     )
     p.add_argument(
         "--batch-size",
         type=int,
         default=10,
         help="Synsets per LLM prompt for Stage 1.",
+    )
+    p.add_argument(
+        "--report",
+        action="store_true",
+        help="Print a summary table after running checks.",
+    )
+    p.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="Write results to this TSV path (used with --report).",
+    )
+    p.add_argument(
+        "--check-type",
+        default=None,
+        help="Filter TSV output to this check type (used with --out).",
     )
     return p.parse_args(argv)
 
@@ -127,10 +150,35 @@ def main(argv: list[str] | None = None) -> None:
         run_example_check(current, examples, db, tokenizer)
 
     if run_defs:
-        log.warning("Stage 1 (definition check) not yet implemented.")
+        from audit.checks.definitions import run as run_def_check
+        from audit.llm import Generator
+
+        if not args.ref_lmf or not args.ref_lmf.exists():
+            log.error(
+                "Stage 1 requires --ref-lmf pointing to wn-ntumc-eng.xml. "
+                "Example: --ref-lmf /home/bond/git/NTUMC/build/wn-ntumc-eng.xml"
+            )
+            sys.exit(1)
+
+        log.info("Loading current build from %s …", args.lmf)
+        current = load_lmf(args.lmf)
+        log.info("  %d synsets loaded", len(current))
+
+        log.info("Loading English reference from %s …", args.ref_lmf)
+        eng = load_lmf(args.ref_lmf)
+        log.info("  %d synsets loaded", len(eng))
+
+        generator = Generator(backend=args.backend, model=args.model)
+        run_def_check(current, eng, db, generator, batch_size=args.batch_size)
 
     if run_lemmas:
         log.warning("Stage 2 (lemma check) not yet implemented.")
+
+    if args.report:
+        from audit.report import summary, write_tsv
+        summary(db._conn)
+        if args.out:
+            write_tsv(db._conn, args.out, args.check_type if args.check_type else None)
 
     db.close()
 

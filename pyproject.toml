@@ -14,6 +14,8 @@ dependencies = [
     "jamdict_data>=1.5",
     "pytest>=7.0",
     "tomli-w>=1.0",
+    "fugashi>=1.5.2",
+    "unidic-lite>=1.0.8",
 ]
 
 [tool.uv.sources]

@@ -225,6 +225,7 @@ def run(
                 "Batch %d: only %d/%d ids parsed (attempt %d), retrying",
                 batch_start // batch_size, len(parsed), len(batch), attempt + 1,
             )
+            log.warning("Raw response (first 500 chars):\n%s", response[:500])
 
         for wnja_id, _, _ in batch:
             if wnja_id in parsed:

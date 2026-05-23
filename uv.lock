@@ -308,18 +308,11 @@ wheels = [
 
 [[package]]
 name = "wn-edit"
-source = { editable = "../../home/bond/git/wn_edit" }
+version = "0.3.2"
+source = { git = "https://github.com/bond-lab/wn_edit#73147b823aa59cd83ffeca07a367d9855059ea85" }
 dependencies = [
     { name = "wn" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'" },
-    { name = "wn", specifier = ">=1.0.0" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "wnja"
@@ -345,5 +338,5 @@ requires-dist = [
     { name = "tomli-w", specifier = ">=1.0" },
     { name = "unidic-lite", specifier = ">=1.0" },
     { name = "wn", specifier = ">=1.0.0" },
-    { name = "wn-edit", editable = "../../home/bond/git/wn_edit" },
+    { name = "wn-edit", git = "https://github.com/bond-lab/wn_edit" },
 ]

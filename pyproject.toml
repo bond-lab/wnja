@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-wn_edit = { path = "/home/bond/git/wn_edit", editable = true }
+wn_edit = { git = "https://github.com/bond-lab/wn_edit" }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

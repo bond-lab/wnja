@@ -118,7 +118,34 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="Filter TSV output to this check type (used with --out).",
     )
+    p.add_argument(
+        "--synset-file",
+        type=Path,
+        default=None,
+        help=(
+            "TSV file with a 'synset_id' column; restrict all checks to those "
+            "synset IDs only. Useful for running just the dev set, e.g. "
+            "--synset-file audit/dev_set.tsv"
+        ),
+    )
     return p.parse_args(argv)
+
+
+def _load_synset_filter(path: Path) -> set[str] | None:
+    """Read synset IDs from a TSV with a 'synset_id' column.
+
+    Returns a set of IDs, or None if path is None.
+    """
+    import csv
+    ids: set[str] = set()
+    with path.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            sid = row.get("synset_id", "").strip()
+            if sid:
+                ids.add(sid)
+    log.info("Synset filter: %d IDs from %s", len(ids), path)
+    return ids
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -128,6 +155,13 @@ def main(argv: list[str] | None = None) -> None:
     if not args.lmf.exists():
         log.error("LMF file not found: %s", args.lmf)
         sys.exit(1)
+
+    synset_filter: set[str] | None = None
+    if args.synset_file:
+        if not args.synset_file.exists():
+            log.error("Synset file not found: %s", args.synset_file)
+            sys.exit(1)
+        synset_filter = _load_synset_filter(args.synset_file)
 
     db = AuditDB(args.db)
     log.info("Checkpoint DB: %s", args.db)
@@ -152,6 +186,10 @@ def main(argv: list[str] | None = None) -> None:
             log.info("  %d synsets loaded", len(examples))
 
         tokenizer = get_tokenizer(args.lang)
+        if synset_filter:
+            current = {k: v for k, v in current.items() if k in synset_filter}
+            examples = {k: v for k, v in examples.items() if k in synset_filter}
+            log.info("  filtered to %d synsets", len(current))
         run_example_check(current, examples, db, tokenizer)
 
     if run_defs:
@@ -172,6 +210,10 @@ def main(argv: list[str] | None = None) -> None:
         log.info("Loading English reference from %s …", args.ref_lmf)
         eng = load_lmf(args.ref_lmf)
         log.info("  %d synsets loaded", len(eng))
+
+        if synset_filter:
+            current = {k: v for k, v in current.items() if k in synset_filter}
+            log.info("  filtered to %d synsets", len(current))
 
         generator = Generator(model=args.model)
         db.register_run(
@@ -204,6 +246,10 @@ def main(argv: list[str] | None = None) -> None:
         log.info("Loading English reference from %s …", args.ref_lmf)
         eng = load_lmf(args.ref_lmf)
         log.info("  %d synsets loaded", len(eng))
+
+        if synset_filter:
+            current = {k: v for k, v in current.items() if k in synset_filter}
+            log.info("  filtered to %d synsets", len(current))
 
         generator = Generator(model=args.model)
         db.register_run(

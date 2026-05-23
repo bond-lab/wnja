@@ -229,9 +229,9 @@ def test_definition_parse_response():
     )
     expected = ["wnja-00000001-n", "wnja-00000002-n", "wnja-00000003-n"]
     results = _parse_response(response, expected)
-    assert results["wnja-00000001-n"] == ("OK", "correct")
-    assert results["wnja-00000002-n"] == ("DRIFT", "too narrow")
-    assert results["wnja-00000003-n"] == ("WRONG", "totally different")
+    assert results["wnja-00000001-n"][:2] == ("OK", "correct")
+    assert results["wnja-00000002-n"][:2] == ("DRIFT", "too narrow")
+    assert results["wnja-00000003-n"][:2] == ("WRONG", "totally different")
 
 
 def test_definition_parse_response_verbose_fallback():

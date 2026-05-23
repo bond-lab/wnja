@@ -13,14 +13,18 @@ WRONG   Substantially different meaning; likely a mistranslation or the
         wrong English synset was used as the source.
 SKIP    No Japanese or English definition available to compare.
 
+For DRIFT and WRONG the model also provides a suggested improved
+Japanese definition, stored in the ``suggestion`` column.
+
 Prompt styles
 -------------
 zero-shot   Task description and format only; no examples.
-few-shot    Three labelled examples (one per class) prepended to the user
-            turn before the synsets to evaluate.
+one-shot    One DRIFT example prepended to the user turn.
+few-shot    Three labelled examples (one per class) prepended.
 
-Results are written to AuditDB keyed on (synset_id, 'definition', '', model)
-so multiple models and prompt styles can coexist in the same database.
+Results are written to AuditDB keyed on
+(synset_id, 'definition', '', model, prompt_style)
+so all combinations coexist in the same database.
 """
 from __future__ import annotations
 
@@ -49,14 +53,24 @@ Verdicts:
   DRIFT — related but shifted: too narrow, too broad, or emphasises the wrong aspect
   WRONG — substantially different meaning; likely a mistranslation or wrong source
 
+For DRIFT and WRONG, also provide a suggested improved Japanese definition.
+
 Reply with EXACTLY one line per synset. No extra text, no preamble:
   <ID> | OK | <brief note in English>
-  <ID> | DRIFT | <brief note in English>
-  <ID> | WRONG | <brief note in English>\
+  <ID> | DRIFT | <brief note in English> | SUGGESTED: <improved Japanese definition>
+  <ID> | WRONG | <brief note in English> | SUGGESTED: <improved Japanese definition>\
 """
 
-# Three unambiguous few-shot examples (one per class), excluded from dev set.
-# Kept outside the batched synsets so they appear once per call, not once per synset.
+_ONE_SHOT_EXAMPLES = """\
+Here is one labelled example to illustrate the verdict criteria:
+
+  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
+  EN: the position of a back on a football team, generally smaller in size than a fullback
+  JA: フットボールチームの後ろのポジション
+
+Now evaluate the following synsets using the same format:
+"""
+
 _FEW_SHOT_EXAMPLES = """\
 Here are three labelled examples to illustrate the verdict criteria:
 
@@ -64,11 +78,11 @@ Here are three labelled examples to illustrate the verdict criteria:
   EN: a match between wrestlers
   JA: レスラーの試合
 
-  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback"
+  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
   EN: the position of a back on a football team, generally smaller in size than a fullback
   JA: フットボールチームの後ろのポジション
 
-  wnja-SYNTH-WRONG | WRONG | JA describes a financial institution; EN describes a riverbank
+  wnja-SYNTH-WRONG | WRONG | JA describes a financial institution; EN describes a riverbank | SUGGESTED: 水辺に沿った傾斜した土地
   EN: sloping land beside a body of water
   JA: 金融機関。預金、貸出、為替などの業務を行う
 
@@ -81,14 +95,19 @@ _FEW_SHOT_IDS = {"wnja-07471246-n", "wnja-00727002-n"}  # exclude from dev set
 # Parsing
 # ---------------------------------------------------------------------------
 
+# Primary: pipe-delimited with optional suggestion
+# wnja-XXXXXXXX-n | OK | note
+# wnja-XXXXXXXX-n | DRIFT | note | SUGGESTED: 改善された定義
 _LINE_RE = re.compile(
-    r"(wnja-\S+)\s*\|\s*(OK|DRIFT|WRONG)\s*\|?\s*(.*)",
+    r"(wnja-\S+)\s*\|\s*(OK|DRIFT|WRONG)\s*\|\s*(.*?)(?:\|\s*SUGGESTED:\s*(.+))?$",
     re.IGNORECASE,
 )
-# Fallback for verbose block format produced by thinking-mode models (Gemma 4, Qwen3):
-#   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.
+# Fallback for verbose block format (thinking-mode models):
+#   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.  [Suggested: ...]
 _BLOCK_ID_RE = re.compile(r"\bID:\s*(wnja-\S+)", re.IGNORECASE)
 _BLOCK_VERDICT_RE = re.compile(r"\bVerdict:\s*(OK|DRIFT|WRONG)", re.IGNORECASE)
+_BLOCK_SUGGEST_RE = re.compile(r"\bSuggested?:\s*(.+)", re.IGNORECASE)
+_THINK_RE = re.compile(r"<\|channel\s*>thought.*?(?=<\|channel\s*>|\Z)", re.DOTALL)
 
 
 def _ntumc_id(wnja_id: str) -> str:
@@ -99,18 +118,12 @@ def _format_user_turn(
     batch: list[tuple[str, SynsetData, SynsetData]],
     prompt_style: str,
 ) -> str:
-    """Build the user-turn text for one batch.
-
-    Args:
-        batch: List of (wnja_id, ja_data, en_data) triples.
-        prompt_style: 'zero-shot' or 'few-shot'.
-
-    Returns:
-        User-turn string to pass to Generator.chat().
-    """
+    """Build the user-turn text for one batch."""
     parts: list[str] = []
     if prompt_style == "few-shot":
         parts.append(_FEW_SHOT_EXAMPLES)
+    elif prompt_style == "one-shot":
+        parts.append(_ONE_SHOT_EXAMPLES)
     for i, (wnja_id, ja, en) in enumerate(batch, 1):
         en_members = sorted(en.forms)[:4]
         members_str = " · ".join(en_members) if en_members else "—"
@@ -125,43 +138,42 @@ def _format_user_turn(
 def _parse_response(
     response: str,
     expected_ids: list[str],
-) -> dict[str, tuple[str, str]]:
-    """Parse model output into {wnja_id: (verdict, evidence)}.
+) -> dict[str, tuple[str, str, str | None]]:
+    """Parse model output into {wnja_id: (verdict, note, suggestion)}.
 
-    Args:
-        response: Raw model output string.
-        expected_ids: IDs we asked about; used for debug logging on misses.
-
-    Returns:
-        Dict of parsed results; missing/unparseable lines are omitted.
+    Tries pipe-delimited format first; falls back to verbose block format
+    produced by thinking-mode models (Gemma 4, Qwen3).
     """
-    results: dict[str, tuple[str, str]] = {}
+    results: dict[str, tuple[str, str, str | None]] = {}
 
-    # Strip thinking blocks (<|channel>thought ... <|channel>response) so they
-    # don't confuse the pipe-delimited parser, but keep the final response text.
-    _THINK_RE = re.compile(
-        r"<\|channel\s*\>thought.*?(?=<\|channel\s*\>|\Z)", re.DOTALL
-    )
+    # Strip thinking blocks so the final response is parsed cleanly
     final_text = _THINK_RE.sub("", response).strip() or response
 
-    # Primary: pipe-delimited format  wnja-XXXXXXXX-n | OK | note
+    # Primary: pipe-delimited
     for line in final_text.splitlines():
         m = _LINE_RE.search(line)
         if m:
-            results[m.group(1)] = (m.group(2).upper(), m.group(3).strip())
+            suggestion = m.group(4).strip() if m.group(4) else None
+            results[m.group(1)] = (m.group(2).upper(), m.group(3).strip(), suggestion)
 
-    # Fallback: verbose block format produced inside thinking blocks
-    #   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.
+    # Fallback: verbose block format
     if not results:
         current_id: str | None = None
+        current_suggestion: str | None = None
         for line in response.splitlines():
             id_m = _BLOCK_ID_RE.search(line)
             if id_m:
                 current_id = id_m.group(1)
+                current_suggestion = None
             if current_id:
+                sug_m = _BLOCK_SUGGEST_RE.search(line)
+                if sug_m:
+                    current_suggestion = sug_m.group(1).strip()
                 v_m = _BLOCK_VERDICT_RE.search(line)
                 if v_m:
-                    results[current_id] = (v_m.group(1).upper(), "from thinking block")
+                    results[current_id] = (
+                        v_m.group(1).upper(), "from thinking block", current_suggestion
+                    )
                     current_id = None
 
     missing = [eid for eid in expected_ids if eid not in results]
@@ -186,15 +198,8 @@ def run(
 ) -> tuple[int, int, int, int]:
     """Run the definition accuracy check and write results to *db*.
 
-    Args:
-        current_synsets: Synset data from the current wnja build (JA defs).
-        eng_synsets: Synset data from wn-ntumc-eng.xml (EN defs), keyed by
-            ntumc-en-XXXXXXXX-p ids.
-        db: Audit checkpoint database.
-        generator: Configured Generator instance.
-        prompt_style: 'zero-shot' or 'few-shot'.
-        batch_size: Synsets per LLM call.
-        retry_limit: Max retries per batch on parse failure.
+    Results are keyed by (synset_id, 'definition', '', model, prompt_style)
+    so multiple models and prompt styles coexist in one database.
 
     Returns:
         (n_ok, n_drift, n_wrong, n_skipped) counts.
@@ -204,18 +209,20 @@ def run(
 
     todo: list[tuple[str, SynsetData, SynsetData]] = []
     for wnja_id, ja in current_synsets.items():
-        if db.is_done(wnja_id, "definition", model=model):
+        if db.is_done(wnja_id, "definition", model=model, prompt_style=prompt_style):
             n_skipped += 1
             continue
         if not ja.definitions:
             db.save_result(wnja_id, "definition", "", "SKIP",
-                           model=model, evidence="no Japanese definition")
+                           model=model, prompt_style=prompt_style,
+                           evidence="no Japanese definition")
             n_skipped += 1
             continue
         en = eng_synsets.get(_ntumc_id(wnja_id))
         if not en or not en.definitions:
             db.save_result(wnja_id, "definition", "", "SKIP",
-                           model=model, evidence="no English definition in ntumc-eng",
+                           model=model, prompt_style=prompt_style,
+                           evidence="no English definition in ntumc-eng",
                            en_source="ntumc-eng")
             n_skipped += 1
             continue
@@ -231,7 +238,7 @@ def run(
         expected_ids = [wnja_id for wnja_id, _, _ in batch]
         user_turn = _format_user_turn(batch, prompt_style)
 
-        parsed: dict[str, tuple[str, str]] = {}
+        parsed: dict[str, tuple[str, str, str | None]] = {}
         for attempt in range(retry_limit + 1):
             try:
                 response = generator.chat(
@@ -254,12 +261,13 @@ def run(
 
         for wnja_id, _, _ in batch:
             if wnja_id in parsed:
-                verdict, note = parsed[wnja_id]
+                verdict, note, suggestion = parsed[wnja_id]
             else:
-                verdict, note = "WRONG", "parse failure — not in model output"
+                verdict, note, suggestion = "WRONG", "parse failure — not in model output", None
             db.save_result(
                 wnja_id, "definition", "", verdict,
-                model=model, evidence=note, en_source="ntumc-eng",
+                model=model, prompt_style=prompt_style,
+                evidence=note, suggestion=suggestion, en_source="ntumc-eng",
             )
             if verdict == "OK":
                 n_ok += 1

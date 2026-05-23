@@ -177,38 +177,80 @@ def _precision_recall_f1(
     return p, r, f1
 
 
+def _parse_run(run_str: str) -> tuple[str, str]:
+    """Parse 'model/prompt_style' string into (model, prompt_style).
+
+    The last path component after '/' is taken as prompt_style if it is one
+    of the known styles; otherwise prompt_style defaults to 'zero-shot'.
+    Known styles: zero-shot, one-shot, few-shot.
+    """
+    known = {"zero-shot", "one-shot", "few-shot"}
+    if "/" in run_str:
+        # Split on last '/' that matches a known style
+        for style in known:
+            if run_str.endswith("/" + style):
+                return run_str[: -(len(style) + 1)], style
+    return run_str, "zero-shot"
+
+
 def evaluate(
     gold: dict[str, str],
     db_path: Path,
-    models: list[str],
+    runs: list[str],
 ) -> None:
-    """Print evaluation metrics for each model against gold annotations.
+    """Print evaluation metrics for each (model, prompt_style) run.
 
     Args:
         gold: {synset_id: verdict} from load_gold().
         db_path: Path to audit.db.
-        models: List of model identifier strings to evaluate.
+        runs: List of 'model/prompt_style' strings (prompt_style defaults to
+            'zero-shot' if omitted). E.g.:
+            'mlx-community/gemma-4-31b-it-4bit/zero-shot'
+            'mlx-community/Qwen3-32B-4bit/few-shot'
     """
     conn = sqlite3.connect(str(db_path))
     labels = ["OK", "DRIFT", "WRONG"]
 
-    model_preds: dict[str, dict[str, str]] = {}
+    # Show available runs if none specified
+    if not runs:
+        rows = conn.execute(
+            "SELECT DISTINCT model, prompt_style FROM results "
+            "WHERE check_type='definition' AND item='' ORDER BY model, prompt_style"
+        ).fetchall()
+        print("Available runs in DB:")
+        for model, ps in rows:
+            print(f"  {model}/{ps}")
+        conn.close()
+        return
 
-    for model in models:
+    run_preds: dict[str, dict[str, str]] = {}
+    for run_str in runs:
+        model, prompt_style = _parse_run(run_str)
         rows = conn.execute(
             "SELECT synset_id, verdict FROM results "
-            "WHERE check_type='definition' AND item='' AND model=?",
-            (model,),
+            "WHERE check_type='definition' AND item='' AND model=? AND prompt_style=?",
+            (model, prompt_style),
         ).fetchall()
-        model_preds[model] = {ss: v for ss, v in rows}
+        run_preds[run_str] = {ss: v for ss, v in rows}
 
-    # Evaluate each model
-    for model in models:
-        preds = model_preds[model]
-        # Restrict to annotated synsets that this model also evaluated
+        # Also show timing if available
+        timing = conn.execute(
+            "SELECT elapsed_seconds, n_ok, n_drift, n_wrong FROM runs "
+            "WHERE model=? AND prompt_style=?",
+            (model, prompt_style),
+        ).fetchone()
+        if timing and timing[0]:
+            elapsed = timing[0]
+            mins, secs = divmod(int(elapsed), 60)
+            print(f"Run {run_str}: {mins}m{secs:02d}s  "
+                  f"OK={timing[1]} DRIFT={timing[2]} WRONG={timing[3]}")
+
+    # Evaluate each run
+    for run_str in runs:
+        preds = run_preds[run_str]
         common = [ss for ss in gold if ss in preds]
         if not common:
-            print(f"\nModel: {model}\n  No overlapping synsets with gold data.")
+            print(f"\nRun: {run_str}\n  No overlapping synsets with gold data.")
             continue
 
         g = [gold[ss] for ss in common]
@@ -216,7 +258,7 @@ def evaluate(
 
         correct = sum(gi == pi for gi, pi in zip(g, p))
         print(f"\n{'='*60}")
-        print(f"Model: {model}")
+        print(f"Run: {run_str}")
         print(f"  Evaluated: {len(common)} synsets")
         print(f"  Accuracy:  {correct}/{len(common)} = {correct/len(common):.1%}")
 
@@ -226,7 +268,6 @@ def evaluate(
             support = g.count(label)
             print(f"  {label:<8} {prec:>6.1%} {rec:>6.1%} {f1:>6.1%}  ({support})")
 
-        # Confusion matrix
         print(f"\n  Confusion matrix (rows=gold, cols=predicted):")
         print(f"  {'':8}", end="")
         for label in labels:
@@ -239,24 +280,24 @@ def evaluate(
                 print(f"  {count:>6}", end="")
             print()
 
-    # Agreement between models (if ≥ 2)
-    if len(models) >= 2:
-        m1, m2 = models[0], models[1]
-        p1, p2 = model_preds[m1], model_preds[m2]
-        common_both = [ss for ss in gold if ss in p1 and ss in p2]
-        if common_both:
-            agree = sum(p1[ss] == p2[ss] for ss in common_both)
-            print(f"\n{'='*60}")
-            print(f"Model agreement ({m1} vs {m2})")
-            print(f"  Common synsets: {len(common_both)}")
-            print(f"  Agreement: {agree}/{len(common_both)} = {agree/len(common_both):.1%}")
-
-            # Where they disagree
-            disagree = [(ss, p1[ss], p2[ss]) for ss in common_both if p1[ss] != p2[ss]]
-            if disagree:
-                gold_dist = Counter(gold[ss] for ss, _, _ in disagree)
-                print(f"  Disagreements: {len(disagree)} "
-                      f"(gold distribution: {dict(gold_dist)})")
+    # Pairwise agreement for all run pairs
+    run_list = runs
+    for i in range(len(run_list)):
+        for j in range(i + 1, len(run_list)):
+            r1, r2 = run_list[i], run_list[j]
+            p1, p2 = run_preds[r1], run_preds[r2]
+            common_both = [ss for ss in gold if ss in p1 and ss in p2]
+            if common_both:
+                agree = sum(p1[ss] == p2[ss] for ss in common_both)
+                print(f"\n{'='*60}")
+                print(f"Agreement: {r1}  vs  {r2}")
+                print(f"  Common: {len(common_both)}  "
+                      f"Agreement: {agree}/{len(common_both)} = {agree/len(common_both):.1%}")
+                disagree = [(ss, p1[ss], p2[ss]) for ss in common_both if p1[ss] != p2[ss]]
+                if disagree:
+                    gold_dist = Counter(gold[ss] for ss, _, _ in disagree)
+                    print(f"  Disagreements: {len(disagree)} "
+                          f"(gold: {dict(gold_dist)})")
 
     conn.close()
 
@@ -291,9 +332,13 @@ def main(argv: list[str] | None = None) -> None:
     )
     ep.add_argument("--db", type=Path, default=Path("audit.db"))
     ep.add_argument(
-        "--model", dest="models", action="append", default=[],
-        metavar="MODEL",
-        help="Model id to evaluate (repeat for multiple models).",
+        "--run", dest="runs", action="append", default=[],
+        metavar="MODEL/PROMPT_STYLE",
+        help=(
+            "Run to evaluate as 'model/prompt_style', e.g. "
+            "'mlx-community/gemma-4-31b-it-4bit/zero-shot'. "
+            "Repeat for multiple runs. Omit to list available runs."
+        ),
     )
 
     args = p.parse_args(argv)
@@ -317,10 +362,7 @@ def main(argv: list[str] | None = None) -> None:
         gold = load_gold(args.gold)
         annotated = {ss: v for ss, v in gold.items() if v}
         print(f"Gold annotations: {len(annotated)} synsets")
-        if not args.models:
-            print("No --model specified; nothing to evaluate.", file=sys.stderr)
-            sys.exit(1)
-        evaluate(annotated, args.db, args.models)
+        evaluate(annotated, args.db, args.runs)
 
 
 if __name__ == "__main__":

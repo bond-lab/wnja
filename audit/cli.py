@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
+import time
 from pathlib import Path
 
 from audit.db import AuditDB
@@ -87,7 +88,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     p.add_argument(
         "--prompt-style",
-        choices=["zero-shot", "few-shot"],
+        choices=["zero-shot", "one-shot", "few-shot"],
         default="zero-shot",
         help="Prompt style for Stage 1 definition check.",
     )
@@ -221,10 +222,18 @@ def main(argv: list[str] | None = None) -> None:
             prompt_style=args.prompt_style,
             short_name=args.run_name,
         )
-        run_def_check(
+        t0 = time.time()
+        counts = run_def_check(
             current, eng, db, generator,
             prompt_style=args.prompt_style,
             batch_size=args.batch_size,
+        )
+        db.finish_run(
+            model=args.model,
+            prompt_style=args.prompt_style,
+            elapsed_seconds=time.time() - t0,
+            n_ok=counts[0], n_drift=counts[1],
+            n_wrong=counts[2], n_skipped=counts[3],
         )
 
     if run_lemmas:

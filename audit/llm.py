@@ -117,6 +117,6 @@ class Generator:
             self._tokenizer,
             prompt=prompt,
             max_tokens=max_tokens,
-            temp=self.temp,
+            temperature=self.temp,
             verbose=False,
         ).strip()

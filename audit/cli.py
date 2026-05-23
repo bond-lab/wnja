@@ -186,7 +186,37 @@ def main(argv: list[str] | None = None) -> None:
         )
 
     if run_lemmas:
-        log.warning("Stage 2 (lemma check) not yet implemented.")
+        from audit.checks.lemmas import run as run_lemma_check
+        from audit.llm import Generator
+        from audit.web_lookup import WebCache
+
+        if not args.ref_lmf or not args.ref_lmf.exists():
+            log.error(
+                "Stage 2 requires --ref-lmf pointing to wn-ntumc-eng.xml. "
+                "Example: --ref-lmf /home/bond/git/NTUMC/build/wn-ntumc-eng.xml"
+            )
+            sys.exit(1)
+
+        log.info("Loading current build from %s …", args.lmf)
+        current = load_lmf(args.lmf)
+        log.info("  %d synsets loaded", len(current))
+
+        log.info("Loading English reference from %s …", args.ref_lmf)
+        eng = load_lmf(args.ref_lmf)
+        log.info("  %d synsets loaded", len(eng))
+
+        generator = Generator(model=args.model)
+        db.register_run(
+            model=args.model,
+            prompt_style=args.prompt_style,
+            short_name=args.run_name,
+        )
+        web_cache = WebCache(db.conn)
+        run_lemma_check(
+            current, eng, db, generator, web_cache,
+            prompt_style=args.prompt_style,
+            batch_size=args.batch_size,
+        )
 
     if args.report:
         from audit.report import summary, write_tsv

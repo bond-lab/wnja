@@ -23,6 +23,7 @@ wn_edit = { path = "/home/bond/git/wn_edit", editable = true }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 88

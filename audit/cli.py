@@ -176,9 +176,9 @@ def main(argv: list[str] | None = None) -> None:
 
     if args.report:
         from audit.report import summary, write_tsv
-        summary(db._conn)
+        summary(db.conn)
         if args.out:
-            write_tsv(db._conn, args.out, args.check_type if args.check_type else None)
+            write_tsv(db.conn, args.out, args.check_type if args.check_type else None)
 
     db.close()
 

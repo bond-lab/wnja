@@ -104,6 +104,11 @@ class AuditDB:
                 [{**defaults, **r, "ts": time.time()} for r in rows],
             )
 
+    @property
+    def conn(self) -> sqlite3.Connection:
+        """The underlying SQLite connection (read access for reports)."""
+        return self._conn
+
     def close(self) -> None:
         """Close the database connection."""
         self._conn.close()

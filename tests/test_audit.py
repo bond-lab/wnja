@@ -234,6 +234,26 @@ def test_definition_parse_response():
     assert results["wnja-00000003-n"] == ("WRONG", "totally different")
 
 
+def test_definition_parse_response_verbose_fallback():
+    from audit.checks.definitions import _parse_response
+
+    response = (
+        "<|channel>thought\n"
+        "*   ID: wnja-00000001-n\n"
+        "    *   EN: a test\n"
+        "    *   JA: テスト\n"
+        "    *   Verdict: OK.\n"
+        "*   ID: wnja-00000002-n\n"
+        "    *   EN: another\n"
+        "    *   JA: 別の\n"
+        "    *   Verdict: DRIFT.\n"
+    )
+    expected = ["wnja-00000001-n", "wnja-00000002-n"]
+    results = _parse_response(response, expected)
+    assert results["wnja-00000001-n"][0] == "OK"
+    assert results["wnja-00000002-n"][0] == "DRIFT"
+
+
 def test_definition_parse_response_missing():
     from audit.checks.definitions import _parse_response
 

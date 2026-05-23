@@ -85,6 +85,10 @@ _LINE_RE = re.compile(
     r"(wnja-\S+)\s*\|\s*(OK|DRIFT|WRONG)\s*\|?\s*(.*)",
     re.IGNORECASE,
 )
+# Fallback for verbose block format produced by thinking-mode models (Gemma 4, Qwen3):
+#   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.
+_BLOCK_ID_RE = re.compile(r"\bID:\s*(wnja-\S+)", re.IGNORECASE)
+_BLOCK_VERDICT_RE = re.compile(r"\bVerdict:\s*(OK|DRIFT|WRONG)", re.IGNORECASE)
 
 
 def _ntumc_id(wnja_id: str) -> str:
@@ -132,13 +136,34 @@ def _parse_response(
         Dict of parsed results; missing/unparseable lines are omitted.
     """
     results: dict[str, tuple[str, str]] = {}
-    for line in response.splitlines():
+
+    # Strip thinking blocks (<|channel>thought ... <|channel>response) so they
+    # don't confuse the pipe-delimited parser, but keep the final response text.
+    _THINK_RE = re.compile(
+        r"<\|channel\s*\>thought.*?(?=<\|channel\s*\>|\Z)", re.DOTALL
+    )
+    final_text = _THINK_RE.sub("", response).strip() or response
+
+    # Primary: pipe-delimited format  wnja-XXXXXXXX-n | OK | note
+    for line in final_text.splitlines():
         m = _LINE_RE.search(line)
         if m:
-            wnja_id = m.group(1)
-            verdict = m.group(2).upper()
-            note = m.group(3).strip()
-            results[wnja_id] = (verdict, note)
+            results[m.group(1)] = (m.group(2).upper(), m.group(3).strip())
+
+    # Fallback: verbose block format produced inside thinking blocks
+    #   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.
+    if not results:
+        current_id: str | None = None
+        for line in response.splitlines():
+            id_m = _BLOCK_ID_RE.search(line)
+            if id_m:
+                current_id = id_m.group(1)
+            if current_id:
+                v_m = _BLOCK_VERDICT_RE.search(line)
+                if v_m:
+                    results[current_id] = (v_m.group(1).upper(), "from thinking block")
+                    current_id = None
+
     missing = [eid for eid in expected_ids if eid not in results]
     if missing:
         log.debug("Missing %d ids in response: %s", len(missing), missing[:5])
@@ -212,7 +237,7 @@ def run(
                 response = generator.chat(
                     system=_SYSTEM_PROMPT,
                     user=user_turn,
-                    max_tokens=batch_size * 30,
+                    max_tokens=batch_size * 400,
                 )
                 parsed = _parse_response(response, expected_ids)
             except Exception as exc:

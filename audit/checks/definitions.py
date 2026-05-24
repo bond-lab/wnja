@@ -18,7 +18,7 @@ Japanese definition, stored in the ``suggestion`` column.
 
 Prompt styles
 -------------
-zero-shot   Task description only; no examples.
+zero-shot   Task description and format only; no examples.
 one-shot    One DRIFT example prepended to the user turn.
 few-shot    Three labelled examples (one per class) prepended.
 
@@ -28,39 +28,27 @@ so all combinations coexist in the same database.
 
 Output format
 -------------
-Structured output via Pydantic schema — ``DefinitionCheck`` with a
-``verdicts`` list. The Ollama schema enforcement means no format
-instructions are needed in the prompt.
+One pipe-delimited line per synset::
+
+    <ID> | OK | <brief note>
+    <ID> | DRIFT | <brief note> | SUGGESTED: <improved Japanese definition>
+    <ID> | WRONG | <brief note> | SUGGESTED: <improved Japanese definition>
+
+Thinking-mode models (Qwen3) prepend a ``<think>…</think>`` block which
+is stripped before parsing.  A cleanup pass retries any synsets whose
+output could not be parsed, running them one at a time.
 """
 from __future__ import annotations
 
 import logging
+import re
 import time
-from typing import Literal
-
-from pydantic import BaseModel
 
 from audit.db import AuditDB
 from audit.llm import Generator
 from audit.loader import SynsetData
 
 log = logging.getLogger(__name__)
-
-# ---------------------------------------------------------------------------
-# Pydantic schema for structured output
-# ---------------------------------------------------------------------------
-
-
-class Verdict(BaseModel):
-    id: str
-    verdict: Literal["OK", "DRIFT", "WRONG"]
-    note: str
-    suggestion: str  # empty string for OK
-
-
-class DefinitionCheck(BaseModel):
-    verdicts: list[Verdict]
-
 
 # ---------------------------------------------------------------------------
 # Prompt components
@@ -77,54 +65,78 @@ Verdicts:
   DRIFT — related but shifted: too narrow, too broad, or emphasises the wrong aspect
   WRONG — substantially different meaning; likely a mistranslation or wrong source
 
-For DRIFT and WRONG, provide a suggested improved Japanese definition in the \
-suggestion field. For OK, leave suggestion empty.\
+For DRIFT and WRONG, also provide a suggested improved Japanese definition.
+
+Reply with EXACTLY one line per synset. No extra text, no preamble:
+  <ID> | OK | <brief note in English>
+  <ID> | DRIFT | <brief note in English> | SUGGESTED: <improved Japanese definition>
+  <ID> | WRONG | <brief note in English> | SUGGESTED: <improved Japanese definition>\
 """
 
 _ONE_SHOT_EXAMPLES = """\
 Here is one labelled example to illustrate the verdict criteria:
 
-  ID: wnja-00727002-n | POS: n | EN members: halfback
+  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
   EN: the position of a back on a football team, generally smaller in size than a fullback
   JA: フットボールチームの後ろのポジション
-  → DRIFT: JA omits the key qualifier "generally smaller than a fullback"
-  → Suggested: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
 
-Now evaluate the following synsets:
+Now evaluate the following synsets using the same format:
 """
 
 _FEW_SHOT_EXAMPLES = """\
 Here are three labelled examples to illustrate the verdict criteria:
 
-  ID: wnja-07471246-n | POS: n | EN members: wrestling match
+  wnja-07471246-n | OK | direct and complete translation ("レスラーの試合" = "a match between wrestlers")
   EN: a match between wrestlers
   JA: レスラーの試合
-  → OK: direct and complete translation
 
-  ID: wnja-00727002-n | POS: n | EN members: halfback
+  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
   EN: the position of a back on a football team, generally smaller in size than a fullback
   JA: フットボールチームの後ろのポジション
-  → DRIFT: JA omits the key qualifier "generally smaller than a fullback"
-  → Suggested: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
 
-  ID: wnja-SYNTH-WRONG | POS: n | EN members: bank · riverbank
+  wnja-SYNTH-WRONG | WRONG | JA describes a financial institution; EN describes a riverbank | SUGGESTED: 水辺に沿った傾斜した土地
   EN: sloping land beside a body of water
   JA: 金融機関。預金、貸出、為替などの業務を行う
-  → WRONG: JA describes a financial institution; EN describes a riverbank
-  → Suggested: 水辺に沿った傾斜した土地
 
-Now evaluate the following synsets:
+Now evaluate the following synsets using the same format:
 """
 
 _FEW_SHOT_IDS = {"wnja-07471246-n", "wnja-00727002-n"}  # exclude from dev set
 
 
 # ---------------------------------------------------------------------------
-# Formatting and parsing
+# Parsing
 # ---------------------------------------------------------------------------
+
+# Primary: pipe-delimited with optional suggestion.
+# Handles optional leading number/bullet and markdown bold markers.
+# wnja-XXXXXXXX-n | OK | note
+# wnja-XXXXXXXX-n | DRIFT | note | SUGGESTED: 改善された定義
+_LINE_RE = re.compile(
+    r"(wnja-[\w-]+)\s*\|\s*(OK|DRIFT|WRONG)\s*\|\s*(.*?)(?:\|\s*SUGGESTED[：:]?\s*(.+))?$",
+    re.IGNORECASE,
+)
+
+# Fallback for verbose block format (thinking-mode models that ignore the format):
+#   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.  [Suggested: ...]
+_BLOCK_ID_RE = re.compile(r"\bID:\s*(wnja-[\w-]+)", re.IGNORECASE)
+_BLOCK_VERDICT_RE = re.compile(r"\bVerdict:\s*(OK|DRIFT|WRONG)", re.IGNORECASE)
+_BLOCK_SUGGEST_RE = re.compile(r"\bSuggested?[：:]?\s*(.+)", re.IGNORECASE)
+
+# Thinking block patterns
+_QWEN_THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
+_GEMMA_THINK_RE = re.compile(r"<\|channel\s*>thought.*?(?=<\|channel\s*>|\Z)", re.DOTALL)
+
 
 def _ntumc_id(wnja_id: str) -> str:
     return wnja_id.replace("wnja-", "ntumc-en-", 1)
+
+
+def _strip_thinking(text: str) -> str:
+    """Remove thinking blocks, returning the final response text."""
+    stripped = _QWEN_THINK_RE.sub("", text)
+    stripped = _GEMMA_THINK_RE.sub("", stripped).strip()
+    return stripped or text
 
 
 def _format_user_turn(
@@ -152,20 +164,47 @@ def _parse_response(
     response: str,
     expected_ids: list[str],
 ) -> dict[str, tuple[str, str, str | None]]:
-    """Parse JSON model output into {wnja_id: (verdict, note, suggestion)}.
+    """Parse model output into {wnja_id: (verdict, note, suggestion)}.
 
-    Uses Pydantic validation on the JSON response from the model.
+    Tries pipe-delimited format first, then falls back to verbose block format
+    for any IDs still missing.  Thinking blocks are stripped before parsing.
     """
-    try:
-        check = DefinitionCheck.model_validate_json(response)
-    except Exception as exc:
-        log.debug("Pydantic parse failed (%s); response snippet: %s", exc, response[:200])
-        return {}
-
     results: dict[str, tuple[str, str, str | None]] = {}
-    for v in check.verdicts:
-        suggestion: str | None = v.suggestion if v.suggestion else None
-        results[v.id] = (v.verdict, v.note, suggestion)
+    final_text = _strip_thinking(response)
+
+    # Pass 1: pipe-delimited (primary format)
+    for line in final_text.splitlines():
+        m = _LINE_RE.search(line)
+        if m:
+            syn_id = m.group(1).rstrip("*:.,")  # strip stray markdown/punctuation
+            note = m.group(3).strip()
+            suggestion: str | None = m.group(4).strip() if m.group(4) else None
+            results[syn_id] = (m.group(2).upper(), note, suggestion)
+
+    # Pass 2: block format for any IDs still missing
+    missing_set = {eid for eid in expected_ids if eid not in results}
+    if missing_set:
+        current_id: str | None = None
+        current_verdict: str | None = None
+        current_suggestion: str | None = None
+        for line in response.splitlines():
+            id_m = _BLOCK_ID_RE.search(line)
+            if id_m:
+                if current_id and current_verdict and current_id in missing_set:
+                    results[current_id] = (current_verdict, "from block format", current_suggestion)
+                    missing_set.discard(current_id)
+                current_id = id_m.group(1).rstrip("*:.,")
+                current_verdict = None
+                current_suggestion = None
+            if current_id and current_id in missing_set:
+                sug_m = _BLOCK_SUGGEST_RE.search(line)
+                if sug_m:
+                    current_suggestion = sug_m.group(1).strip()
+                v_m = _BLOCK_VERDICT_RE.search(line)
+                if v_m:
+                    current_verdict = v_m.group(1).upper()
+        if current_id and current_verdict and current_id in missing_set:
+            results[current_id] = (current_verdict, "from block format", current_suggestion)
 
     missing = [eid for eid in expected_ids if eid not in results]
     if missing:
@@ -191,6 +230,9 @@ def run(
 
     Results are keyed by (synset_id, 'definition', '', model, prompt_style)
     so multiple models and prompt styles coexist in one database.
+
+    After the main batch loop, a cleanup pass retries any synsets whose
+    output could not be parsed, submitting them one at a time.
 
     Returns:
         (n_ok, n_drift, n_wrong, n_skipped) counts.
@@ -224,6 +266,9 @@ def run(
         model, prompt_style, len(todo), n_skipped,
     )
 
+    # Track parse failures for the cleanup pass
+    parse_failed: list[tuple[str, SynsetData, SynsetData]] = []
+
     for batch_start in range(0, len(todo), batch_size):
         batch = todo[batch_start : batch_start + batch_size]
         expected_ids = [wnja_id for wnja_id, _, _ in batch]
@@ -236,7 +281,6 @@ def run(
                     system=_SYSTEM_PROMPT,
                     user=user_turn,
                     max_tokens=batch_size * 400,
-                    schema=DefinitionCheck,
                 )
                 parsed = _parse_response(response, expected_ids)
             except Exception as exc:
@@ -251,11 +295,13 @@ def run(
             )
             log.warning("Raw response (first 500 chars):\n%s", response[:500])
 
+        batch_by_id = {wnja_id: (ja, en) for wnja_id, ja, en in batch}
         for wnja_id, _, _ in batch:
             if wnja_id in parsed:
                 verdict, note, suggestion = parsed[wnja_id]
             else:
                 verdict, note, suggestion = "SKIP", "parse failure — not in model output", None
+                parse_failed.append((wnja_id, *batch_by_id[wnja_id]))
             db.save_result(
                 wnja_id, "definition", "", verdict,
                 model=model, prompt_style=prompt_style,
@@ -277,6 +323,55 @@ def run(
                 "  batch %d/%d | OK=%d DRIFT=%d WRONG=%d",
                 batch_num, total_batches, n_ok, n_drift, n_wrong,
             )
+
+    # Cleanup pass: retry parse failures one at a time
+    if parse_failed:
+        log.info(
+            "Cleanup pass: retrying %d parse-failed synsets individually",
+            len(parse_failed),
+        )
+        recovered = 0
+        for wnja_id, ja, en in parse_failed:
+            user_turn = _format_user_turn([(wnja_id, ja, en)], prompt_style)
+            parsed1: dict[str, tuple[str, str, str | None]] = {}
+            for attempt in range(retry_limit + 1):
+                try:
+                    response = generator.chat(
+                        system=_SYSTEM_PROMPT,
+                        user=user_turn,
+                        max_tokens=2000,
+                    )
+                    parsed1 = _parse_response(response, [wnja_id])
+                except Exception as exc:
+                    log.warning("Cleanup LLM error (attempt %d): %s", attempt + 1, exc)
+                    time.sleep(2)
+                    continue
+                if wnja_id in parsed1:
+                    break
+                log.warning("Cleanup attempt %d: still no parse for %s", attempt + 1, wnja_id)
+                log.warning("Raw response (first 500 chars):\n%s", response[:500])
+
+            if wnja_id in parsed1:
+                verdict, note, suggestion = parsed1[wnja_id]
+                db.save_result(
+                    wnja_id, "definition", "", verdict,
+                    model=model, prompt_style=prompt_style,
+                    evidence=note, suggestion=suggestion, en_source="ntumc-eng",
+                )
+                n_skipped -= 1
+                if verdict == "OK":
+                    n_ok += 1
+                elif verdict == "DRIFT":
+                    n_drift += 1
+                elif verdict == "WRONG":
+                    n_wrong += 1
+                else:
+                    n_skipped += 1
+                recovered += 1
+            else:
+                log.warning("Cleanup: giving up on %s", wnja_id)
+
+        log.info("Cleanup pass: recovered %d / %d", recovered, len(parse_failed))
 
     log.info(
         "Definition check complete: %d OK, %d DRIFT, %d WRONG, %d skipped",

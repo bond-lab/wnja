@@ -82,8 +82,8 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     p.add_argument(
         "--model",
-        default="qwen3.5:latest",
-        help="Ollama model tag, e.g. 'qwen3.5:latest' or 'gemma4:latest'.",
+        default="mlx-community/Qwen3-32B-4bit",
+        help="MLX model repo id, e.g. 'mlx-community/Qwen3-32B-4bit'.",
     )
     p.add_argument(
         "--prompt-style",

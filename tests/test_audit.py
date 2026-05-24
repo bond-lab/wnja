@@ -215,60 +215,57 @@ class TestWiktionaryLookup:
 
 
 # ---------------------------------------------------------------------------
-# Definition check: _parse_response
+# Definition check: _parse_response (JSON/Pydantic format)
 # ---------------------------------------------------------------------------
 
 
 def test_definition_parse_response():
     from audit.checks.definitions import _parse_response
+    import json
 
-    response = (
-        "wnja-00000001-n | OK | correct\n"
-        "wnja-00000002-n | DRIFT | too narrow\n"
-        "wnja-00000003-n | WRONG | totally different\n"
-    )
+    response = json.dumps({"verdicts": [
+        {"id": "wnja-00000001-n", "verdict": "OK", "note": "correct", "suggestion": ""},
+        {"id": "wnja-00000002-n", "verdict": "DRIFT", "note": "too narrow", "suggestion": "改善案"},
+        {"id": "wnja-00000003-n", "verdict": "WRONG", "note": "totally different", "suggestion": "別の定義"},
+    ]})
     expected = ["wnja-00000001-n", "wnja-00000002-n", "wnja-00000003-n"]
     results = _parse_response(response, expected)
     assert results["wnja-00000001-n"][:2] == ("OK", "correct")
+    assert results["wnja-00000001-n"][2] is None  # empty suggestion → None
     assert results["wnja-00000002-n"][:2] == ("DRIFT", "too narrow")
+    assert results["wnja-00000002-n"][2] == "改善案"
     assert results["wnja-00000003-n"][:2] == ("WRONG", "totally different")
 
 
-def test_definition_parse_response_verbose_fallback():
+def test_definition_parse_response_invalid_json():
     from audit.checks.definitions import _parse_response
 
-    response = (
-        "<|channel>thought\n"
-        "*   ID: wnja-00000001-n\n"
-        "    *   EN: a test\n"
-        "    *   JA: テスト\n"
-        "    *   Verdict: OK.\n"
-        "*   ID: wnja-00000002-n\n"
-        "    *   EN: another\n"
-        "    *   JA: 別の\n"
-        "    *   Verdict: DRIFT.\n"
-    )
-    expected = ["wnja-00000001-n", "wnja-00000002-n"]
-    results = _parse_response(response, expected)
-    assert results["wnja-00000001-n"][0] == "OK"
-    assert results["wnja-00000002-n"][0] == "DRIFT"
+    results = _parse_response("not valid json at all", ["wnja-00000001-n"])
+    assert results == {}
 
 
 def test_definition_parse_response_missing():
     from audit.checks.definitions import _parse_response
+    import json
 
-    response = "wnja-00000001-n | OK | fine\n"
+    response = json.dumps({"verdicts": [
+        {"id": "wnja-00000001-n", "verdict": "OK", "note": "fine", "suggestion": ""},
+    ]})
     results = _parse_response(response, ["wnja-00000001-n", "wnja-99999999-n"])
     assert "wnja-00000001-n" in results
     assert "wnja-99999999-n" not in results
 
 
-def test_definition_parse_response_case_insensitive():
+def test_definition_parse_response_suggestion_none():
     from audit.checks.definitions import _parse_response
+    import json
 
-    response = "wnja-00000001-n | ok | fine\n"
+    response = json.dumps({"verdicts": [
+        {"id": "wnja-00000001-n", "verdict": "OK", "note": "fine", "suggestion": ""},
+    ]})
     results = _parse_response(response, ["wnja-00000001-n"])
     assert results["wnja-00000001-n"][0] == "OK"
+    assert results["wnja-00000001-n"][2] is None  # empty string → None
 
 
 # ---------------------------------------------------------------------------

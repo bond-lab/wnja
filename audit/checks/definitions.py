@@ -18,25 +18,49 @@ Japanese definition, stored in the ``suggestion`` column.
 
 Prompt styles
 -------------
-zero-shot   Task description and format only; no examples.
+zero-shot   Task description only; no examples.
 one-shot    One DRIFT example prepended to the user turn.
 few-shot    Three labelled examples (one per class) prepended.
 
 Results are written to AuditDB keyed on
 (synset_id, 'definition', '', model, prompt_style)
 so all combinations coexist in the same database.
+
+Output format
+-------------
+Structured output via Pydantic schema — ``DefinitionCheck`` with a
+``verdicts`` list. The Ollama schema enforcement means no format
+instructions are needed in the prompt.
 """
 from __future__ import annotations
 
 import logging
-import re
 import time
+from typing import Literal
+
+from pydantic import BaseModel
 
 from audit.db import AuditDB
 from audit.llm import Generator
 from audit.loader import SynsetData
 
 log = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Pydantic schema for structured output
+# ---------------------------------------------------------------------------
+
+
+class Verdict(BaseModel):
+    id: str
+    verdict: Literal["OK", "DRIFT", "WRONG"]
+    note: str
+    suggestion: str  # empty string for OK
+
+
+class DefinitionCheck(BaseModel):
+    verdicts: list[Verdict]
+
 
 # ---------------------------------------------------------------------------
 # Prompt components
@@ -53,65 +77,51 @@ Verdicts:
   DRIFT — related but shifted: too narrow, too broad, or emphasises the wrong aspect
   WRONG — substantially different meaning; likely a mistranslation or wrong source
 
-For DRIFT and WRONG, also provide a suggested improved Japanese definition.
-
-Reply with EXACTLY one line per synset. No extra text, no preamble:
-  <ID> | OK | <brief note in English>
-  <ID> | DRIFT | <brief note in English> | SUGGESTED: <improved Japanese definition>
-  <ID> | WRONG | <brief note in English> | SUGGESTED: <improved Japanese definition>\
+For DRIFT and WRONG, provide a suggested improved Japanese definition in the \
+suggestion field. For OK, leave suggestion empty.\
 """
 
 _ONE_SHOT_EXAMPLES = """\
 Here is one labelled example to illustrate the verdict criteria:
 
-  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
+  ID: wnja-00727002-n | POS: n | EN members: halfback
   EN: the position of a back on a football team, generally smaller in size than a fullback
   JA: フットボールチームの後ろのポジション
+  → DRIFT: JA omits the key qualifier "generally smaller than a fullback"
+  → Suggested: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
 
-Now evaluate the following synsets using the same format:
+Now evaluate the following synsets:
 """
 
 _FEW_SHOT_EXAMPLES = """\
 Here are three labelled examples to illustrate the verdict criteria:
 
-  wnja-07471246-n | OK | direct and complete translation ("レスラーの試合" = "a match between wrestlers")
+  ID: wnja-07471246-n | POS: n | EN members: wrestling match
   EN: a match between wrestlers
   JA: レスラーの試合
+  → OK: direct and complete translation
 
-  wnja-00727002-n | DRIFT | JA omits the key qualifier "generally smaller than a fullback" | SUGGESTED: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
+  ID: wnja-00727002-n | POS: n | EN members: halfback
   EN: the position of a back on a football team, generally smaller in size than a fullback
   JA: フットボールチームの後ろのポジション
+  → DRIFT: JA omits the key qualifier "generally smaller than a fullback"
+  → Suggested: フットボールチームのバックのポジションで、一般的にフルバックより小柄な選手
 
-  wnja-SYNTH-WRONG | WRONG | JA describes a financial institution; EN describes a riverbank | SUGGESTED: 水辺に沿った傾斜した土地
+  ID: wnja-SYNTH-WRONG | POS: n | EN members: bank · riverbank
   EN: sloping land beside a body of water
   JA: 金融機関。預金、貸出、為替などの業務を行う
+  → WRONG: JA describes a financial institution; EN describes a riverbank
+  → Suggested: 水辺に沿った傾斜した土地
 
-Now evaluate the following synsets using the same format:
+Now evaluate the following synsets:
 """
 
 _FEW_SHOT_IDS = {"wnja-07471246-n", "wnja-00727002-n"}  # exclude from dev set
 
-# ---------------------------------------------------------------------------
-# Parsing
-# ---------------------------------------------------------------------------
 
-# Primary: pipe-delimited with optional suggestion
-# wnja-XXXXXXXX-n | OK | note
-# wnja-XXXXXXXX-n | DRIFT | note | SUGGESTED: 改善された定義
-_LINE_RE = re.compile(
-    r"(wnja-\S+)\s*\|\s*(OK|DRIFT|WRONG)\s*\|\s*(.*?)(?:\|\s*SUGGESTED:\s*(.+))?$",
-    re.IGNORECASE,
-)
-# Fallback for verbose block format (thinking-mode models):
-#   ID: wnja-XXXXXXXX-n  ...  Verdict: OK.  [Suggested: ...]
-_BLOCK_ID_RE = re.compile(r"\bID:\s*(wnja-\S+)", re.IGNORECASE)
-_BLOCK_VERDICT_RE = re.compile(r"\bVerdict:\s*(OK|DRIFT|WRONG)", re.IGNORECASE)
-_BLOCK_SUGGEST_RE = re.compile(r"\bSuggested?:\s*(.+)", re.IGNORECASE)
-# Gemma-style thinking blocks: <|channel >thought ... <|channel >
-_THINK_RE = re.compile(r"<\|channel\s*>thought.*?(?=<\|channel\s*>|\Z)", re.DOTALL)
-# Qwen3-style thinking blocks: <think> ... </think>
-_QWEN_THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
-
+# ---------------------------------------------------------------------------
+# Formatting and parsing
+# ---------------------------------------------------------------------------
 
 def _ntumc_id(wnja_id: str) -> str:
     return wnja_id.replace("wnja-", "ntumc-en-", 1)
@@ -142,43 +152,20 @@ def _parse_response(
     response: str,
     expected_ids: list[str],
 ) -> dict[str, tuple[str, str, str | None]]:
-    """Parse model output into {wnja_id: (verdict, note, suggestion)}.
+    """Parse JSON model output into {wnja_id: (verdict, note, suggestion)}.
 
-    Tries pipe-delimited format first; falls back to verbose block format
-    produced by thinking-mode models (Gemma 4, Qwen3).
+    Uses Pydantic validation on the JSON response from the model.
     """
+    try:
+        check = DefinitionCheck.model_validate_json(response)
+    except Exception as exc:
+        log.debug("Pydantic parse failed (%s); response snippet: %s", exc, response[:200])
+        return {}
+
     results: dict[str, tuple[str, str, str | None]] = {}
-
-    # Strip thinking blocks so the final response is parsed cleanly
-    final_text = _THINK_RE.sub("", response)
-    final_text = _QWEN_THINK_RE.sub("", final_text).strip() or response
-
-    # Primary: pipe-delimited
-    for line in final_text.splitlines():
-        m = _LINE_RE.search(line)
-        if m:
-            suggestion = m.group(4).strip() if m.group(4) else None
-            results[m.group(1)] = (m.group(2).upper(), m.group(3).strip(), suggestion)
-
-    # Fallback: verbose block format
-    if not results:
-        current_id: str | None = None
-        current_suggestion: str | None = None
-        for line in response.splitlines():
-            id_m = _BLOCK_ID_RE.search(line)
-            if id_m:
-                current_id = id_m.group(1)
-                current_suggestion = None
-            if current_id:
-                sug_m = _BLOCK_SUGGEST_RE.search(line)
-                if sug_m:
-                    current_suggestion = sug_m.group(1).strip()
-                v_m = _BLOCK_VERDICT_RE.search(line)
-                if v_m:
-                    results[current_id] = (
-                        v_m.group(1).upper(), "from thinking block", current_suggestion
-                    )
-                    current_id = None
+    for v in check.verdicts:
+        suggestion: str | None = v.suggestion if v.suggestion else None
+        results[v.id] = (v.verdict, v.note, suggestion)
 
     missing = [eid for eid in expected_ids if eid not in results]
     if missing:
@@ -249,6 +236,7 @@ def run(
                     system=_SYSTEM_PROMPT,
                     user=user_turn,
                     max_tokens=batch_size * 400,
+                    schema=DefinitionCheck,
                 )
                 parsed = _parse_response(response, expected_ids)
             except Exception as exc:

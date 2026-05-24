@@ -1,122 +1,125 @@
-"""MLX-based LLM interface for the wnja audit pipeline.
+"""Ollama-based LLM interface for the wnja audit pipeline.
 
-Uses ``mlx_lm`` with Apple Silicon unified memory (M4 Max target).
-Supports both a raw ``generate()`` call and a structured ``chat()`` call
-that applies the model's own chat template (system + user turns).
-
-Using chat() is strongly preferred for instruct-tuned models (Gemma 3 it,
-Qwen2.5 Instruct) because it applies the correct special tokens and role
-delimiters that the model was fine-tuned on.
+Uses the native Ollama /api/generate endpoint via httpx.
+Thinking mode is disabled (think=False) for speed.
+Pass a Pydantic model class (or raw JSON Schema dict) via ``schema`` for
+structured output — no format instructions needed in the prompt.
 
 Usage::
 
-    gen = Generator("mlx-community/gemma-3-27b-it-4bit")
+    from pydantic import BaseModel
+    from typing import Literal
+
+    class Reply(BaseModel):
+        verdict: Literal["OK", "BAD"]
+
+    gen = Generator("qwen3.5:latest")
     response = gen.chat(
-        system="You are a linguistics expert.",
-        user="Evaluate these definitions: ...",
-        max_tokens=512,
+        system="You are a reviewer.",
+        user="Is this correct?",
+        schema=Reply,
     )
+    result = Reply.model_validate_json(response)
 """
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from pydantic import BaseModel
 
 log = logging.getLogger(__name__)
 
+_OLLAMA_BASE_URL = "http://localhost:11434"
+
 
 class Generator:
-    """Wrapper around mlx_lm for single-model inference.
+    """Wrapper around the Ollama /api/generate endpoint.
 
     Args:
-        model: MLX model repo id, e.g. 'mlx-community/gemma-3-27b-it-4bit'
-            or 'mlx-community/Qwen2.5-32B-Instruct-4bit'.
-        max_tokens: Default generation budget.
-        temp: Sampling temperature. Use 0.0 for deterministic output.
+        model: Ollama model tag, e.g. 'qwen3.5:latest' or 'gemma4:latest'.
+        max_tokens: Default generation budget (num_predict).
+        temp: Sampling temperature. Defaults to 0.0 for deterministic output.
+        base_url: Ollama server base URL.
     """
 
     def __init__(
         self,
-        model: str = "mlx-community/gemma-3-27b-it-4bit",
+        model: str = "qwen3.5:latest",
         max_tokens: int = 512,
         temp: float = 0.0,
+        base_url: str = _OLLAMA_BASE_URL,
     ) -> None:
         self.model_id = model
         self.max_tokens = max_tokens
         self.temp = temp
-        self._model = None
-        self._tokenizer = None
-        self._load()
-
-    def _load(self) -> None:
-        try:
-            from mlx_lm import load  # type: ignore[import]
-        except ImportError as exc:
-            raise ImportError(
-                "mlx_lm is not installed. On Apple Silicon run: pip install mlx-lm"
-            ) from exc
-        log.info("Loading MLX model %s …", self.model_id)
-        self._model, self._tokenizer = load(self.model_id)
-        log.info("Model loaded.")
-
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
+        self._base_url = base_url.rstrip("/")
+        log.info("Ollama generator: model=%s base_url=%s", model, base_url)
 
     def chat(
         self,
         system: str,
         user: str,
         max_tokens: int | None = None,
+        schema: "type[BaseModel] | dict | None" = None,
+        think: bool = False,
     ) -> str:
-        """Generate a response using the model's chat template.
-
-        Applies ``tokenizer.apply_chat_template`` with system and user roles
-        so that instruct models receive properly formatted input.
+        """Generate a response using the Ollama generate API.
 
         Args:
-            system: System prompt (task description, output format rules).
-            user: User turn (the actual data to evaluate this call).
-            max_tokens: Token budget; defaults to ``self.max_tokens``.
+            system: System prompt (task description; no format instructions needed
+                    when ``schema`` is provided — the schema enforces the format).
+            user: User turn content.
+            max_tokens: Token budget; defaults to self.max_tokens.
+            schema: Pydantic model class or raw JSON Schema dict. When provided,
+                    the model output is constrained to match this schema and
+                    will always be valid JSON.
+            think: Enable extended thinking mode (default False). When True the
+                   model reasons step-by-step before answering; this can improve
+                   accuracy at the cost of significantly more tokens and time.
 
         Returns:
             Generated text, stripped of surrounding whitespace.
         """
-        messages = [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ]
-        prompt = self._tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
-        )
-        return self._generate_raw(prompt, max_tokens or self.max_tokens)
+        try:
+            import httpx
+        except ImportError as exc:
+            raise ImportError("httpx is not installed. Run: uv add httpx") from exc
 
-    def generate(self, prompt: str, max_tokens: int | None = None) -> str:
-        """Generate from a raw prompt string (no chat template applied).
+        fmt: dict | None = None
+        if schema is not None:
+            if isinstance(schema, dict):
+                fmt = schema
+            else:
+                fmt = schema.model_json_schema()
 
-        Use ``chat()`` instead for instruct models.
+        payload: dict = {
+            "model": self.model_id,
+            "think": think,
+            "system": system,
+            "prompt": user,
+            "stream": False,
+            "keep_alive": "30m",
+            "options": {
+                "temperature": self.temp,
+                "num_predict": max_tokens or self.max_tokens,
+            },
+        }
+        if fmt is not None:
+            if think:
+                # Ollama 0.21.2: format constraints are incompatible with think=True;
+                # the response comes back empty. Drop the schema and let the caller
+                # handle unstructured output.
+                log.warning(
+                    "think=True is incompatible with schema enforcement in Ollama 0.21.2 "
+                    "— schema ignored; model output will be unstructured."
+                )
+            else:
+                payload["format"] = fmt
 
-        Args:
-            prompt: Raw prompt string.
-            max_tokens: Token budget; defaults to ``self.max_tokens``.
+        with httpx.Client(timeout=300.0) as client:
+            resp = client.post(f"{self._base_url}/api/generate", json=payload)
+            resp.raise_for_status()
 
-        Returns:
-            Generated text, stripped of surrounding whitespace.
-        """
-        return self._generate_raw(prompt, max_tokens or self.max_tokens)
-
-    # ------------------------------------------------------------------
-    # Internal
-    # ------------------------------------------------------------------
-
-    def _generate_raw(self, prompt: str, max_tokens: int) -> str:
-        from mlx_lm import generate  # type: ignore[import]
-        # temperature API varies across mlx_lm versions; omit it and use library default
-        return generate(
-            self._model,
-            self._tokenizer,
-            prompt=prompt,
-            max_tokens=max_tokens,
-            verbose=False,
-        ).strip()
+        return resp.json()["response"].strip()

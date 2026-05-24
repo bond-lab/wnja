@@ -87,7 +87,8 @@ ORPHAN_ENTRIES: list[tuple[str, str, list[tuple[str, str | None]]]] = [
     # wnja-80001271-n: honorific prefix (敬意を表するために…名称の前に置かれる敬称)
     ("wnja-80001271-n", "n", [("お", "hira"), ("御", None), ("ご", "hira")]),
     # wnja-80002298-n: doom-sayer / pessimist
-    ("wnja-80002298-n", "n", [("悲観論者", None), ("ペシミスト", "kana")]),
+    # 悲観論者 already exists in wnja-10419472-n (NTU-MC); use kana form as canonical
+    ("wnja-80002298-n", "n", [("ペシミスト", "kana"), ("悲観論者", None)]),
     # wnja-80002384-a: tandoori (cooked in an Indian clay oven)
     ("wnja-80002384-a", "a", [("タンドーリ", "kana"), ("タンドール", "kana")]),
     # wnja-80002385-v: to pre-fry / sauté first before final cooking

@@ -165,6 +165,64 @@ def load_gold(path: Path) -> dict[str, str]:
 # Evaluation
 # ---------------------------------------------------------------------------
 
+def _fmt_time(seconds: float) -> str:
+    mins, secs = divmod(int(seconds), 60)
+    return f"{mins}m{secs:02d}s"
+
+
+def _macro_f1(gold: list[str], pred: list[str], labels: list[str]) -> float:
+    f1s = [_precision_recall_f1(gold, pred, lbl)[2] for lbl in labels]
+    return sum(f1s) / len(f1s) if f1s else 0.0
+
+
+def table(gold: dict[str, str], db_path: Path) -> None:
+    """Print a compact cross-run comparison table.
+
+    Args:
+        gold: {synset_id: verdict} from load_gold() (SKIP entries excluded).
+        db_path: Path to audit.db.
+    """
+    conn = sqlite3.connect(str(db_path))
+    labels = ["OK", "DRIFT", "WRONG"]
+
+    runs = conn.execute(
+        "SELECT model, prompt_style, elapsed_seconds, n_ok, n_drift, n_wrong "
+        "FROM runs ORDER BY created_at"
+    ).fetchall()
+
+    hdr = f"{'Model':<26} {'Style':<10} {'Time':>7}  {'OK':>4} {'Drift':>5} {'Wrong':>5}  {'F1':>6}  {'WRONG-F1':>8}"
+    print(hdr)
+    print("-" * len(hdr))
+
+    for model, prompt_style, elapsed, n_ok, n_drift, n_wrong in runs:
+        short_model = model.replace("mlx-community/", "")
+        time_str = _fmt_time(elapsed) if elapsed else "—"
+
+        rows = conn.execute(
+            "SELECT synset_id, verdict FROM results "
+            "WHERE check_type='definition' AND item='' AND model=? AND prompt_style=?",
+            (model, prompt_style),
+        ).fetchall()
+        preds = {ss: v for ss, v in rows}
+
+        common = [ss for ss in gold if ss in preds]
+        if common:
+            g = [gold[ss] for ss in common]
+            p = [preds[ss] for ss in common]
+            mf1 = _macro_f1(g, p, labels)
+            _, _, wf1 = _precision_recall_f1(g, p, "WRONG")
+        else:
+            mf1 = wf1 = 0.0
+
+        print(
+            f"{short_model:<26} {prompt_style:<10} {time_str:>7}  "
+            f"{n_ok or 0:>4} {n_drift or 0:>5} {n_wrong or 0:>5}  "
+            f"{mf1:>6.2f}  {wf1:>8.2f}"
+        )
+
+    conn.close()
+
+
 def _precision_recall_f1(
     gold: list[str], pred: list[str], label: str
 ) -> tuple[float, float, float]:
@@ -324,6 +382,14 @@ def main(argv: list[str] | None = None) -> None:
     sp.add_argument("--out", type=Path, default=Path("audit/dev_set.tsv"))
     sp.add_argument("--seed", type=int, default=42)
 
+    # --- table ---
+    tp = sub.add_parser("table", help="Print compact cross-run comparison table.")
+    tp.add_argument(
+        "--gold", type=Path, default=Path("audit/dev_set.tsv"),
+        help="Annotated dev TSV with 'gold' column filled in.",
+    )
+    tp.add_argument("--db", type=Path, default=Path("audit.db"))
+
     # --- evaluate ---
     ep = sub.add_parser("evaluate", help="Evaluate model predictions against gold.")
     ep.add_argument(
@@ -343,7 +409,19 @@ def main(argv: list[str] | None = None) -> None:
 
     args = p.parse_args(argv)
 
-    if args.cmd == "sample":
+    if args.cmd == "table":
+        if not args.gold.exists():
+            print(f"ERROR: gold file {args.gold} not found", file=sys.stderr)
+            sys.exit(1)
+        gold = load_gold(args.gold)
+        annotated = {ss: v for ss, v in gold.items() if v and v != "SKIP"}
+        print(f"Gold: {len(annotated)} synsets  "
+              f"(OK={sum(v=='OK' for v in annotated.values())} "
+              f"DRIFT={sum(v=='DRIFT' for v in annotated.values())} "
+              f"WRONG={sum(v=='WRONG' for v in annotated.values())})\n")
+        table(annotated, args.db)
+
+    elif args.cmd == "sample":
         if not args.lmf.exists():
             print(f"ERROR: {args.lmf} not found", file=sys.stderr)
             sys.exit(1)

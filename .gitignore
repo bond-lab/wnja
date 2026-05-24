@@ -1,5 +1,6 @@
 *~
 tmp
+latex/
 .venv/
 __pycache__/
 *.pyc

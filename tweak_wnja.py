@@ -13,12 +13,14 @@ Run after build_wnja.py:
   uv run python tweak_wnja.py
 """
 
+import csv
 import logging
 import sys
 from pathlib import Path
 
 from wn_edit import WordnetEditor, make_lemma, make_sense, make_lexical_entry
 
+CORRECTIONS_DIR = Path("corrections")
 LOG_FILE = Path("wnja.log")
 OUTPUT = Path("wnja-2.0.xml")
 
@@ -93,6 +95,46 @@ ORPHAN_ENTRIES: list[tuple[str, str, list[tuple[str, str | None]]]] = [
 ]
 
 
+def apply_corrections(editor: WordnetEditor, corrections_dir: Path) -> int:
+    """Apply manual definition corrections from corrections/definitions.tsv.
+
+    Skips (with a warning) any row whose old_value does not match the current
+    definition — this catches stale corrections after upstream data changes.
+
+    Returns the number of corrections applied.
+    """
+    tsv = corrections_dir / "definitions.tsv"
+    if not tsv.exists():
+        log.info("No definitions.tsv found in %s, skipping corrections", corrections_dir)
+        return 0
+
+    applied = 0
+    with tsv.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            ss_id = row["synset_id"]
+            synset = editor._synset_by_id.get(ss_id)
+            if synset is None:
+                log.warning("corrections: synset %s not found, skipping", ss_id)
+                continue
+            defs = synset.get("definitions") or []
+            if not defs:
+                log.warning("corrections: %s has no definitions, skipping", ss_id)
+                continue
+            current = defs[0]["text"]
+            if current != row["old_value"]:
+                log.warning(
+                    "corrections: %s old_value mismatch — correction may be stale\n"
+                    "  expected: %s\n"
+                    "  current:  %s",
+                    ss_id, row["old_value"], current,
+                )
+                continue
+            defs[0]["text"] = row["new_value"]
+            applied += 1
+            log.info("  corrected %s: %s → %s", ss_id, row["old_value"][:60], row["new_value"][:60])
+    return applied
+
+
 def apply_orphan_entries(editor: WordnetEditor) -> int:
     """Add Japanese entries for JP-origin orphan synsets."""
     added = 0
@@ -125,6 +167,10 @@ def main() -> None:
     log.info("Loading %s …", OUTPUT)
     editor = WordnetEditor.load_from_file(OUTPUT)
     log.info("  %d synsets loaded", len(editor._synset_by_id))
+
+    log.info("Applying definition corrections …")
+    n = apply_corrections(editor, CORRECTIONS_DIR)
+    log.info("  %d corrections applied", n)
 
     log.info("Applying temperature antonyms …")
     n = apply_temperature_antonyms(editor)

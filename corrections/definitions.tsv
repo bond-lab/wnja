@@ -1,0 +1,10 @@
+synset_id	old_value	new_value	reason	source	date
+wnja-03367410-n	花と装飾植物が売られている店	花と観賞植物が売られている店	装飾植物→観賞植物: ornamental plants are 観賞植物 in botanical Japanese; 装飾 is for decorative objects	audit/ornamental	2026-05-24
+wnja-11618290-n	2つの束の中で長い針を持つ大きな日本の装飾物; 塩分とスモッグに強いので米国で広く植栽されている	2つの束の中で長い針を持つ大きな日本の観賞樹; 塩分とスモッグに強いので米国で広く植栽されている	装飾物→観賞樹: EN "ornamental" used as noun for a tree; 装飾物 means decorative object	audit/ornamental	2026-05-24
+wnja-11664418-n	中国産の雌雄異株の落葉樹で、扇形の葉と多肉質の黄色い種子を持つ; 特に装飾目的の道にある木として栽培されるためだけにほぼ存在する	中国産の雌雄異株の落葉樹で、扇形の葉と多肉質の黄色い種子を持つ; 特に観賞用の街路樹として栽培されるためだけにほぼ存在する	装飾目的の道にある木→観賞用の街路樹: EN "ornamental street tree"; 街路樹 is the standard term	audit/ornamental	2026-05-24
+wnja-11711537-n	葉が開く前に香りのよい白く星型の花を咲かせる日本産の落葉性の低木のマグノリア; 米国で装飾物として栽培されている	葉が開く前に香りのよい白く星型の花を咲かせる日本産の落葉性の低木のマグノリア; 米国で観賞植物として栽培されている	装飾物として→観賞植物として: EN "grown as an ornamental"; 装飾物 means decorative object not ornamental plant	audit/ornamental	2026-05-24
+wnja-11729478-n	通常鮮やかな花を咲かせるクレマチス類の様々な装飾用のつる性植物	通常鮮やかな花を咲かせるクレマチス類の様々な観賞用のつる性植物	装飾用→観賞用: ornamental climbing plants; 観賞用 is standard for plants grown for beauty	audit/ornamental	2026-05-24
+wnja-11838916-n	輝かしい赤の、または、紫色の花の包葉を持っている類概念Bougainvilleaのいくつかの南米の装飾用の樹木の茂ったつる植物のいずれも; 暖かい地域で広く栽培される	輝かしい赤の、または、紫色の花の包葉を持っている類概念Bougainvilleaのいくつかの南米の観賞用の木本性つる植物のいずれも; 暖かい地域で広く栽培される	装飾用→観賞用: ornamental woody vines (bougainvillea); 観賞用 is standard	audit/ornamental	2026-05-24
+wnja-11892029-n	マルコミア属の様々な装飾用顕花植物	マルコミア属の様々な観賞用顕花植物	装飾用→観賞用: ornamental flowering plants; 観賞用 is standard for plants	audit/ornamental	2026-05-24
+wnja-12088495-n	艶のあるハートの形をしたシナモンの香りのする葉のために、装飾に重宝されるとして米国で気化され栽培された中国の固いつる植物で、熱帯では、食用の塊茎として栽培されている	艶のあるハートの形をしたシナモンの香りのする葉のために、観賞用として米国で栽培された中国の固いつる植物で、熱帯では、食用の塊茎として栽培されている	装飾に重宝される→観賞用: EN "cultivated as an ornamental climber"; also removes the odd 気化され	audit/ornamental	2026-05-24
+wnja-12896862-n	小さな南米の低木で、豊富で装飾的だが有毒な赤または黄色のさくらんぼ大の果実のために家庭用として栽培される	小さな南米の低木で、豊富で観賞用だが有毒な赤または黄色のさくらんぼ大の果実のために栽培される	装飾的→観賞用: EN "ornamental but poisonous"; plant context requires 観賞用 not 装飾的	audit/ornamental	2026-05-24

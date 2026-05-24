@@ -107,7 +107,10 @@ _LINE_RE = re.compile(
 _BLOCK_ID_RE = re.compile(r"\bID:\s*(wnja-\S+)", re.IGNORECASE)
 _BLOCK_VERDICT_RE = re.compile(r"\bVerdict:\s*(OK|DRIFT|WRONG)", re.IGNORECASE)
 _BLOCK_SUGGEST_RE = re.compile(r"\bSuggested?:\s*(.+)", re.IGNORECASE)
+# Gemma-style thinking blocks: <|channel >thought ... <|channel >
 _THINK_RE = re.compile(r"<\|channel\s*>thought.*?(?=<\|channel\s*>|\Z)", re.DOTALL)
+# Qwen3-style thinking blocks: <think> ... </think>
+_QWEN_THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
 
 
 def _ntumc_id(wnja_id: str) -> str:
@@ -147,7 +150,8 @@ def _parse_response(
     results: dict[str, tuple[str, str, str | None]] = {}
 
     # Strip thinking blocks so the final response is parsed cleanly
-    final_text = _THINK_RE.sub("", response).strip() or response
+    final_text = _THINK_RE.sub("", response)
+    final_text = _QWEN_THINK_RE.sub("", final_text).strip() or response
 
     # Primary: pipe-delimited
     for line in final_text.splitlines():
@@ -263,7 +267,7 @@ def run(
             if wnja_id in parsed:
                 verdict, note, suggestion = parsed[wnja_id]
             else:
-                verdict, note, suggestion = "WRONG", "parse failure — not in model output", None
+                verdict, note, suggestion = "SKIP", "parse failure — not in model output", None
             db.save_result(
                 wnja_id, "definition", "", verdict,
                 model=model, prompt_style=prompt_style,
@@ -273,8 +277,10 @@ def run(
                 n_ok += 1
             elif verdict == "DRIFT":
                 n_drift += 1
-            else:
+            elif verdict == "WRONG":
                 n_wrong += 1
+            else:
+                n_skipped += 1
 
         batch_num = batch_start // batch_size + 1
         total_batches = (len(todo) + batch_size - 1) // batch_size

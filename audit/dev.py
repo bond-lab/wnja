@@ -186,7 +186,7 @@ def table(gold: dict[str, str], db_path: Path) -> None:
     labels = ["OK", "DRIFT", "WRONG"]
 
     runs = conn.execute(
-        "SELECT model, prompt_style, elapsed_seconds, n_ok, n_drift, n_wrong "
+        "SELECT model, prompt_style, elapsed_seconds "
         "FROM runs ORDER BY created_at"
     ).fetchall()
 
@@ -194,7 +194,7 @@ def table(gold: dict[str, str], db_path: Path) -> None:
     print(hdr)
     print("-" * len(hdr))
 
-    for model, prompt_style, elapsed, n_ok, n_drift, n_wrong in runs:
+    for model, prompt_style, elapsed in runs:
         short_model = model.replace("mlx-community/", "")
         time_str = _fmt_time(elapsed) if elapsed else "—"
 
@@ -204,6 +204,11 @@ def table(gold: dict[str, str], db_path: Path) -> None:
             (model, prompt_style),
         ).fetchall()
         preds = {ss: v for ss, v in rows}
+
+        # Compute verdict totals from results table (runs table only has incremental counts)
+        r_ok = sum(1 for v in preds.values() if v == "OK")
+        r_drift = sum(1 for v in preds.values() if v == "DRIFT")
+        r_wrong = sum(1 for v in preds.values() if v == "WRONG")
 
         common = [ss for ss in gold if ss in preds]
         if common:
@@ -216,7 +221,7 @@ def table(gold: dict[str, str], db_path: Path) -> None:
 
         print(
             f"{short_model:<26} {prompt_style:<10} {time_str:>7}  "
-            f"{n_ok or 0:>4} {n_drift or 0:>5} {n_wrong or 0:>5}  "
+            f"{r_ok:>4} {r_drift:>5} {r_wrong:>5}  "
             f"{mf1:>6.2f}  {wf1:>8.2f}"
         )
 

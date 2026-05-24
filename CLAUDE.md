@@ -88,32 +88,48 @@ uv run python -m audit.cli \
 uv run python -m audit.dev table --gold audit/dev_set.tsv --db audit_dev.db
 ```
 
-### Ollama best practices
-- **Backend**: native `/api/generate` endpoint via httpx (not OpenAI-compatible `/v1/`).
-  The native API supports `think=False` and the `system` parameter separately.
-- **Thinking mode**: `think=False` by default. Thinking mode (`think=True`) is
-  incompatible with Ollama schema enforcement in v0.21.2 — returns empty response.
-  Without schema, thinking works but is ~3× slower.
-- **Structured output**: pass a Pydantic model class as `schema=` to `Generator.chat()`.
-  Ollama uses grammar-based generation to enforce the schema exactly — no format
-  instructions needed in the prompt. Handles `$defs`/`$ref` from Pydantic schemas.
-- **keep_alive**: set to `"30m"` to avoid reloading the model between batches.
+### Inference best practices (mlx_lm)
+- **Backend**: `mlx_lm` via `audit/llm.py` `Generator` class. Loads model into
+  Apple Silicon unified memory; uses `apply_chat_template` for instruct models.
+- **Output format**: pipe-delimited text — `<ID> | OK|DRIFT|WRONG | note [| SUGGESTED: ...]`.
+  Parser strips `<think>…</think>` blocks, tries pipe-delimited then verbose block fallback.
+  A cleanup pass retries any parse failures one synset at a time.
 - **Temperature**: defaults to 0.0 for deterministic output.
-- **Parallelism**: don't run two inference jobs in parallel — they share the GPU
-  and Ollama queues requests anyway. Run sequentially.
+- **Parallelism**: run one model at a time — inference is GPU-bound and
+  concurrent jobs share unified memory, causing thrashing.
 - **Model sizes**: larger models give substantially better F1.
-  Qwen3-32B-4bit (mlx): F1=0.79 zero-shot. qwen3.5:latest (9.7B Ollama): F1=0.53.
+  Qwen3-32B-4bit (mlx): F1=0.72 zero-shot on full 147-synset gold set.
   Use the largest model that fits in VRAM for production audits.
-- **Prompt style**: zero-shot works best for smaller models; few-shot examples
-  can degrade performance on 7-10B models.
+- **Prompt style**: zero-shot is best for Qwen3-32B (F1=0.72); few-shot improves
+  WRONG-recall but hurts DRIFT recall. Smaller models benefit less from examples.
+- **Running the eval**:
+```bash
+uv run python -m audit.cli \
+    --lmf wnja-2.0.xml \
+    --ref-lmf wn-ntumc-eng.xml \
+    --check definitions \
+    --db audit_dev.db \
+    --model mlx-community/Qwen3-32B-4bit \
+    --prompt-style zero-shot \
+    --synset-file audit/dev_set.tsv
+```
 
 ### Dev set eval results (2026-05-24, gold=147 synsets OK=109 DRIFT=27 WRONG=11)
 
-| Model | Style | Time | F1 | WRONG-F1 |
-|-------|-------|------|----|----------|
-| Qwen3-32B-4bit (mlx) | zero-shot | 12m44s | 0.79 | 0.73 |
-| Qwen3-32B-4bit (mlx) | few-shot | 12m30s | 0.73 | 0.75 |
-| qwen3.5:latest (Ollama, 9.7B) | zero-shot | 6m31s | 0.53 | 0.33 |
+All results on the full 150-synset dev set (147 gold-labelled).
+WRONG precision/recall for best model (Qwen3-32B few-shot): P=0.88 R=0.64.
+
+| Model | Style | F1 | WRONG-F1 |
+|-------|-------|----|----------|
+| Qwen3-32B-4bit (mlx) | zero-shot | 0.72 | 0.67 |
+| Qwen3-32B-4bit (mlx) | one-shot | 0.61 | 0.40 |
+| Qwen3-32B-4bit (mlx) | few-shot | 0.68 | 0.74 |
+| qwen3.6:35b (Ollama GGUF) | zero-shot | 0.57 | 0.47 |
+| qwen3.6:35b (Ollama GGUF) | few-shot | 0.68 | 0.62 |
+| qwen3.5:latest (Ollama, 9.7B) | zero-shot | 0.53 | 0.33 |
+| qwen3.5:latest (Ollama, 9.7B) | few-shot | 0.47 | 0.17 |
+| gemma-4-31b-it-4bit (mlx) | zero-shot | 0.48 | 0.29 |
+| gemma-4-31b-it-4bit (mlx) | few-shot | 0.49 | 0.29 |
 
 ## Known gaps and planned work
 

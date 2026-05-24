@@ -7,7 +7,7 @@ uv run python detect_sahen.py    # only needed when jamdict data changes
 uv run python build_wnja.py
 uv run python tweak_wnja.py
 uv run python report_wnja.py     # optional quality report → reports/
-uv run pytest tests/             # 38 tests, all should pass
+uv run pytest tests/             # ~61 tests; test_no_duplicate_lemma_pos requires rebuilt wnja-2.0.xml
 ```
 
 ## Data sources
@@ -69,6 +69,51 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 | W307 | 464 | Cross-synset shared definition texts — data issue |
 | W404 | 2,509 | Stubs have no reverse relations (by design) |
 | W501 | crash | Upstream wn validator bug — filed for reporting |
+
+## Audit pipeline (LLM definition check)
+
+### Running the eval
+```bash
+# Run against the 150-synset dev set (one model at a time — GPU-bound)
+uv run python -m audit.cli \
+    --lmf wnja-2.0.xml \
+    --ref-lmf wn-ntumc-eng.xml \
+    --check definitions \
+    --db audit_dev.db \
+    --model qwen3.5:latest \
+    --prompt-style zero-shot \
+    --synset-file audit/dev_set.tsv
+
+# View comparison table
+uv run python -m audit.dev table --gold audit/dev_set.tsv --db audit_dev.db
+```
+
+### Ollama best practices
+- **Backend**: native `/api/generate` endpoint via httpx (not OpenAI-compatible `/v1/`).
+  The native API supports `think=False` and the `system` parameter separately.
+- **Thinking mode**: `think=False` by default. Thinking mode (`think=True`) is
+  incompatible with Ollama schema enforcement in v0.21.2 — returns empty response.
+  Without schema, thinking works but is ~3× slower.
+- **Structured output**: pass a Pydantic model class as `schema=` to `Generator.chat()`.
+  Ollama uses grammar-based generation to enforce the schema exactly — no format
+  instructions needed in the prompt. Handles `$defs`/`$ref` from Pydantic schemas.
+- **keep_alive**: set to `"30m"` to avoid reloading the model between batches.
+- **Temperature**: defaults to 0.0 for deterministic output.
+- **Parallelism**: don't run two inference jobs in parallel — they share the GPU
+  and Ollama queues requests anyway. Run sequentially.
+- **Model sizes**: larger models give substantially better F1.
+  Qwen3-32B-4bit (mlx): F1=0.79 zero-shot. qwen3.5:latest (9.7B Ollama): F1=0.53.
+  Use the largest model that fits in VRAM for production audits.
+- **Prompt style**: zero-shot works best for smaller models; few-shot examples
+  can degrade performance on 7-10B models.
+
+### Dev set eval results (2026-05-24, gold=147 synsets OK=109 DRIFT=27 WRONG=11)
+
+| Model | Style | Time | F1 | WRONG-F1 |
+|-------|-------|------|----|----------|
+| Qwen3-32B-4bit (mlx) | zero-shot | 12m44s | 0.79 | 0.73 |
+| Qwen3-32B-4bit (mlx) | few-shot | 12m30s | 0.73 | 0.75 |
+| qwen3.5:latest (Ollama, 9.7B) | zero-shot | 6m31s | 0.53 | 0.33 |
 
 ## Known gaps and planned work
 

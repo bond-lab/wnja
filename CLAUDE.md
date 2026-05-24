@@ -117,19 +117,23 @@ uv run python -m audit.cli \
 ### Dev set eval results (2026-05-24, gold=147 synsets OK=109 DRIFT=27 WRONG=11)
 
 All results on the full 150-synset dev set (147 gold-labelled).
-WRONG precision/recall for best model (Qwen3-32B few-shot): P=0.88 R=0.64.
+Best WRONG-F1: Qwen3-32B few-shot (P=0.88 R=0.64 F1=0.74).
+**Production pipeline**: Stage 1 = Qwen3.6-35B-A3B-4bit few-shot (R=0.64, architectural diversity);
+Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Silicon
+(memory-bandwidth bound); chosen for independent model family, not speed.
 
-| Model | Style | F1 | WRONG-F1 |
-|-------|-------|----|----------|
-| Qwen3-32B-4bit (mlx) | zero-shot | 0.72 | 0.67 |
-| Qwen3-32B-4bit (mlx) | one-shot | 0.61 | 0.40 |
-| Qwen3-32B-4bit (mlx) | few-shot | 0.68 | 0.74 |
-| qwen3.6:35b (Ollama GGUF) | zero-shot | 0.57 | 0.47 |
-| qwen3.6:35b (Ollama GGUF) | few-shot | 0.68 | 0.62 |
-| qwen3.5:latest (Ollama, 9.7B) | zero-shot | 0.53 | 0.33 |
-| qwen3.5:latest (Ollama, 9.7B) | few-shot | 0.47 | 0.17 |
-| gemma-4-31b-it-4bit (mlx) | zero-shot | 0.48 | 0.29 |
-| gemma-4-31b-it-4bit (mlx) | few-shot | 0.49 | 0.29 |
+| Model | Style | F1 | WRONG-F1 | WRONG-P | WRONG-R |
+|-------|-------|----|----------|---------|---------|
+| Qwen3-32B-4bit (mlx) | zero-shot | 0.72 | 0.67 | 0.80 | 0.55 |
+| Qwen3-32B-4bit (mlx) | one-shot | 0.61 | 0.40 | 0.57 | 0.36 |
+| Qwen3-32B-4bit (mlx) | few-shot | 0.68 | **0.74** | **0.88** | 0.64 |
+| Qwen3.6-35B-A3B-4bit (mlx) | few-shot | 0.63 | 0.56 | 0.50 | **0.64** |
+| qwen3.6:35b (Ollama GGUF) | zero-shot | 0.57 | 0.47 | 0.50 | 0.45 |
+| qwen3.6:35b (Ollama GGUF) | few-shot | 0.68 | 0.62 | 0.48 | 0.73 |
+| qwen3.5:latest (Ollama, 9.7B) | zero-shot | 0.53 | 0.33 | — | — |
+| qwen3.5:latest (Ollama, 9.7B) | few-shot | 0.47 | 0.17 | — | — |
+| gemma-4-31b-it-4bit (mlx) | zero-shot | 0.48 | 0.29 | — | — |
+| gemma-4-31b-it-4bit (mlx) | few-shot | 0.49 | 0.29 | — | — |
 
 ## Known gaps and planned work
 

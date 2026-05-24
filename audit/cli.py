@@ -128,6 +128,24 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
             "--synset-file audit/dev_set.tsv"
         ),
     )
+    p.add_argument(
+        "--pos",
+        default=None,
+        help="Restrict definitions check to this part-of-speech (e.g. 'n', 'v', 'a', 'r').",
+    )
+    p.add_argument(
+        "--prior-wrong-model",
+        default=None,
+        help=(
+            "Stage-2 filter: only process synsets that this model flagged WRONG. "
+            "Must be combined with --prior-wrong-style."
+        ),
+    )
+    p.add_argument(
+        "--prior-wrong-style",
+        default=None,
+        help="Prompt style of the --prior-wrong-model run to use as stage-2 filter.",
+    )
     return p.parse_args(argv)
 
 
@@ -215,6 +233,18 @@ def main(argv: list[str] | None = None) -> None:
             current = {k: v for k, v in current.items() if k in synset_filter}
             log.info("  filtered to %d synsets", len(current))
 
+        if args.pos:
+            current = {k: v for k, v in current.items() if v.pos == args.pos}
+            log.info("  filtered to %d synsets (pos=%s)", len(current), args.pos)
+
+        prior_wrong: tuple[str, str] | None = None
+        if args.prior_wrong_model and args.prior_wrong_style:
+            prior_wrong = (args.prior_wrong_model, args.prior_wrong_style)
+            log.info(
+                "Stage-2 filter: only synsets flagged WRONG by %s / %s",
+                args.prior_wrong_model, args.prior_wrong_style,
+            )
+
         generator = Generator(model=args.model)
         db.register_run(
             model=args.model,
@@ -226,6 +256,7 @@ def main(argv: list[str] | None = None) -> None:
             current, eng, db, generator,
             prompt_style=args.prompt_style,
             batch_size=args.batch_size,
+            prior_wrong=prior_wrong,
         )
         db.finish_run(
             model=args.model,

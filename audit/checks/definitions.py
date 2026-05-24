@@ -225,6 +225,7 @@ def run(
     prompt_style: str = "zero-shot",
     batch_size: int = 10,
     retry_limit: int = 2,
+    prior_wrong: tuple[str, str] | None = None,
 ) -> tuple[int, int, int, int]:
     """Run the definition accuracy check and write results to *db*.
 
@@ -260,6 +261,20 @@ def run(
             n_skipped += 1
             continue
         todo.append((wnja_id, ja, en))
+
+    if prior_wrong is not None:
+        pw_model, pw_style = prior_wrong
+        flagged = {row[0] for row in db.conn.execute(
+            "SELECT synset_id FROM results "
+            "WHERE check_type='definition' AND item='' AND model=? AND prompt_style=? AND verdict='WRONG'",
+            (pw_model, pw_style),
+        )}
+        before = len(todo)
+        todo = [(sid, ja, en) for sid, ja, en in todo if sid in flagged]
+        log.info(
+            "Stage-2 filter (%s/%s): %d → %d synsets",
+            pw_model, pw_style, before, len(todo),
+        )
 
     log.info(
         "Definition check [%s, %s]: %d synsets to process, %d already done",

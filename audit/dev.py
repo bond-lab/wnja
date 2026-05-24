@@ -34,6 +34,7 @@ from __future__ import annotations
 import argparse
 import csv
 import random
+import re
 import sqlite3
 import sys
 from collections import Counter, defaultdict
@@ -366,6 +367,258 @@ def evaluate(
 
 
 # ---------------------------------------------------------------------------
+# Two-stage review workflow subcommands
+# ---------------------------------------------------------------------------
+
+_REVIEW_SYSTEM = """\
+You are reviewing Japanese WordNet definitions flagged as potentially incorrect by
+two automated models. For each case you have the synset ID, English source
+definition, current Japanese definition, and explanatory notes from the two model runs.
+
+Decide:
+  change — the issue is real; the Japanese definition should be corrected
+  keep   — the definition is fine; this is a false positive
+  check  — you are uncertain; human review is needed
+
+For 'change', also provide an improved Japanese definition.
+
+Reply with EXACTLY one line per case, no preamble:
+  <ID> | change | <brief reasoning in English> | SUGGESTED: <improved Japanese definition>
+  <ID> | keep   | <brief reasoning in English>
+  <ID> | check  | <brief reasoning in English>\
+"""
+
+_REVIEW_LINE_RE = re.compile(
+    r"(wnja-[\w-]+)\s*\|\s*(change|keep|check)\s*\|\s*(.*?)(?:\|\s*SUGGESTED[：:]?\s*(.+))?$",
+    re.IGNORECASE,
+)
+
+
+def _parse_meta_from_toml(text: str) -> dict[str, str]:
+    """Extract string values from the [meta] block of a TOML file."""
+    meta_m = re.search(r'\[meta\](.*?)(?=\[\[|\Z)', text, re.DOTALL)
+    if not meta_m:
+        return {}
+    block = meta_m.group(1)
+    result: dict[str, str] = {}
+    for m in re.finditer(r'^(\w+)\s*=\s*"([^"]*)"', block, re.MULTILINE):
+        result[m.group(1)] = m.group(2)
+    return result
+
+
+def _next_batch_num(out_dir: Path, date_str: str) -> int:
+    """Return the next sequential batch number for today's reviews."""
+    existing = list(out_dir.glob(f"review_{date_str}_batch*.toml"))
+    nums = []
+    for p in existing:
+        m = re.search(r"batch(\d+)\.toml$", p.name)
+        if m:
+            nums.append(int(m.group(1)))
+    return max(nums) + 1 if nums else 1
+
+
+def _format_review_batch(cases: list[dict]) -> str:
+    """Format a list of unreviewed cases for the review LLM."""
+    parts: list[str] = []
+    for i, case in enumerate(cases, 1):
+        sid = case["synset_id"]
+        s1_note = case.get("s1_note") or ""
+        s2_note = case.get("s2_note") or ""
+        suggestion = case.get("s1_suggestion") or case.get("s2_suggestion") or ""
+        ja = case.get("ja_def", "")
+        en = case.get("en_def", "")
+        bucket = case.get("bucket", "")
+
+        lines = [f"{i}. ID: {sid}  [bucket: {bucket}]"]
+        lines.append(f"   EN: {en}")
+        lines.append(f"   JA: {ja}")
+        if s1_note:
+            lines.append(f"   Stage1: {s1_note}")
+        if s2_note:
+            lines.append(f"   Stage2: {s2_note}")
+        if suggestion:
+            lines.append(f"   Suggested: {suggestion}")
+        parts.append("\n".join(lines))
+    return "\n\n".join(parts)
+
+
+def _parse_review_response(
+    response: str,
+) -> dict[str, tuple[str, str, str | None]]:
+    """Parse review LLM output into {synset_id: (verdict, reasoning, suggestion)}."""
+    from audit.checks.definitions import _strip_thinking
+    results: dict[str, tuple[str, str, str | None]] = {}
+    text = _strip_thinking(response)
+    for line in text.splitlines():
+        m = _REVIEW_LINE_RE.search(line)
+        if m:
+            sid = m.group(1).rstrip("*:.,")
+            verdict = m.group(2).lower()
+            reasoning = m.group(3).strip()
+            suggestion = m.group(4).strip() if m.group(4) else None
+            results[sid] = (verdict, reasoning, suggestion)
+    return results
+
+
+def _cmd_assign_buckets(args) -> None:
+    from audit.db import AuditDB
+    db = AuditDB(args.db)
+    counts = db.assign_buckets(
+        args.s1_model, args.s1_style, args.s2_model, args.s2_style
+    )
+    total = sum(counts.values())
+    print(f"Bucket assignment complete ({total} synsets):")
+    print(f"  change:    {counts['change']}")
+    print(f"  uncertain: {counts['uncertain']}")
+    print(f"  keep:      {counts['keep']}")
+    db.close()
+
+
+def _cmd_review_batch(args) -> None:
+    import datetime
+    import time
+    from audit.db import AuditDB
+    from audit.llm import Generator
+    from audit.review import generate_digest
+
+    db = AuditDB(args.db)
+
+    print(f"Loading {args.lmf} …", file=sys.stderr)
+    current = load_lmf(args.lmf)
+    print(f"Loading {args.ref_lmf} …", file=sys.stderr)
+    eng = load_lmf(args.ref_lmf)
+
+    ja_defs = {sid: sd.definitions[0] for sid, sd in current.items() if sd.definitions}
+    en_defs: dict[str, str] = {}
+    for wnja_id in current:
+        ntumc_id = wnja_id.replace("wnja-", "ntumc-en-")
+        en = eng.get(ntumc_id)
+        if en and en.definitions:
+            en_defs[wnja_id] = en.definitions[0]
+
+    bucket_filter = None if args.bucket == "both" else args.bucket
+    rows = db.get_unreviewed_batch(
+        args.s1_model, args.s1_style,
+        args.s2_model, args.s2_style,
+        n=args.n, bucket=bucket_filter,
+    )
+
+    if not rows:
+        print("No unreviewed cases found.")
+        db.close()
+        return
+
+    for row in rows:
+        sid = row["synset_id"]
+        row["ja_def"] = ja_defs.get(sid, "")
+        row["en_def"] = en_defs.get(sid, "")
+
+    print(f"Reviewing {len(rows)} cases with {args.model} …", file=sys.stderr)
+    generator = Generator(model=args.model)
+
+    for batch_start in range(0, len(rows), args.batch_size):
+        batch = rows[batch_start : batch_start + args.batch_size]
+        user_turn = _format_review_batch(batch)
+
+        parsed: dict[str, tuple[str, str, str | None]] = {}
+        for attempt in range(3):
+            try:
+                response = generator.chat(
+                    system=_REVIEW_SYSTEM,
+                    user=user_turn,
+                    max_tokens=args.batch_size * 300,
+                )
+                parsed = _parse_review_response(response)
+            except Exception as exc:
+                print(f"LLM error (attempt {attempt + 1}): {exc}", file=sys.stderr)
+                time.sleep(2)
+                continue
+            if len(parsed) >= max(1, len(batch) // 2):
+                break
+            print(
+                f"  Only {len(parsed)}/{len(batch)} parsed, retrying",
+                file=sys.stderr,
+            )
+
+        for row in batch:
+            sid = row["synset_id"]
+            if sid in parsed:
+                verdict, reasoning, suggestion = parsed[sid]
+            else:
+                verdict, reasoning, suggestion = "check", "parse failure", None
+                print(f"  Warning: no review parsed for {sid}", file=sys.stderr)
+            db.save_claude_review(
+                sid,
+                args.s1_model, args.s1_style,
+                args.s2_model, args.s2_style,
+                verdict=verdict,
+                reasoning=reasoning,
+                suggestion=suggestion,
+            )
+            row["claude_verdict"] = verdict
+            row["claude_reasoning"] = reasoning
+            row["claude_suggestion"] = suggestion
+
+        done = min(batch_start + args.batch_size, len(rows))
+        print(f"  {done}/{len(rows)} reviewed", file=sys.stderr)
+
+    date_str = datetime.date.today().isoformat()
+    args.out.mkdir(parents=True, exist_ok=True)
+    batch_num = _next_batch_num(args.out, date_str)
+    meta = {
+        "date": date_str,
+        "batch": batch_num,
+        "stage1_model": args.s1_model,
+        "stage1_style": args.s1_style,
+        "stage2_model": args.s2_model,
+        "stage2_style": args.s2_style,
+    }
+    toml_path = args.out / f"review_{date_str}_batch{batch_num:02d}.toml"
+    generate_digest(rows, meta, toml_path, ja_defs=ja_defs, en_defs=en_defs)
+
+    verdicts = [r.get("claude_verdict", "") for r in rows]
+    n_change = verdicts.count("change")
+    n_keep = verdicts.count("keep")
+    n_check = verdicts.count("check")
+    print(f"\nReview complete: {n_change} change, {n_check} check, {n_keep} keep")
+    print(f"TOML digest written to: {toml_path}")
+    db.close()
+
+
+def _cmd_load_decisions(args) -> None:
+    from audit.db import AuditDB
+    from audit.review import load_decisions
+
+    if not args.toml.exists():
+        print(f"ERROR: {args.toml} not found", file=sys.stderr)
+        sys.exit(1)
+
+    text = args.toml.read_text(encoding="utf-8")
+    meta = _parse_meta_from_toml(text)
+    s1_model = args.s1_model or meta.get("stage1_model", "")
+    s1_style = args.s1_style or meta.get("stage1_style", "")
+    s2_model = args.s2_model or meta.get("stage2_model", "")
+    s2_style = args.s2_style or meta.get("stage2_style", "")
+
+    if not all([s1_model, s1_style, s2_model, s2_style]):
+        print(
+            "ERROR: could not determine model/style from TOML meta. "
+            "Pass --s1-model/--s1-style/--s2-model/--s2-style explicitly.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    db = AuditDB(args.db)
+    counts = load_decisions(db, args.toml, s1_model, s1_style, s2_model, s2_style)
+    print(f"Decisions loaded from {args.toml.name}:")
+    print(f"  approved:  {counts['approved']}")
+    print(f"  rejected:  {counts['rejected']}")
+    print(f"  modified:  {counts['modified']}")
+    print(f"  skipped:   {counts['skipped']}")
+    db.close()
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -412,6 +665,65 @@ def main(argv: list[str] | None = None) -> None:
         ),
     )
 
+    # --- assign-buckets ---
+    abp = sub.add_parser(
+        "assign-buckets",
+        help="Compute change/keep/uncertain buckets and populate the reviews table.",
+    )
+    abp.add_argument("--db", type=Path, default=Path("audit.db"))
+    abp.add_argument("--s1-model", required=True, help="Stage-1 model ID.")
+    abp.add_argument("--s1-style", required=True, help="Stage-1 prompt style.")
+    abp.add_argument("--s2-model", required=True, help="Stage-2 model ID.")
+    abp.add_argument("--s2-style", required=True, help="Stage-2 prompt style.")
+
+    # --- review-batch ---
+    rbp = sub.add_parser(
+        "review-batch",
+        help="Review unreviewed synsets with an LLM and write a TOML digest.",
+    )
+    rbp.add_argument("--db", type=Path, default=Path("audit.db"))
+    rbp.add_argument("--lmf", type=Path, default=Path("wnja-2.0.xml"))
+    rbp.add_argument(
+        "--ref-lmf", type=Path, required=True,
+        help="NTU-MC English LMF (e.g. wn-ntumc-eng.xml).",
+    )
+    rbp.add_argument(
+        "--out", type=Path, default=Path("reviews"),
+        help="Output directory for TOML digests.",
+    )
+    rbp.add_argument("--s1-model", required=True, help="Stage-1 model ID.")
+    rbp.add_argument("--s1-style", required=True, help="Stage-1 prompt style.")
+    rbp.add_argument("--s2-model", required=True, help="Stage-2 model ID.")
+    rbp.add_argument("--s2-style", required=True, help="Stage-2 prompt style.")
+    rbp.add_argument(
+        "--model",
+        default="mlx-community/Qwen3-32B-4bit",
+        help="LLM to use for the review pass.",
+    )
+    rbp.add_argument("--n", type=int, default=50, help="Number of cases to review.")
+    rbp.add_argument("--batch-size", type=int, default=5, help="Cases per LLM prompt.")
+    rbp.add_argument(
+        "--bucket",
+        choices=["change", "uncertain", "both"],
+        default="both",
+        help="Which bucket(s) to pull from.",
+    )
+
+    # --- load-decisions ---
+    ldp = sub.add_parser(
+        "load-decisions",
+        help="Load user decisions from an edited TOML digest into the DB.",
+    )
+    ldp.add_argument("--db", type=Path, default=Path("audit.db"))
+    ldp.add_argument("--toml", type=Path, required=True, help="Edited TOML digest path.")
+    ldp.add_argument(
+        "--s1-model", default=None,
+        help="Override stage-1 model (read from TOML [meta] if omitted).",
+    )
+    ldp.add_argument("--s1-style", default=None)
+    ldp.add_argument("--s2-model", default=None)
+    ldp.add_argument("--s2-style", default=None)
+
     args = p.parse_args(argv)
 
     if args.cmd == "table":
@@ -446,6 +758,21 @@ def main(argv: list[str] | None = None) -> None:
         annotated = {ss: v for ss, v in gold.items() if v}
         print(f"Gold annotations: {len(annotated)} synsets")
         evaluate(annotated, args.db, args.runs)
+
+    elif args.cmd == "assign-buckets":
+        _cmd_assign_buckets(args)
+
+    elif args.cmd == "review-batch":
+        if not args.lmf.exists():
+            print(f"ERROR: {args.lmf} not found", file=sys.stderr)
+            sys.exit(1)
+        if not args.ref_lmf.exists():
+            print(f"ERROR: {args.ref_lmf} not found", file=sys.stderr)
+            sys.exit(1)
+        _cmd_review_batch(args)
+
+    elif args.cmd == "load-decisions":
+        _cmd_load_decisions(args)
 
 
 if __name__ == "__main__":

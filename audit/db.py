@@ -39,6 +39,24 @@ CREATE TABLE IF NOT EXISTS meta (
     key   TEXT PRIMARY KEY,
     value TEXT
 );
+
+CREATE TABLE IF NOT EXISTS reviews (
+    synset_id         TEXT NOT NULL,
+    stage1_model      TEXT NOT NULL,
+    stage1_style      TEXT NOT NULL,
+    stage2_model      TEXT NOT NULL,
+    stage2_style      TEXT NOT NULL,
+    bucket            TEXT NOT NULL,
+    claude_verdict    TEXT,
+    claude_reasoning  TEXT,
+    claude_suggestion TEXT,
+    user_decision     TEXT,
+    user_suggestion   TEXT,
+    created_at        REAL,
+    reviewed_at       REAL,
+    decided_at        REAL,
+    PRIMARY KEY (synset_id, stage1_model, stage1_style, stage2_model, stage2_style)
+);
 """
 
 _DDL_RESULTS_V3 = """
@@ -284,6 +302,162 @@ class AuditDB:
     def conn(self) -> sqlite3.Connection:
         """The underlying SQLite connection (read access for reports)."""
         return self._conn
+
+    # ------------------------------------------------------------------
+    # Two-stage review workflow
+    # ------------------------------------------------------------------
+
+    def assign_buckets(
+        self,
+        s1_model: str,
+        s1_style: str,
+        s2_model: str,
+        s2_style: str,
+    ) -> dict[str, int]:
+        """Compute change/keep/uncertain buckets and populate the reviews table.
+
+        Reads the results table for both stage runs, applies bucket logic:
+          stage1=WRONG + stage2=WRONG  → 'change'
+          stage1=WRONG + stage2=OK     → 'keep'
+          stage1=WRONG + stage2=other  → 'uncertain'
+
+        Idempotent: uses INSERT OR IGNORE so existing rows are not overwritten.
+
+        Returns:
+            Dict with keys 'change', 'keep', 'uncertain' and their counts.
+        """
+        s1 = {row[0]: row[1] for row in self._conn.execute(
+            "SELECT synset_id, verdict FROM results "
+            "WHERE check_type='definition' AND item='' AND model=? AND prompt_style=? AND verdict='WRONG'",
+            (s1_model, s1_style),
+        )}
+        s2 = {row[0]: row[1] for row in self._conn.execute(
+            "SELECT synset_id, verdict FROM results "
+            "WHERE check_type='definition' AND item='' AND model=? AND prompt_style=?",
+            (s2_model, s2_style),
+        )}
+
+        counts: dict[str, int] = {"change": 0, "keep": 0, "uncertain": 0}
+        rows = []
+        for sid in s1:
+            v2 = s2.get(sid, "")
+            if v2 == "WRONG":
+                bucket = "change"
+            elif v2 == "OK":
+                bucket = "keep"
+            else:
+                bucket = "uncertain"
+            counts[bucket] += 1
+            rows.append((sid, s1_model, s1_style, s2_model, s2_style, bucket, time.time()))
+
+        with self._conn:
+            self._conn.executemany(
+                "INSERT OR IGNORE INTO reviews "
+                "(synset_id, stage1_model, stage1_style, stage2_model, stage2_style, "
+                " bucket, created_at) VALUES (?,?,?,?,?,?,?)",
+                rows,
+            )
+        return counts
+
+    def get_unreviewed_batch(
+        self,
+        s1_model: str,
+        s1_style: str,
+        s2_model: str,
+        s2_style: str,
+        n: int = 50,
+        bucket: str | None = None,
+    ) -> list[dict]:
+        """Return up to n unreviewed review rows with full result context.
+
+        Orders 'change' before 'uncertain'. Each returned dict has:
+          synset_id, bucket,
+          s1_verdict, s1_note, s1_suggestion,
+          s2_verdict, s2_note, s2_suggestion.
+        """
+        bucket_filter = "AND r.bucket = ?" if bucket else ""
+        params: list = [s1_model, s1_style, s2_model, s2_style]
+        if bucket:
+            params.append(bucket)
+        params.append(n)
+
+        rows = self._conn.execute(f"""
+            SELECT r.synset_id, r.bucket,
+                   r1.verdict, r1.evidence, r1.suggestion,
+                   r2.verdict, r2.evidence, r2.suggestion
+            FROM reviews r
+            LEFT JOIN results r1
+                ON r1.synset_id = r.synset_id AND r1.check_type = 'definition'
+                AND r1.item = '' AND r1.model = r.stage1_model AND r1.prompt_style = r.stage1_style
+            LEFT JOIN results r2
+                ON r2.synset_id = r.synset_id AND r2.check_type = 'definition'
+                AND r2.item = '' AND r2.model = r.stage2_model AND r2.prompt_style = r.stage2_style
+            WHERE r.stage1_model = ? AND r.stage1_style = ?
+              AND r.stage2_model = ? AND r.stage2_style = ?
+              AND r.claude_verdict IS NULL
+              {bucket_filter}
+            ORDER BY CASE r.bucket WHEN 'change' THEN 0 WHEN 'uncertain' THEN 1 ELSE 2 END,
+                     r.synset_id
+            LIMIT ?
+        """, params).fetchall()
+
+        return [
+            {
+                "synset_id": row[0],
+                "bucket": row[1],
+                "s1_verdict": row[2],
+                "s1_note": row[3],
+                "s1_suggestion": row[4],
+                "s2_verdict": row[5],
+                "s2_note": row[6],
+                "s2_suggestion": row[7],
+            }
+            for row in rows
+        ]
+
+    def save_claude_review(
+        self,
+        synset_id: str,
+        s1_model: str,
+        s1_style: str,
+        s2_model: str,
+        s2_style: str,
+        *,
+        verdict: str,
+        reasoning: str,
+        suggestion: str | None,
+    ) -> None:
+        """Record Claude's review verdict for one synset."""
+        with self._conn:
+            self._conn.execute(
+                """UPDATE reviews SET claude_verdict=?, claude_reasoning=?,
+                   claude_suggestion=?, reviewed_at=?
+                   WHERE synset_id=? AND stage1_model=? AND stage1_style=?
+                     AND stage2_model=? AND stage2_style=?""",
+                (verdict, reasoning, suggestion, time.time(),
+                 synset_id, s1_model, s1_style, s2_model, s2_style),
+            )
+
+    def save_user_decision(
+        self,
+        synset_id: str,
+        s1_model: str,
+        s1_style: str,
+        s2_model: str,
+        s2_style: str,
+        *,
+        decision: str,
+        suggestion: str | None = None,
+    ) -> None:
+        """Record the user's final decision for one synset."""
+        with self._conn:
+            self._conn.execute(
+                """UPDATE reviews SET user_decision=?, user_suggestion=?, decided_at=?
+                   WHERE synset_id=? AND stage1_model=? AND stage1_style=?
+                     AND stage2_model=? AND stage2_style=?""",
+                (decision, suggestion, time.time(),
+                 synset_id, s1_model, s1_style, s2_model, s2_style),
+            )
 
     def close(self) -> None:
         """Close the database connection."""

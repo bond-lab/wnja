@@ -590,7 +590,7 @@ def build_stub_synsets(
         return []
 
     stubs = []
-    skipped = 0
+    no_defn = 0
     for wnja_id in sorted(missing):
         num = wnja_id.removeprefix("wnja-")   # e.g. '00003700-a'
         pos = num[-1]
@@ -598,19 +598,33 @@ def build_stub_synsets(
         ili = ili_map.get(num) or ili_map.get(num[:-1] + "s")
         defn = None
         if ili:
-            ss_list = _wn.synsets(ili=ili, lexicon="omw-en:2.0")
+            ss_list = _wn.synsets(ili=ili)
             if ss_list:
                 defn = ss_list[0].definition()
+        # Fallback: direct omw-en ID lookup — gives both ILI and definition
+        # without needing the ILI map file (omw-en IDs are omw-en-XXXXXXXX-{a,s})
         if defn is None:
-            skipped += 1
-            continue
-        stubs.append(
-            make_synset(wnja_id, pos, ili=ili or None,
-                        definitions=[make_definition(defn)])
-        )
+            for suffix in (num, num[:-1] + "s"):
+                try:
+                    en_ss = _wn.synset(f"omw-en-{suffix}")
+                    if ili is None:
+                        ili = en_ss.ili
+                    defn = en_ss.definition()
+                    if defn:
+                        break
+                except Exception:
+                    pass
+        # Always emit the stub so the relation target resolves in wn.add();
+        # a definition is desirable but not required
+        if defn is None:
+            no_defn += 1
+        stub = make_synset(wnja_id, pos, ili=ili or None,
+                           definitions=[make_definition(defn)] if defn else [])
+        stub["lexicalized"] = False  # WN-LMF: no Japanese entries for this synset
+        stubs.append(stub)
 
-    if skipped:
-        log.warning("  %d stub targets had no ILI/definition; skipped", skipped)
+    if no_defn:
+        log.warning("  %d stub targets had no definition (created empty stubs)", no_defn)
     return stubs
 
 

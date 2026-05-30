@@ -7,6 +7,8 @@ Applies manual corrections that cannot be derived from the NTU-MC export:
      暖かい↔涼しい, 温かい↔冷たい).
   2. Orphan synsets: add Japanese entries for JP-origin synsets that have
      definitions but no entries in the NTU-MC data.
+  3. New synsets: add synsets that exist in NTU-MC with definitions but no
+     Japanese entries, requiring both a synset and a new lexical entry.
 
 Run after build_wnja.py:
   uv run python build_wnja.py
@@ -142,6 +144,58 @@ def apply_corrections(editor: WordnetEditor, corrections_dir: Path) -> int:
     return applied
 
 
+# ---------------------------------------------------------------------------
+# New synsets: NTU-MC synsets with definitions but no Japanese entries,
+# requiring creation of both the synset and a new lexical entry.
+# ---------------------------------------------------------------------------
+# Format: (synset_id, pos, ili, definition, [(writtenForm, script_or_None), ...])
+# 'script' values: None (kanji/mixed), 'kana' (katakana), 'hira' (hiragana)
+NEW_SYNSETS: list[tuple[str, str, str, str, list[tuple[str, str | None]]]] = [
+    # wnja-06562436-n: libel (legal pleading) — written complaint explaining
+    # the cause of action (defamation) and any relief sought by the plaintiff.
+    # EN: "the written statement of a plaintiff explaining the cause of action
+    #      (the defamation) and any relief he seeks" ⟪i70943⟫
+    (
+        "wnja-06562436-n", "n", "i70943",
+        "名誉毀損（訴因）と原告が求める救済を説明した書面。",
+        [("訴状", None)],
+    ),
+]
+
+
+def apply_new_synsets(editor: WordnetEditor) -> int:
+    """Create synsets that exist in NTU-MC but have no Japanese entries.
+
+    Idempotent: skips any synset_id already present in the editor.
+    Returns the number of synsets added.
+    """
+    added = 0
+    for synset_id, pos, ili, definition, forms in NEW_SYNSETS:
+        if synset_id in editor._synset_by_id:
+            log.info("  new synset %s already exists, skipping", synset_id)
+            continue
+        editor.create_synset(
+            pos=pos,
+            definition=definition,
+            ili=ili,
+            synset_id=synset_id,
+        )
+        canonical_wf, canonical_script = forms[0]
+        lemma = make_lemma(canonical_wf, pos, script=canonical_script)
+        sense_id = f"{synset_id}-tweak"
+        sense = make_sense(sense_id, synset_id)
+        extra_forms = [
+            {"writtenForm": wf, **({"script": sc} if sc else {})}
+            for wf, sc in forms[1:]
+        ] if len(forms) > 1 else None
+        entry_id = f"tweak-new-{synset_id}"
+        entry = make_lexical_entry(entry_id, lemma, forms=extra_forms, senses=[sense])
+        editor._lexicon.setdefault("entries", []).append(entry)
+        added += 1
+        log.info("  added new synset %s (%s) → %s", synset_id, canonical_wf, definition[:60])
+    return added
+
+
 def apply_orphan_entries(editor: WordnetEditor) -> int:
     """Add Japanese entries for JP-origin orphan synsets."""
     added = 0
@@ -182,6 +236,10 @@ def main() -> None:
     log.info("Applying temperature antonyms …")
     n = apply_temperature_antonyms(editor)
     log.info("  %d antonym relations added", n)
+
+    log.info("Adding new synsets …")
+    n = apply_new_synsets(editor)
+    log.info("  %d new synsets added", n)
 
     log.info("Adding entries for orphan synsets …")
     n2 = apply_orphan_entries(editor)

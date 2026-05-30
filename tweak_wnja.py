@@ -115,6 +115,15 @@ def apply_corrections(editor: WordnetEditor, corrections_dir: Path) -> int:
                 log.warning("corrections: synset %s not found, skipping", ss_id)
                 continue
             defs = synset.get("definitions") or []
+            if not row["old_value"]:
+                # Addition: add a new definition when none exists
+                if defs:
+                    log.warning("corrections: %s already has a definition, skipping addition", ss_id)
+                    continue
+                synset.setdefault("definitions", []).append({"meta": None, "text": row["new_value"]})
+                applied += 1
+                log.info("  added def %s: %s", ss_id, row["new_value"][:60])
+                continue
             if not defs:
                 log.warning("corrections: %s has no definitions, skipping", ss_id)
                 continue

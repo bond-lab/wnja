@@ -86,6 +86,13 @@ class Generator:
             tokenize=False,
             add_generation_prompt=True,
         )
+        # Qwen3 thinking models sometimes emit verbose plain-text reasoning
+        # ("Here's a thinking process:") that consumes the entire token budget.
+        # Prepending an empty <think> block forces the model to skip its
+        # reasoning phase and produce the structured answer immediately.
+        # This is the officially supported technique for Qwen3 token-level API.
+        if "<think>" in (self._tokenizer.chat_template or ""):
+            prompt += "<think>\n\n</think>\n"
         return self._generate_raw(prompt, max_tokens or self.max_tokens)
 
     def generate(self, prompt: str, max_tokens: int | None = None) -> str:

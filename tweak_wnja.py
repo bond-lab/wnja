@@ -150,6 +150,10 @@ def apply_corrections(editor: WordnetEditor, corrections_dir: Path) -> int:
 # ---------------------------------------------------------------------------
 # Format: (synset_id, pos, ili, definition, [(writtenForm, script_or_None), ...])
 # 'script' values: None (kanji/mixed), 'kana' (katakana), 'hira' (hiragana)
+# Convention: entries should include all three forms where applicable —
+#   forms[0]: kanji/mixed canonical lemma  (script=None)
+#   forms[1]: hiragana reading             (script='hira')
+#   forms[2]: katakana pronunciation       (script='kana')
 NEW_SYNSETS: list[tuple[str, str, str, str, list[tuple[str, str | None]]]] = [
     # wnja-06562436-n: libel (legal pleading) — written complaint explaining
     # the cause of action (defamation) and any relief sought by the plaintiff.
@@ -158,7 +162,7 @@ NEW_SYNSETS: list[tuple[str, str, str, str, list[tuple[str, str | None]]]] = [
     (
         "wnja-06562436-n", "n", "i70943",
         "名誉毀損（訴因）と原告が求める救済を説明した書面。",
-        [("訴状", None)],
+        [("訴状", None), ("そじょう", "hira"), ("ソジョウ", "kana")],
     ),
 ]
 

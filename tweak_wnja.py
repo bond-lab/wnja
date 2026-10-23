@@ -167,6 +167,41 @@ NEW_SYNSETS: list[tuple[str, str, str, str, list[tuple[str, str | None]]]] = [
 ]
 
 
+def _add_entry_or_sense(
+    editor: WordnetEditor, entry_id: str, synset_id: str, pos: str,
+    forms: list[tuple[str, str | None]],
+) -> str:
+    """Add a sense of forms[0] to synset_id; return the entry id used.
+
+    If the lemma already has an entry with this POS, the sense (and any
+    new forms) go there, so the same (lemma, pos) is never two entries.
+    """
+    canonical_wf, canonical_script = forms[0]
+    sense = make_sense(f"{synset_id}-tweak", synset_id)
+    extra_forms = [
+        {"writtenForm": wf, **({"script": sc} if sc else {})}
+        for wf, sc in forms[1:]
+    ]
+    existing = next(
+        (e for e in editor._lexicon.get("entries", [])
+         if e["lemma"]["writtenForm"] == canonical_wf
+         and e["lemma"]["partOfSpeech"] == pos),
+        None,
+    )
+    if existing is not None:
+        if all(s["synset"] != synset_id for s in existing["senses"]):
+            existing["senses"].append(sense)
+        have = {f["writtenForm"] for f in existing.get("forms", [])}
+        existing.setdefault("forms", []).extend(
+            f for f in extra_forms if f["writtenForm"] not in have)
+        return existing["id"]
+    lemma = make_lemma(canonical_wf, pos, script=canonical_script)
+    entry = make_lexical_entry(entry_id, lemma, forms=extra_forms or None,
+                               senses=[sense])
+    editor._lexicon.setdefault("entries", []).append(entry)
+    return entry_id
+
+
 def apply_new_synsets(editor: WordnetEditor) -> int:
     """Create synsets that exist in NTU-MC but have no Japanese entries.
 
@@ -184,19 +219,12 @@ def apply_new_synsets(editor: WordnetEditor) -> int:
             ili=ili,
             synset_id=synset_id,
         )
-        canonical_wf, canonical_script = forms[0]
-        lemma = make_lemma(canonical_wf, pos, script=canonical_script)
-        sense_id = f"{synset_id}-tweak"
-        sense = make_sense(sense_id, synset_id)
-        extra_forms = [
-            {"writtenForm": wf, **({"script": sc} if sc else {})}
-            for wf, sc in forms[1:]
-        ] if len(forms) > 1 else None
-        entry_id = f"tweak-new-{synset_id}"
-        entry = make_lexical_entry(entry_id, lemma, forms=extra_forms, senses=[sense])
-        editor._lexicon.setdefault("entries", []).append(entry)
+        used = _add_entry_or_sense(editor, f"tweak-new-{synset_id}",
+                                   synset_id, pos, forms)
+        canonical_wf = forms[0][0]
         added += 1
-        log.info("  added new synset %s (%s) → %s", synset_id, canonical_wf, definition[:60])
+        log.info("  added new synset %s (%s, entry %s) → %s", synset_id,
+                 canonical_wf, used, definition[:60])
     return added
 
 
@@ -208,19 +236,11 @@ def apply_orphan_entries(editor: WordnetEditor) -> int:
         if synset_id not in editor._synset_by_id:
             log.warning("orphan synset %s not found, skipping", synset_id)
             continue
-        canonical_wf, canonical_script = forms[0]
-        lemma = make_lemma(canonical_wf, pos, script=canonical_script)
-        sense_id = f"{synset_id}-tweak"
-        sense = make_sense(sense_id, synset_id)
-        extra_forms = [
-            {"writtenForm": wf, **({"script": sc} if sc else {})}
-            for wf, sc in forms[1:]
-        ] if len(forms) > 1 else None
-        entry_id = f"tweak-{synset_id}"
-        entry = make_lexical_entry(entry_id, lemma, forms=extra_forms, senses=[sense])
-        editor._lexicon.setdefault("entries", []).append(entry)
+        used = _add_entry_or_sense(editor, f"tweak-{synset_id}",
+                                   synset_id, pos, forms)
+        canonical_wf = forms[0][0]
         added += 1
-        log.info("  added entry %s → %s", canonical_wf, synset_id)
+        log.info("  added %s → %s (entry %s)", canonical_wf, synset_id, used)
     return added
 
 

@@ -207,9 +207,14 @@ def read_wnvar(
             conf = CONF_MAP.get(source, 1.0)
             wnja_ss = synset_num_to_wnja(synset_num)
             key = (lemma, hno)
-            entry = (wnja_ss, conf)
-            if entry not in l2senses[key]:
-                l2senses[key].append(entry)
+            # one sense per synset: a pair can be listed by several sources
+            # (e.g. hand and mlsn); keep the highest confidence
+            senses = l2senses[key]
+            i = next((i for i, (ss, _) in enumerate(senses) if ss == wnja_ss), None)
+            if i is None:
+                senses.append((wnja_ss, conf))
+            elif conf > senses[i][1]:
+                senses[i] = (wnja_ss, conf)
             covered_synsets.add(synset_num)
 
     return dict(l2senses), covered_synsets

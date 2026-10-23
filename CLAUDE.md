@@ -27,7 +27,7 @@ cd /home/bond/git/NTUMC
 /home/bond/git/wnja/.venv/bin/python scripts/getwn.py \
     build/wn-ntumc.db build/ \
     --ili build/ili-map-pwn30.tab \
-    --version "2026.02" \
+    --version "2026.10" \
     --base "omw-en:2.0"
 cp build/wn-ntumc-jpn.xml /home/bond/git/wnja/data/
 ```

@@ -623262,6 +623262,7 @@
       <SynsetRelation target="ntumc-ja-06302381-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-02267308-n" ili="" partOfSpeech="n" members="ntumc-ja-02267308-n-w102391 ntumc-ja-02267308-n-w99911">
+      <Definition language="en">entity, assertive existential pronoun; pronoun, entity; quantifier: assertive existential</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02267308-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
@@ -623391,6 +623392,7 @@
       <SynsetRelation target="ntumc-ja-06302381-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-02269286-n" ili="" partOfSpeech="n" members="ntumc-ja-02269286-n-w53158 ntumc-ja-02269286-n-w93899 ntumc-ja-02269286-n-w99923">
+      <Definition language="en">pronoun, entity; quantifier: universal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02269286-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
@@ -866574,6 +866576,7 @@
       <Definition>アラブ自爆テロ犯が米国の大型旅客機を乗っ取り、爆弾としてそれらを使用した2001年の日</Definition>
     </Synset>
     <Synset id="ntumc-ja-70100000-n" ili="" partOfSpeech="n" members="ntumc-ja-70100000-n-w102355">
+      <Definition language="en">a traditional Chinese idiomatic expression, normally consisting of four characters</Definition>
       <SynsetRelation target="ntumc-ja-06929742-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-07154330-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-70100281-a" relType="is_exemplified_by" />
@@ -866583,10 +866586,12 @@
       <SynsetRelation target="ntumc-ja-06929742-n" relType="has_domain_topic" />
     </Synset>
     <Synset id="ntumc-ja-70100018-v" ili="" partOfSpeech="v" members="ntumc-ja-70100018-v-w100030 ntumc-ja-70100018-v-w25707 ntumc-ja-70100018-v-w33407 ntumc-ja-70100018-v-w83531">
+      <Definition language="en">tremble with fear (lit: not cold, but still trembling)</Definition>
       <SynsetRelation target="ntumc-ja-01888946-v" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-70100000-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-70100281-a" ili="" partOfSpeech="a" members="ntumc-ja-70100281-a-w99972 ntumc-ja-70100281-a-w99973">
+      <Definition language="en">standing out (lit: crane standing in a flock of chickens)</Definition>
       <SynsetRelation target="ntumc-ja-02673965-v" relType="similar" />
       <SynsetRelation target="ntumc-ja-02343762-a" relType="similar" />
       <SynsetRelation target="ntumc-ja-70100000-n" relType="exemplifies" />
@@ -866598,15 +866603,19 @@
       <SynsetRelation target="ntumc-ja-00159373-r" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-76000000-x" ili="" partOfSpeech="x" members="ntumc-ja-76000000-x-w102144">
+      <Definition language="en">an expression that is uttered to show surprise or wonder</Definition>
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76000003-x" ili="" partOfSpeech="x" members="ntumc-ja-76000003-x-w102166 ntumc-ja-76000003-x-w102340">
+      <Definition language="en">an expression that is uttered to show anger, annoyance, irritation or indignation</Definition>
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76000010-x" ili="" partOfSpeech="x" members="ntumc-ja-76000010-x-w102145 ntumc-ja-76000010-x-w102341 ntumc-ja-76000010-x-w102342">
+      <Definition language="en">an expression that is uttered to attract someone's attention</Definition>
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76000016-x" ili="" partOfSpeech="x" members="ntumc-ja-76000016-x-w102310 ntumc-ja-76000016-x-w102311">
+      <Definition language="en">an expression that is uttered as a night farewell</Definition>
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100098-x" ili="" partOfSpeech="x" members="ntumc-ja-76100098-x-w101103">
@@ -866662,6 +866671,7 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100111-x" ili="" partOfSpeech="x" members="ntumc-ja-76100111-x-w101125">
+      <Definition language="en">a sortal classifier used specifically for duels or matches with weapons in a battle field, and also specifically for covered containers</Definition>
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100112-x" ili="" partOfSpeech="x" members="ntumc-ja-76100112-x-w101105">
@@ -866681,6 +866691,7 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100116-x" ili="" partOfSpeech="x" members="ntumc-ja-76100116-x-w101082">
+      <Definition language="en">a sortal classifier used for directions, ways or means, for instances of a match such as sumo or archery, for turns in games like chess or shougi, and for instances of traditional japanese dance</Definition>
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100117-x" ili="" partOfSpeech="x" members="ntumc-ja-76100117-x-w101121">
@@ -866688,6 +866699,7 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100118-x" ili="" partOfSpeech="x" members="ntumc-ja-76100118-x-w101116">
+      <Definition language="en">a sortal classifier used for objects having or forming a long thin or long cylindrical shape such as a pen, a cord, a chain, a road, a river, a milk bottle, a nail, an arrows, and also specifically for movies, stories, home runs or telephone calls</Definition>
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100119-x" ili="" partOfSpeech="x" members="ntumc-ja-76100119-x-w101080">
@@ -866699,6 +866711,7 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100121-x" ili="" partOfSpeech="x" members="ntumc-ja-76100121-x-w101093">
+      <Definition language="en">a sortal classifier used specifically for schools; 学校に対して用いられる sortal classifier</Definition>
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100122-x" ili="" partOfSpeech="x" members="ntumc-ja-76100122-x-w101099">
@@ -866710,6 +866723,7 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100124-x" ili="" partOfSpeech="x" members="ntumc-ja-76100124-x-w101122">
+      <Definition language="en">a sortal classifiers used for flying or floating vehicles, such as an airplane, a helicopter, a spaceship or a UFO</Definition>
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-76100125-x" ili="" partOfSpeech="x" members="ntumc-ja-76100125-x-w101120">
@@ -866793,12 +866807,14 @@
       <SynsetRelation target="ntumc-ja-06308436-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000002-n" ili="" partOfSpeech="n" members="ntumc-ja-77000002-n-w102332 ntumc-ja-77000002-n-w102333 ntumc-ja-77000002-n-w99839 ntumc-ja-77000002-n-w99901">
+      <Definition language="en">1st person, plural pronoun; personal pronoun, person, 1st person, plural</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000003-n" ili="" partOfSpeech="n" members="ntumc-ja-77000003-n-w99834 ntumc-ja-77000003-n-w99877 ntumc-ja-77000003-n-w99918">
+      <Definition language="en">1st person, plural, formal pronoun; personal pronoun, person, 1st person, plural, formal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
@@ -866806,6 +866822,7 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000004-n" ili="" partOfSpeech="n" members="ntumc-ja-77000004-n-w102334 ntumc-ja-77000004-n-w102335">
+      <Definition language="en">1st person, plural, informal pronoun; personal pronoun, person, 1st person, plural, informal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -866813,6 +866830,7 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000009-n" ili="" partOfSpeech="n" members="ntumc-ja-77000009-n-w99854 ntumc-ja-77000009-n-w99886 ntumc-ja-77000009-n-w99903 ntumc-ja-77000009-n-w99937">
+      <Definition language="en">1st person, plural, masculine, informal pronoun; personal pronoun, person, 1st person, plural, men's speech, informal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -866820,6 +866838,7 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000011-n" ili="" partOfSpeech="n" members="ntumc-ja-77000011-n-w58697 ntumc-ja-77000011-n-w99856">
+      <Definition language="en">1st person, singular, formal pronoun; personal pronoun, person, 1st person, singular, formal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
@@ -866827,6 +866846,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000012-n" ili="" partOfSpeech="n" members="ntumc-ja-77000012-n-w99836 ntumc-ja-77000012-n-w99865">
+      <Definition language="en">1st person, singular, formal, polite pronoun; personal pronoun, person, 1st person, singular, formal, polite</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
@@ -866835,6 +866855,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000013-n" ili="" partOfSpeech="n" members="ntumc-ja-77000013-n-w99842">
+      <Definition language="en">1st person, singular, formal, polite, honorific pronoun; personal pronoun, person, 1st person, singular, formal, polite, honorific</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
@@ -866844,6 +866865,7 @@
       <SynsetRelation target="ntumc-ja-01994404-a" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000017-n" ili="" partOfSpeech="n" members="ntumc-ja-77000017-n-w13932 ntumc-ja-77000017-n-w99843 ntumc-ja-77000017-n-w99852 ntumc-ja-77000017-n-w99857">
+      <Definition language="en">1st person, singular, masculine, informal pronoun; personal pronoun, person, 1st person, singular, men's speech, informal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -866851,6 +866873,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000018-n" ili="" partOfSpeech="n" members="ntumc-ja-77000018-n-w99861">
+      <Definition language="en">1st person, singular, masculine, informal, archaic honorific pronoun; personal pronoun, person, 1st person, singular, men's speech, informal, archaic honorific</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
@@ -866860,12 +866883,14 @@
       <SynsetRelation target="ntumc-ja-01994404-a" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000019-n" ili="" partOfSpeech="n" members="ntumc-ja-77000019-n-w100064">
+      <Definition language="en">personal pronoun, person, 2nd person, plural</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327870-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000022-n" ili="" partOfSpeech="n" members="ntumc-ja-77000022-n-w102336">
+      <Definition language="en">personal pronoun, person, 2nd person, singular, formal, polite</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-00641158-a" relType="exemplifies" />
@@ -866874,6 +866899,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000023-n" ili="" partOfSpeech="n" members="ntumc-ja-77000023-n-w29185 ntumc-ja-77000023-n-w98132 ntumc-ja-77000023-n-w99833 ntumc-ja-77000023-n-w99850 ntumc-ja-77000023-n-w99866">
+      <Definition language="en">personal pronoun, person, 2nd person, singular, informal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
@@ -866881,6 +866907,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000026-n" ili="" partOfSpeech="n" members="ntumc-ja-77000026-n-w99872">
+      <Definition language="en">2nd person, singular, reflexive, informal, non-honorific pronoun; personal pronoun, person, 2nd person, singular, reflexive, informal, non-honorific</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
@@ -866889,6 +866916,7 @@
       <SynsetRelation target="ntumc-ja-06328207-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000027-n" ili="" partOfSpeech="n" members="ntumc-ja-77000027-n-w37921 ntumc-ja-77000027-n-w99853">
+      <Definition language="en">2nd person, singular, masculine, informal pronoun; personal pronoun, person, 2nd person, singular, men's speech, informal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
@@ -866896,11 +866924,13 @@
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000028-n" ili="" partOfSpeech="n" members="ntumc-ja-77000028-n-w99871 ntumc-ja-77000028-n-w99912">
+      <Definition language="en">pronoun, manner; quantifier: elective existential</Definition>
       <SynsetRelation target="ntumc-ja-04928903-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02267686-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000029-n" ili="" partOfSpeech="n" members="ntumc-ja-77000029-n-w99838 ntumc-ja-77000029-n-w99892 ntumc-ja-77000029-n-w99909 ntumc-ja-77000029-n-w99910">
+      <Definition language="en">personal pronoun, person, 3rd person, masculine, plural</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486084-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
@@ -866908,6 +866938,7 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000038-n" ili="" partOfSpeech="n" members="ntumc-ja-77000038-n-w6005 ntumc-ja-77000038-n-w99840">
+      <Definition language="en">3rd person, singular, informal, non-honorific pronoun; personal pronoun, entity, 3rd person, singular, informal, non-honorific</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
@@ -866915,12 +866946,14 @@
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000040-n" ili="" partOfSpeech="n" members="ntumc-ja-77000040-n-w95058">
+      <Definition language="en">3rd person, singular, other pronoun; pronoun, person, singular; quantifier: other</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02069355-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000041-n" ili="" partOfSpeech="n" members="ntumc-ja-77000041-n-w9132 ntumc-ja-77000041-n-w99924">
+      <Definition language="en">personal pronoun, person, 3rd person, singular, feminine</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486197-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
@@ -866928,6 +866961,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000046-n" ili="" partOfSpeech="n" members="ntumc-ja-77000046-n-w71859 ntumc-ja-77000046-n-w99900">
+      <Definition language="en">personal pronoun, person, 3rd person, singular, masculine</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486084-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
@@ -866935,6 +866969,7 @@
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000048-n" ili="" partOfSpeech="n" members="ntumc-ja-77000048-n-w99862 ntumc-ja-77000048-n-w99883">
+      <Definition language="en">3rd person, singular, masculine, informal, remote pronoun; demonstrative pronoun, person, singular, men's speech, informal; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -866942,16 +866977,19 @@
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000057-n" ili="" partOfSpeech="n" members="ntumc-ja-77000057-n-w99870">
+      <Definition language="en">demonstratives, plural, medial pronoun; demonstrative pronoun, entity, plural; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000058-n" ili="" partOfSpeech="n" members="ntumc-ja-77000058-n-w99841">
+      <Definition language="en">demonstratives, plural, proximal pronoun; demonstrative pronoun, entity; quantifier: demonstrative determiner, plural, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000059-a" ili="" partOfSpeech="a" members="ntumc-ja-77000059-a-w99907">
+      <Definition language="en">demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-77000048-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000108-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000081-n" relType="restricts" />
@@ -866960,11 +866998,13 @@
       <SynsetRelation target="ntumc-ja-77000070-n" relType="restricts" />
     </Synset>
     <Synset id="ntumc-ja-77000059-n" ili="" partOfSpeech="n" members="ntumc-ja-77000059-n-w43636">
+      <Definition language="en">demonstratives, singular, remote pronoun; demonstrative pronoun, entity; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000060-a" ili="" partOfSpeech="a" members="ntumc-ja-77000060-a-w99932">
+      <Definition language="en">demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-77000057-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000117-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000109-n" relType="restricts" />
@@ -866974,105 +867014,125 @@
       <SynsetRelation target="ntumc-ja-77000110-n" relType="restricts" />
     </Synset>
     <Synset id="ntumc-ja-77000060-n" ili="" partOfSpeech="n" members="ntumc-ja-77000060-n-w11318">
+      <Definition language="en">demonstratives, singular, medial pronoun; demonstrative pronoun, entity; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000061-n" ili="" partOfSpeech="n" members="ntumc-ja-77000061-n-w99855 ntumc-ja-77000061-n-w99897">
+      <Definition language="en">demonstrative pronoun, entity; quantifier: demonstrative determiner, singular, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000064-n" ili="" partOfSpeech="n" members="ntumc-ja-77000064-n-w99869 ntumc-ja-77000064-n-w99912">
+      <Definition language="en">entity, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000065-n" ili="" partOfSpeech="n" members="ntumc-ja-77000065-n-w99858">
+      <Definition language="en">entity, interrogative, formal pronoun; entity, interrogative pronoun, formal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000066-n" ili="" partOfSpeech="n" members="ntumc-ja-77000066-n-w99875">
+      <Definition language="en">entity, interrogative, informal pronoun; entity, interrogative pronoun, informal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000070-n" ili="" partOfSpeech="n" members="ntumc-ja-77000070-n-w99860">
+      <Definition language="en">entity, of two, formal, remote pronoun; demonstrative pronoun, entity, formal; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000071-n" ili="" partOfSpeech="n" members="ntumc-ja-77000071-n-w99878">
+      <Definition language="en">entity, of two, formal, medial pronoun; demonstrative pronoun, entity, formal; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000072-n" ili="" partOfSpeech="n" members="ntumc-ja-77000072-n-w99845">
+      <Definition language="en">entity, of two, formal, proximal pronoun; demonstrative pronoun, entity, formal; quantifier: demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486327-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045216-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000073-n" ili="" partOfSpeech="n" members="ntumc-ja-77000073-n-w99868">
+      <Definition language="en">entity, of two, informal, proximal pronoun; demonstrative pronoun, entity, informal; quantifier: demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486327-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000075-a" ili="" partOfSpeech="a" members="ntumc-ja-77000075-a-w99934">
+      <Definition language="en">demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-77000075-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-00778509-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-08489497-n" relType="restricts" />
     </Synset>
     <Synset id="ntumc-ja-77000075-n" ili="" partOfSpeech="n" members="ntumc-ja-77000075-n-w99855">
+      <Definition language="en">demonstrative pronoun, entity; quantifier: demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000075-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000076-n" ili="" partOfSpeech="n" members="ntumc-ja-77000076-n-w101012 ntumc-ja-77000076-n-w101013 ntumc-ja-77000076-n-w99873 ntumc-ja-77000076-n-w99930">
+      <Definition language="en">entity, of two, universal pronoun; pronoun, entity, of two; quantifier: of two, universal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000078-n" ili="" partOfSpeech="n" members="ntumc-ja-77000078-n-w102328 ntumc-ja-77000078-n-w66693">
+      <Definition language="en">entity, singular, universal pronoun; pronoun, entity, singular; quantifier: universal</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02269286-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000081-n" ili="" partOfSpeech="n" members="ntumc-ja-77000081-n-w8434 ntumc-ja-77000081-n-w99874">
+      <Definition language="en">demonstrative pronoun, location; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-08664443-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000084-n" ili="" partOfSpeech="n" members="ntumc-ja-77000084-n-w99859">
+      <Definition language="en">location, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-08664443-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000085-n" ili="" partOfSpeech="n" members="ntumc-ja-77000085-n-w99835">
+      <Definition language="en">location, other pronoun; pronoun, location; quantifier:  singular, another</Definition>
       <SynsetRelation target="ntumc-ja-08664443-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02069355-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000089-a" ili="" partOfSpeech="a" members="ntumc-ja-77000089-a-w99916 ntumc-ja-77000089-a-w99917 ntumc-ja-77000089-a-w99925">
+      <Definition language="en">demonstrative determiner, kind, proximal</Definition>
       <SynsetRelation target="ntumc-ja-05839024-n" relType="attribute" />
       <SynsetRelation target="ntumc-ja-00778509-a" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000089-r" ili="" partOfSpeech="r" members="ntumc-ja-77000089-r-w99926">
+      <Definition language="en">manner, proximal pronoun</Definition>
       <SynsetRelation target="ntumc-ja-04928903-n" relType="attribute" />
       <SynsetRelation target="ntumc-ja-00778509-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000090-n" ili="" partOfSpeech="n" members="ntumc-ja-77000090-n-w99849 ntumc-ja-77000090-n-w99879">
+      <Definition language="en">manner, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-04928903-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000091-a" ili="" partOfSpeech="a" members="ntumc-ja-77000091-a-w99896 ntumc-ja-77000091-a-w99902">
+      <Definition language="en">interrogative determiner, general</Definition>
       <SynsetRelation target="ntumc-ja-77000084-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000104-n" relType="restricts" />
       <SynsetRelation target="ntumc-ja-77000066-n" relType="restricts" />
@@ -867085,56 +867145,66 @@
       <SynsetRelation target="ntumc-ja-80001456-n" relType="restricts" />
     </Synset>
     <Synset id="ntumc-ja-77000091-n" ili="" partOfSpeech="n" members="ntumc-ja-77000091-n-w99846 ntumc-ja-77000091-n-w99851">
+      <Definition language="en">thing (object:), interrogative pronoun; thing, interrogative pronoun; what</Definition>
       <SynsetRelation target="ntumc-ja-04424218-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000092-n" ili="" partOfSpeech="n" members="ntumc-ja-77000092-n-w100601 ntumc-ja-77000092-n-w99887">
+      <Definition language="en">thing (object:), singular, assertive existential pronoun; pronoun, thing, singular; quantifier: assertive existential</Definition>
       <SynsetRelation target="ntumc-ja-04424218-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02267308-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000093-n" ili="" partOfSpeech="n" members="ntumc-ja-77000093-n-w99893 ntumc-ja-77000093-n-w99936">
+      <Definition language="en">thing (object:), singular, elective existential pronoun; pronoun, thing, singular; quantifier: elective existential; Additional information to the common topic</Definition>
       <SynsetRelation target="ntumc-ja-04424218-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02267686-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000094-n" ili="" partOfSpeech="n" members="ntumc-ja-77000094-n-w93899 ntumc-ja-77000094-n-w99863 ntumc-ja-77000094-n-w99905 ntumc-ja-77000094-n-w99914">
+      <Definition language="en">thing (object:), singular, universal pronoun; pronoun, thing, singular; quantifier: universal</Definition>
       <SynsetRelation target="ntumc-ja-04424218-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02269286-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06299916-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000095-n" ili="" partOfSpeech="n" members="ntumc-ja-77000095-n-w101044 ntumc-ja-77000095-n-w63184 ntumc-ja-77000095-n-w99847">
+      <Definition language="en">person, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-80001456-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-77000098-n" ili="" partOfSpeech="n" members="ntumc-ja-77000098-n-w100801 ntumc-ja-77000098-n-w100802 ntumc-ja-77000098-n-w100965 ntumc-ja-77000098-n-w100966 ntumc-ja-77000098-n-w34866 ntumc-ja-77000098-n-w43074 ntumc-ja-77000098-n-w99872">
+      <Definition language="en">personal pronoun, person, reflexive</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06327136-n" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06328207-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000099-n" ili="" partOfSpeech="n" members="ntumc-ja-77000099-n-w101579 ntumc-ja-77000099-n-w24908 ntumc-ja-77000099-n-w99837 ntumc-ja-77000099-n-w99876">
+      <Definition language="en">person, universal pronoun; pronoun, person; quantifier: universal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02269286-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000100-n" ili="" partOfSpeech="n" members="ntumc-ja-77000100-n-w99848">
+      <Definition language="en">person, universal, polite pronoun; pronoun, person, polite; quantifier: universal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02269286-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-00641158-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000104-n" ili="" partOfSpeech="n" members="ntumc-ja-77000104-n-w99867">
+      <Definition language="en">time, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-15122231-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000108-n" ili="" partOfSpeech="n" members="ntumc-ja-77000108-n-w99899 ntumc-ja-77000108-n-w99935">
+      <Definition language="en">demonstrative pronoun, person, plural, men's speech, informal; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -867142,6 +867212,7 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000109-n" ili="" partOfSpeech="n" members="ntumc-ja-77000109-n-w100731 ntumc-ja-77000109-n-w99904 ntumc-ja-77000109-n-w99922">
+      <Definition language="en">demonstrative pronoun, person, singular, men's speech, informal; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -867149,6 +867220,7 @@
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000110-n" ili="" partOfSpeech="n" members="ntumc-ja-77000110-n-w99915 ntumc-ja-77000110-n-w99931">
+      <Definition language="en">demonstrative pronoun, person, plural, men's speech, informal; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -867156,42 +867228,51 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000112-n" ili="" partOfSpeech="n" members="ntumc-ja-77000112-n-w100277 ntumc-ja-77000112-n-w100278 ntumc-ja-77000112-n-w99891 ntumc-ja-77000112-n-w99895">
+      <Definition language="en">cause, interrogative pronoun</Definition>
       <SynsetRelation target="ntumc-ja-06740402-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000091-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-77010122-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000113-a" ili="" partOfSpeech="a" members="ntumc-ja-77000113-a-w99921 ntumc-ja-77000113-a-w99927 ntumc-ja-77000113-a-w99933">
+      <Definition language="en">demonstrative determiner, kind, medial</Definition>
       <SynsetRelation target="ntumc-ja-05839024-n" relType="attribute" />
     </Synset>
     <Synset id="ntumc-ja-77000113-r" ili="" partOfSpeech="r" members="ntumc-ja-77000113-r-w2065">
+      <Definition language="en">manner, medial pronoun</Definition>
       <SynsetRelation target="ntumc-ja-04928903-n" relType="attribute" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000114-a" ili="" partOfSpeech="a" members="ntumc-ja-77000114-a-w99908 ntumc-ja-77000114-a-w99919 ntumc-ja-77000114-a-w99929">
+      <Definition language="en">demonstrative determiner, kind, remote</Definition>
       <SynsetRelation target="ntumc-ja-05839024-n" relType="attribute" />
     </Synset>
     <Synset id="ntumc-ja-77000114-r" ili="" partOfSpeech="r" members="ntumc-ja-77000114-r-w99885">
+      <Definition language="en">manner, remote pronoun</Definition>
       <SynsetRelation target="ntumc-ja-04928903-n" relType="attribute" />
       <SynsetRelation target="ntumc-ja-06325370-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000115-n" ili="" partOfSpeech="n" members="ntumc-ja-77000115-n-w99913">
+      <Definition language="en">demonstrative pronoun, entity, informal; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000116-n" ili="" partOfSpeech="n" members="ntumc-ja-77000116-n-w99920">
+      <Definition language="en">demonstrative pronoun, entity, informal; quantifier: demonstrative determiner, remote</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000059-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000117-n" ili="" partOfSpeech="n" members="ntumc-ja-77000117-n-w85264 ntumc-ja-77000117-n-w99889">
+      <Definition language="en">demonstrative pronoun, location; quantifier: demonstrative determiner, medial</Definition>
       <SynsetRelation target="ntumc-ja-08664443-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000060-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000122-n" ili="" partOfSpeech="n" members="ntumc-ja-77000122-n-w99881 ntumc-ja-77000122-n-w99897">
+      <Definition language="en">demonstrative pronoun, person, singular, men's speech, informal; quantifier: demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486327-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -867199,6 +867280,7 @@
       <SynsetRelation target="ntumc-ja-06325678-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77000123-n" ili="" partOfSpeech="n" members="ntumc-ja-77000123-n-w99898 ntumc-ja-77000123-n-w99928">
+      <Definition language="en">demonstrative pronoun, person, plural, men's speech, informal; quantifier: demonstrative determiner, proximal</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-01486327-a" relType="restricted_by" />
       <SynsetRelation target="ntumc-ja-01045711-a" relType="exemplifies" />
@@ -867206,9 +867288,11 @@
       <SynsetRelation target="ntumc-ja-06295235-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-77010120-n" ili="" partOfSpeech="n" members="ntumc-ja-77010120-n-w102354">
+      <Definition language="en">a pronoun conveying the meaning of possession</Definition>
       <SynsetRelation target="ntumc-ja-06327136-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-77010122-n" ili="" partOfSpeech="n" members="ntumc-ja-77010122-n-w100268">
+      <Definition language="en">a pronoun used in questions</Definition>
       <SynsetRelation target="ntumc-ja-06325370-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-77000084-n" relType="is_exemplified_by" />
       <SynsetRelation target="ntumc-ja-77000104-n" relType="is_exemplified_by" />
@@ -867222,25 +867306,32 @@
       <SynsetRelation target="ntumc-ja-80001456-n" relType="is_exemplified_by" />
     </Synset>
     <Synset id="ntumc-ja-80000008-n" ili="" partOfSpeech="n" members="ntumc-ja-80000008-n-w100759">
+      <Definition language="en">serious or severe physical damage to the body, whether by violence or accident</Definition>
       <SynsetRelation target="ntumc-ja-14285662-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000023-n" ili="" partOfSpeech="n" members="ntumc-ja-80000023-n-w102236 ntumc-ja-80000023-n-w99880">
+      <Definition language="en">the cuisine of China</Definition>
       <SynsetRelation target="ntumc-ja-07571324-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000026-n" ili="" partOfSpeech="n" members="ntumc-ja-80000026-n-w100353 ntumc-ja-80000026-n-w10965">
+      <Definition language="en">a mythical monster in Chinese folklore which comes down from the mountain to hunt people. It was eventually killed by villagers, who frightened it with terrible noises and fire.; mythical creature that terrorises villagers. It is known to be afraid of the colour red</Definition>
       <SynsetRelation target="ntumc-ja-09492123-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000041-n" ili="" partOfSpeech="n" members="ntumc-ja-80000041-n-w1281">
+      <Definition language="en">red-coloured bean commonly used in East Asian cuisines, sometimes in soup or in the form of a paste</Definition>
       <SynsetRelation target="ntumc-ja-13136316-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000042-n" ili="" partOfSpeech="n" members="ntumc-ja-80000042-n-w101432 ntumc-ja-80000042-n-w101433 ntumc-ja-80000042-n-w101434 ntumc-ja-80000042-n-w101435">
+      <Definition language="en">a short-grain variety of rice, often referred to in its cooked, sticky form</Definition>
       <SynsetRelation target="ntumc-ja-07804323-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000063-n" ili="" partOfSpeech="n" members="ntumc-ja-80000063-n-w100524">
+      <Definition language="en">a traditional blouse-dress combination originating from Indonesia and worn by women in Southeast Asia</Definition>
       <SynsetRelation target="ntumc-ja-03051540-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80000064-n" ili="" partOfSpeech="n" members="ntumc-ja-80000064-n-w101789 ntumc-ja-80000064-n-w99938">
+      <Definition language="en">the Malay-speaking territories of Southeast Asia: Brunei, Indonesia, Malaysia, Singapore, and Southern Thailand</Definition>
       <SynsetRelation target="ntumc-ja-08574314-n" relType="instance_hypernym" />
       <SynsetRelation target="ntumc-ja-08907606-n" relType="mero_part" />
       <SynsetRelation target="ntumc-ja-08896092-n" relType="mero_part" />
@@ -867273,23 +867364,29 @@
       <SynsetRelation target="ntumc-ja-15209413-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000101-n" ili="" partOfSpeech="n" members="ntumc-ja-80000101-n-w101784">
+      <Definition language="en">a hot milk tea that is poured back and forth between two metal cups several times, giving it a frothy top</Definition>
       <SynsetRelation target="ntumc-ja-07933274-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80000105-n" ili="" partOfSpeech="n" members="ntumc-ja-80000105-n-w99942">
+      <Definition language="en">the triad of the Buddha, dharma, and sangha</Definition>
       <SynsetRelation target="ntumc-ja-06240244-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-08463969-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000117-n" ili="" partOfSpeech="n" members="ntumc-ja-80000117-n-w99943">
+      <Definition language="en">orange with maroon coloured flesh which looks like blood</Definition>
       <SynsetRelation target="ntumc-ja-07747607-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000128-n" ili="" partOfSpeech="n" members="ntumc-ja-80000128-n-w99944">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000134-n" ili="" partOfSpeech="n" members="ntumc-ja-80000134-n-w99945">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000190-n" ili="" partOfSpeech="n" members="ntumc-ja-80000190-n-w99946">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000191-n" ili="" partOfSpeech="n" members="ntumc-ja-80000191-n-w102243">
@@ -867297,9 +867394,11 @@
       <SynsetRelation target="ntumc-ja-07555863-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000195-n" ili="" partOfSpeech="n" members="ntumc-ja-80000195-n-w99947">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000200-n" ili="" partOfSpeech="n" members="ntumc-ja-80000200-n-w100971">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000213-n" ili="" partOfSpeech="n" members="ntumc-ja-80000213-n-w100651">
@@ -867307,22 +867406,28 @@
       <SynsetRelation target="ntumc-ja-05217168-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80000218-n" ili="" partOfSpeech="n" members="ntumc-ja-80000218-n-w99948">
+      <Definition language="en">a variety of tangerine, of the size of oranges</Definition>
       <SynsetRelation target="ntumc-ja-12710295-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000236-n" ili="" partOfSpeech="n" members="ntumc-ja-80000236-n-w99949">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000237-n" ili="" partOfSpeech="n" members="ntumc-ja-80000237-n-w99950">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000239-n" ili="" partOfSpeech="n" members="ntumc-ja-80000239-n-w99951">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000245-n" ili="" partOfSpeech="n" members="ntumc-ja-80000245-n-w100805 ntumc-ja-80000245-n-w25654 ntumc-ja-80000245-n-w94965">
+      <Definition language="en">a group of people having a common interest</Definition>
       <SynsetRelation target="ntumc-ja-08224274-n" relType="similar" />
       <SynsetRelation target="ntumc-ja-07965937-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000250-n" ili="" partOfSpeech="n" members="ntumc-ja-80000250-n-w102014 ntumc-ja-80000250-n-w102015">
+      <Definition language="en">a leafy vegetable with hollow stems commonly grown in East and Southeast Asia</Definition>
       <SynsetRelation target="ntumc-ja-07707451-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000253-n" ili="" partOfSpeech="n" members="ntumc-ja-80000253-n-w35484 ntumc-ja-80000253-n-w54946 ntumc-ja-80000253-n-w91528">
@@ -867330,6 +867435,7 @@
       <SynsetRelation target="ntumc-ja-09492123-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000254-n" ili="" partOfSpeech="n" members="ntumc-ja-80000254-n-w102099">
+      <Definition language="en">paper representing money in the underworld, burnt as an offering to deceased relatives</Definition>
       <SynsetRelation target="ntumc-ja-14925526-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000263-v" ili="" partOfSpeech="v" members="ntumc-ja-80000263-v-w102642 ntumc-ja-80000263-v-w102643">
@@ -867337,30 +867443,38 @@
       <SynsetRelation target="ntumc-ja-00069879-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000273-r" ili="" partOfSpeech="r" members="ntumc-ja-80000273-r-w101888 ntumc-ja-80000273-r-w101889 ntumc-ja-80000273-r-w101890 ntumc-ja-80000273-r-w101891">
+      <Definition language="en">over the years; through the years</Definition>
       <SynsetRelation target="ntumc-ja-00226458-r" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000276-n" ili="" partOfSpeech="n" members="ntumc-ja-80000276-n-w99952">
+      <Definition language="en">a policy implemented by the shogunate to keep the daimyo under control, during most of the Edo era</Definition>
       <SynsetRelation target="ntumc-ja-08921850-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80000290-n" ili="" partOfSpeech="n" members="ntumc-ja-80000290-n-w101266">
+      <Definition language="en">a widely cultivated plant with long and narrow leaves spread out like fans; commonly used in Southeast Asian cooking as flavouring</Definition>
       <SynsetRelation target="ntumc-ja-12154773-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000291-n" ili="" partOfSpeech="n" members="ntumc-ja-80000291-n-w100451">
+      <Definition language="en">a type of nuclear reactor which uses regular water (dihydrogen oxide) as its coolant and neutron moderator</Definition>
       <SynsetRelation target="ntumc-ja-04559023-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-04001661-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-02864122-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000295-n" ili="" partOfSpeech="n" members="ntumc-ja-80000295-n-w101052">
+      <Definition language="en">a dance which has one or more lines of dancers executing choreographed steps simultaneously, usually to country or latin music, but can also be danced to R&amp;B, jazz, and a variety of other genres</Definition>
       <SynsetRelation target="ntumc-ja-00428270-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000297-n" ili="" partOfSpeech="n" members="ntumc-ja-80000297-n-w99953">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-09770472-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000301-n" ili="" partOfSpeech="n" members="ntumc-ja-80000301-n-w101786 ntumc-ja-80000301-n-w101787 ntumc-ja-80000301-n-w101788">
+      <Definition language="en">a fried dough ball which is covered with sesame seeds on the outside; typically filled with lotus paste, red bean paste, or black bean paste on the inside</Definition>
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000302-n" ili="" partOfSpeech="n" members="ntumc-ja-80000302-n-w46449">
+      <Definition language="en">a casual drinking house that also sells a small variety of snacks</Definition>
       <SynsetRelation target="ntumc-ja-08921850-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-04395875-n" relType="hypernym" />
     </Synset>
@@ -867370,9 +867484,11 @@
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80000329-n" ili="" partOfSpeech="n" members="ntumc-ja-80000329-n-w99754">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000333-n" ili="" partOfSpeech="n" members="ntumc-ja-80000333-n-w100972 ntumc-ja-80000333-n-w100973">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000338-n" ili="" partOfSpeech="n" members="ntumc-ja-80000338-n-w99954">
@@ -867380,18 +867496,23 @@
       <SynsetRelation target="ntumc-ja-01177033-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000345-n" ili="" partOfSpeech="n" members="ntumc-ja-80000345-n-w99955">
+      <Definition language="en">a Japanese term referring to the first dream one has in the new year</Definition>
       <SynsetRelation target="ntumc-ja-05768553-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000352-n" ili="" partOfSpeech="n" members="ntumc-ja-80000352-n-w99956">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000356-n" ili="" partOfSpeech="n" members="ntumc-ja-80000356-n-w99957">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000364-n" ili="" partOfSpeech="n" members="ntumc-ja-80000364-n-w99958">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000379-n" ili="" partOfSpeech="n" members="ntumc-ja-80000379-n-w101045 ntumc-ja-80000379-n-w101046">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000391-n" ili="" partOfSpeech="n" members="ntumc-ja-80000391-n-w99960">
@@ -867404,6 +867525,7 @@
       <SynsetRelation target="ntumc-ja-80002388-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-80000400-n" ili="" partOfSpeech="n" members="ntumc-ja-80000400-n-w99961">
+      <Definition language="en">the bones of a pig, typically referring to those used for cooking broth in asian cuisine</Definition>
       <SynsetRelation target="ntumc-ja-05269901-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000403-n" ili="" partOfSpeech="n" members="ntumc-ja-80000403-n-w101756 ntumc-ja-80000403-n-w101757 ntumc-ja-80000403-n-w12415">
@@ -867411,24 +867533,31 @@
       <SynsetRelation target="ntumc-ja-07650903-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000405-n" ili="" partOfSpeech="n" members="ntumc-ja-80000405-n-w99962">
+      <Definition language="en">the end of the month</Definition>
       <SynsetRelation target="ntumc-ja-15209413-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-80000417-n" ili="" partOfSpeech="n" members="ntumc-ja-80000417-n-w99963">
+      <Definition language="en">a night sky filled with stars</Definition>
       <SynsetRelation target="ntumc-ja-09436708-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000418-n" ili="" partOfSpeech="n" members="ntumc-ja-80000418-n-w101041 ntumc-ja-80000418-n-w99964">
+      <Definition language="en">the period in Japanese history corresponding to the reign of Showa Emperor, Emperor Hirohito, that lasted from December 25, 1926, to January 7, 1989</Definition>
       <SynsetRelation target="ntumc-ja-15248564-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000420-n" ili="" partOfSpeech="n" members="ntumc-ja-80000420-n-w100871">
+      <Definition language="en">both sides; both the left and right sides</Definition>
       <SynsetRelation target="ntumc-ja-05551318-n" relType="holo_part" />
     </Synset>
     <Synset id="ntumc-ja-80000423-n" ili="" partOfSpeech="n" members="ntumc-ja-80000423-n-w101814">
+      <Definition language="en">ne:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000433-n" ili="" partOfSpeech="n" members="ntumc-ja-80000433-n-w101581">
+      <Definition language="en">a language of other lands that one does not speak</Definition>
       <SynsetRelation target="ntumc-ja-06904171-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000439-n" ili="" partOfSpeech="n" members="ntumc-ja-80000439-n-w99965">
+      <Definition language="en">ne:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000440-v" ili="" partOfSpeech="v" members="ntumc-ja-80000440-v-w82299">
@@ -867436,19 +867565,23 @@
       <SynsetRelation target="ntumc-ja-02204692-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000470-n" ili="" partOfSpeech="n" members="ntumc-ja-80000470-n-w99966">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000475-n" ili="" partOfSpeech="n" members="ntumc-ja-80000475-n-w100169">
+      <Definition language="en">hard labour that an offender is sentenced to perform during imprisonment</Definition>
       <SynsetRelation target="ntumc-ja-00620752-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-13998014-n" relType="instance_hypernym" />
       <SynsetRelation target="ntumc-ja-02779420-a" relType="attribute" />
       <SynsetRelation target="ntumc-ja-00621326-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80000476-n" ili="" partOfSpeech="n" members="ntumc-ja-80000476-n-w99967">
+      <Definition language="en">the modification of the constitution of a nation or state</Definition>
       <SynsetRelation target="ntumc-ja-01250101-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-06533648-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000480-n" ili="" partOfSpeech="n" members="ntumc-ja-80000480-n-w99968">
+      <Definition language="en">a shop that specialises in the sale of antiques</Definition>
       <SynsetRelation target="ntumc-ja-04202417-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02723754-n" relType="entails" />
     </Synset>
@@ -867458,40 +867591,51 @@
       <SynsetRelation target="ntumc-ja-07823951-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-80000506-n" ili="" partOfSpeech="n" members="ntumc-ja-80000506-n-w101075 ntumc-ja-80000506-n-w55926">
+      <Definition language="en">that very same night</Definition>
       <SynsetRelation target="ntumc-ja-00028270-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000521-n" ili="" partOfSpeech="n" members="ntumc-ja-80000521-n-w76909 ntumc-ja-80000521-n-w78251">
+      <Definition language="en">the passing of monks or nuns</Definition>
       <SynsetRelation target="ntumc-ja-07355491-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000524-n" ili="" partOfSpeech="n" members="ntumc-ja-80000524-n-w100803 ntumc-ja-80000524-n-w100804">
+      <Definition language="en">referring to music community or the industry as a whole</Definition>
       <SynsetRelation target="ntumc-ja-08065234-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000564-n" ili="" partOfSpeech="n" members="ntumc-ja-80000564-n-w101287">
+      <Definition language="en">a word or phrase — usually jargon — that has is seen as fashionable at a time, or in a particular context</Definition>
       <SynsetRelation target="ntumc-ja-06608277-n" relType="similar" />
       <SynsetRelation target="ntumc-ja-07157273-n" relType="also" />
       <SynsetRelation target="ntumc-ja-07071017-n" relType="also" />
       <SynsetRelation target="ntumc-ja-07151380-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000565-n" ili="" partOfSpeech="n" members="ntumc-ja-80000565-n-w99970">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000566-n" ili="" partOfSpeech="n" members="ntumc-ja-80000566-n-w99969">
+      <Definition language="en">ne:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000571-n" ili="" partOfSpeech="n" members="ntumc-ja-80000571-n-w100222">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000573-n" ili="" partOfSpeech="n" members="ntumc-ja-80000573-n-w99971">
+      <Definition language="en">physical confrontation between two people at very close distances/short range which does not involve the use of distance weapons</Definition>
       <SynsetRelation target="ntumc-ja-00449662-a" relType="attribute" />
       <SynsetRelation target="ntumc-ja-01170962-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000585-n" ili="" partOfSpeech="n" members="ntumc-ja-80000585-n-w101815 ntumc-ja-80000585-n-w101816">
+      <Definition language="en">ne:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000591-n" ili="" partOfSpeech="n" members="ntumc-ja-80000591-n-w99974">
+      <Definition language="en">ne:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000597-n" ili="" partOfSpeech="n" members="ntumc-ja-80000597-n-w100407 ntumc-ja-80000597-n-w102262 ntumc-ja-80000597-n-w102263 ntumc-ja-80000597-n-w102264 ntumc-ja-80000597-n-w102265 ntumc-ja-80000597-n-w102266 ntumc-ja-80000597-n-w102267">
+      <Definition language="en">ne:oth; World Expo</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000605-r" ili="" partOfSpeech="r" members="ntumc-ja-80000605-r-w100592 ntumc-ja-80000605-r-w29471 ntumc-ja-80000605-r-w72048 ntumc-ja-80000605-r-w839 ntumc-ja-80000605-r-w97069">
@@ -867499,6 +867643,7 @@
       <SynsetRelation target="ntumc-ja-01409581-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80000639-n" ili="" partOfSpeech="n" members="ntumc-ja-80000639-n-w99975">
+      <Definition language="en">a class of accommodation on a ship or train or plane between first class and economy class</Definition>
       <SynsetRelation target="ntumc-ja-02672371-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000657-x" ili="" partOfSpeech="x" members="ntumc-ja-80000657-x-w100355 ntumc-ja-80000657-x-w102346">
@@ -867520,6 +867665,7 @@
       <SynsetRelation target="ntumc-ja-06629610-n" relType="eq_synonym" />
     </Synset>
     <Synset id="ntumc-ja-80000671-x" ili="" partOfSpeech="x" members="ntumc-ja-80000671-x-w100577 ntumc-ja-80000671-x-w100578">
+      <Definition language="en">A phrase used to wish someone a pleasant journey</Definition>
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-80000674-x" ili="" partOfSpeech="x" members="ntumc-ja-80000674-x-w100548 ntumc-ja-80000674-x-w100549 ntumc-ja-80000674-x-w100550 ntumc-ja-80000674-x-w100551 ntumc-ja-80000674-x-w100552 ntumc-ja-80000674-x-w100553 ntumc-ja-80000674-x-w100554 ntumc-ja-80000674-x-w100555">
@@ -867531,22 +867677,28 @@
       <SynsetRelation target="ntumc-ja-13810818-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000704-r" ili="" partOfSpeech="r" members="ntumc-ja-80000704-r-w100895 ntumc-ja-80000704-r-w100896 ntumc-ja-80000704-r-w100897 ntumc-ja-80000704-r-w100898">
+      <Definition language="en">all over; thoroughly; completely; all</Definition>
       <SynsetRelation target="ntumc-ja-00198039-r" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80000732-n" ili="" partOfSpeech="n" members="ntumc-ja-80000732-n-w93172">
+      <Definition language="en">a form of address for a medical doctor or someone with a PhD</Definition>
       <SynsetRelation target="ntumc-ja-06339416-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000735-n" ili="" partOfSpeech="n" members="ntumc-ja-80000735-n-w99976">
+      <Definition language="en">head of governing body in Hong Kong</Definition>
       <SynsetRelation target="ntumc-ja-10451263-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80000746-n" ili="" partOfSpeech="n" members="ntumc-ja-80000746-n-w99977">
+      <Definition language="en">alphabet originated from China and used in China, Taiwan, Japan, Korea and Vietnam</Definition>
       <SynsetRelation target="ntumc-ja-06818970-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000762-n" ili="" partOfSpeech="n" members="ntumc-ja-80000762-n-w100857">
+      <Definition language="en">the way or method in which a dish/food item is prepared or consumed; the style in which a dish/food item is prepared</Definition>
       <SynsetRelation target="ntumc-ja-01168468-v" relType="entails" />
       <SynsetRelation target="ntumc-ja-04928903-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000765-n" ili="" partOfSpeech="n" members="ntumc-ja-80000765-n-w102273">
+      <Definition language="en">the physical and intangible attributes of a group or society passed down from past generations, which are maintained for the benefit of posterity</Definition>
       <SynsetRelation target="ntumc-ja-04921011-n" relType="similar" />
       <SynsetRelation target="ntumc-ja-05669797-n" relType="similar" />
       <SynsetRelation target="ntumc-ja-02872501-a" relType="attribute" />
@@ -867554,35 +867706,42 @@
       <SynsetRelation target="ntumc-ja-13263779-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000772-n" ili="" partOfSpeech="n" members="ntumc-ja-80000772-n-w50637">
+      <Definition language="en">a period of ten days</Definition>
       <SynsetRelation target="ntumc-ja-15113229-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000777-n" ili="" partOfSpeech="n" members="ntumc-ja-80000777-n-w101466">
+      <Definition language="en">any single animal of the 12 zodiac signs</Definition>
       <SynsetRelation target="ntumc-ja-04615456-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-05778131-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-00015388-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000793-v" ili="" partOfSpeech="v" members="ntumc-ja-80000793-v-w19595 ntumc-ja-80000793-v-w63149">
+      <Definition language="en">to go out and in</Definition>
       <SynsetRelation target="ntumc-ja-02016523-v" relType="entails" />
       <SynsetRelation target="ntumc-ja-02015598-v" relType="entails" />
       <SynsetRelation target="ntumc-ja-01831531-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000795-n" ili="" partOfSpeech="n" members="ntumc-ja-80000795-n-w101039 ntumc-ja-80000795-n-w101040">
+      <Definition language="en">a unit system used to measure areas (equivalent to 1 million square metres, or the areas of a square with sides of exactly 1 kilometre)</Definition>
       <SynsetRelation target="ntumc-ja-13600404-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-13613294-n" relType="also" />
       <SynsetRelation target="ntumc-ja-13659760-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000797-n" ili="" partOfSpeech="n" members="ntumc-ja-80000797-n-w99978">
+      <Definition language="en">activities (usually recreational) that has a high level of inherent danger or intensity</Definition>
       <SynsetRelation target="ntumc-ja-01534858-a" relType="attribute" />
       <SynsetRelation target="ntumc-ja-01511520-a" relType="attribute" />
       <SynsetRelation target="ntumc-ja-00523513-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000803-n" ili="" partOfSpeech="n" members="ntumc-ja-80000803-n-w91721">
+      <Definition language="en">the responsibility and power to do something</Definition>
       <SynsetRelation target="ntumc-ja-00829378-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-00148329-r" relType="also" />
       <SynsetRelation target="ntumc-ja-00148422-r" relType="also" />
       <SynsetRelation target="ntumc-ja-80001375-v" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000807-r" ili="" partOfSpeech="r" members="ntumc-ja-80000807-r-w100573">
+      <Definition language="en">in the event of; used as a conjunction for a hypothetical situation, usually followed by the consequences in the next sentence</Definition>
       <SynsetRelation target="ntumc-ja-00018043-r" relType="also" />
       <SynsetRelation target="ntumc-ja-80001187-x" relType="also" />
       <SynsetRelation target="ntumc-ja-80001668-r" relType="also" />
@@ -867592,6 +867751,7 @@
       <SynsetRelation target="ntumc-ja-05790944-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000822-n" ili="" partOfSpeech="n" members="ntumc-ja-80000822-n-w100589">
+      <Definition language="en">the time period before and after the mentioned event</Definition>
       <SynsetRelation target="ntumc-ja-15113229-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000846-a" ili="" partOfSpeech="a" members="ntumc-ja-80000846-a-w101014">
@@ -867599,6 +867759,7 @@
       <SynsetRelation target="ntumc-ja-00025728-r" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80000886-v" ili="" partOfSpeech="v" members="ntumc-ja-80000886-v-w3690 ntumc-ja-80000886-v-w97396">
+      <Definition language="en">access or view a website</Definition>
       <SynsetRelation target="ntumc-ja-02150948-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80000945-x" ili="" partOfSpeech="x" members="ntumc-ja-80000945-x-w100459 ntumc-ja-80000945-x-w100460 ntumc-ja-80000945-x-w100461 ntumc-ja-80000945-x-w100462">
@@ -867606,6 +867767,7 @@
       <SynsetRelation target="ntumc-ja-07125523-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-80000951-v" ili="" partOfSpeech="v" members="ntumc-ja-80000951-v-w79023 ntumc-ja-80000951-v-w88709">
+      <Definition language="en">to walk around; to walk up and down; to walk back and forth; to pace around</Definition>
       <SynsetRelation target="ntumc-ja-00076193-r" relType="similar" />
       <SynsetRelation target="ntumc-ja-02419438-v" relType="similar" />
     </Synset>
@@ -867615,15 +867777,19 @@
       <SynsetRelation target="ntumc-ja-13762579-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000968-n" ili="" partOfSpeech="n" members="ntumc-ja-80000968-n-w100454 ntumc-ja-80000968-n-w100455">
+      <Definition language="en">A dish served as a subsidiary to the main one</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80000978-n" ili="" partOfSpeech="n" members="ntumc-ja-80000978-n-w101055">
+      <Definition language="en">A live stage performance held during the Hungry Ghost Festival (held in Singapore, Malaysia and parts of Indonesia)</Definition>
       <SynsetRelation target="ntumc-ja-06891493-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001003-n" ili="" partOfSpeech="n" members="ntumc-ja-80001003-n-w100239">
+      <Definition language="en">A flavoured tea drink made by brewing black tea with a mixture of Indian spices and herbs</Definition>
       <SynsetRelation target="ntumc-ja-07933274-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001014-n" ili="" partOfSpeech="n" members="ntumc-ja-80001014-n-w102316">
+      <Definition language="en">A spicy dish consisting of soya bean cake, long beans, and spices simmered in a coconut-based gravy</Definition>
       <SynsetRelation target="ntumc-ja-90000312-n" relType="mero_substance" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
     </Synset>
@@ -867640,18 +867806,22 @@
       <SynsetRelation target="ntumc-ja-01729566-a" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001101-n" ili="" partOfSpeech="n" members="ntumc-ja-80001101-n-w91283">
+      <Definition language="en">a rigid piece, usually elongated, that is made of iron</Definition>
       <SynsetRelation target="ntumc-ja-02788689-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001122-v" ili="" partOfSpeech="v" members="ntumc-ja-80001122-v-w100690">
+      <Definition language="en">to open eyes fully or by a great amount</Definition>
       <SynsetRelation target="ntumc-ja-01654900-a" relType="causes" />
       <SynsetRelation target="ntumc-ja-80001141-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001141-v" ili="" partOfSpeech="v" members="ntumc-ja-80001141-v-w100688 ntumc-ja-80001141-v-w100689">
+      <Definition language="en">to open eyes; to stare</Definition>
       <SynsetRelation target="ntumc-ja-01654377-a" relType="entails" />
       <SynsetRelation target="ntumc-ja-01346003-v" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001122-v" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001155-n" ili="" partOfSpeech="n" members="ntumc-ja-80001155-n-w100253">
+      <Definition language="en">two/both eyeballs</Definition>
       <SynsetRelation target="ntumc-ja-05316025-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-13743605-n" relType="also" />
     </Synset>
@@ -867710,6 +867880,7 @@
       <SynsetRelation target="ntumc-ja-80001177-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001177-n" ili="" partOfSpeech="n" members="ntumc-ja-80001177-n-w100020">
+      <Definition language="en">若い年齢で発生する白髪</Definition>
       <SynsetRelation target="ntumc-ja-80001176-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001181-v" ili="" partOfSpeech="v" members="ntumc-ja-80001181-v-w100026 ntumc-ja-80001181-v-w100027 ntumc-ja-80001181-v-w100817 ntumc-ja-80001181-v-w100818 ntumc-ja-80001181-v-w99992 ntumc-ja-80001181-v-w99993">
@@ -867758,6 +867929,7 @@
       <SynsetRelation target="ntumc-ja-07336346-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001192-a" ili="" partOfSpeech="a" members="ntumc-ja-80001192-a-w99864 ntumc-ja-80001192-a-w99884 ntumc-ja-80001192-a-w99894 ntumc-ja-80001192-a-w99906">
+      <Definition language="en">possessive determiner, 1st person</Definition>
       <SynsetRelation target="ntumc-ja-06327718-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-80001193-n" ili="" partOfSpeech="n" members="ntumc-ja-80001193-n-w100044 ntumc-ja-80001193-n-w100045">
@@ -867773,6 +867945,7 @@
       <SynsetRelation target="ntumc-ja-02004874-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001198-n" ili="" partOfSpeech="n" members="ntumc-ja-80001198-n-w100863">
+      <Definition language="en">wind and rain</Definition>
       <SynsetRelation target="ntumc-ja-11525955-n" relType="also" />
       <SynsetRelation target="ntumc-ja-11501381-n" relType="also" />
       <SynsetRelation target="ntumc-ja-11462526-n" relType="similar" />
@@ -867803,14 +867976,17 @@
       <SynsetRelation target="ntumc-ja-05029706-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001235-v" ili="" partOfSpeech="v" members="ntumc-ja-80001235-v-w100322 ntumc-ja-80001235-v-w100323">
+      <Definition language="en">to set up, start or establish a new business or practice</Definition>
       <SynsetRelation target="ntumc-ja-02426171-v" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-02427103-v" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001237-n" ili="" partOfSpeech="n" members="ntumc-ja-80001237-n-w19738 ntumc-ja-80001237-n-w35415 ntumc-ja-80001237-n-w91867 ntumc-ja-80001237-n-w92874">
+      <Definition language="en">two offspring produced by the same pregnancy</Definition>
       <SynsetRelation target="ntumc-ja-10734394-n" relType="mero_member" />
       <SynsetRelation target="ntumc-ja-07942152-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001238-n" ili="" partOfSpeech="n" members="ntumc-ja-80001238-n-w102314 ntumc-ja-80001238-n-w102315">
+      <Definition language="en">a birth that occurs when more than one foetus result from a single pregnancy</Definition>
       <SynsetRelation target="ntumc-ja-07320302-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001261-v" ili="" partOfSpeech="v" members="ntumc-ja-80001261-v-w53595">
@@ -867851,6 +868027,7 @@
       <SynsetRelation target="ntumc-ja-05627785-n" relType="antonym" />
     </Synset>
     <Synset id="ntumc-ja-80001277-r" ili="" partOfSpeech="r" members="ntumc-ja-80001277-r-w100196">
+      <Definition language="en">with the utmost effort</Definition>
       <SynsetRelation target="ntumc-ja-00342351-r" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80001278-a" ili="" partOfSpeech="a" members="ntumc-ja-80001278-a-w102350 ntumc-ja-80001278-a-w19179 ntumc-ja-80001278-a-w19373 ntumc-ja-80001278-a-w27148 ntumc-ja-80001278-a-w58857 ntumc-ja-80001278-a-w9730">
@@ -867874,13 +868051,16 @@
       <SynsetRelation target="ntumc-ja-80001287-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001287-n" ili="" partOfSpeech="n" members="ntumc-ja-80001287-n-w12259">
+      <Definition language="en">the expression of happiness, which may include the movement of lips and production of sound</Definition>
       <SynsetRelation target="ntumc-ja-80001283-v" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001305-n" ili="" partOfSpeech="n" members="ntumc-ja-80001305-n-w100347">
+      <Definition language="en">an ethnic group that is native to the Minangkabau Highlands of western Sumatra</Definition>
       <SynsetRelation target="ntumc-ja-09750157-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001306-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001306-n" ili="" partOfSpeech="n" members="ntumc-ja-80001306-n-w100348">
+      <Definition language="en">an Austronesian language native to the Minangkabau people, and is also used as a language in other parts of Indonesia. It is closely related to the Malay language</Definition>
       <SynsetRelation target="ntumc-ja-80001305-n" relType="also" />
       <SynsetRelation target="ntumc-ja-06938729-n" relType="hypernym" />
     </Synset>
@@ -868046,6 +868226,7 @@
       <SynsetRelation target="ntumc-ja-01421622-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001358-n" ili="" partOfSpeech="n" members="ntumc-ja-80001358-n-w102319">
+      <Definition language="en">the southern part of the Fujian province in China</Definition>
       <SynsetRelation target="ntumc-ja-90000301-n" relType="holo_part" />
       <SynsetRelation target="ntumc-ja-08630039-n" relType="instance_hypernym" />
     </Synset>
@@ -868107,6 +868288,7 @@
       <SynsetRelation target="ntumc-ja-02282506-v" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001374-n" ili="" partOfSpeech="n" members="ntumc-ja-80001374-n-w100632">
+      <Definition language="en">a lime native to tropical Asia</Definition>
       <SynsetRelation target="ntumc-ja-07749731-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001375-v" ili="" partOfSpeech="v" members="ntumc-ja-80001375-v-w100636 ntumc-ja-80001375-v-w100637 ntumc-ja-80001375-v-w100638 ntumc-ja-80001375-v-w100639">
@@ -868149,6 +868331,7 @@
       <SynsetRelation target="ntumc-ja-80001380-a" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001383-n" ili="" partOfSpeech="n" members="ntumc-ja-80001383-n-w100663">
+      <Definition language="en">an East-Asian mythical bird that is seen as supreme among all birds</Definition>
       <SynsetRelation target="ntumc-ja-09500936-n" relType="also" />
       <SynsetRelation target="ntumc-ja-09484664-n" relType="hypernym" />
     </Synset>
@@ -868176,6 +868359,7 @@
       <SynsetRelation target="ntumc-ja-80001392-v" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001392-v" ili="" partOfSpeech="v" members="ntumc-ja-80001392-v-w100677 ntumc-ja-80001392-v-w100678 ntumc-ja-80001392-v-w28851 ntumc-ja-80001392-v-w722">
+      <Definition language="en">come to or be on the top side and put the weight on it</Definition>
       <SynsetRelation target="ntumc-ja-80001391-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001393-n" ili="" partOfSpeech="n" members="ntumc-ja-80001393-n-w100679 ntumc-ja-80001393-n-w18224">
@@ -868278,6 +868462,7 @@
       <SynsetRelation target="ntumc-ja-01570935-v" relType="entails" />
     </Synset>
     <Synset id="ntumc-ja-80001425-n" ili="" partOfSpeech="n" members="ntumc-ja-80001425-n-w100746">
+      <Definition language="en">the act of being respectful, loving and dutiful to one's parents, elders and ancestors</Definition>
       <SynsetRelation target="ntumc-ja-01995863-a" relType="antonym" />
       <SynsetRelation target="ntumc-ja-07544039-n" relType="similar" />
       <SynsetRelation target="ntumc-ja-01131224-n" relType="similar" />
@@ -868321,6 +868506,7 @@
       <SynsetRelation target="ntumc-ja-07332956-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001435-v" ili="" partOfSpeech="v" members="ntumc-ja-80001435-v-w100763">
+      <Definition language="en">get disarrayed</Definition>
       <SynsetRelation target="ntumc-ja-00149583-v" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-00276373-v" relType="also" />
       <SynsetRelation target="ntumc-ja-02425220-a" relType="also" />
@@ -868467,6 +868653,7 @@
       <SynsetRelation target="ntumc-ja-05106633-n" relType="attribute" />
     </Synset>
     <Synset id="ntumc-ja-80001475-n" ili="" partOfSpeech="n" members="ntumc-ja-80001475-n-w100865 ntumc-ja-80001475-n-w100866">
+      <Definition language="en">stretching and shrinking</Definition>
       <SynsetRelation target="ntumc-ja-00331950-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001477-a" ili="" partOfSpeech="a" members="ntumc-ja-80001477-a-w100872 ntumc-ja-80001477-a-w100873 ntumc-ja-80001477-a-w100874">
@@ -868504,6 +868691,7 @@
       <SynsetRelation target="ntumc-ja-01580050-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80001489-n" ili="" partOfSpeech="n" members="ntumc-ja-80001489-n-w100906 ntumc-ja-80001489-n-w53049">
+      <Definition language="en">a species of flowering plant in the yam family that is native to northern China and is also grown in East Asian countries such as Japan and Korea ❲Dioscorea polystachya❳</Definition>
       <SynsetRelation target="ntumc-ja-12087961-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-12087807-n" relType="holo_member" />
       <SynsetRelation target="ntumc-ja-12088495-n" relType="also" />
@@ -868586,6 +868774,7 @@
       <SynsetRelation target="ntumc-ja-05096191-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001515-n" ili="" partOfSpeech="n" members="ntumc-ja-80001515-n-w100981 ntumc-ja-80001515-n-w66232">
+      <Definition language="en">a size of being below average in size</Definition>
       <SynsetRelation target="ntumc-ja-05095691-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-05097081-n" relType="also" />
     </Synset>
@@ -868605,10 +868794,12 @@
       <SynsetRelation target="ntumc-ja-01086339-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80001530-n" ili="" partOfSpeech="n" members="ntumc-ja-80001530-n-w101015 ntumc-ja-80001530-n-w102406 ntumc-ja-80001530-n-w102407 ntumc-ja-80001530-n-w15548 ntumc-ja-80001530-n-w42410">
+      <Definition language="en">a traditional Buddhist and Taoist festival held in the seventh month of the Chinese calendar, when it is believed that ghosts and spirits will visit the living realm</Definition>
       <SynsetRelation target="ntumc-ja-15162210-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80002409-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001531-n" ili="" partOfSpeech="n" members="ntumc-ja-80001531-n-w101016">
+      <Definition language="en">a tea-based drink (originating from Taiwan) that is mixed or shaken with fruit juice, milk or both, and usually served with tapioca balls or fruit jelly added</Definition>
       <SynsetRelation target="ntumc-ja-07933274-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001538-v" ili="" partOfSpeech="v" members="ntumc-ja-80001538-v-w101021 ntumc-ja-80001538-v-w101022">
@@ -868659,16 +868850,19 @@
       <SynsetRelation target="ntumc-ja-06196584-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001553-n" ili="" partOfSpeech="n" members="ntumc-ja-80001553-n-w25533">
+      <Definition language="en">the communication of meaning of one language through the use of another language; the process or act of changing words or text from one language into another</Definition>
       <SynsetRelation target="ntumc-ja-06536389-n" relType="causes" />
       <SynsetRelation target="ntumc-ja-10725280-n" relType="also" />
       <SynsetRelation target="ntumc-ja-06252743-n" relType="also" />
       <SynsetRelation target="ntumc-ja-80001554-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80001554-n" ili="" partOfSpeech="n" members="ntumc-ja-80001554-n-w70368">
+      <Definition language="en">the facilitation of language communication between two or more parties who use different languages</Definition>
       <SynsetRelation target="ntumc-ja-10212501-n" relType="also" />
       <SynsetRelation target="ntumc-ja-80001553-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-80001555-n" ili="" partOfSpeech="n" members="ntumc-ja-80001555-n-w101056">
+      <Definition language="en">a musical instrument played by plucking on its strings</Definition>
       <SynsetRelation target="ntumc-ja-04224842-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-03467517-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-04338517-n" relType="hypernym" />
@@ -868726,50 +868920,62 @@
       <SynsetRelation target="ntumc-ja-00015806-v" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001574-n" ili="" partOfSpeech="n" members="ntumc-ja-80001574-n-w101129 ntumc-ja-80001574-n-w101130">
+      <Definition language="en">sleeping later than usual or customary</Definition>
       <SynsetRelation target="ntumc-ja-00858188-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001579-n" ili="" partOfSpeech="n" members="ntumc-ja-80001579-n-w101133 ntumc-ja-80001579-n-w101134">
+      <Definition language="en">a species of food fish commonly found in the Northwest Pacific ❲Pagrus major❳</Definition>
       <SynsetRelation target="ntumc-ja-02591205-n" relType="holo_member" />
     </Synset>
     <Synset id="ntumc-ja-80001580-n" ili="" partOfSpeech="n" members="ntumc-ja-80001580-n-w101135 ntumc-ja-80001580-n-w101136 ntumc-ja-80001580-n-w101137 ntumc-ja-80001580-n-w101138">
+      <Definition language="en">a food item made from soya beans, by taking the film or skin that forms on the surface of boiled soya milk and drying it</Definition>
       <SynsetRelation target="ntumc-ja-07709881-n" relType="also" />
       <SynsetRelation target="ntumc-ja-07566340-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001582-n" ili="" partOfSpeech="n" members="ntumc-ja-80001582-n-w101139 ntumc-ja-80001582-n-w102326">
+      <Definition language="en">a food establishment selling inexpensive food. It is similar to a food court, except it is usually outdoors, open-air and non-air-conditioned</Definition>
       <SynsetRelation target="ntumc-ja-03378005-n" relType="also" />
       <SynsetRelation target="ntumc-ja-90000033-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001584-a" ili="" partOfSpeech="a" members="ntumc-ja-80001584-a-w101140">
+      <Definition language="en">to describe a vehicle whose roof or top is absent or left open</Definition>
       <SynsetRelation target="ntumc-ja-90000436-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001588-n" ili="" partOfSpeech="n" members="ntumc-ja-80001588-n-w101141">
+      <Definition language="en">a station where passengers can change to another line or service for a mode of transportation, or between modes of transportation (eg: from the metro to the bus)</Definition>
       <SynsetRelation target="ntumc-ja-04412901-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001594-v" ili="" partOfSpeech="v" members="ntumc-ja-80001594-v-w25165">
+      <Definition language="en">to hit, throw or send back to an opponent (usually a ball)</Definition>
       <SynsetRelation target="ntumc-ja-01433159-v" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-00566298-n" relType="also" />
       <SynsetRelation target="ntumc-ja-00523513-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-80001595-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001595-v" ili="" partOfSpeech="v" members="ntumc-ja-80001595-v-w31655">
+      <Definition language="en">to take or bring (by giving, placing, sending, etc) something back to a person whom it belongs to, or a place where it came from or should be</Definition>
       <SynsetRelation target="ntumc-ja-80001594-v" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-02324026-v" relType="antonym" />
       <SynsetRelation target="ntumc-ja-02310007-v" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001609-n" ili="" partOfSpeech="n" members="ntumc-ja-80001609-n-w18313">
+      <Definition language="en">a type of function word that qualifies or imparts meaning (tense, aspect, case, etc) to a word or phrase; traditionally, the parts of speech that cannot undergo inflection (such as conjunctions and prepositions)</Definition>
       <SynsetRelation target="ntumc-ja-06326406-n" relType="also" />
       <SynsetRelation target="ntumc-ja-06291318-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001559-n" relType="hyponym" />
     </Synset>
     <Synset id="ntumc-ja-80001612-n" ili="" partOfSpeech="n" members="ntumc-ja-80001612-n-w101154">
+      <Definition language="en">express train service that has a longer route than a regional or commuter train</Definition>
       <SynsetRelation target="ntumc-ja-80001613-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001613-n" ili="" partOfSpeech="n" members="ntumc-ja-80001613-n-w10751 ntumc-ja-80001613-n-w52746">
+      <Definition language="en">a rail/train service that makes only a few scheduled stops</Definition>
       <SynsetRelation target="ntumc-ja-03306385-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001612-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-03896233-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001614-n" ili="" partOfSpeech="n" members="ntumc-ja-80001614-n-w101155">
+      <Definition language="en">bus service that makes fewer scheduled stops and runs faster than regular services</Definition>
       <SynsetRelation target="ntumc-ja-03306385-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001617-v" ili="" partOfSpeech="v" members="ntumc-ja-80001617-v-w101156 ntumc-ja-80001617-v-w4718">
@@ -868807,6 +869013,7 @@
       <SynsetRelation target="ntumc-ja-07301336-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001637-n" ili="" partOfSpeech="n" members="ntumc-ja-80001637-n-w101183 ntumc-ja-80001637-n-w23047 ntumc-ja-80001637-n-w51343">
+      <Definition language="en">a practice in various Indian religions and philosophies that centres on the cultivation of generosity, giving and charity</Definition>
       <SynsetRelation target="ntumc-ja-01089635-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08098708-n" relType="domain_topic" />
       <SynsetRelation target="ntumc-ja-08096624-n" relType="domain_topic" />
@@ -868814,10 +869021,12 @@
       <SynsetRelation target="ntumc-ja-06239931-n" relType="domain_topic" />
     </Synset>
     <Synset id="ntumc-ja-80001648-n" ili="" partOfSpeech="n" members="ntumc-ja-80001648-n-w101309">
+      <Definition language="en">an electronic file that contains various forms of data (text, images, etc), and is not a system file or computer software</Definition>
       <SynsetRelation target="ntumc-ja-06510977-n" relType="also" />
       <SynsetRelation target="ntumc-ja-06509210-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001649-n" ili="" partOfSpeech="n" members="ntumc-ja-80001649-n-w101310 ntumc-ja-80001649-n-w99067">
+      <Definition language="en">an optical disc used for storage, that is similar to a compact disc in appearance, but can store much larger amounts of data</Definition>
       <SynsetRelation target="ntumc-ja-03851787-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-03079230-n" relType="similar" />
     </Synset>
@@ -869041,12 +869250,14 @@
       <SynsetRelation target="ntumc-ja-02068476-a" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001705-n" ili="" partOfSpeech="n" members="ntumc-ja-80001705-n-w101448">
+      <Definition language="en">a rhythmic sense or feel that is enjoyable and attractive</Definition>
       <SynsetRelation target="ntumc-ja-04768028-n" relType="also" />
       <SynsetRelation target="ntumc-ja-14526182-n" relType="also" />
       <SynsetRelation target="ntumc-ja-05677340-n" relType="also" />
       <SynsetRelation target="ntumc-ja-02019021-a" relType="attribute" />
     </Synset>
     <Synset id="ntumc-ja-80001707-n" ili="" partOfSpeech="n" members="ntumc-ja-80001707-n-w101462 ntumc-ja-80001707-n-w35989">
+      <Definition language="en">intelligence in or displayed by machines</Definition>
       <SynsetRelation target="ntumc-ja-06133203-n" relType="also" />
       <SynsetRelation target="ntumc-ja-05617606-n" relType="hypernym" />
     </Synset>
@@ -869060,6 +869271,7 @@
       <SynsetRelation target="ntumc-ja-06291318-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001721-n" ili="" partOfSpeech="n" members="ntumc-ja-80001721-n-w102799">
+      <Definition language="en">an adverb used in questions</Definition>
       <SynsetRelation target="ntumc-ja-06319157-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80001731-n" ili="" partOfSpeech="n" members="ntumc-ja-80001731-n-w101580">
@@ -869327,6 +869539,7 @@
       <SynsetRelation target="ntumc-ja-02200035-a" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-80001918-n" ili="" partOfSpeech="n" members="ntumc-ja-80001918-n-w102110 ntumc-ja-80001918-n-w102111 ntumc-ja-80001918-n-w102112">
+      <Definition language="en">money given to children or unmarried relatives by married or financially stable relatives; a cultural tradition in many cultures</Definition>
       <SynsetRelation target="ntumc-ja-13384557-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80002109-n" relType="also" />
     </Synset>
@@ -869346,6 +869559,7 @@
       <SynsetRelation target="ntumc-ja-07109847-n" relType="exemplifies" />
     </Synset>
     <Synset id="ntumc-ja-80001962-n" ili="" partOfSpeech="n" members="ntumc-ja-80001962-n-w102701">
+      <Definition language="en">amount of purchase or acquisition</Definition>
       <SynsetRelation target="ntumc-ja-00033615-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002002-a" ili="" partOfSpeech="a" members="ntumc-ja-80002002-a-w102117 ntumc-ja-80002002-a-w102118 ntumc-ja-80002002-a-w102119 ntumc-ja-80002002-a-w67267">
@@ -869353,33 +869567,40 @@
       <SynsetRelation target="ntumc-ja-00393105-a" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002013-n" ili="" partOfSpeech="n" members="ntumc-ja-80002013-n-w99682">
+      <Definition language="en">dumpling and noodles served dry or in soup with vegetables</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-07702057-n" relType="mero_part" />
       <SynsetRelation target="ntumc-ja-07699584-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-80002014-n" ili="" partOfSpeech="n" members="ntumc-ja-80002014-n-w102323">
+      <Definition language="en">the Singapore or Malaysia variant of this dish consists of egg and rice noodles stir fried with prawns</Definition>
       <SynsetRelation target="ntumc-ja-08997487-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08963369-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80002015-n" ili="" partOfSpeech="n" members="ntumc-ja-80002015-n-w99819">
+      <Definition language="en">crabs stir fried in sweet and spicy ketchup</Definition>
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-01976957-n" relType="also" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002016-n" ili="" partOfSpeech="n" members="ntumc-ja-80002016-n-w99667">
+      <Definition language="en">a whole fish head stewed in curry with vegetables</Definition>
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
       <SynsetRelation target="ntumc-ja-07823951-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002094-n" ili="" partOfSpeech="n" members="ntumc-ja-80002094-n-w102120 ntumc-ja-80002094-n-w102121 ntumc-ja-80002094-n-w102122 ntumc-ja-80002094-n-w102123">
+      <Definition language="en">a Japanese food made from white rice formed into triangular or cylindrical shapes and often wrapped in nori</Definition>
       <SynsetRelation target="ntumc-ja-08921850-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-80002109-n" ili="" partOfSpeech="n" members="ntumc-ja-80002109-n-w102394 ntumc-ja-80002109-n-w102395">
+      <Definition language="en">envelopes used to hold money that are given as gifts during joyous occasions and other celebrations in Chinese culture (along with many other Asian cultures); traditionally red in colour</Definition>
       <SynsetRelation target="ntumc-ja-80001918-n" relType="also" />
       <SynsetRelation target="ntumc-ja-80002396-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002136-v" ili="" partOfSpeech="v" members="ntumc-ja-80002136-v-w33270 ntumc-ja-80002136-v-w757">
+      <Definition language="en">to earn a large sum of money, often with a risky venture</Definition>
       <SynsetRelation target="ntumc-ja-70100000-n" relType="is_exemplified_by" />
       <SynsetRelation target="ntumc-ja-02290029-v" relType="hypernym" />
     </Synset>
@@ -869402,6 +869623,7 @@
       <SynsetRelation target="ntumc-ja-07970721-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002158-n" ili="" partOfSpeech="n" members="ntumc-ja-80002158-n-w102180 ntumc-ja-80002158-n-w102181">
+      <Definition language="en">the last remaining piece or portion of a particular food, which people hesitate to take out of politeness; lit: shy piece</Definition>
       <SynsetRelation target="ntumc-ja-07579076-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002162-n" ili="" partOfSpeech="n" members="ntumc-ja-80002162-n-w102183 ntumc-ja-80002162-n-w102351">
@@ -869433,9 +869655,11 @@
       <SynsetRelation target="ntumc-ja-00203866-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002182-n" ili="" partOfSpeech="n" members="ntumc-ja-80002182-n-w102207">
+      <Definition language="en">when a society is having less children than needed to replace an older generation, thereby leading to the overall population decreasing</Definition>
       <SynsetRelation target="ntumc-ja-00034213-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-80002225-v" ili="" partOfSpeech="v" members="ntumc-ja-80002225-v-w102338">
+      <Definition language="en">travel somewhere far from one's home to assume a post; usually to another town, city or country</Definition>
       <SynsetRelation target="ntumc-ja-01835496-v" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-13968092-n" relType="entails" />
       <SynsetRelation target="ntumc-ja-00582388-n" relType="domain_topic" />
@@ -869894,590 +870118,780 @@
       <SynsetRelation target="ntumc-ja-00473799-v" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000004-n" ili="" partOfSpeech="n" members="ntumc-ja-90000004-n-w99429">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000005-n" ili="" partOfSpeech="n" members="ntumc-ja-90000005-n-w99551">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000006-n" ili="" partOfSpeech="n" members="ntumc-ja-90000006-n-w99401">
+      <Definition language="en">a Peranakan dish of chicken with spices and Southeast Asian black nuts</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-07644967-n" relType="mero_substance" />
     </Synset>
     <Synset id="ntumc-ja-90000008-n" ili="" partOfSpeech="n" members="ntumc-ja-90000008-n-w99351">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000010-n" ili="" partOfSpeech="n" members="ntumc-ja-90000010-n-w99472">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000012-n" ili="" partOfSpeech="n" members="ntumc-ja-90000012-n-w99598">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000013-n" ili="" partOfSpeech="n" members="ntumc-ja-90000013-n-w99731">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000014-n" ili="" partOfSpeech="n" members="ntumc-ja-90000014-n-w99819">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000015-n" ili="" partOfSpeech="n" members="ntumc-ja-90000015-n-w99390">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000017-n" ili="" partOfSpeech="n" members="ntumc-ja-90000017-n-w99742">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000018-n" ili="" partOfSpeech="n" members="ntumc-ja-90000018-n-w99799">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000020-n" ili="" partOfSpeech="n" members="ntumc-ja-90000020-n-w99621">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000021-n" ili="" partOfSpeech="n" members="ntumc-ja-90000021-n-w8464">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000022-n" ili="" partOfSpeech="n" members="ntumc-ja-90000022-n-w99806">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000024-n" ili="" partOfSpeech="n" members="ntumc-ja-90000024-n-w99454">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000025-n" ili="" partOfSpeech="n" members="ntumc-ja-90000025-n-w99474 ntumc-ja-90000025-n-w99790">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000027-n" ili="" partOfSpeech="n" members="ntumc-ja-90000027-n-w99417">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000028-n" ili="" partOfSpeech="n" members="ntumc-ja-90000028-n-w99428">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000029-n" ili="" partOfSpeech="n" members="ntumc-ja-90000029-n-w99823">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000030-n" ili="" partOfSpeech="n" members="ntumc-ja-90000030-n-w99500">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000032-n" ili="" partOfSpeech="n" members="ntumc-ja-90000032-n-w99667">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000033-n" ili="" partOfSpeech="n" members="ntumc-ja-90000033-n-w99607">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
       <SynsetRelation target="ntumc-ja-03378005-n" relType="also" />
       <SynsetRelation target="ntumc-ja-80001582-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-90000034-n" ili="" partOfSpeech="n" members="ntumc-ja-90000034-n-w99665">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000036-n" ili="" partOfSpeech="n" members="ntumc-ja-90000036-n-w99699">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000038-n" ili="" partOfSpeech="n" members="ntumc-ja-90000038-n-w99556">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000039-n" ili="" partOfSpeech="n" members="ntumc-ja-90000039-n-w99640 ntumc-ja-90000039-n-w99672">
+      <Definition language="en">Shrimp Paste, an ingredient commonly used in South-east Asian and South Chinese cuisine.</Definition>
       <SynsetRelation target="ntumc-ja-07810907-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000040-n" ili="" partOfSpeech="n" members="ntumc-ja-90000040-n-w99367">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000041-n" ili="" partOfSpeech="n" members="ntumc-ja-90000041-n-w99617">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000043-n" ili="" partOfSpeech="n" members="ntumc-ja-90000043-n-w99666">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000044-n" ili="" partOfSpeech="n" members="ntumc-ja-90000044-n-w99506">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000045-n" ili="" partOfSpeech="n" members="ntumc-ja-90000045-n-w99530">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000046-n" ili="" partOfSpeech="n" members="ntumc-ja-90000046-n-w99487">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000047-n" ili="" partOfSpeech="n" members="ntumc-ja-90000047-n-w99643">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000048-n" ili="" partOfSpeech="n" members="ntumc-ja-90000048-n-w99798">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000051-n" ili="" partOfSpeech="n" members="ntumc-ja-90000051-n-w99365">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000052-n" ili="" partOfSpeech="n" members="ntumc-ja-90000052-n-w99544">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000053-n" ili="" partOfSpeech="n" members="ntumc-ja-90000053-n-w99656">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000054-n" ili="" partOfSpeech="n" members="ntumc-ja-90000054-n-w99409">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000055-n" ili="" partOfSpeech="n" members="ntumc-ja-90000055-n-w50753">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000057-n" ili="" partOfSpeech="n" members="ntumc-ja-90000057-n-w99758">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000058-n" ili="" partOfSpeech="n" members="ntumc-ja-90000058-n-w99761">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000059-n" ili="" partOfSpeech="n" members="ntumc-ja-90000059-n-w99389">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000060-n" ili="" partOfSpeech="n" members="ntumc-ja-90000060-n-w99518">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000061-n" ili="" partOfSpeech="n" members="ntumc-ja-90000061-n-w99608">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000062-n" ili="" partOfSpeech="n" members="ntumc-ja-90000062-n-w99511">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000063-n" ili="" partOfSpeech="n" members="ntumc-ja-90000063-n-w99370">
+      <Definition language="en">cuisine of india</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000064-n" ili="" partOfSpeech="n" members="ntumc-ja-90000064-n-w99495">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000065-n" ili="" partOfSpeech="n" members="ntumc-ja-90000065-n-w99622">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000066-n" ili="" partOfSpeech="n" members="ntumc-ja-90000066-n-w99616">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000067-n" ili="" partOfSpeech="n" members="ntumc-ja-90000067-n-w99683">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000068-n" ili="" partOfSpeech="n" members="ntumc-ja-90000068-n-w99420">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000070-n" ili="" partOfSpeech="n" members="ntumc-ja-90000070-n-w99718">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000072-n" ili="" partOfSpeech="n" members="ntumc-ja-90000072-n-w99744 ntumc-ja-90000072-n-w99820">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000075-n" ili="" partOfSpeech="n" members="ntumc-ja-90000075-n-w99730">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000080-n" ili="" partOfSpeech="n" members="ntumc-ja-90000080-n-w99581">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000082-n" ili="" partOfSpeech="n" members="ntumc-ja-90000082-n-w99779">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000083-n" ili="" partOfSpeech="n" members="ntumc-ja-90000083-n-w99679">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000084-n" ili="" partOfSpeech="n" members="ntumc-ja-90000084-n-w99784">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000085-n" ili="" partOfSpeech="n" members="ntumc-ja-90000085-n-w99465">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000086-n" ili="" partOfSpeech="n" members="ntumc-ja-90000086-n-w99464">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000092-n" ili="" partOfSpeech="n" members="ntumc-ja-90000092-n-w99427">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000093-n" ili="" partOfSpeech="n" members="ntumc-ja-90000093-n-w99460">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000094-n" ili="" partOfSpeech="n" members="ntumc-ja-90000094-n-w99408">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000095-n" ili="" partOfSpeech="n" members="ntumc-ja-90000095-n-w99353">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000096-n" ili="" partOfSpeech="n" members="ntumc-ja-90000096-n-w99753">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000097-n" ili="" partOfSpeech="n" members="ntumc-ja-90000097-n-w99594">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000098-n" ili="" partOfSpeech="n" members="ntumc-ja-90000098-n-w99583">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000101-n" ili="" partOfSpeech="n" members="ntumc-ja-90000101-n-w99410">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000102-n" ili="" partOfSpeech="n" members="ntumc-ja-90000102-n-w99443">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000104-n" ili="" partOfSpeech="n" members="ntumc-ja-90000104-n-w99546">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000105-n" ili="" partOfSpeech="n" members="ntumc-ja-90000105-n-w99538">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000106-n" ili="" partOfSpeech="n" members="ntumc-ja-90000106-n-w99717">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000107-n" ili="" partOfSpeech="n" members="ntumc-ja-90000107-n-w99534">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000108-n" ili="" partOfSpeech="n" members="ntumc-ja-90000108-n-w99453">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000109-n" ili="" partOfSpeech="n" members="ntumc-ja-90000109-n-w99358">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000110-n" ili="" partOfSpeech="n" members="ntumc-ja-90000110-n-w99737">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000111-n" ili="" partOfSpeech="n" members="ntumc-ja-90000111-n-w99781">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000112-n" ili="" partOfSpeech="n" members="ntumc-ja-90000112-n-w99782">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000113-n" ili="" partOfSpeech="n" members="ntumc-ja-90000113-n-w99632">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000114-n" ili="" partOfSpeech="n" members="ntumc-ja-90000114-n-w99749">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000115-n" ili="" partOfSpeech="n" members="ntumc-ja-90000115-n-w99603">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000116-n" ili="" partOfSpeech="n" members="ntumc-ja-90000116-n-w99491">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000117-n" ili="" partOfSpeech="n" members="ntumc-ja-90000117-n-w99385">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000119-n" ili="" partOfSpeech="n" members="ntumc-ja-90000119-n-w99444">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000120-n" ili="" partOfSpeech="n" members="ntumc-ja-90000120-n-w99577">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000123-n" ili="" partOfSpeech="n" members="ntumc-ja-90000123-n-w99501">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000124-n" ili="" partOfSpeech="n" members="ntumc-ja-90000124-n-w99831">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000125-n" ili="" partOfSpeech="n" members="ntumc-ja-90000125-n-w99449">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000126-n" ili="" partOfSpeech="n" members="ntumc-ja-90000126-n-w99560">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000127-n" ili="" partOfSpeech="n" members="ntumc-ja-90000127-n-w99684">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
       <SynsetRelation target="ntumc-ja-90000178-n" relType="holo_part" />
     </Synset>
     <Synset id="ntumc-ja-90000128-n" ili="" partOfSpeech="n" members="ntumc-ja-90000128-n-w99576">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000129-n" ili="" partOfSpeech="n" members="ntumc-ja-90000129-n-w99745">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-15162210-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-90000306-n" relType="eq_synonym" />
     </Synset>
     <Synset id="ntumc-ja-90000130-n" ili="" partOfSpeech="n" members="ntumc-ja-90000130-n-w99537">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000131-n" ili="" partOfSpeech="n" members="ntumc-ja-90000131-n-w99574">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000132-n" ili="" partOfSpeech="n" members="ntumc-ja-90000132-n-w99762">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000134-n" ili="" partOfSpeech="n" members="ntumc-ja-90000134-n-w99484">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-90000553-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000135-n" ili="" partOfSpeech="n" members="ntumc-ja-90000135-n-w99599">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000136-n" ili="" partOfSpeech="n" members="ntumc-ja-90000136-n-w99373">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000137-n" ili="" partOfSpeech="n" members="ntumc-ja-90000137-n-w99755">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000139-n" ili="" partOfSpeech="n" members="ntumc-ja-90000139-n-w99426">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000140-n" ili="" partOfSpeech="n" members="ntumc-ja-90000140-n-w99535">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000141-n" ili="" partOfSpeech="n" members="ntumc-ja-90000141-n-w99471">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000143-n" ili="" partOfSpeech="n" members="ntumc-ja-90000143-n-w99347">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000144-n" ili="" partOfSpeech="n" members="ntumc-ja-90000144-n-w99509">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000145-n" ili="" partOfSpeech="n" members="ntumc-ja-90000145-n-w99708">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000146-n" ili="" partOfSpeech="n" members="ntumc-ja-90000146-n-w99486">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000147-n" ili="" partOfSpeech="n" members="ntumc-ja-90000147-n-w99516">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000148-n" ili="" partOfSpeech="n" members="ntumc-ja-90000148-n-w99802">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000149-n" ili="" partOfSpeech="n" members="ntumc-ja-90000149-n-w99721">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000150-n" ili="" partOfSpeech="n" members="ntumc-ja-90000150-n-w99648">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000151-n" ili="" partOfSpeech="n" members="ntumc-ja-90000151-n-w99494">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000152-n" ili="" partOfSpeech="n" members="ntumc-ja-90000152-n-w99793">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000153-n" ili="" partOfSpeech="n" members="ntumc-ja-90000153-n-w99681">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000154-n" ili="" partOfSpeech="n" members="ntumc-ja-90000154-n-w99412">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000155-n" ili="" partOfSpeech="n" members="ntumc-ja-90000155-n-w99423">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000156-n" ili="" partOfSpeech="n" members="ntumc-ja-90000156-n-w99754">
+      <Definition language="en">NE:per</Definition>
       <SynsetRelation target="ntumc-ja-00007846-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000157-n" ili="" partOfSpeech="n" members="ntumc-ja-90000157-n-w99679">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000158-n" ili="" partOfSpeech="n" members="ntumc-ja-90000158-n-w99435">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000159-n" ili="" partOfSpeech="n" members="ntumc-ja-90000159-n-w99483">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000160-n" ili="" partOfSpeech="n" members="ntumc-ja-90000160-n-w99467">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000161-n" ili="" partOfSpeech="n" members="ntumc-ja-90000161-n-w99814">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000162-n" ili="" partOfSpeech="n" members="ntumc-ja-90000162-n-w99700">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000163-n" ili="" partOfSpeech="n" members="ntumc-ja-90000163-n-w99478">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000164-n" ili="" partOfSpeech="n" members="ntumc-ja-90000164-n-w99678">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000165-n" ili="" partOfSpeech="n" members="ntumc-ja-90000165-n-w99660">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000166-n" ili="" partOfSpeech="n" members="ntumc-ja-90000166-n-w99448">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000167-n" ili="" partOfSpeech="n" members="ntumc-ja-90000167-n-w99728">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000168-n" ili="" partOfSpeech="n" members="ntumc-ja-90000168-n-w99459">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000170-n" ili="" partOfSpeech="n" members="ntumc-ja-90000170-n-w99811">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000171-n" ili="" partOfSpeech="n" members="ntumc-ja-90000171-n-w99399">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000172-n" ili="" partOfSpeech="n" members="ntumc-ja-90000172-n-w99493">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000173-n" ili="" partOfSpeech="n" members="ntumc-ja-90000173-n-w99828">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000174-n" ili="" partOfSpeech="n" members="ntumc-ja-90000174-n-w99415">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000175-n" ili="" partOfSpeech="n" members="ntumc-ja-90000175-n-w99653">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000177-n" ili="" partOfSpeech="n" members="ntumc-ja-90000177-n-w99504 ntumc-ja-90000177-n-w99566">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000178-n" ili="" partOfSpeech="n" members="ntumc-ja-90000178-n-w39428">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
       <SynsetRelation target="ntumc-ja-90000127-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-90000179-n" ili="" partOfSpeech="n" members="ntumc-ja-90000179-n-w99579">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000180-n" ili="" partOfSpeech="n" members="ntumc-ja-90000180-n-w99345">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000181-n" ili="" partOfSpeech="n" members="ntumc-ja-90000181-n-w99398">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000183-n" ili="" partOfSpeech="n" members="ntumc-ja-90000183-n-w99565">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000184-n" ili="" partOfSpeech="n" members="ntumc-ja-90000184-n-w99501">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
       <SynsetRelation target="ntumc-ja-90000304-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-90000185-n" ili="" partOfSpeech="n" members="ntumc-ja-90000185-n-w99736">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000186-n" ili="" partOfSpeech="n" members="ntumc-ja-90000186-n-w99769">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000187-n" ili="" partOfSpeech="n" members="ntumc-ja-90000187-n-w99763">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000189-n" ili="" partOfSpeech="n" members="ntumc-ja-90000189-n-w99456">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000190-n" ili="" partOfSpeech="n" members="ntumc-ja-90000190-n-w99526">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000191-n" ili="" partOfSpeech="n" members="ntumc-ja-90000191-n-w99582">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000192-n" ili="" partOfSpeech="n" members="ntumc-ja-90000192-n-w99629">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000193-n" ili="" partOfSpeech="n" members="ntumc-ja-90000193-n-w102329 ntumc-ja-90000193-n-w99712">
+      <Definition language="en">a kind of Chinese barbecued pork; normally red in color</Definition>
       <SynsetRelation target="ntumc-ja-07654148-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000194-n" ili="" partOfSpeech="n" members="ntumc-ja-90000194-n-w99545">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000195-n" ili="" partOfSpeech="n" members="ntumc-ja-90000195-n-w99497 ntumc-ja-90000195-n-w99707">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000196-n" ili="" partOfSpeech="n" members="ntumc-ja-90000196-n-w99609">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000197-n" ili="" partOfSpeech="n" members="ntumc-ja-90000197-n-w99616">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000198-n" ili="" partOfSpeech="n" members="ntumc-ja-90000198-n-w99783">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000201-n" ili="" partOfSpeech="n" members="ntumc-ja-90000201-n-w99366">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000202-n" ili="" partOfSpeech="n" members="ntumc-ja-90000202-n-w99470">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000205-n" ili="" partOfSpeech="n" members="ntumc-ja-90000205-n-w99693">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000206-n" ili="" partOfSpeech="n" members="ntumc-ja-90000206-n-w99670">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000207-n" ili="" partOfSpeech="n" members="ntumc-ja-90000207-n-w99393">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000208-n" ili="" partOfSpeech="n" members="ntumc-ja-90000208-n-w99346">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000209-n" ili="" partOfSpeech="n" members="ntumc-ja-90000209-n-w99671">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000210-n" ili="" partOfSpeech="n" members="ntumc-ja-90000210-n-w99567">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000211-n" ili="" partOfSpeech="n" members="ntumc-ja-90000211-n-w99468">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000212-n" ili="" partOfSpeech="n" members="ntumc-ja-90000212-n-w99381">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000213-n" ili="" partOfSpeech="n" members="ntumc-ja-90000213-n-w99601">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000214-n" ili="" partOfSpeech="n" members="ntumc-ja-90000214-n-w99760">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000215-n" ili="" partOfSpeech="n" members="ntumc-ja-90000215-n-w99595">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000216-n" ili="" partOfSpeech="n" members="ntumc-ja-90000216-n-w99479">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000217-n" ili="" partOfSpeech="n" members="ntumc-ja-90000217-n-w99743">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000218-n" ili="" partOfSpeech="n" members="ntumc-ja-90000218-n-w99685 ntumc-ja-90000218-n-w99762">
+      <Definition language="en">NE:org</Definition>
       <SynsetRelation target="ntumc-ja-00031264-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000224-n" ili="" partOfSpeech="n" members="ntumc-ja-90000224-n-w99552">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000225-n" ili="" partOfSpeech="n" members="ntumc-ja-90000225-n-w99372">
+      <Definition language="en">NE:oth</Definition>
       <SynsetRelation target="ntumc-ja-00001740-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000226-n" ili="" partOfSpeech="n" members="ntumc-ja-90000226-n-w99636">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000228-n" ili="" partOfSpeech="n" members="ntumc-ja-90000228-n-w99357">
+      <Definition language="en">NE:loc</Definition>
       <SynsetRelation target="ntumc-ja-00027167-n" relType="instance_hyponym" />
     </Synset>
     <Synset id="ntumc-ja-90000298-n" ili="" partOfSpeech="n" members="ntumc-ja-90000298-n-w102321 ntumc-ja-90000298-n-w99714">
+      <Definition language="en">a mixed Chinese/Malay culture</Definition>
       <SynsetRelation target="ntumc-ja-08287844-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-90000305-n" relType="has_domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000299-n" ili="" partOfSpeech="n" members="ntumc-ja-90000299-n-w99359 ntumc-ja-90000299-n-w99714">
+      <Definition language="en">Ethnic Chinese settled in Malay/Indonesia</Definition>
       <SynsetRelation target="ntumc-ja-09721883-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000300-n" ili="" partOfSpeech="n" members="ntumc-ja-90000300-n-w99586 ntumc-ja-90000300-n-w99767">
+      <Definition language="en">North Indian pancake</Definition>
       <SynsetRelation target="ntumc-ja-07640203-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000301-n" ili="" partOfSpeech="n" members="ntumc-ja-90000301-n-w99734">
+      <Definition language="en">province that borders Guangdong in the north along the coast</Definition>
       <SynsetRelation target="ntumc-ja-08654360-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001358-n" relType="mero_part" />
     </Synset>
     <Synset id="ntumc-ja-90000302-n" ili="" partOfSpeech="n" members="ntumc-ja-90000302-n-w99650">
+      <Definition language="en">province that is situated in the southernmost of China</Definition>
       <SynsetRelation target="ntumc-ja-08654360-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000303-n" ili="" partOfSpeech="n" members="ntumc-ja-90000303-n-w99524">
+      <Definition language="en">A neighbourhood in Singapore, known for its red light district</Definition>
       <SynsetRelation target="ntumc-ja-08641113-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000304-n" ili="" partOfSpeech="n" members="ntumc-ja-90000304-n-w99590">
+      <Definition language="en">Parade that is held annually in celebration of the Chinese deities</Definition>
       <SynsetRelation target="ntumc-ja-08428485-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-90000184-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-90000305-n" ili="" partOfSpeech="n" members="ntumc-ja-90000305-n-w99689">
+      <Definition language="en">Peranakan spicy noodle soup</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-90000298-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000306-n" ili="" partOfSpeech="n" members="ntumc-ja-90000306-n-w99441 ntumc-ja-90000306-n-w99745">
+      <Definition language="en">Hindu festival celebrated on the fourteenth of January each year</Definition>
       <SynsetRelation target="ntumc-ja-15162210-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-90000129-n" relType="eq_synonym" />
     </Synset>
     <Synset id="ntumc-ja-90000307-n" ili="" partOfSpeech="n" members="ntumc-ja-90000307-n-w99614">
+      <Definition language="en">State in the northern west coast of Malaysia</Definition>
       <SynsetRelation target="ntumc-ja-08654360-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000309-n" ili="" partOfSpeech="n" members="ntumc-ja-90000309-n-w99637">
+      <Definition language="en">Southern Indian pancake made from rice batter and black lentils</Definition>
       <SynsetRelation target="ntumc-ja-07640203-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000310-n" ili="" partOfSpeech="n" members="ntumc-ja-90000310-n-w99768">
+      <Definition language="en">vermicelli made of rice</Definition>
       <SynsetRelation target="ntumc-ja-07700868-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000311-n" ili="" partOfSpeech="n" members="ntumc-ja-90000311-n-w101995 ntumc-ja-90000311-n-w101996 ntumc-ja-90000311-n-w101997 ntumc-ja-90000311-n-w99519">
+      <Definition language="en">Buddhists' holy day</Definition>
       <SynsetRelation target="ntumc-ja-15183802-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000312-n" ili="" partOfSpeech="n" members="ntumc-ja-90000312-n-w99801">
+      <Definition language="en">chilli paste</Definition>
       <SynsetRelation target="ntumc-ja-07810907-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80001014-n" relType="holo_substance" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000313-n" ili="" partOfSpeech="n" members="ntumc-ja-90000313-n-w102318">
+      <Definition language="en">tall tree native to mangrove swamps of Southeast Asia</Definition>
       <SynsetRelation target="ntumc-ja-13104059-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000314-n" ili="" partOfSpeech="n" members="ntumc-ja-90000314-n-w99804">
+      <Definition language="en">a Hindu holiday celebrating the triumph of good over evil</Definition>
       <SynsetRelation target="ntumc-ja-15182319-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000315-n" ili="" partOfSpeech="n" members="ntumc-ja-90000315-n-w99400">
@@ -870486,47 +870900,59 @@
       <SynsetRelation target="ntumc-ja-09682291-n" relType="domain_topic" />
     </Synset>
     <Synset id="ntumc-ja-90000316-n" ili="" partOfSpeech="n" members="ntumc-ja-90000316-n-w99388 ntumc-ja-90000316-n-w99569">
+      <Definition language="en">third smallest Malaysian state</Definition>
       <SynsetRelation target="ntumc-ja-08654360-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000317-n" ili="" partOfSpeech="n" members="ntumc-ja-90000317-n-w102320">
+      <Definition language="en">traditional Indonesian fruit and vegetable salad dish</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000318-n" ili="" partOfSpeech="n" members="ntumc-ja-90000318-n-w99686">
+      <Definition language="en">Traditional dessert originating from South East Asia</Definition>
       <SynsetRelation target="ntumc-ja-07609840-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000319-n" ili="" partOfSpeech="n" members="ntumc-ja-90000319-n-w99347">
+      <Definition language="en">Lion dance</Definition>
       <SynsetRelation target="ntumc-ja-00541479-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000321-n" ili="" partOfSpeech="n" members="ntumc-ja-90000321-n-w99376">
+      <Definition language="en">Hindu festival celebrated on the full moon in the Tamil month of Thai</Definition>
       <SynsetRelation target="ntumc-ja-15162210-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000323-n" ili="" partOfSpeech="n" members="ntumc-ja-90000323-n-w101785 ntumc-ja-90000323-n-w99458">
+      <Definition language="en">a deep-fried dough stick</Definition>
       <SynsetRelation target="ntumc-ja-07679356-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000326-n" ili="" partOfSpeech="n" members="ntumc-ja-90000326-n-w99756">
+      <Definition language="en">fried chicken</Definition>
       <SynsetRelation target="ntumc-ja-07580053-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-07644967-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000327-n" ili="" partOfSpeech="n" members="ntumc-ja-90000327-n-w99713">
+      <Definition language="en">yellow spicy chicken soup with rice cakes and/or noodles</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000328-n" ili="" partOfSpeech="n" members="ntumc-ja-90000328-n-w99634">
+      <Definition language="en">Islamic celebration that marks the end of the fasting month</Definition>
       <SynsetRelation target="ntumc-ja-15162210-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000331-n" ili="" partOfSpeech="n" members="ntumc-ja-90000331-n-w102331 ntumc-ja-90000331-n-w99406">
+      <Definition language="en">fragrant rice dish cooked in coconut milk</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000333-n" ili="" partOfSpeech="n" members="ntumc-ja-90000333-n-w99638">
+      <Definition language="en">steamed white rice served with various meat and vegetable dishes</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000334-n" ili="" partOfSpeech="n" members="ntumc-ja-90000334-n-w99792">
+      <Definition language="en">a Chinese holiday celebrating the beginning of the year according to the Chinese calendar</Definition>
       <SynsetRelation target="ntumc-ja-15182319-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000335-n" ili="" partOfSpeech="n" members="ntumc-ja-90000335-n-w99572 ntumc-ja-90000335-n-w99682">
@@ -870534,6 +870960,7 @@
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000336-n" ili="" partOfSpeech="n" members="ntumc-ja-90000336-n-w99816">
+      <Definition language="en">Noodle dish served in thick starchy gravy</Definition>
       <SynsetRelation target="ntumc-ja-07557434-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-08723006-n" relType="domain_region" />
     </Synset>
@@ -870555,6 +870982,7 @@
       <SynsetRelation target="ntumc-ja-08900535-n" relType="domain_region" />
     </Synset>
     <Synset id="ntumc-ja-90000416-n" ili="" partOfSpeech="n" members="ntumc-ja-90000416-n-w101305 ntumc-ja-90000416-n-w99600">
+      <Definition language="en">A pancake or pan-fried bread usually stuffed with eggs, onions and ground meat </Definition>
       <SynsetRelation target="ntumc-ja-07679356-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000417-n" ili="" partOfSpeech="n" members="ntumc-ja-90000417-n-w31092 ntumc-ja-90000417-n-w47949">
@@ -870563,6 +870991,7 @@
       <SynsetRelation target="ntumc-ja-07804323-n" relType="mero_substance" />
     </Synset>
     <Synset id="ntumc-ja-90000418-n" ili="" partOfSpeech="n" members="ntumc-ja-90000418-n-w99789">
+      <Definition language="en">an Indonesian dish of marinated, skewered and grilled meats, often served with a peanut sauce</Definition>
       <SynsetRelation target="ntumc-ja-07654148-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80000064-n" relType="domain_region" />
     </Synset>
@@ -870571,9 +871000,11 @@
       <SynsetRelation target="ntumc-ja-00007846-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000422-n" ili="" partOfSpeech="n" members="ntumc-ja-90000422-n-w102322">
+      <Definition language="en">a small boat shaped like a dragon originating from China; often used in races</Definition>
       <SynsetRelation target="ntumc-ja-04244997-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000431-n" ili="" partOfSpeech="n" members="ntumc-ja-90000431-n-w99770">
+      <Definition language="en">having or characterized by an unconventional or unconstrained shape or outline</Definition>
       <SynsetRelation target="ntumc-ja-02261746-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000436-n" ili="" partOfSpeech="n" members="ntumc-ja-90000436-n-w99387">
@@ -870582,43 +871013,55 @@
       <SynsetRelation target="ntumc-ja-80001584-a" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-90000439-n" ili="" partOfSpeech="n" members="ntumc-ja-90000439-n-w99786">
+      <Definition language="en">someone who follows fashion trends obsessively</Definition>
       <SynsetRelation target="ntumc-ja-05750657-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000443-n" ili="" partOfSpeech="n" members="ntumc-ja-90000443-n-w99527">
+      <Definition language="en">items for domestic use, such as furniture, bedding or crockery</Definition>
       <SynsetRelation target="ntumc-ja-03405725-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-04550840-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-04381994-n" relType="hyponym" />
       <SynsetRelation target="ntumc-ja-03405265-n" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000447-n" ili="" partOfSpeech="n" members="ntumc-ja-90000447-n-w99375">
+      <Definition language="en">clothing for men</Definition>
       <SynsetRelation target="ntumc-ja-02728440-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000448-n" ili="" partOfSpeech="n" members="ntumc-ja-90000448-n-w99477">
+      <Definition language="en">A very thin flatbread made with lentil flour, often crisped by deep-frying or grilling</Definition>
       <SynsetRelation target="ntumc-ja-07679356-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000452-n" ili="" partOfSpeech="n" members="ntumc-ja-90000452-n-w97277">
+      <Definition language="en">A stringed instrument found in North Africa, the Middle East, parts of Europe, and the Far East; usually consists of a small, usually rounded body, a long thin neck with one, two or three strings and a pegbox at the end</Definition>
       <SynsetRelation target="ntumc-ja-04338517-n" relType="instance_hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000463-n" ili="" partOfSpeech="n" members="ntumc-ja-90000463-n-w99547">
+      <Definition language="en">Ceramic ware of a hard semifired waterproof ceramic clay material</Definition>
       <SynsetRelation target="ntumc-ja-02997391-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000470-n" ili="" partOfSpeech="n" members="ntumc-ja-90000470-n-w102410 ntumc-ja-90000470-n-w102411">
+      <Definition language="en">traditional multi-course Japanese cuisine served at such as party; 宴などで供される、伝統的なコース日本料理</Definition>
       <SynsetRelation target="ntumc-ja-07571324-n" relType="hypernym" />
       <SynsetRelation target="ntumc-ja-80002410-n" relType="also" />
     </Synset>
     <Synset id="ntumc-ja-90000471-n" ili="" partOfSpeech="n" members="ntumc-ja-90000471-n-w99436">
+      <Definition language="en">immature soybean commonly found in Japan</Definition>
       <SynsetRelation target="ntumc-ja-07729485-n" relType="hypernym" />
     </Synset>
     <Synset id="ntumc-ja-90000479-n" ili="" partOfSpeech="n" members="ntumc-ja-90000479-n-w1792">
+      <Definition language="en">The act of mixing together different elements</Definition>
       <SynsetRelation target="ntumc-ja-00394813-v" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000480-n" ili="" partOfSpeech="n" members="ntumc-ja-90000480-n-w99787">
+      <Definition language="en">Having one side uncovered</Definition>
       <SynsetRelation target="ntumc-ja-02087178-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000486-n" ili="" partOfSpeech="n" members="ntumc-ja-90000486-n-w99812">
+      <Definition language="en">to be influenced by or take on the features of a large commercial business</Definition>
       <SynsetRelation target="ntumc-ja-02984781-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000488-n" ili="" partOfSpeech="n" members="ntumc-ja-90000488-n-w99502">
+      <Definition language="en">array of display lights</Definition>
       <SynsetRelation target="ntumc-ja-00272069-a" relType="similar" />
     </Synset>
     <Synset id="ntumc-ja-90000500-n" ili="" partOfSpeech="n" members="ntumc-ja-90000500-n-w99591">

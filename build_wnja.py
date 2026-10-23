@@ -276,8 +276,10 @@ def parse_ntumc_xml(path: Path) -> tuple[
             ili = child.get("ili", "")
             pos = child.get("partOfSpeech", "")
 
+            # (text, language): NTU-MC marks English stand-in definitions
             definitions = [
-                d.text for d in child.findall("Definition") if d.text
+                (d.text, d.get("language"))
+                for d in child.findall("Definition") if d.text
             ]
             examples = [
                 e.text for e in child.findall("Example") if e.text
@@ -533,7 +535,8 @@ def build_synsets(
         if pos == "s":
             pos = "a"
 
-        defs = [make_definition(d) for d in dict.fromkeys(data["definitions"])]
+        defs = [make_definition(text, language=lang)
+                for text, lang in dict.fromkeys(data["definitions"])]
         exes = [make_example(e) for e in data["examples"]]
         rels = [
             make_relation(synset_num_to_wnja(tgt), rel_type)

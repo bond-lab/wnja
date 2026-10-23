@@ -244,6 +244,60 @@ def apply_orphan_entries(editor: WordnetEditor) -> int:
     return added
 
 
+def apply_sense_corrections(
+    editor: WordnetEditor, corrections_dir: Path,
+) -> tuple[int, int]:
+    """Apply sense corrections from corrections/senses.tsv.
+
+    Each row names a sense by synset_id and lemma (written form).  Action
+    ``remove`` deletes the sense (and the entry if it is left with none);
+    ``lower`` sets its confidenceScore to the given value unless already
+    lower.  Rows that match no sense are logged and skipped.
+
+    Returns (removed, lowered).
+    """
+    tsv = corrections_dir / "senses.tsv"
+    if not tsv.exists():
+        log.info("No senses.tsv found in %s, skipping", corrections_dir)
+        return 0, 0
+    rows: dict[tuple[str, str], dict] = {}
+    with tsv.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            rows[(row["synset_id"], row["lemma"])] = row
+    removed = lowered = 0
+    seen: set[tuple[str, str]] = set()
+    entries = editor._lexicon.get("entries", [])
+    for entry in entries:
+        lemma = entry["lemma"]["writtenForm"]
+        kept = []
+        for sense in entry.get("senses", []):
+            row = rows.get((sense["synset"], lemma))
+            if row is None:
+                kept.append(sense)
+                continue
+            seen.add((sense["synset"], lemma))
+            if row["action"] == "remove":
+                removed += 1
+                continue
+            new = float(row["confidence"])
+            meta = sense.get("meta") or {}
+            if float(meta.get("confidenceScore", 1.0)) > new:
+                meta["confidenceScore"] = new
+                sense["meta"] = meta
+                lowered += 1
+            kept.append(sense)
+        entry["senses"] = kept
+    editor._lexicon["entries"] = [e for e in entries if e.get("senses")]
+    # keep synset member lists in step with the removed senses
+    live = {s["id"] for e in editor._lexicon["entries"] for s in e["senses"]}
+    for ss in editor._synset_by_id.values():
+        if ss.get("members"):
+            ss["members"] = [m for m in ss["members"] if m in live]
+    for key in rows.keys() - seen:
+        log.warning("senses.tsv: no sense %s %s, skipping", *key)
+    return removed, lowered
+
+
 def main() -> None:
     if not OUTPUT.exists():
         log.error("%s not found — run build_wnja.py first", OUTPUT)
@@ -256,6 +310,10 @@ def main() -> None:
     log.info("Applying definition corrections …")
     n = apply_corrections(editor, CORRECTIONS_DIR)
     log.info("  %d corrections applied", n)
+
+    log.info("Applying sense corrections …")
+    removed, lowered = apply_sense_corrections(editor, CORRECTIONS_DIR)
+    log.info("  %d senses removed, %d lowered", removed, lowered)
 
     log.info("Applying temperature antonyms …")
     n = apply_temperature_antonyms(editor)

@@ -13,6 +13,7 @@ resilient to upstream rebuilds.
 | File | Corrects |
 |------|---------|
 | `definitions.tsv` | Japanese definition text |
+| `senses.tsv` | Wrong senses: remove, or lower confidence |
 
 Future files (not yet needed):
 - `lemmas.tsv` — written forms and scripts
@@ -67,3 +68,21 @@ Corrections found by the audit pipeline are added automatically with
 `source=audit/*`. Human reviewers can add corrections directly; the `reason`
 field is the place to explain context that would not be obvious from the diff
 alone (e.g. which Japanese term is standard in botanical contexts).
+
+## Format: `senses.tsv`
+
+Tab-separated, UTF-8, with a header row:
+
+```
+synset_id	lemma	action	confidence	reason	source	date
+```
+
+A sense is named by its synset ID and the entry's lemma (written form).
+`action` is `remove` (delete the sense, and the entry if it has no senses
+left) or `lower` (set `confidenceScore` to `confidence` unless it is
+already lower).  Rows that match no sense are logged and skipped.
+
+The first 2,464 rows (2026-10-24) come from wnja issue #8: senses flagged
+by an LLM audit were reviewed twice, blind, by Claude Opus, and the
+disagreements adjudicated; see `audit/issue8-opus-review.tsv` and
+`docs/quality-sample/wnja-opus*/` in the NTU-MC repository.

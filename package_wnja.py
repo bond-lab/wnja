@@ -27,7 +27,8 @@ def main() -> None:
     xml = ROOT / "build" / f"wnja-{args.version}.xml"
     outdir = ROOT / "build" / "release"
     pkg = outdir / "wnja"
-    pkg.mkdir(parents=True, exist_ok=True)
+    shutil.rmtree(pkg, ignore_errors=True)  # a package holds exactly one XML
+    pkg.mkdir(parents=True)
     shutil.copy(xml, pkg / xml.name)
     for name in ("README.md", "LICENSE", "CONTRIBUTORS.md", "citation.bib"):
         shutil.copy(ROOT / name, pkg / name)

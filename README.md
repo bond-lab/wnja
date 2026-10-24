@@ -1,10 +1,10 @@
 # wnja
 
-Japanese WordNet v2.0
+Japanese WordNet v2.1
 
 Web page: <https://bond-lab.github.io/wnja/>
 
-## Version 2.0 (2026-10)
+## Version 2.1 (2026-10)
 
 | | |
 |---|---|
@@ -14,7 +14,7 @@ Web page: <https://bond-lab.github.io/wnja/>
 | Japanese definitions | 67,064 |
 | Japanese examples | 35,359 |
 
-wnja 2.0 is a WN-LMF 1.4 package built from the Japanese WordNet 1.1
+wnja 2.1 is a WN-LMF 1.4 package built from the Japanese WordNet 1.1
 data (`data/sources/wn+var_tk17.tab`, `data/sources/vars_tk17.tab`) and the Japanese
 wordnet in the [NTU-MC](https://github.com/bond-lab/NTUMC) database
 (`data/sources/wn-ntumc-jpn.xml`), which adds Japan-specific synsets,
@@ -23,9 +23,24 @@ definitions and senses from sense-tagging.  It extends `omw-en:2.0`.
 ```python
 import wn
 wn.download("omw-en:2.0")
-wn.download("https://github.com/bond-lab/wnja/releases/download/v2.0/wnja-2.0.tar.xz")
-wn.Wordnet("wnja:2.0").words("犬")
+wn.download("https://github.com/bond-lab/wnja/releases/download/v2.1/wnja-2.1.tar.xz")
+wn.Wordnet("wnja:2.1").words("犬")
 ```
+
+### Changes in 2.1
+
+- 35,359 Japanese examples (from the NTU-MC database; 2.0 had none)
+- 2,277 wrong senses removed and 187 given confidence 0.5 after an LLM
+  audit checked twice, blind, by Claude Opus ([issue
+  #8](https://github.com/bond-lab/wnja/issues/8)); 16 more removed from
+  error reports (`corrections/senses.tsv`)
+- 1,314 senses added from a review of the Japanese SemCor
+- Homographs with different readings (物 もの/ぶつ) kept as separate entries;
+  sense counts per reading from the Japanese SemCor 1.1
+- Lemma forms: full-width digits and letters made half width (ＶＩＰ → VIP),
+  katakana okurigana typos fixed (跡取リ → 跡取り)
+- Adjectives tagged with Kuroda's classes (na, no, na-no, no-na)
+- Contributors listed in `CONTRIBUTORS.md`; license updated to 2026
 
 Build: see [CLAUDE.md](CLAUDE.md); package with `package_wnja.py`.
 

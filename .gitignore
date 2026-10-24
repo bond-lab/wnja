@@ -1,13 +1,9 @@
+# all build output: wnja-*.xml, logs, reports/, release/
+/build/
 *~
-tmp
-latex/
 .venv/
 __pycache__/
 *.pyc
-wnja.log
-detect_sahen.log
-wnja-*.xml
-reports/
-/jpn/
-wnja/
-release/
+.pytest_cache/
+.ruff_cache/
+latex/

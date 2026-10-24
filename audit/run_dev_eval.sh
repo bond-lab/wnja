@@ -12,7 +12,7 @@
 set -euo pipefail
 
 DB="${1:-audit_dev.db}"
-LMF="wnja-2.0.xml"
+LMF="build/wnja-2.0.xml"
 REF_LMF="wn-ntumc-eng.xml"
 DEVSET="audit/dev_set.tsv"
 GOLD="audit/dev_set.tsv"

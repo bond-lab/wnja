@@ -1,30 +1,46 @@
 # wnja — Japanese WordNet v2.0
 
+## Layout
+
+```
+build_wnja.py tweak_wnja.py package_wnja.py   the release pipeline (all paths defined in build_wnja.py)
+scripts/          data preparation, run as `python -m scripts.NAME`; writes data/derived/
+data/sources/     input data (hand-made or imported)
+data/derived/     made from the sources by scripts/
+corrections/      applied by the build: definitions.tsv, senses.tsv
+corrections/review/  candidates waiting for review, NOT applied
+audit/            LLM audit code; audit/reviews/ holds review data (issue8/, jsemcor/)
+tests/            pytest
+docs/             the web site (GitHub Pages)
+build/            all output, ignored: wnja-2.0.xml, *.log, reports/, release/
+```
+
 ## Build sequence
 
 ```bash
-uv run python detect_sahen.py    # only needed when jamdict data changes
-uv run python rank_readings.py   # only when vars_tk17.tab changes (~4 min, jamdict)
-uv run python count_jsemcor.py   # only when ../jsemcor/data changes
-uv run python kuroda_adjectives.py  # only when data/adjective_kuroda_2011.tsv changes
-uv run python build_wnja.py
+uv run python -m scripts.detect_sahen       # only when jamdict data changes
+uv run python -m scripts.rank_readings      # only when vars_tk17.tab changes (~4 min, jamdict)
+uv run python -m scripts.count_jsemcor      # only when ../jsemcor/data changes
+uv run python -m scripts.kuroda_adjectives  # only when adjective_kuroda_2011.tsv changes
+uv run python build_wnja.py                 # -> build/wnja-2.0.xml, build/wnja.log
 uv run python tweak_wnja.py
-uv run python report_wnja.py     # optional quality report → reports/
-uv run pytest tests/             # ~80 tests; most need a rebuilt wnja-2.0.xml
+uv run python -m scripts.report_wnja        # optional quality report -> build/reports/
+uv run python package_wnja.py               # -> build/release/wnja-2.0.tar.xz
+uv run pytest tests/                        # ~85 tests; most need a rebuilt build/wnja-2.0.xml
 ```
 
 ## Data sources
 
 | File | Description |
 |------|-------------|
-| `data/wn-ntumc-jpn.xml` | NTU-MC Japanese export (WN-LMF). Regenerate via `getwn.py` (see below). |
-| `data/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
-| `data/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
-| `data/sahen_verbs.txt` | Pre-computed suru-verb list from detect_sahen.py + jamdict |
-| `data/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (rank_readings.py) |
-| `data/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
-| `data/adjective_class.tsv` | Adjective class per lemma: na, no, na-no, no-na, other (kuroda_adjectives.py) |
-| `data/wn-freq-jpn-jsemcor.tsv` | Sense counts from the Japanese SemCor (count_jsemcor.py) |
+| `data/sources/wn-ntumc-jpn.xml` | NTU-MC Japanese export (WN-LMF). Regenerate via `getwn.py` (see below). |
+| `data/sources/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
+| `data/sources/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
+| `data/sources/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
+| `data/derived/sahen_verbs.txt` | Suru-verb list (scripts/detect_sahen.py + jamdict) |
+| `data/derived/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (scripts/rank_readings.py) |
+| `data/derived/adjective_class.tsv` | Adjective class per lemma: na, no, na-no, no-na, other (scripts/kuroda_adjectives.py) |
+| `data/derived/wn-freq-jpn-jsemcor.tsv` | Sense counts from the Japanese SemCor (scripts/count_jsemcor.py) |
 | `../NTUMC/build/ili-map-pwn30.tab` | ILI ↔ PWN30 synset number map (used by build_wnja.py for stubs) |
 
 ### Regenerating wn-ntumc-jpn.xml
@@ -36,7 +52,7 @@ cd /home/bond/git/NTUMC
     --ili build/ili-map-pwn30.tab \
     --version "2026.10" \
     --base "omw-en:2.0"
-cp build/wn-ntumc-jpn.xml /home/bond/git/wnja/data/
+cp build/wn-ntumc-jpn.xml /home/bond/git/wnja/data/sources/
 ```
 
 Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) to include x-POS entries.
@@ -46,7 +62,7 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 1. `read_vars()` — `{(lemma, hno): [(writtenForm, script), ...]}`
 2. `read_wnvar()` — `{(lemma, hno): [(wnja_synset_id, confidence)]}` + `covered_synsets`
 3. `parse_ntumc_xml()` — NTU-MC entries list + synsets dict
-4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos, reading): a word is a spelling plus a reading (katakana form), so homographs such as 反る ソル/カエル stay separate, while two hno with the same reading merge. Corpus counts (NTU-MC, JSemCor; one `<Count dc:source=…>` each) go to one reading per (synset, lemma), chosen by `count_owners()` from `data/reading_rank.tsv`, so they are not counted twice.
+4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos, reading): a word is a spelling plus a reading (katakana form), so homographs such as 反る ソル/カエル stay separate, while two hno with the same reading merge. Corpus counts (NTU-MC, JSemCor; one `<Count dc:source=…>` each) go to one reading per (synset, lemma), chosen by `count_owners()` from `data/derived/reading_rank.tsv`, so they are not counted twice.
 5. `build_passthrough_entries()` — NTU-MC entries for synsets NOT in `covered_synsets` (Japan-specific). A lemma can appear in both pipelines; passthrough entries take the hno 0 reading and merge into that entry (or the first entry for the lemma if it has no vars forms).
 6. Relation-target expansion — adds synsets referenced by relations that have NTU-MC definitions.
 7. `build_synsets()` — deduplicates definition texts; normalises POS `s` → `a`.
@@ -83,7 +99,7 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 ```bash
 # Run against the 150-synset dev set (one model at a time — GPU-bound)
 uv run python -m audit.cli \
-    --lmf wnja-2.0.xml \
+    --lmf build/wnja-2.0.xml \
     --ref-lmf wn-ntumc-eng.xml \
     --check definitions \
     --db audit_dev.db \
@@ -112,7 +128,7 @@ uv run python -m audit.dev table --gold audit/dev_set.tsv --db audit_dev.db
 - **Running the eval**:
 ```bash
 uv run python -m audit.cli \
-    --lmf wnja-2.0.xml \
+    --lmf build/wnja-2.0.xml \
     --ref-lmf wn-ntumc-eng.xml \
     --check definitions \
     --db audit_dev.db \
@@ -150,7 +166,7 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
   木漏れ日, 引きこもり, 過労死, 婚活, 一石二鳥, 一期一会, わびさび, …
 - **W307**: per-case review of 657 cross-synset duplicate definitions
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
-- **Adjective classes**: Kuroda's classes are merged as Lemma tags (`adjective-class`); 1,116 hand-marked or unclassifiable lines await review in `corrections/kuroda-adjective-review.tsv`
-- **JSemCor suggested senses** (issue #11): `jsemcor_suggestions.py` writes 2,785 candidate (synset, lemma) senses to `corrections/jsemcor-suggestions.tsv` from JSemCor 1.1 in `../jsemcor` (the aligned `data/` and `traduku/traduku.sqlite.xz`); reviewed blind twice plus adjudication in `audit/jsemcor-review/` (`uv run python -m audit.jsemcor_review batches|combine`)
+- **Adjective classes**: Kuroda's classes are merged as Lemma tags (`adjective-class`); 1,116 hand-marked or unclassifiable lines await review in `corrections/review/kuroda-adjective-review.tsv`
+- **JSemCor suggested senses** (issue #11): `scripts/jsemcor_suggestions.py` wrote 2,785 candidate (synset, lemma) senses to `corrections/review/jsemcor-suggestions.tsv` from JSemCor 1.1 in `../jsemcor` (the aligned `data/` and `traduku/traduku.sqlite.xz`); reviewed blind twice plus adjudication in `audit/reviews/jsemcor/` (`uv run python -m audit.jsemcor_review batches|combine`)
 - **Merge TUFS data**
 

@@ -6,8 +6,8 @@ wnja.  Corpus counts are tagged by spelling, not reading, so the build
 gives each count to one reading only: the most frequent one according to
 the JMdict priority tags (nfXX, news1, ichi1, ...).
 
-Reads data/vars_tk17.tab, checks every spelling with more than one
-reading in jamdict, and writes data/reading_rank.tsv.  Run this once (or
+Reads data/sources/vars_tk17.tab, checks every spelling with more than
+one reading in jamdict, and writes data/derived/reading_rank.tsv.  Run this once (or
 whenever vars_tk17.tab changes) before build_wnja.py, like
 detect_sahen.py.
 """
@@ -15,13 +15,11 @@ detect_sahen.py.
 import logging
 import sys
 from collections import defaultdict
-from pathlib import Path
 
 import jamdict
 
-from build_wnja import VARS_FILE, read_vars, reading
+from build_wnja import RANK_FILE, VARS_FILE, read_vars, reading
 
-RANK_FILE = Path("data/reading_rank.tsv")
 UNRANKED = 100  # score for readings JMdict does not mark as common
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s",

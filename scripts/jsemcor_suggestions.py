@@ -18,13 +18,13 @@ English word's synset.  Two sources record this:
    candidates offered for that token.  Its ``file`` table names the
    Brown file of each phrase; sentence_id is the SemCor snum.
 
-Senses already in wnja-2.0.xml are left out, as are entries that are not
+Senses already in build/wnja-2.0.xml are left out, as are entries that are not
 words (gloss notes, fragments with punctuation).  Writes
-corrections/jsemcor-suggestions.tsv, one row per (synset, lemma), for
+corrections/review/jsemcor-suggestions.tsv, one row per (synset, lemma), for
 review.
 
 Usage:
-    uv run python jsemcor_suggestions.py [--jsemcor DIR] [--semcor DIR]
+    uv run python -m scripts.jsemcor_suggestions [--jsemcor DIR] [--semcor DIR]
 """
 
 import argparse
@@ -42,11 +42,14 @@ from xml.etree import ElementTree as ET
 
 import wn
 
+from build_wnja import OUTPUT as OUTPUT_XML
+from build_wnja import REVIEW
+
 DEFAULT_JSEMCOR = Path("../jsemcor")
 DEFAULT_SEMCOR = Path("/home/bond/papers/students/NTU/liling/semcor/semcor3.0")
 INDEX_SENSE = Path.home() / "nltk_data/corpora/wordnet/index.sense"
-RELEASE = Path("wnja-2.0.xml")
-OUTPUT = Path("corrections/jsemcor-suggestions.tsv")
+RELEASE = OUTPUT_XML
+OUTPUT = REVIEW / "jsemcor-suggestions.tsv"
 JAPANESE = re.compile(r"[぀-ヿ一-鿿]")
 POS = {"1": "n", "2": "v", "3": "a", "4": "r", "5": "a"}
 

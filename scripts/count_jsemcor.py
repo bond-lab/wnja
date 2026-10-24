@@ -9,12 +9,12 @@ sense-tagged with Japanese WordNet 1.1.  Each tagged term looks like:
         <externalRef reference="jpn-11-金曜日-n">
           <externalRef reference="jpn-11-15164463-n"/>
 
-Writes data/wn-freq-jpn-jsemcor.tsv (synset, lemma, freq), the same
+Writes data/derived/wn-freq-jpn-jsemcor.tsv (synset, lemma, freq), the same
 format as the NTU-MC frequency files.  A term tagged with two synsets
 counts once for each.
 
 Usage:
-    uv run python count_jsemcor.py [JSEMCOR_DATA_DIR]
+    uv run python -m scripts.count_jsemcor [JSEMCOR_DATA_DIR]
 """
 
 import logging
@@ -23,7 +23,8 @@ from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-FREQ_FILE = Path("data/wn-freq-jpn-jsemcor.tsv")
+from build_wnja import JSEMCOR_FILE as FREQ_FILE
+
 DEFAULT_DIR = Path("../jsemcor/data")
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s",

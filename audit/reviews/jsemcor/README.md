@@ -1,14 +1,14 @@
 # Review of the JSemCor candidate senses (issue #11)
 
-`jsemcor_suggestions.py` found 2,795 (synset, lemma) senses that JSemCor
+`scripts/jsemcor_suggestions.py` found 2,795 (synset, lemma) senses that JSemCor
 translators used but wnja 2.0 lacks (from JSemCor 1.1: the English
 alignment and the traduku translation database).  After the junk filter
 (gloss notes and punctuated fragments) 2,785 remain in
-`corrections/jsemcor-suggestions.tsv`; the review covered all 2,795.
+`corrections/review/jsemcor-suggestions.tsv`; the review covered all 2,795.
 
 ## Method
 
-As for issue #8 (`../issue8-opus-review.tsv`):
+As for issue #8 (`../issue8/issue8-opus-review.tsv`):
 
 1. `uv run python -m audit.jsemcor_review batches` shuffled the
    candidates under random ids (`key.tsv`) into 19 batches of 150

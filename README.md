@@ -15,9 +15,9 @@ Web page: <https://bond-lab.github.io/wnja/>
 | Japanese examples | 35,359 |
 
 wnja 2.0 is a WN-LMF 1.4 package built from the Japanese WordNet 1.1
-data (`data/wn+var_tk17.tab`, `data/vars_tk17.tab`) and the Japanese
+data (`data/sources/wn+var_tk17.tab`, `data/sources/vars_tk17.tab`) and the Japanese
 wordnet in the [NTU-MC](https://github.com/bond-lab/NTUMC) database
-(`data/wn-ntumc-jpn.xml`), which adds Japan-specific synsets,
+(`data/sources/wn-ntumc-jpn.xml`), which adds Japan-specific synsets,
 definitions and senses from sense-tagging.  It extends `omw-en:2.0`.
 
 ```python
@@ -44,7 +44,7 @@ Build: see [CLAUDE.md](CLAUDE.md); package with `package_wnja.py`.
   corpus, NTU-MC and JSemCor, named in `dc:source`.  The corpora tag
   spellings, not readings, so when several readings of a spelling share
   a synset (物 ブツ/モノ) the count goes to the most frequent reading
-  according to JMdict (`data/reading_rank.tsv`), and is not counted twice.
+  according to JMdict (`data/derived/reading_rank.tsv`), and is not counted twice.
 
 ### Adjective classes
 

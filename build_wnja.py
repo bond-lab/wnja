@@ -2,14 +2,17 @@
 """Build Japanese WordNet (wnja) v2.0 from NTU-MC XML and variant tab files.
 
 Pipeline:
-  1. Parse data/wn-ntumc-jpn.xml for base synsets and sense counts.
-  2. Read data/vars_tk17.tab  → orthographic forms per (lemma, hno).
-  3. Read data/wn+var_tk17.tab → authoritative (synset, lemma, hno) mappings
-     with confidence scores.
+  1. Parse data/sources/wn-ntumc-jpn.xml for base synsets and sense counts.
+  2. Read data/sources/vars_tk17.tab  → orthographic forms per (lemma, hno).
+  3. Read data/sources/wn+var_tk17.tab → authoritative (synset, lemma, hno)
+     mappings with confidence scores.
   4. Merge: wn+var entries replace NTU-MC entries for covered synsets;
      uncovered NTU-MC senses are passed through.
-  5. Detect sahen (suru) verbs with jamdict.
-  6. Export wnja-2.0.xml via wn.lmf.dump (no Latin scripts).
+  5. Mark sahen (suru) verbs from data/derived/sahen_verbs.txt.
+  6. Export build/wnja-2.0.xml via wn.lmf.dump (no Latin scripts).
+
+All paths are relative to the repository root and defined here; the
+scripts in scripts/ and audit/ import them.
 """
 
 import csv
@@ -38,20 +41,27 @@ from wn_edit import (
 # ---------------------------------------------------------------------------
 # Paths & constants
 # ---------------------------------------------------------------------------
-DATA = Path("data")
-VARS_FILE = DATA / "vars_tk17.tab"
-WNVAR_FILE = DATA / "wn+var_tk17.tab"
-NTUMC_XML = DATA / "wn-ntumc-jpn.xml"
-SAHEN_FILE = DATA / "sahen_verbs.txt"
-JSEMCOR_FILE = DATA / "wn-freq-jpn-jsemcor.tsv"
-RANK_FILE = DATA / "reading_rank.tsv"
-ADJ_CLASS_FILE = DATA / "adjective_class.tsv"
-SENSES_FILE = Path("corrections/senses.tsv")
-ILI_MAP_FILE = Path("../NTUMC/build/ili-map-pwn30.tab")
-OUTPUT = Path("wnja-2.0.xml")
-LOG_FILE = Path("wnja.log")
-
 VERSION = "2.0"
+
+SOURCES = Path("data/sources")      # input data, edited by hand or imported
+DERIVED = Path("data/derived")      # made from sources by scripts/
+CORRECTIONS = Path("corrections")   # applied by the build
+REVIEW = CORRECTIONS / "review"     # candidates waiting for review, not applied
+BUILD = Path("build")               # all output (ignored by git)
+
+VARS_FILE = SOURCES / "vars_tk17.tab"
+WNVAR_FILE = SOURCES / "wn+var_tk17.tab"
+NTUMC_XML = SOURCES / "wn-ntumc-jpn.xml"
+KURODA_FILE = SOURCES / "adjective_kuroda_2011.tsv"
+SAHEN_FILE = DERIVED / "sahen_verbs.txt"
+JSEMCOR_FILE = DERIVED / "wn-freq-jpn-jsemcor.tsv"
+RANK_FILE = DERIVED / "reading_rank.tsv"
+ADJ_CLASS_FILE = DERIVED / "adjective_class.tsv"
+SENSES_FILE = CORRECTIONS / "senses.tsv"
+ILI_MAP_FILE = Path("../NTUMC/build/ili-map-pwn30.tab")
+OUTPUT = BUILD / f"wnja-{VERSION}.xml"
+LOG_FILE = BUILD / "wnja.log"
+
 CONF_MAP: dict[str, float] = {
     "hand": 1.0,
     "mlsn": 0.91,
@@ -72,16 +82,25 @@ GODAN_ENDINGS = frozenset(
     "うくぐすずつづぬふぶぷむゆるウクグスズツヅヌフプブムユル"
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(levelname)s %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
-        logging.StreamHandler(sys.stderr),
-    ],
-    force=True,
-)
 log = logging.getLogger("wnja")
+
+
+def setup_logging() -> None:
+    """Log to build/wnja.log (overwritten) and stderr.
+
+    Called by main(), not on import, so that scripts importing the paths
+    and helpers here do not truncate the build log.
+    """
+    BUILD.mkdir(exist_ok=True)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s %(message)s",
+        handlers=[
+            logging.FileHandler(LOG_FILE, encoding="utf-8"),
+            logging.StreamHandler(sys.stderr),
+        ],
+        force=True,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -338,7 +357,7 @@ def load_reading_ranks(path: Path) -> dict[tuple[str, str], int]:
     """Load reading ranks from rank_readings.py: lower is more frequent.
 
     Args:
-        path: data/reading_rank.tsv (lemma, hno, reading, score).
+        path: data/derived/reading_rank.tsv (lemma, hno, reading, score).
 
     Returns:
         {(lemma, hno): score}; empty if the file does not exist.
@@ -463,7 +482,7 @@ def load_adjective_classes(path: Path) -> dict[str, str]:
     """Load adjective classes from kuroda_adjectives.py output.
 
     Args:
-        path: data/adjective_class.tsv (lemma, class).
+        path: data/derived/adjective_class.tsv (lemma, class).
 
     Returns:
         {lemma: class}, class one of na, no, na-no, no-na, other; empty
@@ -514,14 +533,14 @@ def tag_adjective_classes(entries: list[dict], classes: dict[str, str]) -> int:
 # ---------------------------------------------------------------------------
 
 def load_sahen_set(path: Path) -> frozenset[str]:
-    """Load the pre-computed sahen verb set from detect_sahen.py output.
+    """Load the pre-computed sahen verb set from scripts/detect_sahen.py output.
 
     If the file does not exist, raises FileNotFoundError with a helpful message.
-    Run detect_sahen.py first to generate data/sahen_verbs.txt.
+    Run scripts/detect_sahen.py first to make data/derived/sahen_verbs.txt.
     """
     if not path.exists():
         raise FileNotFoundError(
-            f"{path} not found. Run `uv run python detect_sahen.py` first."
+            f"{path} not found. Run `uv run python -m scripts.detect_sahen` first."
         )
     words: set[str] = set()
     with open(path, encoding="utf-8") as fh:
@@ -909,6 +928,7 @@ def build_stub_synsets(
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    setup_logging()
     log.info("Reading variant files …")
     forms = read_vars(VARS_FILE)
     l2senses, covered_synsets = read_wnvar(WNVAR_FILE)

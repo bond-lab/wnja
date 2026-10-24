@@ -4,7 +4,7 @@ Usage examples
 --------------
 # Stage 0: example↔lemma check (Japanese)
 uv run python -m audit.cli \\
-    --lmf wnja-2.0.xml \\
+    --lmf build/wnja-2.0.xml \\
     --example-lmf tmp/wnja.1.9.0.xml \\
     --lang jpn \\
     --check examples \\
@@ -45,7 +45,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument(
         "--lmf",
         type=Path,
-        default=Path("wnja-2.0.xml"),
+        default=Path("build/wnja-2.0.xml"),
         help="Current build LMF XML (source of lemma forms and definitions).",
     )
     p.add_argument(

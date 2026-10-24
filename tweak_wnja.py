@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Post-build tweaks for wnja-2.0.xml.
+"""Post-build tweaks for build/wnja-2.0.xml.
 
 Applies manual corrections that cannot be derived from the NTU-MC export:
   1. Temperature antonyms: add direct antonym SynsetRelations between the
@@ -22,9 +22,10 @@ from pathlib import Path
 
 from wn_edit import WordnetEditor, make_lemma, make_sense, make_lexical_entry
 
+# As in build_wnja.py (not imported: its logging setup would truncate the log)
 CORRECTIONS_DIR = Path("corrections")
-LOG_FILE = Path("wnja.log")
-OUTPUT = Path("wnja-2.0.xml")
+LOG_FILE = Path("build/wnja.log")
+OUTPUT = Path("build/wnja-2.0.xml")
 
 logging.basicConfig(
     level=logging.INFO,

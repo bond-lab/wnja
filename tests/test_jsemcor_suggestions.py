@@ -1,9 +1,9 @@
-"""Unit tests for jsemcor_suggestions.py (issue #11)."""
+"""Unit tests for scripts/jsemcor_suggestions.py (issue #11)."""
 
 import sqlite3
 from collections import defaultdict
 
-from jsemcor_suggestions import (
+from scripts.jsemcor_suggestions import (
     Candidate,
     from_traduku,
     is_word,

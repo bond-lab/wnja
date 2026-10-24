@@ -1,7 +1,7 @@
 """Tests for Kuroda's adjective classes (issue #9)."""
 
 from build_wnja import tag_adjective_classes
-from kuroda_adjectives import classify
+from scripts.kuroda_adjectives import classify
 
 
 def adj(lemma: str, pos: str = "a") -> dict:

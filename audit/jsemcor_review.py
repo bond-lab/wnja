@@ -1,7 +1,7 @@
 """Blind review of the JSemCor candidate senses (issue #11).
 
 Like the issue #8 review: the candidates in
-corrections/jsemcor-suggestions.tsv are shuffled under random ids and
+corrections/review/jsemcor-suggestions.tsv are shuffled under random ids and
 split into batches of about 150, without counts or sources, so a
 reviewer judges each sense only on its meaning and the example.
 
@@ -28,9 +28,9 @@ from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-SUGGESTIONS = Path("corrections/jsemcor-suggestions.tsv")
-RELEASE = Path("wnja-2.0.xml")
-REVIEW_DIR = Path("audit/jsemcor-review")
+SUGGESTIONS = Path("corrections/review/jsemcor-suggestions.tsv")
+RELEASE = Path("build/wnja-2.0.xml")
+REVIEW_DIR = Path("audit/reviews/jsemcor")
 BATCH = 150
 VERDICTS = ("ADD", "POS", "MWE", "WRONG", "UNSURE")
 
@@ -120,7 +120,7 @@ def combine(runs: list[str]) -> None:
 
 
 SENSES = Path("corrections/senses.tsv")
-MANUAL = Path("corrections/jsemcor-manual-review.tsv")
+MANUAL = Path("corrections/review/jsemcor-manual-review.tsv")
 NTUMC_SENSES = Path("../NTUMC/scripts/jsemcor-senses.tsv")
 ARROW = re.compile(r"^→\s*([^\s,;(（/]+)")
 SOURCE = "jsemcor review"

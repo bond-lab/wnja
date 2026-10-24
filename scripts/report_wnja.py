@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate a TOML quality report for wnja-2.0.xml.
+"""Generate a TOML quality report for build/wnja-2.0.xml.
 
-Output: reports/wnja-2.0-quality.toml
+Output: build/reports/wnja-2.0-quality.toml
 
 Sections:
   [meta]              — build metadata
@@ -23,8 +23,8 @@ from xml.etree import ElementTree as ET
 
 import tomli_w
 
-OUTPUT = Path("wnja-2.0.xml")
-REPORT_DIR = Path("reports")
+OUTPUT = Path("build/wnja-2.0.xml")
+REPORT_DIR = Path("build/reports")
 REPORT_FILE = REPORT_DIR / "wnja-2.0-quality.toml"
 
 HIRAGANA = frozenset(

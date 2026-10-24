@@ -1,31 +1,32 @@
 #!/usr/bin/env python3
 """Pre-compute the list of sahen (suru-verb) lemmas.
 
-Reads all verb lemmas from data/wn+var_tk17.tab and data/wn-ntumc-jpn.xml,
-checks each with jamdict, and writes the results to data/sahen_verbs.txt.
+Reads all verb lemmas from data/sources/wn+var_tk17.tab and
+data/sources/wn-ntumc-jpn.xml, checks each with jamdict, and writes the
+results to data/derived/sahen_verbs.txt.
 
 Run this once (or whenever the input data changes) before build_wnja.py.
-The build script reads data/sahen_verbs.txt instead of calling jamdict at
+The build script reads data/derived/sahen_verbs.txt instead of calling jamdict at
 build time, making builds much faster.
 """
 
 import logging
 import sys
-from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import jamdict
 
 from build_wnja import (
+    BUILD,
     GODAN_ENDINGS,
-    WNVAR_FILE,
     NTUMC_XML,
+    SAHEN_FILE,
+    WNVAR_FILE,
     desuru,
-    ntumc_id_to_num,
 )
 
-SAHEN_FILE = Path("data/sahen_verbs.txt")
-LOG_FILE = Path("detect_sahen.log")
+LOG_FILE = BUILD / "detect_sahen.log"
+BUILD.mkdir(exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,

@@ -1,14 +1,14 @@
 """Tests for the wnja build pipeline and output XML.
 
 Checks that key entries, forms, synsets and attributes are present
-in the built wnja-2.0.xml output.
+in the built build/wnja-2.0.xml output.
 """
 
 import pytest
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-OUTPUT = Path(__file__).parent.parent / "wnja-2.0.xml"
+OUTPUT = Path(__file__).parent.parent / "build" / "wnja-2.0.xml"
 
 
 @pytest.fixture(scope="module")

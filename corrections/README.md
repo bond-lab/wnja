@@ -1,6 +1,6 @@
 # wnja Corrections
 
-Manual corrections to the generated `wnja-2.0.xml`, applied by `tweak_wnja.py`
+Manual corrections to the generated `build/wnja-2.0.xml`, applied by `tweak_wnja.py`
 as the final build step.
 
 Corrections are preferred over editing the XML directly because the XML is a
@@ -92,7 +92,7 @@ senses.  Rows that match no sense are logged and skipped.
 
 The first 2,464 rows (2026-10-24) come from wnja issue #8: senses flagged
 by an LLM audit were reviewed twice, blind, by Claude Opus, and the
-disagreements adjudicated; see `audit/issue8-opus-review.tsv` and
+disagreements adjudicated; see `audit/reviews/issue8/issue8-opus-review.tsv` and
 `docs/quality-sample/wnja-opus*/` in the NTU-MC repository.
 
 Rows with source `form: mechanical` (2026-10-24, 235 rows) are made by
@@ -101,11 +101,11 @@ Latin letters made half width (ＶＩＰ → VIP, ２塁打 → 2塁打; 232 lem
 and two lemmas typed with katakana okurigana (跡取リ → 跡取り, 走リ → 走り).
 
 Rows with source `jwordnet bug report` come from error reports sent to
-jwordnet@gmail.com.  They are senses from `data/wn+var_tk17.tab`, which
+jwordnet@gmail.com.  They are senses from `data/sources/wn+var_tk17.tab`, which
 fixes in the NTU-MC database cannot reach; definition and example fixes
 from the same reports are in `scripts/fixwn.py` in the NTU-MC repository.
 
-## Review files
+## Review files (`review/`)
 
 Not applied by the build; for review before anything is added:
 
@@ -113,10 +113,10 @@ Not applied by the build; for review before anything is added:
 |------|---------|
 | `kuroda-adjective-review.tsv` | Hand-marked or unclassifiable lines of Kuroda's adjective classes (issue #9) |
 | `jsemcor-manual-review.tsv` | JSemCor candidates the review marked POS without a single existing corrected form, or MWE: 196 for a human (issue #11) |
-| `jsemcor-suggestions.tsv` | Candidate new senses from the Japanese SemCor, made by `jsemcor_suggestions.py` (issue #11): the English token's synset, the Japanese lemma the translator used, counts from the aligned corpus and the translation database, whether the POS matches, and an example sentence pair |
+| `jsemcor-suggestions.tsv` | Candidate new senses from the Japanese SemCor, made by `scripts/jsemcor_suggestions.py` (issue #11): the English token's synset, the Japanese lemma the translator used, counts from the aligned corpus and the translation database, whether the POS matches, and an example sentence pair |
 
 Rows with source `jsemcor review` (`add`, 2026-10-24) are senses that
 JSemCor translators used, accepted by a blind double Opus review with
-adjudication (`audit/jsemcor-review/`, issue #11): confidence 0.9 where
+adjudication (`audit/reviews/jsemcor/`, issue #11): confidence 0.9 where
 both runs agreed, 0.8 if adjudicated or the POS was corrected.  The same
 senses are in NTU-MC `scripts/jsemcor-senses.tsv` (applied by `fixwn.py`).

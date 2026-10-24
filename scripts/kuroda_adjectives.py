@@ -12,7 +12,7 @@ noun (Kuroda et al. 2011, https://www.anlp.jp/proceedings/annual_meeting/
     e. no-na  の or な, の more natural
     f. other  ending in たる or なる
 
-data/adjective_kuroda_2011.tsv has one line per (synset, lemma), with
+data/sources/adjective_kuroda_2011.tsv has one line per (synset, lemma), with
 the endings after a +, e.g. ``ルーズ+な`` or ``真+の,な``.  Some lines
 carry hand marks: ``*`` (an error), ``#`` (a comment), ``X<=Y`` (lemma
 corrected from Y), ``?Y=>X`` (suggested replacement) and ``?`` in an
@@ -23,18 +23,19 @@ The class belongs to the word, so it is kept per lemma; when a lemma's
 synsets disagree, the most common class wins and the lemma is listed
 for review.
 
-Writes data/adjective_class.tsv (lemma, class), read by build_wnja.py,
-and corrections/kuroda-adjective-review.tsv.
+Writes data/derived/adjective_class.tsv (lemma, class), read by
+build_wnja.py, and corrections/review/kuroda-adjective-review.tsv.
 """
 
 import logging
 import sys
 from collections import Counter, defaultdict
-from pathlib import Path
 
-SOURCE = Path("data/adjective_kuroda_2011.tsv")
-CLASS_FILE = Path("data/adjective_class.tsv")
-REVIEW_FILE = Path("corrections/kuroda-adjective-review.tsv")
+from build_wnja import ADJ_CLASS_FILE, KURODA_FILE, REVIEW
+
+SOURCE = KURODA_FILE
+CLASS_FILE = ADJ_CLASS_FILE
+REVIEW_FILE = REVIEW / "kuroda-adjective-review.tsv"
 
 # Kuroda's endings -> class name
 CLASSES = {

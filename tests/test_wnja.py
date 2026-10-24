@@ -474,3 +474,11 @@ def test_counts_name_their_corpus(lexicon):
     sources = {c.get("{https://globalwordnet.github.io/schemas/dc/}source")
                or c.get("dc:source") for c in lexicon.iter("Count")}
     assert sources <= {"NTU-MC", "JSemCor"}, sources
+
+
+def test_adjective_class_tag(entries_by_lemma):
+    """静か is a na-adjective (Kuroda et al. 2011)."""
+    tags = [t.text for e in entries_by_lemma.get(("静か", "a"), [])
+            for t in e.find("Lemma").findall("Tag")
+            if t.get("category") == "adjective-class"]
+    assert tags and set(tags) == {"na"}, tags

@@ -6,10 +6,11 @@
 uv run python detect_sahen.py    # only needed when jamdict data changes
 uv run python rank_readings.py   # only when vars_tk17.tab changes (~4 min, jamdict)
 uv run python count_jsemcor.py   # only when ../jsemcor/data changes
+uv run python kuroda_adjectives.py  # only when data/adjective_kuroda_2011.tsv changes
 uv run python build_wnja.py
 uv run python tweak_wnja.py
 uv run python report_wnja.py     # optional quality report → reports/
-uv run pytest tests/             # ~70 tests; most need a rebuilt wnja-2.0.xml
+uv run pytest tests/             # ~80 tests; most need a rebuilt wnja-2.0.xml
 ```
 
 ## Data sources
@@ -21,6 +22,8 @@ uv run pytest tests/             # ~70 tests; most need a rebuilt wnja-2.0.xml
 | `data/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
 | `data/sahen_verbs.txt` | Pre-computed suru-verb list from detect_sahen.py + jamdict |
 | `data/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (rank_readings.py) |
+| `data/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
+| `data/adjective_class.tsv` | Adjective class per lemma: na, no, na-no, no-na, other (kuroda_adjectives.py) |
 | `data/wn-freq-jpn-jsemcor.tsv` | Sense counts from the Japanese SemCor (count_jsemcor.py) |
 | `../NTUMC/build/ili-map-pwn30.tab` | ILI ↔ PWN30 synset number map (used by build_wnja.py for stubs) |
 
@@ -147,6 +150,6 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
   木漏れ日, 引きこもり, 過労死, 婚活, 一石二鳥, 一期一会, わびさび, …
 - **W307**: per-case review of 657 cross-synset duplicate definitions
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
-- **Adjective types**: merge data on -na/-no adjective
+- **Adjective classes**: Kuroda's classes are merged as Lemma tags (`adjective-class`); 1,116 hand-marked or unclassifiable lines await review in `corrections/kuroda-adjective-review.tsv`
 - **Merge TUFS data**
 

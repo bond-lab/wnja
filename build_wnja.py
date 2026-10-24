@@ -44,6 +44,7 @@ NTUMC_XML = DATA / "wn-ntumc-jpn.xml"
 SAHEN_FILE = DATA / "sahen_verbs.txt"
 JSEMCOR_FILE = DATA / "wn-freq-jpn-jsemcor.tsv"
 RANK_FILE = DATA / "reading_rank.tsv"
+ADJ_CLASS_FILE = DATA / "adjective_class.tsv"
 ILI_MAP_FILE = Path("../NTUMC/build/ili-map-pwn30.tab")
 OUTPUT = Path("wnja-2.0.xml")
 LOG_FILE = Path("wnja.log")
@@ -396,6 +397,60 @@ def make_counts(
     """
     return [make_count(c[key], meta={"source": source})
             for source, c in counts.items() if c.get(key)]
+
+
+# ---------------------------------------------------------------------------
+# Adjective classes (Kuroda et al. 2011)
+# ---------------------------------------------------------------------------
+
+def load_adjective_classes(path: Path) -> dict[str, str]:
+    """Load adjective classes from kuroda_adjectives.py output.
+
+    Args:
+        path: data/adjective_class.tsv (lemma, class).
+
+    Returns:
+        {lemma: class}, class one of na, no, na-no, no-na, other; empty
+        if the file does not exist.
+    """
+    if not path.exists():
+        log.warning("%s not found; no adjective classes", path)
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        next(fh)
+        return dict(line.rstrip("\n").split("\t") for line in fh)
+
+
+def tag_adjective_classes(entries: list[dict], classes: dict[str, str]) -> int:
+    """Tag adjective lemmas with their class: how they modify a noun.
+
+    A lemma written with its ending (古代の) takes the class of its stem.
+    Unclassified adjectives are untagged; most are i-adjectives, the
+    default.
+
+    Args:
+        entries: LexicalEntry dicts; adjective ones get a Lemma Tag with
+            category ``adjective-class``.
+        classes: {lemma: class} from load_adjective_classes.
+
+    Returns:
+        The number of entries tagged.
+    """
+    n = 0
+    for entry in entries:
+        lemma = entry["lemma"]
+        if lemma["partOfSpeech"] != "a":
+            continue
+        lf = lemma["writtenForm"]
+        cls = classes.get(lf)
+        if cls is None and lf[-1:] in ("な", "の"):
+            cls = classes.get(lf[:-1])
+        if cls is None and lf[-2:] in ("たる", "なる"):
+            cls = classes.get(lf[:-2])
+        if cls:
+            lemma["tags"] = [{"category": "adjective-class", "text": cls}]
+            n += 1
+    return n
 
 
 # ---------------------------------------------------------------------------
@@ -852,6 +907,8 @@ def main() -> None:
                  "(lemma, pos, reading) entries", n_cross)
     for entry in all_entries:
         entry.pop("_reading", None)
+    n_adj = tag_adjective_classes(all_entries, load_adjective_classes(ADJ_CLASS_FILE))
+    log.info("  %d adjectives tagged with their class", n_adj)
 
     # Collect all synset nums referenced by output senses
     all_synset_nums: set[str] = set()

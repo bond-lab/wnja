@@ -46,6 +46,24 @@ Build: see [CLAUDE.md](CLAUDE.md); package with `package_wnja.py`.
   a synset (物 ブツ/モノ) the count goes to the most frequent reading
   according to JMdict (`data/reading_rank.tsv`), and is not counted twice.
 
+### Adjective classes
+
+Adjectives are tagged with how they modify a noun, from Kow Kuroda's
+hand annotation ([Kuroda et al.
+2011](https://www.anlp.jp/proceedings/annual_meeting/2011/pdf_dir/A4-1.pdf)),
+as `<Tag category="adjective-class">` on the Lemma:
+
+| Tag | Class | Example |
+|-----|-------|---------|
+| `na` | ナ形容詞 (形容動詞): ends in な | 静かな |
+| `no` | ノ形容詞: ends in の | 本当の |
+| `na-no` | な or の, な more natural | |
+| `no-na` | の or な, の more natural | |
+| `other` | ends in たる or なる | |
+
+Untagged adjectives are mostly イ形容詞 ending in (し)い, the default
+class, which was not annotated.
+
 ## License
 
 See [LICENSE](LICENSE) (a WordNet-style permissive license).

@@ -63,3 +63,49 @@ def test_lower_only_lowers(tmp_path: Path) -> None:
     assert (removed, lowered) == (0, 1)
     assert ed._lexicon["entries"][0]["senses"][1]["meta"]["confidenceScore"] == 0.5
     assert ed._lexicon["entries"][1]["senses"][0]["meta"]["confidenceScore"] == 0.71
+
+
+def kana_entry(eid: str, lemma: str, reading: str, synsets: list[str]) -> dict:
+    """An entry with one hiragana reading and senses in the given synsets."""
+    return {"id": eid, "lemma": {"writtenForm": lemma, "partOfSpeech": "n"},
+            "forms": [{"writtenForm": reading, "script": "hira"}],
+            "senses": [{"id": f"{s}-{eid}", "synset": s} for s in synsets]}
+
+
+def rename_editor(entries: list[dict]) -> SimpleNamespace:
+    """A stand-in WordnetEditor whose synsets list all the senses as members."""
+    synsets: dict[str, dict] = {}
+    for e in entries:
+        for s in e["senses"]:
+            synsets.setdefault(s["synset"], {"members": []})["members"].append(s["id"])
+    return SimpleNamespace(_lexicon={"entries": entries}, _synset_by_id=synsets)
+
+
+def test_rename_merges_with_same_reading_only(tmp_path: Path) -> None:
+    # Arrange: ４月 (しがつ) joins 4月 (しがつ); 跡取リ has no 跡取り, so is renamed;
+    # 物 with reading ぶつ must not join 物 read もの
+    ed = rename_editor([
+        kana_entry("e1", "４月", "しがつ", ["wnja-apr-n", "wnja-x-n"]),
+        kana_entry("e2", "4月", "しがつ", ["wnja-apr-n"]),
+        kana_entry("e3", "跡取リ", "あととり", ["wnja-heir-n"]),
+        kana_entry("e4", "物", "もの", ["wnja-thing-n"]),
+        kana_entry("e5", "ブツ", "ぶつ", ["wnja-thing-n"])])
+    renames = [("wnja-apr-n", "４月", "4月"), ("wnja-x-n", "４月", "4月"),
+               ("wnja-heir-n", "跡取リ", "跡取り"), ("wnja-thing-n", "ブツ", "物")]
+    rows = "".join(f"{ss}\t{old}\trename\t\tx\tform\t2026-10-24\t{new}\n"
+                   for ss, old, new in renames)
+    head = HEADER.replace("date\n", "date\tnew_lemma\n")
+    (tmp_path / "senses.tsv").write_text(head + rows, encoding="utf-8")
+
+    # Act
+    removed, lowered = apply_sense_corrections(ed, tmp_path)
+
+    # Assert
+    by = {e["id"]: e for e in ed._lexicon["entries"]}
+    assert (removed, lowered) == (1, 0)
+    assert "e1" not in by
+    assert [s["synset"] for s in by["e2"]["senses"]] == ["wnja-apr-n", "wnja-x-n"]
+    assert by["e3"]["lemma"]["writtenForm"] == "跡取り"
+    assert [s["synset"] for s in by["e4"]["senses"]] == ["wnja-thing-n"]
+    assert by["e5"]["lemma"]["writtenForm"] == "物"
+    assert ed._synset_by_id["wnja-apr-n"]["members"] == ["wnja-apr-n-e2"]

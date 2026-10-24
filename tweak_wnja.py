@@ -244,6 +244,62 @@ def apply_orphan_entries(editor: WordnetEditor) -> int:
     return added
 
 
+def _readings(entry: dict) -> frozenset[str]:
+    """The hiragana readings of an entry."""
+    forms = entry.get("forms", [])
+    return frozenset(f["writtenForm"] for f in forms if f.get("script") == "hira")
+
+
+def _rename_senses(
+    entries: list[dict], moved: dict[tuple[str, str], list[dict]],
+) -> int:
+    """Give senses taken from their entries a new written form.
+
+    The senses of (entry id, new lemma) go to an entry with that lemma and
+    part of speech whose readings match (or where either has none), without
+    duplicating a synset, and the target gains the old entry's other forms;
+    failing that, the old entry is renamed in place if it has no senses
+    left, or copied under the new lemma.  A form equal to the new lemma is
+    dropped from the forms.  Returns the number of senses
+    dropped as duplicates.
+    """
+    by_id = {e["id"]: e for e in entries}
+    by_lemma: dict[tuple[str, str], list[dict]] = {}
+    for e in entries:
+        key = (e["lemma"]["writtenForm"], e["lemma"]["partOfSpeech"])
+        by_lemma.setdefault(key, []).append(e)
+    dropped = 0
+    for (eid, new), senses in moved.items():
+        old = by_id[eid]
+        pos = old["lemma"]["partOfSpeech"]
+        target = next((e for e in by_lemma.get((new, pos), [])
+                       if not _readings(e) or not _readings(old)
+                       or _readings(e) == _readings(old)), None)
+        if target is None:
+            forms = [f for f in old.get("forms", []) if f["writtenForm"] != new]
+            if old["senses"]:
+                target = {**old, "id": f"{eid}-r", "senses": [], "forms": forms}
+                entries.append(target)
+            else:
+                target = old
+                target["forms"] = forms
+            target["lemma"] = {**old["lemma"], "writtenForm": new}
+            by_lemma.setdefault((new, pos), []).append(target)
+        else:
+            known = {new} | {f["writtenForm"] for f in target.get("forms", [])}
+            extra = [f for f in old.get("forms", []) if f["writtenForm"] not in known]
+            if extra:
+                target["forms"] = target.get("forms", []) + extra
+        have = {se["synset"] for se in target["senses"]}
+        for sense in senses:
+            if sense["synset"] in have:
+                dropped += 1
+            else:
+                target["senses"].append(sense)
+                have.add(sense["synset"])
+    return dropped
+
+
 def apply_sense_corrections(
     editor: WordnetEditor, corrections_dir: Path,
 ) -> tuple[int, int]:
@@ -252,7 +308,8 @@ def apply_sense_corrections(
     Each row names a sense by synset_id and lemma (written form).  Action
     ``remove`` deletes the sense (and the entry if it is left with none);
     ``lower`` sets its confidenceScore to the given value unless already
-    lower.  Rows that match no sense are logged and skipped.
+    lower; ``rename`` gives the sense the written form ``new_lemma`` (see
+    _rename_senses).  Rows that match no sense are logged and skipped.
 
     Returns (removed, lowered).
     """
@@ -266,6 +323,7 @@ def apply_sense_corrections(
             rows[(row["synset_id"], row["lemma"])] = row
     removed = lowered = 0
     seen: set[tuple[str, str]] = set()
+    moved: dict[tuple[str, str], list[dict]] = {}  # (entry id, new lemma) -> senses
     entries = editor._lexicon.get("entries", [])
     for entry in entries:
         lemma = entry["lemma"]["writtenForm"]
@@ -279,6 +337,9 @@ def apply_sense_corrections(
             if row["action"] == "remove":
                 removed += 1
                 continue
+            if row["action"] == "rename":
+                moved.setdefault((entry["id"], row["new_lemma"]), []).append(sense)
+                continue
             new = float(row["confidence"])
             meta = sense.get("meta") or {}
             if float(meta.get("confidenceScore", 1.0)) > new:
@@ -287,6 +348,7 @@ def apply_sense_corrections(
                 lowered += 1
             kept.append(sense)
         entry["senses"] = kept
+    removed += _rename_senses(entries, moved)
     editor._lexicon["entries"] = [e for e in entries if e.get("senses")]
     # keep synset member lists in step with the removed senses
     live = {s["id"] for e in editor._lexicon["entries"] for s in e["senses"]}

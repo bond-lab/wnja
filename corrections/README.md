@@ -13,7 +13,7 @@ resilient to upstream rebuilds.
 | File | Corrects |
 |------|---------|
 | `definitions.tsv` | Japanese definition text |
-| `senses.tsv` | Wrong senses: remove, or lower confidence |
+| `senses.tsv` | Wrong senses: remove, or lower confidence; malformed lemmas: rename |
 
 Future files (not yet needed):
 - `lemmas.tsv` — written forms and scripts
@@ -74,18 +74,28 @@ alone (e.g. which Japanese term is standard in botanical contexts).
 Tab-separated, UTF-8, with a header row:
 
 ```
-synset_id	lemma	action	confidence	reason	source	date
+synset_id	lemma	action	confidence	reason	source	date	new_lemma
 ```
 
 A sense is named by its synset ID and the entry's lemma (written form).
 `action` is `remove` (delete the sense, and the entry if it has no senses
-left) or `lower` (set `confidenceScore` to `confidence` unless it is
-already lower).  Rows that match no sense are logged and skipped.
+left), `lower` (set `confidenceScore` to `confidence` unless it is
+already lower) or `rename` (give the sense the written form `new_lemma`).
+A renamed sense joins an entry with that lemma and part of speech only if
+their hiragana readings match (or one has none), so that homographs such
+as 物 (もの, ぶつ) stay apart, and is dropped if that entry already has the
+synset; otherwise the old entry is renamed, or copied if it keeps other
+senses.  Rows that match no sense are logged and skipped.
 
 The first 2,464 rows (2026-10-24) come from wnja issue #8: senses flagged
 by an LLM audit were reviewed twice, blind, by Claude Opus, and the
 disagreements adjudicated; see `audit/issue8-opus-review.tsv` and
 `docs/quality-sample/wnja-opus*/` in the NTU-MC repository.
+
+Rows with source `form: mechanical` (2026-10-24, 235 rows) are made by
+`scripts/form_fixes.py` in the NTU-MC repository: full-width digits and
+Latin letters made half width (ＶＩＰ → VIP, ２塁打 → 2塁打; 232 lemmas),
+and two lemmas typed with katakana okurigana (跡取リ → 跡取り, 走リ → 走り).
 
 Rows with source `jwordnet bug report` come from error reports sent to
 jwordnet@gmail.com.  They are senses from `data/wn+var_tk17.tab`, which

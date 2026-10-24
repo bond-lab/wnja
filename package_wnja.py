@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Package wnja-VERSION.xml for the wn module.
 
-Writes release/wnja/wnja-VERSION.xml with README.md, LICENSE and
-citation.bib, and release/wnja-VERSION.tar.xz.
+Writes release/wnja/wnja-VERSION.xml with README.md, LICENSE,
+CONTRIBUTORS.md and citation.bib, and release/wnja-VERSION.tar.xz.
 
 Usage:
     uv run python package_wnja.py [--version 2.0]
@@ -27,7 +27,7 @@ def main() -> None:
     pkg = outdir / "wnja"
     pkg.mkdir(parents=True, exist_ok=True)
     shutil.copy(xml, pkg / xml.name)
-    for name in ("README.md", "LICENSE", "citation.bib"):
+    for name in ("README.md", "LICENSE", "CONTRIBUTORS.md", "citation.bib"):
         shutil.copy(ROOT / name, pkg / name)
     tar = outdir / f"wnja-{args.version}.tar.xz"
     with tarfile.open(tar, "w:xz") as tf:

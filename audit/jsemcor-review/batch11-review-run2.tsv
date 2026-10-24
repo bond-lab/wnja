@@ -1,0 +1,151 @@
+id	word	verdict	reason
+33726	イメージ	WRONG	イメージ is image/impression, not figure of speech
+40860	降伏	ADD	
+75723	オリジナル	ADD	
+97109	活動	WRONG	活動 is the hypernym 'activity', not work
+48726	意図	WRONG	意図 means intend, not devise a plan
+45821	前進	WRONG	前進 is physical forward movement, not follow a procedure
+58826	なる	WRONG	なる is general 'become', not fall passively into a state
+96770	解答	ADD	
+78735	相違	ADD	
+25172	具体化	WRONG	具体化 is concretize, not portray a character
+87319	思いめぐらす	ADD	
+77621	配置	WRONG	配置 is arrange/deploy, narrower than put
+40014	セオリー	ADD	
+49444	組合せる	ADD	
+33666	無駄	ADD	
+97429	声	WRONG	声 is voice itself, not tone of voice
+39615	転回	ADD	
+46285	不備	ADD	
+93876	小道	ADD	
+97529	国会	WRONG	国会 is a generic national diet, not specifically US Congress
+21794	得る	ADD	
+70649	心得る	ADD	
+19994	領国	WRONG	領国 is a feudal domain, not an administrative state
+67716	免れる	WRONG	免れる is escape/be exempt, not refrain from doing
+79245	西	ADD	
+19674	認識	ADD	
+79574	申し渡す	ADD	
+15943	滞在	WRONG	滞在 is sojourn as a visitor, narrower than remain
+10914	なる	WRONG	copula rendering
+88603	作戦	WRONG	作戦 is a (military) operation/strategy
+86881	賭ける	ADD	
+47295	言語	WRONG	言語 is the language system, not the cognitive process
+80419	候補者	WRONG	候補者 is candidate, not applicant
+42886	かき交ぜる	ADD	
+65502	観察	ADD	
+84522	受け入れる	WRONG	受け入れる is general accept, not assume debts
+21424	成しとげる	WRONG	成しとげる is accomplish, not perform a function
+31563	ムード	ADD	
+47375	恩寵	ADD	
+34840	荒廃	WRONG	荒廃 is devastation (state), not a wreck
+42230	一団	ADD	
+33505	発展	WRONG	発展 is grow/develop, not work out an idea
+46582	分野	ADD	
+81841	地面	ADD	
+13778	光	ADD	
+34426	疑念	ADD	
+29762	一家	ADD	
+14405	規律	WRONG	規律 is discipline/regulations, not body of law
+91515	荘厳	WRONG	荘厳 is majestic/sublime, not a person's solemn manner
+70507	取り押さえる	WRONG	取り押さえる is seize/arrest, not come upon
+86663	見つけ出す	ADD	
+60424	異議	ADD	
+10348	上部	ADD	
+75522	配慮	ADD	
+17892	作品	WRONG	作品 is any work; hypernym of collected writings
+33579	任務	ADD	
+18392	屈する	ADD	
+82876	政治家	WRONG	政治家 is politician generally, not respected statesman
+94537	進化	WRONG	進化 is evolution, not progress
+57136	プログラム	ADD	
+52048	意志	WRONG	意志 is will, not cheerful compliance
+96279	言う	ADD	
+73372	検討	ADD	
+14188	意見	WRONG	意見 is opinion, not content of thought
+77729	外形	ADD	
+48200	工夫	ADD	
+76273	宮殿	WRONG	宮殿 is the building, not the governing group
+93196	管轄	WRONG	管轄 is jurisdiction, not exercise control
+99687	意識	WRONG	意識 is be conscious of, not undergo experience
+78225	足がかり	ADD	
+79688	良くなる	POS	intransitive; synset is transitive → 良くする
+32796	権力	WRONG	権力 is power itself, not a person with power
+87840	考察	ADD	
+31649	討論	ADD	
+24694	向ける	ADD	
+89702	監督	ADD	
+67090	目覚しい	ADD	
+40847	開始	WRONG	開始 is commencement, not founding/initiation
+97613	協会	WRONG	協会 is association/society, not consortium
+67728	働き	WRONG	働き is function/working, not activity
+81804	中間	ADD	
+43576	開く	ADD	
+40924	振る舞う	ADD	
+44036	集まる	ADD	
+74109	保持	WRONG	保持 is retain/maintain, not protect
+81324	違反	ADD	
+38997	委員会	ADD	
+86033	アウトにする	ADD	
+89075	居る	WRONG	居る is be present, not remain behind
+75399	探索	WRONG	探索 is search/explore, not probe physically
+44253	論じる	ADD	
+14631	資質	WRONG	資質 is aptitude/innate qualities, not usual mood
+36543	描写	WRONG	描写 is depiction, not acting a role
+88227	描写	ADD	
+16883	是認	WRONG	是認 is approve as right, not recognize authority
+85057	寛容	ADD	
+68770	警告	ADD	
+33597	与える	ADD	
+52605	喜ぶ	POS	verb for adjective synset → 喜んでいる / 嬉しい
+29898	設定	WRONG	設定 is set (a value/setting), not found an institution
+89731	絞首台	ADD	
+12331	船	WRONG	船 is ship only; craft includes air/spacecraft
+89764	まさに	WRONG	まさに is exactly/truly, not a general intensifier
+75025	思い出	ADD	
+66968	苦艱	ADD	
+76022	推察	ADD	
+67890	警笛	WRONG	警笛 is warning horn/whistle, not party noisemaker
+44464	シーン	WRONG	シーン is a scene in film/drama, not visual view
+14054	休憩	ADD	
+19507	バルサム	ADD	
+24980	近い	ADD	
+33359	独立	ADD	
+84566	ウェイト	ADD	
+93868	左利き	WRONG	左利き is left-handed person, not left-handed pitcher
+81203	否認	ADD	
+85954	遠くに	WRONG	遠くに is far away, not to a greater degree
+41191	栄光	WRONG	栄光 is glory, not a tangible award
+91687	ツイード	WRONG	ツイード is tweed fabric noun, not rough-surfaced
+29166	増幅	WRONG	増幅 is amplify, not broaden
+17075	務める	WRONG	務める is serve in a role, not exert oneself
+50764	飛出す	ADD	
+65752	大学	ADD	
+15546	基本	ADD	
+51203	聖職者	WRONG	聖職者 is clergy in general (hypernym)
+91421	機材	WRONG	機材 is equipment, not material
+78872	取り込む	WRONG	取り込む is take in, not innovate
+44697	条件	WRONG	条件 is requirement/terms, not state
+87161	黒い	ADD	
+75319	大衆	WRONG	大衆 is the masses/general public, narrower
+21596	人生	ADD	
+95205	世話	WRONG	世話 is take care of, not keep under scrutiny
+76919	分かれる	POS	intransitive; synset is transitive → 分ける
+32491	一部分	ADD	
+59658	銃撃	ADD	
+43401	要請	ADD	
+42524	占拠	WRONG	占拠 is occupy by force, not take on a position
+30946	最適	POS	noun/na-stem for adverb → 最適に
+75125	病気	POS	noun for adjective synset → 病気の
+96377	賃金	WRONG	賃金 means wages; would be 有給の
+88103	位置づける	ADD	
+69576	進み	WRONG	進み is progress/advance, not rate of speed
+18014	洗練	POS	noun for adjective synset → 洗練された
+51392	厄介	ADD	
+63822	位置	POS	noun for adjective synset → 位置する / 位置した
+71190	カップ	ADD	
+57765	見る	ADD	
+38356	基礎	WRONG	基礎 is foundation/fundamental, not canonical form
+15520	傷つける	ADD	
+74164	感じる	WRONG	感じる is to perceive; synset is be felt (感じられる)
+88741	言語	WRONG	言語 is a language system, not the faculty of speech

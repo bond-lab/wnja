@@ -1,0 +1,151 @@
+id	word	verdict	reason
+40809	警戒	WRONG	means vigilance/alertness, not a precautionary measure
+74560	知っている	WRONG	progressive form of 知る; 'know how' is できる
+85925	読者	WRONG	general reader; subscriber is 購読者
+25408	最適	WRONG	adjective 'optimal', not modal 'had best'
+47339	素朴	WRONG	means simple/naive, not frank
+26145	思う	WRONG	think; not keep in mind
+47550	振り下ろす	WRONG	swing down; hyponym
+20245	金銭	WRONG	money, not the dollar sign symbol
+98694	雛形	WRONG	template/form or scale model, not specimen
+94980	教書	WRONG	presidential or papal message (document), not content
+69628	切開く	WRONG	cut open/pioneer, not become available
+39574	考察	ADD	
+72583	白い	WRONG	white colour; racial sense is 白人の
+60807	読み手	WRONG	one who reads, not book lover
+36047	複製	ADD	
+64268	代わる	ADD	
+88808	鎮静	ADD	
+38885	精神	WRONG	spirit/mind, not seat of feelings
+68773	在る	WRONG	existential, not 'have as feature'
+93841	勤務	WRONG	service/working at a job, not moral duty
+18413	守衛	ADD	
+58111	負う	ADD	
+64932	作曲	WRONG	act of composing; the work is 楽曲
+53685	郷里	WRONG	hometown/birthplace, not where one lives
+46869	御目にかかる	ADD	
+86584	手が込んでいる	WRONG	phrase 'elaborate', not a lexeme
+96310	条目	ADD	
+45080	注釈	WRONG	means annotation/commentary
+48398	勝利	WRONG	means victory; hyponym of success
+96733	種別	WRONG	classification/category, not assortment
+11663	報酬	ADD	
+98088	大きい	ADD	
+90033	側面	ADD	
+42075	総督	WRONG	noun 'governor-general', not verb lead
+11982	政治	WRONG	politics, not act of governing
+63940	心臓	WRONG	the heart organ only
+59130	部隊	WRONG	military unit; hyponym
+27323	達する	WRONG	reach a point, not contact someone
+87765	遠くに	ADD	
+42985	不潔な、汚らわしい	WRONG	two words joined by comma; not a lemma
+60868	不安定	ADD	
+65134	はるかに	ADD	
+46480	家柄	WRONG	family social standing/pedigree, not descendants
+54770	見る	WRONG	see literally; not visualize
+23378	帰還	WRONG	homecoming, not change of direction
+87425	手足が長い	WRONG	compositional phrase 'long-limbed'
+23678	取る	ADD	
+81555	拡大	WRONG	enlargement, not span an interval
+96171	舵取り	ADD	
+23032	騒音	WRONG	means noise; hyponym
+69392	花	ADD	
+37424	草	ADD	
+21584	隈	WRONG	nook/shade, not corner point
+57655	切開く	WRONG	cut open/clear; not general cut
+12117	雇う	WRONG	means hire, not use
+59084	例外	WRONG	the exceptional case, not act of omission
+87361	自由	ADD	
+97711	仕掛け	ADD	
+55071	もたらす	WRONG	bring about; not carry along
+13045	熱気	ADD	
+97552	多数	POS	→ 多数の
+92968	提示	ADD	
+30408	分る	WRONG	understand, not witness
+71497	よく	WRONG	'well', not comparative; → よりよく
+19508	勉強	WRONG	study; hyponym of work
+57414	伝達	ADD	
+32336	異なる	ADD	
+70927	影像	WRONG	reflected image/portrait, not mental image
+76290	誘う	ADD	
+51423	居る	WRONG	existence verb, not 'be in a state'
+72867	歓喜	ADD	
+97932	推定	WRONG	estimation of quantity, not judgment of qualities
+95448	受入れる	WRONG	general accept; not assume debts
+89369	成長	WRONG	growth, not increase in general
+17983	教える	WRONG	teach in general; not discipline
+39130	帰還	ADD	
+12751	勉強	WRONG	study; hyponym of work
+61791	視野	WRONG	field of vision/perspective, not mindset
+66802	念願	WRONG	long-cherished wish (noun), not hope to do
+40140	調査	ADD	
+95191	混乱	POS	intransitive; → 混乱させる
+80957	範囲	WRONG	range/scope, not area of a structure
+24419	近接	POS	→ 近接した
+17536	比較	POS	→ 比較可能な or 比較できる
+18723	なる	WRONG	'become', not identity copula
+70585	興味	WRONG	one's interest felt, not interestingness
+96007	磨く	WRONG	polish; brushing is ブラシをかける
+62597	章	WRONG	chapter; hyponym of section
+95991	挑戦	WRONG	act of challenging, not demanding situation
+38582	規模	ADD	
+77876	監視	ADD	
+37450	知恵	WRONG	means wisdom, not lore
+75187	賢明さ	WRONG	wisdom/prudence, not intelligence
+58484	活力	WRONG	vitality in general, not vigorous style
+28738	支出	ADD	
+77576	ちりばめられた	POS	inflected passive; ちりばめた already present
+61726	撃つ	WRONG	fire a gun; kill by shooting is 撃ち殺す
+22572	静けさ	WRONG	quietness, not calm weather
+20949	想像	WRONG	imagine, not daydream
+10472	承認	ADD	
+31869	拡大	ADD	
+95058	遂行	ADD	
+91657	テスト	ADD	
+43214	ひと息	WRONG	a single breath/a breather, not breathing process
+96947	隣近所	ADD	
+72096	代理	WRONG	proxy/agent in general, not deputy sheriff
+25687	もっと	WRONG	means 'more', not 'to a certain point'
+66772	回復	WRONG	recovery, not rally of strength
+30421	もらう	WRONG	receive from someone; hyponym
+12070	尊敬	WRONG	respect; filial obedience is 孝行
+58616	蒸気	WRONG	vapour (substance), not vaporization process
+57996	固形	POS	→ 固形の
+13169	信用	WRONG	trust/credit, not approval
+24272	系列	ADD	
+56020	名誉	WRONG	honour (abstract), not tangible award
+64125	共同	POS	→ 共同の
+80239	競争	POS	→ 競争の or 競争的
+83542	聞分ける	WRONG	distinguish by ear or heed reason
+79948	覚醒	POS	intransitive; → 覚醒させる
+24578	箇所	WRONG	spot/place, not geographic region
+22356	経営者	ADD	
+49525	断切る	WRONG	sever, not interrupt
+76495	職	ADD	
+83926	夢幻	WRONG	dreams and illusions/fantasy, not sleep dream
+26330	実証	WRONG	demonstrate (transitive), not turn out
+18878	比較	WRONG	compare/examine, not liken
+84432	為す	ADD	
+41177	理由	ADD	
+27002	早く	WRONG	adverb 'early/quickly', not 'previously'
+96860	研究	ADD	
+21581	引き下げる	ADD	
+76808	革新	WRONG	reform/innovation process, not invented thing
+77135	自己犠牲	ADD	
+50430	生活	ADD	
+48531	刺激	WRONG	stimulus, not physical impetus
+56237	所有	ADD	
+42345	情報	WRONG	information; hypernym of material
+87435	真	POS	→ 真の (already present)
+64253	発見	ADD	
+71127	脅威	WRONG	menace/danger, not a warning
+17117	模範	ADD	
+38526	拭く	WRONG	means wipe, not dry
+87184	意見	WRONG	general opinion; hypernym
+69203	なる	WRONG	'become', not 'be in a state'
+32307	要請	ADD	
+23697	間違い	ADD	
+70211	選ぶ	WRONG	means choose, not prefer
+28042	読者	WRONG	readers; hyponym of audience
+23676	拡散	ADD	
+76029	一瞬	ADD	

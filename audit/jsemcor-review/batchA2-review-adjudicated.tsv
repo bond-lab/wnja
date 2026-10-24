@@ -1,0 +1,248 @@
+id	word	verdict	reason
+52994	プレー	WRONG	a play (action) in a game, not a preset plan
+53146	仮説	WRONG	hypothesis generally; taken-for-granted assumption is 仮定/前提
+53261	クラス	ADD	
+53846	境遇	WRONG	one's personal circumstances, not total surroundings
+53969	空想	WRONG	fantasy/daydream; faculty of imagination is 想像力
+54079	呟く	WRONG	mutter, not whisper
+54278	提出	WRONG	the act of submitting, not the thing submitted
+54522	いい	MWE	→ ほうがいい
+54753	からかう	WRONG	make fun of, not annoy persistently
+54857	塗り替えた	MWE	→ 記録を塗り替える
+54970	増やす	POS	→ 増える (synset is intransitive)
+55071	もたらす	WRONG	bring about here, not carry along
+55438	実際	POS	→ 実際の
+55842	整え	POS	→ 整える
+55932	制御	WRONG	act of controlling/regulating, not power to direct
+55969	草原	WRONG	grassland, not level plain
+56101	向ける	POS	→ 向く (synset is intransitive)
+56115	適応	POS	→ 適応させる (synset is transitive)
+56474	対抗	WRONG	counter/rival, not express opposition
+57620	捕える	WRONG	arrest here, not catch someone in the act
+57765	見る	WRONG	見る does not normally mean understand
+57924	要望	WRONG	request/demand, lacks earnest entreaty sense
+58024	道具	WRONG	tool in general, not skilled instrument
+58083	真	WRONG	真の means true/genuine, not pure
+58322	終幕	ADD	
+58324	獲得	ADD	
+58399	取り組む	ADD	
+58701	四苦八苦	ADD	
+58946	誓約	WRONG	pledge/vow, not court oath
+59211	証言	WRONG	witness testimony, not something serving as evidence
+59388	機関	WRONG	engine/organ/agency, not artifact system
+59407	上	POS	→ 上の
+60126	亡失	WRONG	act of losing, not the thing lost
+60141	ランニング	MWE	→ ランニングプレー
+60386	呼び物	WRONG	main attraction, not feature film
+60459	展示	WRONG	act of exhibiting; thing is 展示品
+60606	著作	WRONG	hyponym: written work
+60649	乱雑	WRONG	disorderliness, not a jumble of things
+60688	出す	WRONG	put out/hand in generally, not refer for decision
+60855	場所	WRONG	place in general; hypernym of scene
+61087	同僚	WRONG	colleague, narrower than associate
+61678	栄誉	WRONG	honour, not eminent status
+61726	撃つ	WRONG	fire at; killing by shooting is 射殺/撃ち殺す
+61754	改定	WRONG	revise, not improve
+61842	博士	ADD	
+62068	凝らす	WRONG	transitive concentrate (目を凝らす), not centre upon
+62597	章	WRONG	chapter; hyponym of section
+62727	妨害	WRONG	general obstruction, not football blocking
+62749	修道院	WRONG	monastery in general (hypernym); convent is 女子修道院
+62771	芝居	WRONG	a play/drama, not a short act in a programme
+62793	つける	WRONG	attach/give, not take on an aspect
+62845	数多	POS	→ 数多の
+62973	決め直す	WRONG	decide again, not reset
+63028	中心	POS	→ 中心的
+63123	見込む	ADD	
+63124	卓越	POS	→ 卓越した
+63144	通じる	ADD	
+63180	探求	ADD	
+63317	読取る	WRONG	read off/infer, narrower than understand
+63611	合併	ADD	
+63818	複雑	POS	→ 複雑さ (形容動詞 in noun synset)
+63829	問いただす	WRONG	interrogate/press, narrower than ask
+64368	布告	WRONG	official proclamation; here part of 宣戦布告
+64653	置く	ADD	
+64832	制御	ADD	
+64967	お目にかかる	ADD	
+65128	基本	POS	→ 基本的 / 基本の
+65157	鳴りひびく	POS	→ 鳴り響かせる (synset is causative)
+65256	吊るす	POS	→ 吊り下がる (synset is intransitive)
+65698	張り裂ける	WRONG	burst/split open, not rend
+65894	見付ける	ADD	
+65969	煽り立てる	WRONG	incite/stir up, not motivate
+66375	保存	WRONG	preserve/store, not keep in a state
+66704	知ってる	WRONG	colloquial contraction; not know-how sense
+66842	悩ます	WRONG	annoy/trouble, not move deeply
+66879	考える	ADD	
+67244	議題	WRONG	item for discussion, not the schedule itself
+67262	遂行	WRONG	carry out, not attain
+67408	アート	WRONG	art in general, not printed artwork
+67789	解釈	WRONG	interpretation, not understanding
+67833	方策	WRONG	means/measure, not a plan of steps
+68241	横木	WRONG	crossbar/rail, not timber beam generally
+68367	熱狂	WRONG	enthusiasm/frenzy, not a fad
+68570	好ましい	WRONG	desirable, not satisfactory
+68900	低地	WRONG	lowland in general (hypernym)
+68973	渇望	WRONG	craving (state), not the object desired
+68984	監視	WRONG	surveillance, not patient observation
+69402	知らせる	WRONG	inform generally, not report to authorities
+69615	部長	WRONG	department head; hyponym
+69710	高速	POS	→ 高速の
+70153	意味	WRONG	mean/signify, not express indirectly
+71127	脅威	WRONG	menace/danger, not a warning
+71451	家族	WRONG	household family, not lineage
+71781	ホーン	WRONG	horn instrument/car horn, not party noisemaker
+71854	最初	POS	→ 最初の
+72018	責任	ADD	
+72277	違う	POS	→ 違った
+72692	走る	POS	→ 走らせる (synset is transitive)
+72927	位置	WRONG	physical position; this sense is 立場
+73186	危害	WRONG	harm in general, not bodily injury
+73207	疲労困憊	POS	→ 疲労困憊させる (synset is transitive)
+73274	回る	WRONG	rotate/spin, not roll over
+73365	金	POS	→ 金色の
+73472	騒動	WRONG	commotion/riot, not malfunction or interruption
+73538	作り上げる	ADD	
+73673	奨励	WRONG	promote an activity, not give courage
+73968	知覚	WRONG	perception, not elementary sensation
+74213	労働	WRONG	labour, narrower than work
+74323	意味	ADD	
+74356	出所	WRONG	origin of goods/information, not inspiration
+74700	意義	WRONG	importance/significance, not implied meaning
+74849	投票	WRONG	act of voting/ballot, not group decision
+74879	判決	WRONG	court judgment; jury verdict is 評決
+75175	転がす	POS	→ 転がる (synset is intransitive)
+75322	滑走路	ADD	
+75723	オリジナル	POS	→ オリジナルの
+75922	認める	ADD	
+76171	前	POS	→ 前に
+76290	誘う	WRONG	invite in general, hypernym
+76318	構成	POS	→ 構成される
+76344	数多	WRONG	many (count), not much (mass)
+76808	革新	WRONG	reform/innovation process, not an invented thing
+76919	分かれる	POS	→ 分ける (synset is transitive)
+77462	念	WRONG	fragment of 入念; not awareness
+77609	感じ取る	WRONG	perceive/sense, not undergo an emotion
+77621	配置	WRONG	arrange/deploy, narrower than put
+77624	沈黙	WRONG	not speaking; absence of sound is 静寂
+77701	置きかえる	POS	→ 置き換わる (synset is intransitive)
+77876	監視	WRONG	surveillance/monitoring, not look attentively
+78013	苦悩	WRONG	mental anguish, not acute physical pain
+78042	前提条件	WRONG	prerequisite, not presupposition
+78110	留めおく	WRONG	detain/retain, narrower than keep in a state
+78167	航海	WRONG	voyage, not a sailor's work
+78245	計画	WRONG	plan, not schedule
+78378	事業	WRONG	business undertaking, not an organization
+78824	流れ込む	WRONG	flow into, narrower
+78872	取り込む	ADD	
+79043	あまた	POS	→ あまたの
+79568	圧力	WRONG	pressure, not emotional stress
+79688	良くなる	POS	→ 良くする (synset is transitive)
+80120	擁護	WRONG	advocate/protect, not be on the defensive
+80430	写実主義	ADD	
+80540	さぐり当てる	WRONG	find by searching, not obtain through effort
+80932	城	WRONG	fortified castle, not stately mansion
+81153	活動	WRONG	be active, not perform an action
+81196	古い	ADD	
+81220	魂	WRONG	soul/spirit, not deep feeling
+81225	海	ADD	
+81324	違反	WRONG	violation in general, not misdemeanour
+81742	洗濯	WRONG	laundry, narrower than washing
+81804	中間	POS	→ 中間の
+81842	初期	WRONG	early period, not starting point
+81858	職務	WRONG	duties of a post, not occupation
+82013	チャレンジ	WRONG	a bid/attempt, not a demanding situation
+82029	空間	WRONG	space in general, not a reserved area
+82171	興奮	WRONG	state of excitement, not the stimulus
+82336	ひどく怒る	WRONG	phrase (adverb + verb), not a lexical item
+82927	話す	WRONG	speak; hyponym of communicate
+83055	嘆願	WRONG	petition/entreaty, not liturgical invocation
+83153	悪	WRONG	evil, not moral frailty
+83317	増額	WRONG	increase in money amount; hyponym
+83338	みにくい	WRONG	ugly, not grotesque/distorted
+83445	熟練	POS	→ 熟練した
+83899	晒す	MWE	→ 危険に晒す
+83919	威力	ADD	
+83939	中尉	WRONG	first lieutenant; hyponym
+83968	警護	WRONG	guard/escort; hyponym of protect
+84176	死	WRONG	death of a living thing, not end of something
+84292	止める	WRONG	stop; 気に止める is not allow
+84444	金持ち	POS	→ 金持ちの
+84453	抱く	WRONG	harbour feelings, narrower than have/possess
+84546	疑問	WRONG	doubt, not an instance of questioning
+84647	塊	ADD	
+84655	待遇	ADD	
+84697	会話	WRONG	conversation, not scripted dialogue lines
+85255	広げる	POS	→ 広がる (synset is intransitive)
+85863	描き出す	WRONG	depict, not draw lines
+86033	アウトにする	WRONG	put out generally, not tag the runner
+86429	昇任	POS	→ 昇任させる (synset is transitive)
+86584	手が込んでいる	POS	→ 手の込んだ
+86707	おかしい	WRONG	strange/amiss, not below standard
+86974	知る	WRONG	know/find out, not understand
+86989	シフト	WRONG	physical shift/displacement, not qualitative change
+87184	意見	WRONG	opinion in general; hypernym
+87262	差し出す	WRONG	hand over/present, not refer for decision
+87316	公式	POS	→ 公式の
+88192	明瞭	WRONG	clear/distinct, not understandable
+88591	取る	MWE	→ 例に取る
+88593	感覚	WRONG	sensation/sense, not vague belief
+88655	鶏	WRONG	chicken generally; hen is 雌鶏
+88741	言語	WRONG	a language system, not the faculty of speech
+89106	近所	WRONG	the area; the people are 近所の人
+89439	道具	WRONG	tool in general, hypernym of contrivance
+89633	支える	WRONG	physical/emotional support, not endorse
+89702	監督	WRONG	film/sports director; theatre director is 演出家
+89764	まさに	ADD	
+89879	場面	WRONG	scene/situation of action, not visual view
+90125	最近	POS	→ 最近の
+90217	適用	POS	→ 適用される
+90242	類似	WRONG	similarity in general; hypernym
+90643	枝	WRONG	branch in general (hypernym)
+90749	出版者	ADD	
+90775	損失	ADD	
+90988	ルーツ	WRONG	roots/origin, not inspiration
+91391	シート	ADD	
+91662	高揚する	WRONG	uplift of spirits, not swell with pride
+91674	暗い	WRONG	gloomy, not wicked
+91958	類似	POS	→ 類似の / 類似した
+92150	バック	POS	→ バッグ (misspelling)
+92225	種族	WRONG	tribe/race of people, not taxonomic subspecies
+92570	模倣	WRONG	act of imitation, not a copy
+92968	提示	WRONG	show/present, not publication or broadcast
+93196	管轄	ADD	
+93201	赤	POS	→ 赤い
+93438	銃撃	WRONG	fire at, not kill by shooting
+93625	解説	WRONG	explanatory commentary, not opinion remark
+93808	視界	WRONG	field of vision, not the view seen
+93921	三振する	MWE	→ 三振を奪う; 三振する is the batter
+93928	ビーム	WRONG	beam in general, not radio guidance beam
+94496	欲しがる	WRONG	desire, not need
+94836	顔つき	WRONG	facial expression/features, not the face
+94932	式	WRONG	expression/formula; equation is 方程式
+95125	憶測	ADD	
+95370	分類	WRONG	classification, not category
+95660	領土	WRONG	territory of a state, not administrative district
+95695	意	WRONG	mind/intent; volition is 意志
+95712	心配	ADD	
+95991	挑戦	WRONG	act of challenging, not demanding situation
+96099	成長	ADD	
+96186	典型	ADD	
+96782	反映	WRONG	figurative reflect, not physical throwing back
+96828	系統	WRONG	system/lineage; chain only in 指揮系統
+96834	優れた	WRONG	adjective excellent, not adverb better
+97255	模様	ADD	
+97280	違う	POS	→ 違った
+97371	強調	ADD	
+97948	相手	WRONG	partner/counterpart generally, not adversary
+98468	同意	WRONG	consent, not statement of promises
+99037	頼る	WRONG	rely on, not be contingent on
+99082	変化	WRONG	undergoing change, not act of changing something
+99255	不履行	ADD	
+99391	是認	WRONG	approve/endorse, not give permission
+99577	興	WRONG	amusement, bound morpheme; not concern
+99619	真実	WRONG	true/truth; genuine is 本物の
+99662	勇気	WRONG	courage generally, not grit
+99812	止まる	POS	→ 止める (synset is transitive)
+99987	主張	WRONG	claim/assertion, not way of regarding

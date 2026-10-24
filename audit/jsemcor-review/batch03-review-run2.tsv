@@ -1,0 +1,151 @@
+id	word	verdict	reason
+36551	運営	WRONG	means management/running, not state of being operative
+77947	技	ADD	
+32230	事柄	ADD	
+54895	未来	POS	noun for adjective → 未来の
+96506	周囲	POS	noun for adjective → 周囲の
+67924	推定	ADD	
+75314	封鎖	ADD	
+41651	欲求	WRONG	means desire, not something lacking
+52855	畑	WRONG	means cultivated field for crops, hyponym
+63052	眺める	ADD	
+97280	違う	ADD	
+42846	逆らう	WRONG	means defy/oppose, not elude or baffle
+36018	死ぬ	POS	verb for adjective → 死にかけている
+93122	通気性のいい	WRONG	phrase, not a dictionary-form word
+66478	協会	ADD	
+36252	団体	WRONG	means organization/body, not a society
+38074	進展	ADD	
+60386	呼び物	ADD	
+38780	強い	WRONG	general 'strong', hypernym of sturdy/hardy
+86429	昇任	ADD	
+51482	ややこしい	ADD	
+37511	傾倒	WRONG	means be devoted to, not dedicate oneself transitively
+27848	介入	WRONG	act of intervening, not interventionist policy
+27636	努める	ADD	
+75072	荒らす	WRONG	means ravage/damage, not infest
+55972	若者	WRONG	means youth/young adult, not child
+15317	いい	ADD	
+18406	わかる	WRONG	means understand/find out, not locate
+46280	面	ADD	
+32168	意欲	ADD	
+24788	一撃	ADD	
+69067	現世	WRONG	means this world/life, not perceived reality
+71781	ホーン	WRONG	means instrument horn, not party noisemaker
+46066	田園	WRONG	means countryside/rural area, not a field
+38059	教会	ADD	
+64261	過去	POS	noun for adjective → 過去の
+60141	ランニング	ADD	
+92016	とり行う	WRONG	means conduct a ceremony, not engage in
+78154	医学	POS	noun for adjective → 医学的
+74733	過度	WRONG	adverbial 'excessive', not a quantity
+98099	教育	ADD	
+51336	姿	WRONG	means appearance/form, not geometric figure
+91890	一部	ADD	
+69307	暗闇	WRONG	means darkness, not nighttime
+51988	提示	WRONG	means presentation of info, not formal awarding
+19788	照明	WRONG	means lighting, not illuminated area
+14126	制度	ADD	
+46454	応じる	ADD	
+89633	支える	WRONG	physical support here; endorse sense rare
+15437	引っ張る	ADD	
+98900	冒す	ADD	
+46840	敷地	WRONG	means site/premises, not vegetated patch
+84787	出かける	ADD	
+56427	想う	ADD	
+50505	大聖堂	WRONG	means cathedral, not abbey
+95103	疑い	ADD	
+83929	上昇	ADD	
+12505	知って	WRONG	conjugated fragment of 知る, not dictionary form
+94015	罪業	ADD	
+27810	苦悩	WRONG	means suffer/agonize, not cause trouble
+63108	ある	WRONG	existential verb, not identity copula
+69615	部長	ADD	
+34892	仮定	ADD	
+13240	演戯	WRONG	means acting/performance, not a play script
+44919	収まる	ADD	
+41117	研究	ADD	
+28464	子供	WRONG	means child, not infant
+16152	全体	POS	noun for adjective → 全体の
+92467	研究	WRONG	means research, not work in general
+25113	一撃	WRONG	blow as strike, not impact from collision
+68521	事業	WRONG	means enterprise/business, not one's occupation
+24289	宿舎	ADD	
+92570	模倣	ADD	
+80174	得る	WRONG	means obtain, not reach
+95857	取りあげる	ADD	
+93875	場所	ADD	
+58324	獲得	WRONG	means acquisition by effort, hyponym of obtain
+20219	後屈	ADD	
+99717	監督	ADD	
+35958	配列	ADD	
+36128	最後	POS	noun for adjective → 最後の
+72277	違う	ADD	
+43559	言語学	WRONG	means linguistics discipline; would need 言語学的
+33420	勧める	ADD	
+11411	守る	WRONG	means obey/abide by; synset here is show respect
+71892	秩序	ADD	
+80103	聴衆	ADD	
+14741	焦点を当てて	WRONG	conjugated phrase; dictionary form 焦点を当てる
+33474	返答	WRONG	means reply, not give correct solution
+39682	全体	POS	noun for adjective → 全体的
+45698	解説	ADD	
+55316	一片	ADD	
+80738	化学	POS	noun for adjective → 化学的
+78212	旅行	ADD	
+75590	造り上げる	ADD	
+90536	それ以上	WRONG	means further/more, not very much
+30865	展開	WRONG	means unfold/expand, not work out
+61578	置く	WRONG	transitive put, not intransitive lie
+39350	据える	ADD	
+21430	傾注	WRONG	means devote attention, not revolve around
+63802	丈夫	ADD	
+60852	イメージ	ADD	
+27027	顔ぶれ	WRONG	means line-up/members, not a team
+69048	写真	WRONG	means photograph, not illustrations generally
+69445	反っくり返る	WRONG	means bend backwards, not swagger
+35805	役立つ	WRONG	means be useful, not serve devotedly
+91991	体	ADD	
+10881	連鎖	ADD	
+59388	機関	ADD	
+82091	演技	ADD	
+84555	機関	ADD	
+95547	農業	WRONG	agriculture in general, not agribusiness enterprise
+75883	解説	ADD	
+54970	増やす	WRONG	transitive increase; synset is intransitive
+70779	集団	ADD	
+52790	喧騒	WRONG	means bustle/din, hyponym of noise
+95370	分類	ADD	
+36855	発見	WRONG	means discover, not witness
+22971	静けさ	ADD	
+94097	孤独	ADD	
+26185	組織	ADD	
+37957	聴衆	WRONG	physical audience, not public interested in a medium
+41757	コメディ	ADD	
+61147	一貫	MWE	only in 一貫性
+21513	芝生	WRONG	means lawn, not grass plant
+50613	襲撃	ADD	
+80379	狂気	ADD	
+51994	願望	ADD	
+44325	感性	WRONG	means sensibility, not conscious awareness
+12051	蹌踉めく	ADD	
+55679	変革	ADD	
+76154	邸宅	WRONG	means mansion, hyponym of house
+20849	放つ	WRONG	means emit generally; smell is 匂いを放つ
+14867	非難	ADD	
+67789	解釈	ADD	
+54833	結婚	POS	noun for adjective → 結婚した
+82129	悪ふざけ	WRONG	means prank, not cunning deceit
+65235	仮定	WRONG	means suppose/assume, not contend
+46078	散歩	ADD	
+73890	最高	ADD	
+13723	達成	ADD	
+38612	混乱	POS	intransitive noun for causative → 混乱させる
+18396	物憂げ	ADD	
+66221	最高	ADD	
+14601	全体	ADD	
+32661	遂げる	ADD	
+79877	見る	ADD	
+53909	位置付け	WRONG	means position conceptually, not physically put
+99991	契約	ADD	
+28415	熟知し	WRONG	conjugated fragment; 熟知する means know well

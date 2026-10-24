@@ -1,0 +1,151 @@
+id	word	verdict	reason
+34099	巨大な	WRONG	巨大 is huge, not bulky for its weight
+66053	逸らす	WRONG	逸らす is divert/avert, not obviate
+95695	意	WRONG	意 alone is mind/intent; volition is 意志
+58399	取り組む	ADD	
+86099	威力	WRONG	威力 is might/power, not authority
+70557	典型	POS	noun; → 典型的
+52487	掴む	ADD	
+20290	探し出す	WRONG	探し出す is search out/locate, not ascertain
+81255	輝く	ADD	
+20881	永遠	WRONG	永遠 lacks the tedious sense of this synset
+66621	トーン	ADD	
+83952	想像	POS	noun; → 想像上の
+84444	金持ち	POS	noun (rich person); → 金持ちの
+73551	一団	ADD	
+99827	無関心	WRONG	無関心 is apathy, not impartiality
+70753	活動	WRONG	活動 is activity, not deeds vs words
+11218	願う	WRONG	願う is wish/request, not have recourse to
+19971	負け	WRONG	負け is defeat, not money lost
+50651	集会	ADD	
+37952	統一	ADD	
+96782	反映	ADD	
+89130	指示	WRONG	指示 is instruct/direct
+20709	起こる	WRONG	起こる is happen, not result from
+49820	普及	ADD	
+74849	投票	ADD	
+52984	文化	WRONG	文化 is culture; civilization is 文明
+47082	如才ない	ADD	
+28732	現われる	ADD	
+38672	絶滅	WRONG	絶滅 is extinction/extermination; narrower
+56897	導く	WRONG	導く is guide/lead, not steer
+96148	覚える	ADD	
+52869	食らう	ADD	
+58024	道具	WRONG	道具 is tool, not instrument
+25385	反響	ADD	
+52263	嫌悪	ADD	
+67800	勤め	ADD	
+84615	いき渡る	WRONG	行き渡る is spread throughout
+87957	暴く	WRONG	暴く is expose/disclose
+46595	冷める	ADD	
+67408	アート	WRONG	アート is art generally, not artwork in print
+79495	結論	WRONG	結論 is conclusion of reasoning, not ending event
+49946	予測	WRONG	予測 is prediction, not prophecy
+70067	異議	ADD	
+51630	最高	ADD	
+38994	打つ	MWE	→ シュートを打つ
+62375	得る	ADD	
+77654	売り込む	WRONG	売り込む is promote/pitch
+42545	分離	WRONG	分離 is separation; isolation is 隔離
+21047	考察	ADD	
+57407	供与	ADD	
+57915	品物	WRONG	品物 is goods/articles, not personal belongings
+13161	とてつもない	ADD	
+57620	捕える	ADD	
+98736	立ち上る	WRONG	立ち上る is rise (smoke); not stand
+61853	楽しみ	ADD	
+86652	芝	ADD	
+60800	考える	WRONG	general 'think'; hypernym
+35553	応じる	WRONG	応じる is respond/comply, not assume debts
+83899	晒す	ADD	
+58266	制作	WRONG	制作 is creative production, not mass turn out
+61150	隠れる	WRONG	隠れる is hide, not lurk
+80852	カット	ADD	
+30288	治療	WRONG	治療 is treatment, not cure
+87482	掛かる	WRONG	掛かる is take/cost, not need
+83764	間がら	ADD	
+33237	課題	WRONG	課題 is task/issue, not subject matter
+33146	よく	ADD	
+21762	スポンジのように	POS	adverbial simile; → スポンジ状の
+69555	希望	WRONG	希望 is hope/wish, not need
+46890	自暴自棄	ADD	
+12913	優雅	ADD	
+38998	良質な	WRONG	良質 is high quality, not pleasing
+77586	問題	ADD	
+17566	推移	ADD	
+81323	閉まる	POS	verb; → 閉まった
+30799	基本	POS	noun; → 基本的
+84378	減らす	WRONG	減らす is reduce quantity, not mitigate
+48781	電力	WRONG	electric power; hyponym
+12928	確立	WRONG	確立 is establish firmly, not found
+95354	取り上げる	ADD	
+65410	核	POS	noun; → 核の
+86278	見失う	WRONG	見失う is lose sight of; narrower
+81672	素材	ADD	
+50039	突撃	ADD	
+81493	引く	ADD	
+21016	不法行為	ADD	
+53846	境遇	ADD	
+20704	最近	POS	noun; → 最近の
+45867	陰	ADD	
+23815	異なる	WRONG	異なる is different, not another
+51131	急き立てる	ADD	
+21101	破裂	POS	intransitive; → 破裂させる
+13402	冒頭	ADD	
+93116	果たす	ADD	
+95660	領土	ADD	
+28858	観察	ADD	
+22772	世界	ADD	
+95066	示す	WRONG	general 'show'; not medical indication
+65319	年長	WRONG	年長 is relatively older, not elderly
+42171	声	ADD	
+38894	洞察	ADD	
+74095	本日	WRONG	本日 is this day only, not present age
+78361	好み	ADD	
+54324	最も	WRONG	最も is 'most', not 'well'
+70171	捕る	WRONG	捕る is catch, not score
+61692	真相	WRONG	真相 is the truth of a matter
+55932	制御	ADD	
+54277	売店	ADD	
+53642	題材	ADD	
+98131	電灯	WRONG	電灯 is electric light; hyponym
+27919	憤懣	WRONG	憤懣 is indignation, not embarrassment
+74705	塩分	WRONG	塩分 is salt content
+73968	知覚	WRONG	知覚 is perception; sensation is 感覚
+80430	写実主義	ADD	
+19498	試みる	ADD	
+91023	区間	WRONG	区間 is section/interval
+16060	信条	ADD	
+63818	複雑	POS	形容動詞; noun → 複雑さ
+97390	回復	WRONG	回復 is recovery, not betterment
+55765	事件	WRONG	事件 is incident, not 'case' as circumstances
+10507	ビジョン	WRONG	ビジョン is vision/plan, not imagination
+59542	落ち込み	ADD	
+21698	発展	ADD	
+70903	先導	ADD	
+80954	裏手	ADD	
+93921	三振する	WRONG	三振する is batter striking out; → 三振を奪う
+13191	生涯	WRONG	生涯 is lifetime span
+78662	下がる	ADD	
+57454	治める	WRONG	治める is govern/rule
+11330	性	MWE	→ 性行為
+24408	薄れる	WRONG	薄れる is fade, not decrease in size
+65261	通り	ADD	
+65110	産む	ADD	
+29161	トップ	WRONG	トップ is first place, not the margin
+42207	最大	ADD	
+31266	ドレッシー	ADD	
+93254	年度	ADD	
+59220	蓄積	WRONG	蓄積 is accumulate
+99662	勇気	WRONG	勇気 is courage generally
+31974	表われる	WRONG	表れる is manifest (abstract), not come into view
+52058	想い	ADD	
+36786	現世	ADD	
+61029	代理者	WRONG	generic proxy, not sheriff's deputy
+65698	張り裂ける	ADD	
+79346	立証	WRONG	立証 is prove, stronger than indicate
+48276	壊滅	POS	intransitive; → 壊滅させる
+45918	塊	WRONG	塊 is lump, not cube
+17760	いい	ADD	
+71793	同僚	WRONG	同僚 is colleague
+50428	怒り	WRONG	怒り is anger generally; hypernym

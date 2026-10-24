@@ -1,0 +1,151 @@
+id	word	verdict	reason
+74948	働く	WRONG	働く is labour/be employed, not "work on" a task
+81034	方向	ADD	
+90107	通り道	ADD	
+88192	明瞭	ADD	
+17673	推し測る	ADD	
+66305	関連	POS	noun; → 関連のある
+74819	庭園	ADD	
+65142	ある	WRONG	copula-like rendering, not "remain"
+47281	長い	ADD	
+79043	あまた	POS	noun/adverb; → あまたの
+62241	巣穴	WRONG	burrow, a hyponym-ish distinct structure
+88359	制限	WRONG	restriction, not greatest possible degree
+50946	得る	WRONG	hypernym get; lacks special-effort sense
+57916	違う	POS	verb; → 違った
+79521	伴う	WRONG	accompany, not follow in time
+47453	苦情	ADD	
+73339	訴訟	ADD	
+95866	解説	WRONG	commentary/explanation, not develop a theory
+45357	判断	WRONG	general judgement, not reckon probable
+83484	有罪	POS	noun; → 有罪の
+47162	述べる	ADD	
+96978	岬	ADD	
+48802	志願	WRONG	volunteer in general; 入隊 is enlist
+13520	対照	ADD	
+11836	奴隷	ADD	
+42115	流行	ADD	
+86783	身体的障害のある	POS	adjectival phrase "disabled"; verb needed → 障害を負わせる
+15606	挙げる	ADD	
+92967	面影	WRONG	trace/vestige of a face, not memory
+30524	精神	ADD	
+63582	予算	ADD	
+99696	最も	WRONG	"most" intensifier, not "in the best way"
+61112	地位	ADD	
+16919	与える	WRONG	hypernym give, not assign
+51306	造り出す	ADD	
+62136	動機	WRONG	motive, separate synset from incentive
+16574	言い放つ	ADD	
+86250	指揮	ADD	
+51843	反対	POS	noun; → 反対の
+19634	固定	POS	noun; → 固定した
+39321	弾く	ADD	
+66297	観客	ADD	
+72601	荷物	ADD	
+42888	統制	WRONG	control/regulation, not dominance
+41943	実証主義	WRONG	positivism is not naturalism
+15955	監視	ADD	
+78597	現在	POS	noun; → 現在の
+22907	産業	POS	noun; → 産業の
+71387	獲得	WRONG	acquire, not receive a treatment
+28922	読み取る	ADD	
+42136	壊れた	ADD	
+89118	廃棄	ADD	
+25085	脅す	ADD	
+16605	市民	ADD	
+91821	歯	ADD	
+69728	抜け出る	WRONG	slip out physically, not escape consequences
+25461	良い	WRONG	good, not best
+36693	転換	WRONG	conversion generally; 方向転換 is the turn
+16823	等級	WRONG	grade/rank, not class/category
+56752	発達	ADD	
+79219	動揺	POS	intransitive; transitive → 動揺させる
+30280	遮断	ADD	
+26295	販路	WRONG	sales channel, not a store
+57618	出かける	ADD	
+68047	寺	WRONG	Buddhist temple, a hyponym
+28321	左	POS	noun; → 左の
+97541	判定	WRONG	decision/ruling generally, not court judgment
+64653	置く	MWE	part of 重点を置く
+69710	高速	ADD	
+88780	訪問	ADD	
+44357	自制	WRONG	self-restraint, not abstinence
+93832	地方	WRONG	region, not constituent state
+99391	是認	ADD	
+64988	いる	ADD	
+57712	持って走る	WRONG	free phrase "carry and run"
+79568	圧力	ADD	
+27953	現実主義	WRONG	pragmatic realism; philosophical is 実在論
+48027	わかる	ADD	
+26891	呪い	ADD	
+41249	口論	ADD	
+73059	左右する	ADD	
+24924	群衆	WRONG	crowd, hypernym of mob
+75922	認める	ADD	
+50449	役目	ADD	
+76499	重要性	ADD	
+91916	解釈	WRONG	interpretation, not explanation
+57078	変形	ADD	
+46012	いんちき	MWE	part of いんちき療法 (quackery)
+45587	良い	WRONG	positive good, not comparative/superlative adverb
+89928	遠くに	WRONG	spatial distance, not degree
+99789	謎	WRONG	mystery, not doubt
+84041	遠くに	WRONG	spatial, not further in degree
+87552	すり替える	WRONG	surreptitiously swap (transitive), not stand in
+34906	事件	WRONG	incident, hyponym of event
+92981	味わう	WRONG	taste/experience, not have for benefit
+46521	絞り取る	WRONG	squeeze out/extract, not crush
+41383	最初	POS	noun; → 最初の
+34879	少し	POS	adverb; → 少しの
+42631	氾濫	ADD	
+75817	有罪	ADD	
+95581	見識	WRONG	insight/discernment, not viewpoint
+35687	弾力性	ADD	
+99544	面積	WRONG	area measure, not land area
+15178	あまた	POS	noun/adverb; → あまたの
+92366	見なす	WRONG	deem/regard as, not suppose
+17967	構成	ADD	
+11242	部隊	WRONG	military unit, hyponym of group
+45512	示す	WRONG	show, not suggest/imply
+44015	帯びる	WRONG	take on a tinge, not convey
+65730	補完	WRONG	supplement, not complete
+13526	確信	ADD	
+91703	黒い	ADD	
+14986	上面	ADD	
+23430	ふらつく	ADD	
+39171	採る	ADD	
+80994	団体	WRONG	organisation, not any group
+46475	倫理	ADD	
+19501	帯	ADD	
+21330	列	ADD	
+98641	部隊	WRONG	military unit, hyponym
+31083	無視	WRONG	deliberately disregard, not fail to notice
+82171	興奮	ADD	
+40769	小飛球を打つ	ADD	
+92720	天空	ADD	
+58913	莫大な	WRONG	enormous, not intensifier very
+73440	隠れ家	ADD	
+72725	詰め込む	ADD	
+56412	好き	ADD	
+37608	軽減	ADD	
+54335	擁護	WRONG	advocacy/protection, not justification
+55049	男	WRONG	male man, not human species
+74802	理解	WRONG	understanding, not aesthetic discernment
+27480	応ずる	ADD	
+19744	物質	WRONG	substance/matter, not material
+25700	関心	WRONG	concern/interest of attention, not sake
+68629	運ぶ	WRONG	hypernym carry
+91753	報酬	ADD	
+37939	圧力	ADD	
+68240	過ち	WRONG	mistake, not failure event
+65621	冷静	ADD	
+43826	素早い	ADD	
+61134	殴る	ADD	
+29750	栄誉	ADD	
+58359	マスター	ADD	
+30115	見る	WRONG	look, not make certain
+95676	邪悪	ADD	
+88204	手渡す	WRONG	hand over, not leave temporarily
+52649	事件	ADD	
+48126	大学	WRONG	university, hyponym of school
+81907	老齢	POS	noun; → 老齢の

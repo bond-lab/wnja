@@ -1,0 +1,151 @@
+id	word	verdict	reason
+58434	幻影	WRONG	phantom/illusory image, not act of deluding
+64368	布告	WRONG	official proclamation; here part of 宣戦布告
+47448	電燈	ADD	
+58083	真	WRONG	means true/genuine, not pure
+97559	治療	POS	noun; → 治療的 / 治療の
+79990	一員	ADD	
+75322	滑走路	WRONG	runway, not airstrip without facilities
+41067	騒音	ADD	
+94705	おしゃべり	ADD	
+42676	発生	ADD	
+57477	一致	ADD	
+52596	近い	ADD	
+33302	中性	WRONG	chemically/grammatically neutral, not impartial
+77337	プログラム	ADD	
+18288	開発	ADD	
+19001	条件	ADD	
+23399	結合	ADD	
+50655	更に	ADD	
+24781	備える	WRONG	equip/prepare, not supply
+69189	留める	ADD	
+99031	引き上げ	WRONG	act of raising prices, not quantity added
+73006	放り出す	ADD	
+15291	メカニズム	WRONG	mechanism, not apparatus
+31308	マント	ADD	
+91471	有益	POS	形容動詞; noun → 有益性
+64094	残す	ADD	
+73172	洗練	ADD	
+17004	look up で、～の方に顔を上げる	WRONG	not a word; gloss of phrasal verb
+55172	傷口	WRONG	wound opening, not scar
+43278	目	ADD	
+62086	策略	ADD	
+76512	願う	ADD	
+61416	宣う	WRONG	archaic honorific 'say', not claim
+43153	群れ	ADD	
+93201	赤	POS	noun; → 赤い
+43006	信頼	POS	noun; → 信頼できる
+58197	悪	POS	noun 'evil'; → 悪い
+99501	一家	WRONG	household, not line of descent
+52842	make harder で「促す」	WRONG	not a word; gloss
+34062	楽屋	WRONG	dressing room, not wings/backstage
+53757	変える	WRONG	change, not diversify
+36849	装う	ADD	
+83889	授与	ADD	
+26956	集会	ADD	
+84379	持続	ADD	
+65128	基本	POS	noun; → 基本的 / 基本の
+94049	定める	WRONG	determine/stipulate, not put in place
+26458	自慢	WRONG	boast verbally, not display ostentatiously
+91656	気が付く	WRONG	notice, not observe carefully
+45250	渦巻く	ADD	
+31078	現代	ADD	
+26412	役者	WRONG	actor, narrower than performer
+36326	儀式	WRONG	ceremony, not social occasion
+59407	上	POS	noun; → 上の
+91420	意識	POS	noun; → 意識的
+97734	始める	WRONG	begin generally (hypernym)
+48267	メリット	ADD	
+40283	待ち受ける	ADD	
+95458	衝撃	WRONG	shock/impact, not instinctive urge
+34201	注目	ADD	
+11797	歩み	ADD	
+71844	見過す	WRONG	overlook, not permit
+86746	塊	WRONG	lump, not group
+27530	描写	WRONG	depict, not bring to mind
+45130	オリジナル	WRONG	original version; not firsthand information
+45534	集結	ADD	
+64958	放射	ADD	
+43027	銃撃	WRONG	shooting at target; synset is a gun going off
+92767	一息	WRONG	a breath/pause, not process of breathing
+97264	関連性	POS	noun; → 関連性のある / 関連した
+61998	輝度	ADD	
+60680	掴まえる	ADD	
+99037	頼る	WRONG	rely on, not be contingent on
+28187	喜び	ADD	
+16383	誘発	ADD	
+30618	不精者	WRONG	lazy person, not coarse obnoxious person
+25517	与える	ADD	
+15556	疑問	ADD	
+35401	合成	POS	noun; → 合成の
+47491	力	WRONG	power/strength, not holding office
+56722	見識	WRONG	discernment/insight, not opinion
+80578	見分ける	ADD	
+25747	浮かぶ	ADD	
+63028	中心	POS	noun; → 中心的
+53261	クラス	WRONG	class/lesson, not course of study
+13475	なくなる	ADD	
+81114	認知	ADD	
+73313	関連性	WRONG	relevance, not human relationship
+32443	打つ	ADD	
+58946	誓約	ADD	
+18831	カウンタ	WRONG	counter, not sideboard
+50527	許可	ADD	
+67512	願う	ADD	
+95143	根気	ADD	
+47189	勝ち得る	ADD	
+39317	因子	ADD	
+61338	煽り立てる	ADD	
+90971	頂上	ADD	
+63501	感想	ADD	
+28612	見る	ADD	
+85548	議論	WRONG	discuss, not quarrel
+61032	困惑	ADD	
+98468	同意	WRONG	consent, not statement of promises
+38389	能力	WRONG	ability, not controlling influence
+81558	素質	ADD	
+47052	強襲	ADD	
+29253	指名	WRONG	nomination of a person, not identifying something
+67966	明かす	ADD	
+32948	演奏	ADD	
+24040	話	ADD	
+82900	学問	WRONG	scholarship/discipline, not learning process
+42947	危険	ADD	
+73998	きつい	ADD	
+66704	知ってる	WRONG	colloquial contraction; not 'know how'
+25777	言い通す	ADD	
+29904	輝き	WRONG	shine/sparkle, not momentary flash
+52422	作戦	ADD	
+12522	輝かしい	WRONG	glorious, not light-emitting
+45414	類似	POS	noun; → 類似した
+84176	死	ADD	
+84558	在る	WRONG	copula rendering
+28826	教義	ADD	
+45884	士気	ADD	
+91958	類似	POS	noun; → 類似した / 類似の
+62448	雛型	ADD	
+45915	証明	WRONG	transitive prove, not turn out
+52223	水準	ADD	
+39827	戦闘	WRONG	combat/battle, not warfare
+20617	現れる	WRONG	appear; not hit a pop-fly
+73202	ある	ADD	
+36358	隊	WRONG	unit generally (hypernym), not company
+57951	多彩	WRONG	diverse/colourful, not respective
+82283	指名	ADD	
+83260	造り上げる	ADD	
+16714	附する	WRONG	attach/append, not put in place
+29872	努力	ADD	
+18438	変人	ADD	
+10934	おもしろい	WRONG	interesting/amusing, not odd
+50545	失望	ADD	
+97851	旗	WRONG	flag, not masthead
+20278	適応性	WRONG	adaptability, not conformity
+10526	書棚	WRONG	bookshelf, narrower than shelf
+33920	引用	ADD	
+54079	呟く	ADD	
+73365	金	POS	noun; → 金色の
+28315	最後	POS	noun; → 最後の
+36503	歪曲	ADD	
+63551	衰弱	ADD	
+73472	騒動	ADD	
+14209	探り出す	ADD	

@@ -1,0 +1,151 @@
+id	word	verdict	reason
+93186	絵	ADD	
+55022	命令	ADD	
+75901	無頓着	WRONG	means indifference/unconcern, not carefree cheer
+99873	料金	WRONG	means fee/charge, not total cost
+34773	始める	WRONG	transitive begin; synset is intransitive have a beginning
+19247	河岸	ADD	
+73186	危害	WRONG	means harm in general, not bodily injury
+23916	演習	ADD	
+13185	よく	POS	adverb for adjective → 良い
+14906	はぎ取る	ADD	
+82308	変革	WRONG	means reform/transformation, hyponym of change
+90394	見つける	WRONG	means find, not witness
+77479	美点	WRONG	means merit/virtue, not charm
+84546	疑問	ADD	
+73081	器具	ADD	
+29209	差し遣わす	ADD	
+34847	会う	WRONG	general meet; not specifically meet on arrival
+34187	泡	ADD	
+25066	調査する	WRONG	means investigate, not consider; phrase form
+36727	用具	WRONG	means tool/equipment, not skilled instrument
+32608	規律	WRONG	means discipline/rules of conduct, not principle
+30712	為し遂げる	ADD	
+47105	仮定	ADD	
+98203	ディスプレイ	ADD	
+22484	検査	ADD	
+85992	代替	POS	noun for adjective → 代替の
+18119	需要	WRONG	means economic demand, not a lack
+27622	終結	ADD	
+99255	不履行	WRONG	means non-performance of duty, not unexpected omission
+70564	戦地	WRONG	means war zone, not front line
+20171	言葉	ADD	
+22676	思い出す	WRONG	means recall oneself, not remind someone
+52837	成り立ち	WRONG	means origin/makeup, not spatial formation
+61233	立去る	ADD	
+71205	鋭敏	ADD	
+65894	見付ける	WRONG	means find/discover, not obtain through effort
+77539	職業	WRONG	means occupation, not the body of professionals
+56474	対抗	ADD	
+66371	悪	POS	noun for adjective → 悪い (already present)
+37536	部門	WRONG	means department/division, not field of study
+88765	提言	WRONG	means recommendation, not logical proposition
+58910	確認	WRONG	means confirm/verify, not name/identify
+11736	無思慮な	POS	na-adjective with な; dictionary form 無思慮
+93100	局面	ADD	
+15357	進む	ADD	
+36249	一覧	WRONG	means a list/glance over, not act of looking
+33759	為る	WRONG	archaic spelling of する; not causative get/have
+63471	振りかえる	ADD	
+69500	正規	POS	noun for adjective → 正規の
+57129	能力のある	WRONG	phrase, not a dictionary-form word
+58522	障害	ADD	
+63123	見込む	WRONG	means anticipate/estimate, not await
+35575	変化	WRONG	change in general, not displacement
+89281	考える	ADD	
+31636	フォーム	WRONG	means musical/athletic form, not perceptual structure
+22425	嘆願	WRONG	means entreaty to people, not prayer to a deity
+77182	流出	ADD	
+12020	成熟	POS	noun for adjective → 成熟した
+52427	抑制	ADD	
+21118	偽	POS	noun for adjective → 偽の
+92494	視界	WRONG	means field of vision, not viewpoint
+63019	購買	WRONG	means purchasing, hyponym of procurement
+84669	言い渡す	ADD	
+88591	取る	ADD	
+35027	細かい	WRONG	means fine/detailed, not infinitesimal
+76098	否定	WRONG	means negation/deny, not refusal to comply
+86626	斜面	ADD	
+54692	規約	ADD	
+43851	関心	WRONG	means one's interest felt, not interestingness
+46636	学生	WRONG	means student, not scholar
+25240	形	ADD	
+30976	負傷	ADD	
+63167	見せつける	ADD	
+27460	果す	ADD	
+53242	療治	ADD	
+80631	ピーク	ADD	
+58479	英知	ADD	
+66576	知覚	WRONG	means perceive, not undergo passively
+33796	膨れる	ADD	
+63181	購入	ADD	
+37109	甦る	POS	intransitive revive; causative needed → 甦らせる
+34224	通り過ぎる	ADD	
+54789	釣り合う	WRONG	means balance/be proportionate, not provide matching funds
+49543	思い	ADD	
+71451	家族	ADD	
+23220	光景	WRONG	means a sight/spectacle, not a depicted scene
+11388	活気	ADD	
+56614	限定	WRONG	means restrict/limit (act), not the greatest degree
+93717	考察	ADD	
+91791	虚弱	WRONG	means physical frailty, not a flaw
+16497	屋根	WRONG	means roof, not rooftop surface
+40422	全体	POS	noun for adjective → 全体の
+45779	縛られている	WRONG	conjugated phrase; dictionary form 縛られた
+97306	高まる	ADD	
+49173	暗示	WRONG	means hint/suggest, not logically imply
+54278	提出	ADD	
+38317	弊害	ADD	
+96476	社会	WRONG	means society, not perceived reality
+63232	培う	ADD	
+84655	待遇	WRONG	means treatment of people (pay/hospitality), not handling
+33850	人物	WRONG	means person/character, not body
+79871	感触	WRONG	noun meaning texture/touch, not feel a state
+20070	陰謀	ADD	
+61064	蜂蜜	POS	noun for adjective → 蜂蜜色の
+77462	念	WRONG	means thought/feeling; 入念 is a compound
+75220	除外	ADD	
+94182	いかさま	WRONG	means fraud generally, not quackery specifically
+37947	設置	WRONG	means install, hyponym of put
+25677	適用	WRONG	means apply (transitive), not be applicable
+61822	散歩	WRONG	means stroll, hyponym of walk
+85355	補佐	WRONG	means assistant/aide, not expert adviser
+12991	元凶	WRONG	means root cause of evil, not inspiration source
+25042	最低	POS	noun for adjective → 最低の
+90661	明らかにする	ADD	
+24163	群れ	ADD	
+41068	本当	POS	noun for adjective → 本当の
+43637	点検	ADD	
+68149	予測	WRONG	means prediction, not cost estimate
+62632	天辺	ADD	
+76160	初期	POS	noun for adjective → 初期の
+16613	警戒	WRONG	means be on guard, not warn others
+35617	洗う	WRONG	means wash, not remove feathers/pits
+94935	機会	ADD	
+59240	提言	ADD	
+11412	会員	WRONG	means a member, not membership
+22903	真理	ADD	
+43889	安定性	POS	noun 'stability' for adjective → 安定した
+42884	効果	ADD	
+46135	料金	WRONG	fee in general, hypernym of toll
+54675	寄越す	ADD	
+82097	役割	WRONG	means role, not duty/obligation
+80842	思う	WRONG	means think, not conceive
+76560	緊張	ADD	
+64484	合成	WRONG	means synthesize, not form the substance of
+78245	計画	ADD	
+84446	期待	ADD	
+23059	発表	ADD	
+93625	解説	ADD	
+68241	横木	WRONG	means crossbeam/rail, not timber beam generally
+94496	欲しがる	ADD	
+19987	融合	ADD	
+82013	チャレンジ	WRONG	means attempt/challenge bid, not demanding situation
+88320	捜す	WRONG	means look for, not obtain
+97612	原点	WRONG	means starting point/origin, not birthplace place
+15913	移行	WRONG	means transition, not displacement
+60649	乱雑	WRONG	means disorderliness, not confused multitude of things
+30962	知っている	ADD	
+60581	灰色	WRONG	colour name, not grey clothing
+71834	推測	WRONG	means guess/conjecture, not premise
+32167	昇級	WRONG	means rise in grade, intransitive; not promote someone

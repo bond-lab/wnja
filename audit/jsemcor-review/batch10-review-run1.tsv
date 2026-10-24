@@ -1,0 +1,151 @@
+id	word	verdict	reason
+28741	抑制	WRONG	抑制 is restraint/suppression
+79187	訴える	ADD	
+60643	景色	WRONG	景色 is scenery, not background
+25502	資本	WRONG	資本 is capital; funds is 資金
+84647	塊	ADD	
+63180	探求	ADD	
+32765	求める	ADD	
+54071	動揺	ADD	
+78127	終結	ADD	
+27232	要求	WRONG	要求 is demand/request, not make someone do
+44558	分担	WRONG	分担 is share of work/burden, not assets
+41998	盛り込む	ADD	
+84453	抱く	ADD	
+53528	思い	WRONG	思い is thought/feeling, not judgement
+17008	真実	ADD	
+94109	だらしない	ADD	
+14962	つり下げる	POS	transitive; → つり下がる
+97948	相手	ADD	
+28972	愚かさ	WRONG	愚かさ is the quality, not a stupid mistake
+62845	数多	ADD	
+75215	シフト	ADD	
+88655	鶏	WRONG	鶏 is chicken; hen is 雌鶏
+23437	規範	ADD	
+71592	振れる	ADD	
+55278	負担	WRONG	負担 is burden/bear cost
+91763	親しい	ADD	
+84026	移動	ADD	
+63341	さぐり当てる	ADD	
+46905	メリット	ADD	
+73673	奨励	WRONG	奨励 is promote an activity, not give courage
+70752	未来	POS	noun; → 未来の
+63611	合併	ADD	
+66879	考える	ADD	
+25383	財布	WRONG	財布 is wallet
+84182	修正	WRONG	修正 is amend/correct; narrower
+25024	方策	ADD	
+78939	遊ぶ	WRONG	遊ぶ is play generally
+53301	無線	ADD	
+78812	態度	WRONG	態度 is attitude/manner, not a pose
+78246	町	WRONG	町 is town
+66652	楽しみ	ADD	
+65096	家畜	WRONG	家畜 is livestock generally
+13173	納屋	ADD	
+52033	両立	POS	noun; → 両立できる
+17167	死	ADD	
+48803	叩く	ADD	
+90767	腰	WRONG	腰 is waist/lower back; pelvis is 骨盤
+66783	行く	WRONG	行く is go physically, not follow a procedure
+59346	話し合い	WRONG	話し合い is discussion, not audience
+88318	差し出す	ADD	
+52193	入口	WRONG	入口 is entrance, not gate
+49944	辞める	WRONG	辞める is resign/quit a post; → 止める
+87783	卓越	ADD	
+19148	行程	ADD	
+42026	報じる	ADD	
+26311	会う	ADD	
+68583	路線	WRONG	路線 is route, not carrier company
+41764	割り当てる	ADD	
+75881	討論	WRONG	討論 is debate, not quarrel
+61999	飲み干す	WRONG	飲み干す is drain a glass; hyponym
+16811	慣行	WRONG	慣行 is customary practice
+72352	適確	ADD	
+23811	掴む	ADD	
+78972	目録	WRONG	目録 is catalogue/list
+41345	強制	WRONG	強制 is compulsion
+81431	解答	WRONG	解答 is solution to a problem
+50147	友人	WRONG	友人 is friend; hypernym
+96093	情報	ADD	
+61842	博士	ADD	
+40916	緑	POS	noun; → 緑の / 緑色の
+18970	訛り	ADD	
+97255	模様	ADD	
+58335	広場	WRONG	広場 is public square
+81585	静けさ	ADD	
+65234	足	ADD	
+83919	威力	ADD	
+31512	具わる	ADD	
+39069	政治家	WRONG	政治家 is politician (noun)
+95132	仕事	ADD	
+65256	吊るす	POS	transitive; → 吊り下がる
+84292	止める	WRONG	止める is stop
+26079	リズム	ADD	
+19403	取り上げる	ADD	
+22918	更新	WRONG	更新 is renew/update
+78110	留めおく	WRONG	留め置く is detain
+27033	偏向	WRONG	偏向 is bias/deflection
+26226	支持	WRONG	支持 is endorse; financial support is 支援
+80462	見い出す	WRONG	見出す is discover
+85482	覚え	WRONG	覚え is memory/experience
+69399	侵す	ADD	
+10075	影像	WRONG	影像 is image/portrait, not model figure
+48811	歩む	WRONG	歩む is walk; hyponym
+41972	セット	ADD	
+49225	明り	POS	noun; → 明るい
+13135	青少年	WRONG	青少年 is adolescents/youth
+52567	邪悪	ADD	
+32546	公表	WRONG	公表 is announcement
+18209	上がる	ADD	
+67772	撤退	WRONG	撤退 is military withdrawal
+68987	組織	WRONG	組織 is tissue; system is 系
+79528	核	POS	noun; → 原子核の / 核の
+62068	凝らす	WRONG	凝らす is concentrate (transitive)
+28517	苦悩	ADD	
+56726	吊し上げる	WRONG	吊し上げる is denounce publicly
+86743	記者	ADD	
+40250	ひどい	ADD	
+16014	敬意	WRONG	敬意 is respect shown, not being esteemed
+50137	果たす	ADD	
+14080	与える	ADD	
+69621	閉まる	POS	verb; → 閉まった
+51128	非難	ADD	
+50350	平均	POS	noun; → 平均的な
+52513	捨去る	ADD	
+75328	度重なる	ADD	
+28773	仕事	WRONG	仕事 is work, not workplace
+71949	男性	WRONG	男性 is male person, not genus Homo
+37067	女性	WRONG	女性 is human woman; animals → 雌の
+36567	情熱	WRONG	情熱 is the feeling, not its object
+48711	前兆	WRONG	前兆 is an omen sign, not a feeling
+17728	要領	ADD	
+35625	つまらない	ADD	
+56419	画題	WRONG	画題 is subject of a painting; hyponym
+71930	目覚ましい	ADD	
+12101	発想	WRONG	発想 is conception/way of thinking
+32529	導く	WRONG	導く is lead/guide
+93280	灰色	POS	noun; → 灰色の
+83378	自負心	ADD	
+36477	小枝	ADD	
+79874	実験	POS	noun; → 実験的な
+92889	勤め	WRONG	勤め is employment/duty, not a craft
+40961	セット	WRONG	セット(する) is set up a device
+35101	転じる	ADD	
+16553	終了	ADD	
+95211	追放	ADD	
+23906	与える	WRONG	与える is give, not offer
+50118	格付け	ADD	
+51023	キャラクター	ADD	
+45899	市民	WRONG	市民 is citizens of a city
+65097	抵抗	WRONG	抵抗 is resist, not elude
+27678	疑問	MWE	→ 疑問文
+53900	軽視	WRONG	軽視 is make light of
+68347	感謝	POS	noun; → 感謝している
+64417	去る	MWE	→ この世を去る
+20353	馬鹿者	POS	noun (fool); → 馬鹿な
+32202	行動	WRONG	行動 is act/behave
+39260	する	ADD	
+50260	取り上げる	ADD	
+25814	感覚	POS	noun; → 感覚の
+35751	恥辱	ADD	
+45251	報いる	ADD	

@@ -1,0 +1,151 @@
+id	word	verdict	reason
+55214	いる	WRONG	copula rendering
+90125	最近	POS	noun; → 最近の
+38279	判決	WRONG	judgment generally (hypernym); conviction is 有罪判決
+28389	誤解	ADD	
+15333	主	ADD	
+13214	立腹	ADD	
+73284	探り当てる	ADD	
+84178	文明	ADD	
+11489	示唆	ADD	
+49071	信念	WRONG	conviction/belief generally, not religious faith
+96562	親戚	WRONG	relatives, not line of descent
+97882	手法	WRONG	technique/method, not formula
+18769	仲間	WRONG	companions (people), not companionship
+38338	列	ADD	
+83153	悪	WRONG	evil, not moral frailty
+56317	指名	ADD	
+97371	強調	ADD	
+26004	安楽	WRONG	ease/comfort state, not consoling act
+59045	開設	ADD	
+40749	聞く	ADD	
+92905	輝かしい	WRONG	glorious, not of vivid colour
+44024	計画	ADD	
+21782	探究	ADD	
+66060	援護	ADD	
+25703	出荷	WRONG	dispatch of goods, not shipping enterprise
+61437	与える	ADD	
+74607	サービス	ADD	
+17878	知ったかぶり	ADD	
+74213	労働	WRONG	labour, narrower than work
+60247	短縮	ADD	
+53015	雰囲気	WRONG	mood/ambience, not weather
+47298	造り出す	ADD	
+75157	引き出す	ADD	
+46675	調査	ADD	
+39049	落ち合う	WRONG	people meeting up, not converging
+30787	授業	WRONG	class/lesson, not course of study
+62749	修道院	WRONG	monastery generally (hypernym)
+36465	潮流	ADD	
+72288	整合	WRONG	consistency, not providing matching funds
+31852	補完	ADD	
+55969	草原	WRONG	grassland, not level plain
+97189	信じる	ADD	
+41432	与える	ADD	
+78215	解きあかす	ADD	
+22195	衣服	WRONG	clothing generally (hypernym)
+54804	責務	ADD	
+65352	通り過ぎる	WRONG	pass by, opposite of drop in
+29764	帯びる	WRONG	be tinged with/carry, not wear clothes
+72692	走る	WRONG	intransitive run; here 目を走らせる
+86367	生れる	ADD	
+43686	側面	ADD	
+82507	受け取る	ADD	
+50438	観察	WRONG	observation, not detection
+13020	空想	ADD	
+61297	機関	ADD	
+25773	平穏	WRONG	calm/tranquillity, not appeasement
+57748	聴き入れる	WRONG	heed/comply, not understand
+18249	報告	WRONG	report information, not announce presence
+63000	見つける	ADD	
+45651	溢れ出る	WRONG	intransitive overflow; synset transitive
+17159	引き上げる	ADD	
+59437	入れる	ADD	
+74953	知っている	ADD	
+86792	安泰	ADD	
+49320	切迫	ADD	
+71464	仮小屋	ADD	
+52668	類似	POS	noun; → 類似した / 類似の
+43210	声	WRONG	voice, not metonymic singer
+19472	まで	WRONG	particle 'until', not upward
+13083	生みだす	WRONG	produce (transitive), not turn out
+14633	概念	WRONG	concept, not content of thought
+55493	更に	POS	adverb; → 更なる
+52407	発達	ADD	
+58925	すきま	ADD	
+84149	枠組み	WRONG	framework, not eyeglass frame
+48969	群れ	WRONG	herd/flock, narrower than group
+44327	水平	ADD	
+97563	闇	WRONG	darkness, not night-time
+34379	有す	ADD	
+94190	認可	WRONG	approval/licence, not power to command
+71505	持っている	ADD	
+90643	枝	WRONG	branch generally (hypernym)
+54753	からかう	WRONG	make fun of, not pester
+57530	排除	ADD	
+14066	与える	ADD	
+85519	試験	ADD	
+38383	改革	WRONG	reform, not invention
+19900	考慮	WRONG	take into account, not look at attentively
+92226	必要	ADD	
+16249	救う	WRONG	save/rescue, not help improve
+91371	協会	ADD	
+81153	活動	WRONG	be active, not perform an action
+63864	問題	ADD	
+90322	理解	ADD	
+64469	人殺し	ADD	
+18339	死ぬ	ADD	
+46198	逃げ出す	WRONG	run away/flee, not escape consequences
+18957	延長	ADD	
+70812	表明	WRONG	declaration/expression, not clear appearance
+68925	up to で、まで	WRONG	not a word; particle gloss
+60053	揺り動かす	WRONG	shake physically, not shock morally
+14998	催す	WRONG	hold an event/feel urge, not give
+27806	伝達	ADD	
+99577	興	WRONG	amusement, bound morpheme; not concern
+76463	場所	ADD	
+45764	反対	ADD	
+74885	否決	WRONG	voting down, not adverb 'no'
+57238	トピック	ADD	
+72002	親しい	ADD	
+12765	統合	ADD	
+29641	引き込む	ADD	
+89352	原子力	POS	noun; → 原子力の / 核
+35225	企業	ADD	
+45361	確保	ADD	
+39949	休会	ADD	
+43836	増す	ADD	
+99151	良い	WRONG	positive 'good', not comparative
+38843	付ける	ADD	
+40743	細かい	ADD	
+78235	舞う	ADD	
+10121	気づく	ADD	
+81278	切り離す	ADD	
+61629	教理	ADD	
+10458	セメント	ADD	
+41370	禁じる	WRONG	prohibit, not restrict
+81698	事例	WRONG	case/instance, not model
+74698	指揮	ADD	
+95218	受容	ADD	
+81844	規範	ADD	
+20360	祖国	ADD	
+91839	切る	WRONG	cut, not tear or snap
+83500	褒賞	ADD	
+53715	促進	ADD	
+44611	服装	WRONG	attire/manner of dress, not article of clothing
+55438	実際	POS	noun; → 実際の
+23617	共同体	ADD	
+12538	援護	ADD	
+51072	考える	ADD	
+37258	邪悪	WRONG	wickedness, not harm/misfortune
+61934	賛成	ADD	
+99987	主張	WRONG	claim/assertion, not way of regarding
+30501	鼓吹	WRONG	inspire/advocate, not stimulate physiologically
+35191	マーク	WRONG	mark/watch closely, not perceive
+31106	懲戒	WRONG	disciplinary punishment, not verbal
+30901	填める	WRONG	fit physically into, not suit
+53655	見抜く	WRONG	see through, not catch sight of
+91476	茫然自失	WRONG	stupefaction, not semi-trance
+74311	受け取る	ADD	
+83900	端	ADD	
+48492	農民	ADD	

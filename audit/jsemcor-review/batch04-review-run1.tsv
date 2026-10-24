@@ -1,0 +1,151 @@
+id	word	verdict	reason
+71677	聴く	WRONG	聴く means listen, not judicial hearing
+29487	オーバー	ADD	
+77701	置きかえる	POS	transitive; synset intransitive → 置き換わる
+77923	受賞する	WRONG	受賞する means win an award; subject is recipient
+98851	メス	POS	→ メスの / 雌の
+67693	動作	WRONG	動作 means movement, not communicative gesture
+74563	療治	ADD	
+85884	bat for 代打に立つ	WRONG	English phrase, not a Japanese lemma
+21275	行事	WRONG	hyponym: scheduled function
+39021	拾う	ADD	
+67595	見つけ出す	WRONG	見つけ出す means discover, not procure
+79030	見世物	WRONG	見世物 means show/spectacle, not pageant
+83239	気晴らし	ADD	
+48033	指定	WRONG	指定 means designate, not name
+83601	優れた	WRONG	優れた means excellent, not full amount
+93738	支持	WRONG	支持 means support, not assent
+31541	修練	WRONG	修練 means self-discipline, not train others
+78522	回想	WRONG	回想 means reminiscence, not ability to recall
+77399	早く	ADD	
+83396	パーティー	ADD	
+43621	疲労	ADD	
+50854	風	ADD	
+97988	体制	ADD	
+59966	刺激	ADD	
+89879	場面	ADD	
+37294	著わす	WRONG	著す means author a book, not formulate
+49905	救済	ADD	
+28500	活動	ADD	
+81396	予測	WRONG	予測 means predict, not forestall
+78711	予測	ADD	
+45777	認識	WRONG	認識 means recognition/cognition, not percept
+85102	円形	POS	→ 円形の
+75227	度合い	WRONG	度合い means degree, not pace
+36341	不充分	WRONG	不充分 means insufficient (adjectival), not lack
+63881	酒	WRONG	酒 means alcohol/sake, hypernym
+80241	素振り	WRONG	素振り means demeanour, not gesture
+24978	リスクを伴う	WRONG	compositional phrase
+75952	誉め上げる	ADD	
+10646	申し出る	WRONG	申し出る means volunteer/propose, not furnish
+89328	記憶	ADD	
+59418	ガーデン	WRONG	ガーデン is the place, only in compounds
+13637	実際	POS	→ 実際の
+80558	効能	WRONG	効能 means efficacy, not virtue
+15760	十分に	WRONG	十分に means sufficiently, not probably
+77635	辿る	ADD	
+62505	オファー	ADD	
+81302	大学	ADD	
+83776	減る	ADD	
+25981	責任	WRONG	duty sense, not trait of responsibleness
+74361	創作	WRONG	創作 means create artwork, not exert oneself
+22218	流動	ADD	
+31859	子供	WRONG	hypernym: child
+18637	取る	WRONG	食事を取る means eat, not receive
+80610	分離	ADD	
+70153	意味	ADD	
+64234	文句	WRONG	文句 means phrase/complaint, not word
+62973	決め直す	WRONG	決め直す means decide again, not reset
+45286	良い	WRONG	part of ～方が良い, not better in health
+42280	旨趣	WRONG	旨趣 means purport/gist, not thought
+72018	責任	ADD	
+74623	手がける	ADD	
+26641	越える	ADD	
+54522	いい	MWE	～ほうがいい
+66842	悩ます	WRONG	悩ます means annoy/trouble, not move deeply
+72460	食い留める	ADD	
+78810	苦悩	WRONG	苦悩 means anguish, not distressing event
+51577	呼吸	WRONG	呼吸 means breathing, not the air breathed
+24236	自負	ADD	
+35093	特質	ADD	
+64989	ブロック	WRONG	ブロック means city block, not housing unit
+90988	ルーツ	WRONG	ルーツ means roots/origin, not inspiration
+13855	宅	ADD	
+44107	死体	WRONG	hypernym: corpse, not dressed carcass
+26968	付け根	WRONG	付け根 means base/root, not stump
+12986	自尊心	WRONG	自尊心 means self-esteem, not self-assurance
+14669	曝け出す	ADD	
+35441	決断	WRONG	決断 means decision, not judgment process
+30385	発行	WRONG	発行 means issue a document, not supply
+39787	剛毛	ADD	
+11550	異常振動	WRONG	noun 'abnormal vibration', not wobble verb
+47235	待つ	ADD	
+52215	形状	ADD	
+56576	乱流	POS	noun turbulence; → 渦巻く
+42042	からかい	ADD	
+91234	陳述	ADD	
+75381	開く	POS	→ 開いた
+23747	一致	ADD	
+75493	期待	ADD	
+86314	珍しい	ADD	
+26093	慣例	WRONG	慣例 means custom, not precedent
+76908	取り計らう	WRONG	取り計らう means arrange, not pull off
+91726	発作	ADD	
+42840	既知	WRONG	既知 means known (noun), not know how
+35916	取り掛かる	ADD	
+79514	必要	ADD	
+67249	敬意	WRONG	敬意 means respect, not tribute
+13047	ピーク	ADD	
+59248	人	ADD	
+92969	探索	ADD	
+64185	上手	POS	→ 上手に
+79382	通報	WRONG	通報 means report to authorities, not bulletin
+90713	大人	WRONG	大人 means adult person, not adulthood
+30935	声	WRONG	inner voice (conscience), not articulation
+80540	さぐり当てる	ADD	
+36773	耐える	ADD	
+92747	顔	ADD	
+79993	働きかける	WRONG	働きかける means lobby/approach, not work on
+93685	街	ADD	
+38618	生じる	ADD	
+79418	不明瞭	WRONG	不明瞭 means unclear, not uncertainty
+38334	なくなる	WRONG	なくなる means disappear, not destroyed
+81164	含める	ADD	
+90178	発信	WRONG	発信 means transmit/send, not post
+86892	成長	ADD	
+27886	振る	ADD	
+40495	提議	ADD	
+92298	罪	ADD	
+55560	焚きつける	ADD	
+33741	務め	WRONG	務め means duty, not career
+51402	一群	ADD	
+89053	プライド	ADD	
+51286	国民	WRONG	国民 means citizens of a nation, not populace
+35517	触れる	WRONG	hypernym: touch
+38592	務め	WRONG	務め means duty/function, not employment
+35499	旅行	ADD	
+22695	もっと	WRONG	もっと means more, not far
+27554	料理	ADD	
+41371	統一	ADD	
+27372	連邦	POS	→ 連邦の / 北軍の
+21553	初めの頃	WRONG	phrase 'early on', not before
+44012	合図	ADD	
+60842	頼り	ADD	
+22716	風の強い	ADD	
+66989	教訓	WRONG	教訓 means lesson learned, not deterrent punishment
+65263	研究	ADD	
+81208	心配り	WRONG	心配り means thoughtfulness, not consideration fact
+26515	焦点	ADD	
+36299	商品	ADD	
+62793	つける	MWE	身につける
+92312	有する	ADD	
+99812	止まる	POS	intransitive; synset transitive → 止める
+12327	表皮	ADD	
+22590	裁判官	WRONG	hypernym: judge
+36336	ある	ADD	
+84697	会話	ADD	
+99441	統制	ADD	
+56869	現代	POS	→ 現代の
+57359	目新しい	WRONG	目新しい means novel, not first-made
+25127	ひどい	WRONG	ひどい means terrible, not comparative worse
+76280	動く	WRONG	intransitive move/run, not execute

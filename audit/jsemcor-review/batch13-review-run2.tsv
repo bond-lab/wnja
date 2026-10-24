@@ -1,0 +1,151 @@
+id	word	verdict	reason
+55214	いる	WRONG	existential いる is not copular identity
+90125	最近	ADD	
+38279	判決	WRONG	判決 is any court judgment, hypernym of conviction
+28389	誤解	ADD	
+15333	主	ADD	
+13214	立腹	ADD	
+73284	探り当てる	ADD	
+84178	文明	ADD	
+11489	示唆	ADD	
+49071	信念	WRONG	信念 is conviction/belief generally, not religious faith
+96562	親戚	WRONG	親戚 is relatives, not lineage from common ancestor
+97882	手法	WRONG	手法 is technique/method, not a set formula
+18769	仲間	WRONG	仲間 is companions (people), not companionship state
+38338	列	ADD	
+83153	悪	ADD	
+56317	指名	ADD	
+97371	強調	WRONG	強調 is emphasize, not set off by contrast
+26004	安楽	WRONG	安楽 is ease/comfort state, not act of consoling
+59045	開設	ADD	
+40749	聞く	ADD	
+92905	輝かしい	WRONG	輝かしい is brilliant/glorious, not vivid colour
+44024	計画	WRONG	計画 is plan, not undertaking
+21782	探究	ADD	
+66060	援護	ADD	
+25703	出荷	WRONG	出荷 is shipment (dispatch), not transport industry
+61437	与える	ADD	
+74607	サービス	ADD	
+17878	知ったかぶり	ADD	
+74213	労働	ADD	
+60247	短縮	ADD	
+53015	雰囲気	WRONG	雰囲気 is ambience, not weather/climate
+47298	造り出す	ADD	
+75157	引き出す	ADD	
+46675	調査	ADD	
+39049	落ち合う	ADD	
+30787	授業	ADD	
+62749	修道院	ADD	
+36465	潮流	ADD	
+72288	整合	WRONG	整合 is consistency/alignment, not matching funds
+31852	補完	ADD	
+55969	草原	ADD	
+97189	信じる	ADD	
+41432	与える	ADD	
+78215	解きあかす	ADD	
+22195	衣服	WRONG	衣服 is clothing in general, not distinctive attire
+54804	責務	ADD	
+65352	通り過ぎる	WRONG	通り過ぎる is pass by, not drop in
+29764	帯びる	WRONG	帯びる here is figurative 'be tinged with', not wear clothes
+72692	走る	ADD	
+86367	生れる	ADD	
+43686	側面	ADD	
+82507	受け取る	ADD	
+50438	観察	WRONG	観察 is observation, not detection
+13020	空想	WRONG	空想 is fantasy/imagination, not vain hope
+61297	機関	ADD	
+25773	平穏	WRONG	平穏 is calm/tranquillity, not act of appeasing
+57748	聴き入れる	WRONG	聴き入れる is heed/comply with, not understand
+18249	報告	WRONG	報告 is report information, not announce one's presence
+63000	見つける	ADD	
+45651	溢れ出る	WRONG	溢れ出る is overflow (intransitive), not inundate
+17159	引き上げる	ADD	
+59437	入れる	ADD	
+74953	知っている	ADD	
+86792	安泰	ADD	
+49320	切迫	ADD	
+71464	仮小屋	ADD	
+52668	類似	ADD	
+43210	声	ADD	
+19472	まで	WRONG	まで means until/up to, not upward
+13083	生みだす	WRONG	生みだす is produce/create, not turn out
+14633	概念	WRONG	概念 is concept, not content of thought
+55493	更に	POS	adverb for adjective synset → 更なる
+52407	発達	ADD	
+58925	すきま	ADD	
+84149	枠組み	WRONG	枠組み is framework generally, not spectacle frame
+48969	群れ	ADD	
+44327	水平	ADD	
+97563	闇	WRONG	闇 is darkness, not night-time
+34379	有す	ADD	
+94190	認可	WRONG	認可 is approval/licence, not authority
+71505	持っている	ADD	
+90643	枝	ADD	
+54753	からかう	ADD	
+57530	排除	ADD	
+14066	与える	ADD	
+85519	試験	ADD	
+38383	改革	WRONG	改革 is reform, not invention
+19900	考慮	WRONG	考慮 is take into account, not look at attentively
+92226	必要	ADD	
+16249	救う	ADD	
+91371	協会	ADD	
+81153	活動	ADD	
+63864	問題	ADD	
+90322	理解	ADD	
+64469	人殺し	ADD	
+18339	死ぬ	ADD	
+46198	逃げ出す	WRONG	逃げ出す is run away, not escape consequences
+18957	延長	ADD	
+70812	表明	WRONG	表明 is expression/declaration, not clear appearance
+68925	up to で、まで	WRONG	not a word; until/up to, not upward
+60053	揺り動かす	WRONG	揺り動かす is shake/stir up, not scandalize
+14998	催す	WRONG	催す is hold an event/feel urge, not cause to have
+27806	伝達	ADD	
+99577	興	ADD	
+76463	場所	ADD	
+45764	反対	ADD	
+74885	否決	WRONG	否決 is voting down, not degree adverb no
+57238	トピック	ADD	
+72002	親しい	ADD	
+12765	統合	ADD	
+29641	引き込む	ADD	
+89352	原子力	POS	noun for adjective synset → 原子力の
+35225	企業	ADD	
+45361	確保	ADD	
+39949	休会	WRONG	休会 is recess, not termination of meeting
+43836	増す	ADD	
+99151	良い	WRONG	良い is good; comparative is より良い
+38843	付ける	WRONG	付ける is attach; wear is 身に付ける
+40743	細かい	WRONG	細かい is fine/detailed, not small quantity
+78235	舞う	ADD	
+10121	気づく	ADD	
+81278	切り離す	ADD	
+61629	教理	ADD	
+10458	セメント	ADD	
+41370	禁じる	WRONG	禁じる is forbid, not restrict
+81698	事例	WRONG	事例 is an instance/case, not a model pattern
+74698	指揮	ADD	
+95218	受容	ADD	
+81844	規範	ADD	
+20360	祖国	ADD	
+91839	切る	WRONG	切る is cut, not tear
+83500	褒賞	ADD	
+53715	促進	ADD	
+44611	服装	ADD	
+55438	実際	ADD	
+23617	共同体	ADD	
+12538	援護	ADD	
+51072	考える	ADD	
+37258	邪悪	ADD	
+61934	賛成	ADD	
+99987	主張	ADD	
+30501	鼓吹	ADD	
+35191	マーク	WRONG	マーク is mark/label or guard, not notice
+31106	懲戒	WRONG	懲戒 is disciplinary action, not verbal punishment
+30901	填める	WRONG	填める is fit into, not suit/be agreeable
+53655	見抜く	WRONG	見抜く is see through, not catch sight of
+91476	茫然自失	WRONG	茫然自失 is stupefaction, not semitrance
+74311	受け取る	ADD	
+83900	端	ADD	
+48492	農民	ADD	

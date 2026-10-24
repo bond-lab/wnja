@@ -1,0 +1,151 @@
+id	word	verdict	reason
+93186	絵	ADD	
+55022	命令	ADD	
+75901	無頓着	WRONG	無頓着 means indifference, not cheerful insouciance
+99873	料金	WRONG	料金 means fee/charge, not total cost
+34773	始める	POS	transitive; synset intransitive → 始まる
+19247	河岸	ADD	
+73186	危害	ADD	
+23916	演習	ADD	
+13185	よく	POS	adverb; → よい
+14906	はぎ取る	ADD	
+82308	変革	WRONG	hyponym: reform
+90394	見つける	WRONG	見つける means discover, not witness
+77479	美点	WRONG	美点 means merit, not charm
+84546	疑問	WRONG	疑問 means doubt, not act of questioning
+73081	器具	ADD	
+29209	差し遣わす	ADD	
+34847	会う	ADD	
+34187	泡	ADD	
+25066	調査する	WRONG	調査する means investigate, not consider
+36727	用具	ADD	
+32608	規律	WRONG	規律 means discipline, not principle
+30712	為し遂げる	ADD	
+47105	仮定	ADD	
+98203	ディスプレイ	ADD	
+22484	検査	ADD	
+85992	代替	POS	→ 代替の
+18119	需要	WRONG	需要 means demand (economic), not need
+27622	終結	POS	intransitive; → 終結させる
+99255	不履行	ADD	
+70564	戦地	WRONG	戦地 means battlefield/war zone, not front line
+20171	言葉	ADD	
+22676	思い出す	POS	recall; synset causative → 思い出させる
+52837	成り立ち	WRONG	成り立ち means origin/composition, not spatial arrangement
+61233	立去る	ADD	
+71205	鋭敏	ADD	
+65894	見付ける	ADD	
+77539	職業	WRONG	職業 means occupation, not body of professionals
+56474	対抗	WRONG	対抗 means rival/counter, not express opposition
+66371	悪	POS	→ 悪の / 悪い
+37536	部門	WRONG	部門 means division/category, not field of study
+88765	提言	WRONG	提言 means recommendation, not logical proposition
+58910	確認	WRONG	確認 means confirm, not name
+11736	無思慮な	ADD	
+93100	局面	ADD	
+15357	進む	ADD	
+36249	一覧	WRONG	一覧 means list/glance, not act of seeing
+33759	為る	WRONG	light verb rendering, not causative get
+63471	振りかえる	ADD	
+69500	正規	POS	→ 正規の
+57129	能力のある	WRONG	compositional phrase 'capable'
+58522	障害	ADD	
+63123	見込む	ADD	
+35575	変化	WRONG	hypernym: change, not displacement
+89281	考える	ADD	
+31636	フォーム	WRONG	フォーム means athletic form/web form, not perceptual structure
+22425	嘆願	WRONG	嘆願 means petition to authority, not prayer
+77182	流出	ADD	
+12020	成熟	POS	→ 成熟した
+52427	抑制	ADD	
+21118	偽	POS	→ 偽の
+92494	視界	WRONG	視界 means field of vision, not perspective
+63019	購買	WRONG	hyponym: purchasing
+84669	言い渡す	ADD	
+88591	取る	MWE	例に取る
+35027	細かい	ADD	
+76098	否定	WRONG	否定 means negation, not refusal to comply
+86626	斜面	ADD	
+54692	規約	ADD	
+43851	関心	WRONG	関心 is the feeling of interest, not interestingness
+46636	学生	WRONG	学生 means student, not scholar
+25240	形	ADD	
+30976	負傷	ADD	
+63167	見せつける	ADD	
+27460	果す	ADD	
+53242	療治	ADD	
+80631	ピーク	ADD	
+58479	英知	ADD	
+66576	知覚	WRONG	知覚 means perceive by senses, not undergo experience
+33796	膨れる	ADD	
+63181	購入	ADD	
+37109	甦る	POS	intransitive; → 甦らせる
+34224	通り過ぎる	ADD	
+54789	釣り合う	WRONG	釣り合う means balance, not provide matching funds
+49543	思い	WRONG	思い means thought/feeling, not hope
+71451	家族	WRONG	家族 means household family, not lineage
+23220	光景	WRONG	光景 means sight/spectacle, not graphic art
+11388	活気	ADD	
+56614	限定	WRONG	限定 means limitation (act), not limit
+93717	考察	ADD	
+91791	虚弱	WRONG	虚弱 means frailty, not a flaw
+16497	屋根	WRONG	hypernym: roof, not rooftop
+40422	全体	POS	→ 全体の
+45779	縛られている	WRONG	inflected phrase; 縛られた already present
+97306	高まる	ADD	
+49173	暗示	WRONG	暗示 means hint/suggest, not logical implication
+54278	提出	WRONG	提出 is the act of submitting, not the thing
+38317	弊害	ADD	
+96476	社会	WRONG	社会 means society, not experienced reality
+63232	培う	ADD	
+84655	待遇	ADD	
+33850	人物	WRONG	人物 means person/character, not body
+79871	感触	WRONG	感触 is a noun 'texture/feel', not feel a state
+20070	陰謀	ADD	
+61064	蜂蜜	POS	→ 蜂蜜色の
+77462	念	MWE	入念 (tokeniser split of 入念な)
+75220	除外	ADD	
+94182	いかさま	WRONG	いかさま means fraud/cheating generally
+37947	設置	WRONG	hyponym: install
+25677	適用	POS	transitive; → 適用される / 当てはまる
+61822	散歩	WRONG	散歩 means stroll, hyponym of walk
+85355	補佐	WRONG	補佐 means assistant, not consultant
+12991	元凶	WRONG	元凶 means culprit/root of evil
+25042	最低	POS	→ 最低限の / 最低の
+90661	明らかにする	ADD	
+24163	群れ	ADD	
+41068	本当	ADD	
+43637	点検	ADD	
+68149	予測	WRONG	予測 means forecast, not cost estimate
+62632	天辺	ADD	
+76160	初期	POS	→ 初期の
+16613	警戒	WRONG	警戒 means be on guard, not alert others
+35617	洗う	WRONG	洗う means wash, not remove feathers/pits
+94935	機会	ADD	
+59240	提言	ADD	
+11412	会員	WRONG	会員 means member, not membership
+22903	真理	ADD	
+43889	安定性	POS	→ 安定した
+42884	効果	ADD	
+46135	料金	WRONG	hypernym: fee
+54675	寄越す	ADD	
+82097	役割	WRONG	役割 means role, not obligation
+80842	思う	WRONG	思う means think, not conceive an idea
+76560	緊張	ADD	
+64484	合成	WRONG	合成 means synthesize, not form the substance of
+78245	計画	WRONG	計画 means plan, not schedule
+84446	期待	ADD	
+23059	発表	ADD	
+93625	解説	WRONG	解説 means explanatory commentary, not opinion remark
+68241	横木	ADD	
+94496	欲しがる	WRONG	欲しがる means desire, not need
+19987	融合	ADD	
+82013	チャレンジ	ADD	
+88320	捜す	WRONG	捜す means search, not obtain
+97612	原点	WRONG	原点 means origin point, not birthplace
+15913	移行	WRONG	移行 means transition, not displacement
+60649	乱雑	ADD	
+30962	知っている	ADD	
+60581	灰色	WRONG	colour, not grey clothing
+71834	推測	WRONG	推測 means guess, not premise
+32167	昇級	POS	intransitive; → 昇級させる

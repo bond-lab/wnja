@@ -1,0 +1,151 @@
+id	word	verdict	reason
+36551	運営	WRONG	運営 means management, not being in operation
+77947	技	ADD	
+32230	事柄	ADD	
+54895	未来	POS	→ 未来の / 将来の
+96506	周囲	POS	→ 周囲の
+67924	推定	ADD	
+75314	封鎖	ADD	
+41651	欲求	WRONG	欲求 means desire, not a lacking necessity
+52855	畑	ADD	
+63052	眺める	ADD	
+97280	違う	POS	verb; → 違った
+42846	逆らう	WRONG	逆らう means oppose, not elude
+36018	死ぬ	POS	→ 死にかけた / 瀕死の
+93122	通気性のいい	WRONG	phrase 'breathable', not a lemma
+66478	協会	ADD	
+36252	団体	WRONG	団体 means organization, not a society
+38074	進展	ADD	
+60386	呼び物	WRONG	呼び物 means main attraction, not feature film
+38780	強い	WRONG	hypernym strong; example is a strong word
+86429	昇任	POS	intransitive; → 昇任させる
+51482	ややこしい	ADD	
+37511	傾倒	ADD	
+27848	介入	ADD	
+27636	努める	ADD	
+75072	荒らす	WRONG	荒らす means ravage, not infest
+55972	若者	WRONG	若者 means youth, not child
+15317	いい	ADD	
+18406	わかる	WRONG	realize sense, not find after searching
+46280	面	ADD	
+32168	意欲	WRONG	意欲 means motivation/eagerness, not ambition
+24788	一撃	ADD	
+69067	現世	WRONG	現世 means this world/life, not experienced reality
+71781	ホーン	ADD	
+46066	田園	WRONG	田園 means countryside, not a field
+38059	教会	ADD	
+64261	過去	POS	→ 過去の
+60141	ランニング	MWE	ランニングプレー
+92016	とり行う	WRONG	執り行う means conduct a ceremony
+78154	医学	POS	→ 医学的 / 医学の
+74733	過度	WRONG	過度 means excessive degree, not surplus quantity
+98099	教育	ADD	
+51336	姿	WRONG	姿 means shape/appearance, not geometric figure
+91890	一部	ADD	
+69307	暗闇	WRONG	暗闇 means darkness, not night-time
+51988	提示	WRONG	提示 means presenting/showing, not prize presentation
+19788	照明	WRONG	照明 means lighting, not lit area
+14126	制度	ADD	
+46454	応じる	ADD	
+89633	支える	ADD	
+15437	引っ張る	WRONG	hypernym: pull, not sudden jerk
+98900	冒す	ADD	
+46840	敷地	WRONG	敷地 means building site, not garden plot
+84787	出かける	ADD	
+56427	想う	ADD	
+50505	大聖堂	WRONG	大聖堂 means cathedral, not abbey
+95103	疑い	ADD	
+83929	上昇	ADD	
+12505	知って	WRONG	inflected fragment, not a lemma
+94015	罪業	ADD	
+27810	苦悩	WRONG	苦悩 means suffer anguish, not inconvenience
+63108	ある	WRONG	copula rendering
+69615	部長	WRONG	hyponym: department head
+34892	仮定	ADD	
+13240	演戯	WRONG	演戯 means acting, not a play
+44919	収まる	ADD	
+41117	研究	ADD	
+28464	子供	WRONG	hypernym: child, not infant
+16152	全体	POS	→ 全体の
+92467	研究	WRONG	hyponym: research
+25113	一撃	WRONG	stroke sense, not collision impact
+68521	事業	WRONG	事業 means enterprise, not one's occupation
+24289	宿舎	ADD	
+92570	模倣	WRONG	模倣 means act of imitation, not a copy
+80174	得る	WRONG	得る means obtain, not reach
+95857	取りあげる	ADD	
+93875	場所	ADD	
+58324	獲得	ADD	
+20219	後屈	ADD	
+99717	監督	ADD	
+35958	配列	ADD	
+36128	最後	POS	→ 最後の
+72277	違う	POS	verb; → 違った
+43559	言語学	WRONG	言語学 means linguistics, not language
+33420	勧める	ADD	
+11411	守る	ADD	
+71892	秩序	ADD	
+80103	聴衆	ADD	
+14741	焦点を当てて	WRONG	inflected phrase; 焦点を当てる is attend to
+33474	返答	WRONG	返答 means reply, not give correct solution
+39682	全体	POS	→ 全体的
+45698	解説	WRONG	解説 means explain/comment, not interpret
+55316	一片	ADD	
+80738	化学	POS	→ 化学的
+78212	旅行	ADD	
+75590	造り上げる	ADD	
+90536	それ以上	WRONG	それ以上 means beyond that, not far
+30865	展開	WRONG	展開 means unfold, not work out
+61578	置く	WRONG	置く is transitive put, not lie
+39350	据える	ADD	
+21430	傾注	ADD	
+63802	丈夫	ADD	
+60852	イメージ	ADD	
+27027	顔ぶれ	WRONG	顔ぶれ means line-up of members, not team
+69048	写真	WRONG	hyponym: photograph
+69445	反っくり返る	WRONG	反っくり返る means lean back haughtily, not swagger
+35805	役立つ	WRONG	役立つ means be useful, not serve
+91991	体	ADD	
+10881	連鎖	ADD	
+59388	機関	WRONG	機関 means engine/agency, not artifact system
+82091	演技	ADD	
+84555	機関	ADD	
+95547	農業	WRONG	農業 means agriculture, not agribusiness
+75883	解説	ADD	
+54970	増やす	POS	transitive; synset intransitive → 増える
+70779	集団	ADD	
+52790	喧騒	ADD	
+95370	分類	WRONG	分類 means classification, not category
+36855	発見	WRONG	発見 means discover, not perceive/witness
+22971	静けさ	ADD	
+94097	孤独	ADD	
+26185	組織	WRONG	組織 means organization, not artifact system
+37957	聴衆	ADD	
+41757	コメディ	WRONG	コメディ means comedy genre, not clowning
+61147	一貫	MWE	一貫性
+21513	芝生	WRONG	芝生 means lawn, not grass
+50613	襲撃	ADD	
+80379	狂気	ADD	
+51994	願望	ADD	
+44325	感性	WRONG	感性 means sensibility, not awareness
+12051	蹌踉めく	ADD	
+55679	変革	ADD	
+76154	邸宅	WRONG	hyponym: mansion
+20849	放つ	MWE	匂いを放つ
+14867	非難	ADD	
+67789	解釈	WRONG	解釈 means interpretation, not understanding
+54833	結婚	POS	→ 結婚した / 既婚の
+82129	悪ふざけ	WRONG	悪ふざけ means prank, not deceitful trick
+65235	仮定	WRONG	仮定 means suppose, not assert
+46078	散歩	ADD	
+73890	最高	ADD	
+13723	達成	ADD	
+38612	混乱	POS	→ 混乱させる
+18396	物憂げ	ADD	
+66221	最高	ADD	
+14601	全体	ADD	
+32661	遂げる	ADD	
+79877	見る	ADD	
+53909	位置付け	WRONG	位置付ける means position conceptually, not put
+99991	契約	ADD	
+28415	熟知し	WRONG	inflected fragment; 熟知 means be well versed

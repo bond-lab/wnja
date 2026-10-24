@@ -1,6 +1,15 @@
 """Unit tests for jsemcor_suggestions.py (issue #11)."""
 
-from jsemcor_suggestions import load_sense_index, mysql_rows, read_semcor
+import sqlite3
+from collections import defaultdict
+
+from jsemcor_suggestions import (
+    Candidate,
+    from_traduku,
+    is_word,
+    load_sense_index,
+    read_semcor,
+)
 
 SEMCOR = """<contextfile concordance=brown>
 <p pnum=72>
@@ -43,12 +52,40 @@ def test_sense_index_normalises_satellites(tmp_path) -> None:
                     "be%2:42:03::": "02604760-v"}
 
 
-def test_mysql_rows_handles_quotes_and_escapes() -> None:
-    """Values with commas, escaped quotes and NULL parse correctly."""
-    values = "(1,'mari',2,4,'暑い'),(2,'a\\'b',2,5,NULL),(3,'x, y',1,6,'')"
+def test_is_word_rejects_notes_and_fragments() -> None:
+    """Gloss notes, English and punctuated fragments are not words."""
+    assert is_word("知っている")
+    assert is_word("ドライブ")
+    assert not is_word("look up で、～の方に顔を上げる")
+    assert not is_word("抜かした。")
+    assert not is_word("不潔な、汚らわしい")
+    assert not is_word("moon")
 
-    rows = list(mysql_rows(values))
 
-    assert rows == [["1", "mari", "2", "4", "暑い"],
-                    ["2", "a'b", "2", "5", None],
-                    ["3", "x, y", "1", "6", ""]]
+def test_traduku_suggestions_are_chosen_but_not_offered(tmp_path) -> None:
+    """Only chosen Japanese words not among those offered are candidates."""
+    db = sqlite3.connect(":memory:")
+    db.executescript("""
+        CREATE TABLE file (file_id INTEGER, brown TEXT);
+        CREATE TABLE phrase (id INTEGER, file_id INTEGER, sentence_id INTEGER,
+                             lang_id INTEGER, text TEXT);
+        CREATE TABLE word (id INTEGER, phrase_id INTEGER, lang_id INTEGER,
+                           text TEXT);
+        CREATE TABLE chosen (phrase_id INTEGER, translator TEXT,
+                             lang_id INTEGER, word_id INTEGER, text TEXT);
+        INSERT INTO file VALUES (1, 'br-a01');
+        INSERT INTO phrase VALUES (10, 1, 90, 1, 'There was n''t trouble');
+        INSERT INTO word VALUES (7, 10, 2, '面倒');
+        INSERT INTO chosen VALUES (10, 't01', 2, 7, '面倒'),
+                                  (10, 't02', 2, 7, '騒ぎ'),
+                                  (10, 't03', 2, 7, 'trouble');
+    """)
+    (tmp_path / "br-a01").write_text(SEMCOR, encoding="latin-1")
+    files = {"br-a01": tmp_path / "br-a01"}
+    keys = {"trouble%1:11:01::": "07289014-n"}
+    found = defaultdict(Candidate)
+
+    from_traduku(db, files, keys, found)
+
+    assert list(found) == [("07289014-n", "騒ぎ")]
+    assert found[("07289014-n", "騒ぎ")].traduku == 1

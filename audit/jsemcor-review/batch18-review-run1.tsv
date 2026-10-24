@@ -1,0 +1,151 @@
+id	word	verdict	reason
+30295	土地	ADD	
+28868	内側	POS	→ 内側の
+83968	警護	ADD	
+78808	男	ADD	
+32758	本源	WRONG	本源 is origin, not source of inspiration
+63273	生じる	WRONG	生じる is intransitive arise, not evoke
+91004	続く	ADD	
+90242	類似	ADD	
+25589	さらけ出す	ADD	
+64182	事故	WRONG	事故 is accident generally, hypernym
+11403	終わる	ADD	
+40000	調査	ADD	
+30151	法律	ADD	
+24356	才能	ADD	
+30519	商業	ADD	
+48552	いう	ADD	
+79609	影響	ADD	
+91082	推し量る	ADD	
+13740	基盤	ADD	
+63078	多彩	ADD	
+24451	道具	ADD	
+74675	すき間	ADD	
+49420	やり遂げる	ADD	
+81196	古い	ADD	
+94285	立ち去る	ADD	
+16039	意味	WRONG	意味 is meaning generally; intension is 内包
+61087	同僚	WRONG	同僚 is colleague/coworker, hyponym
+64544	陳述	ADD	
+49253	悪意	ADD	
+20269	結局	WRONG	結局 is adverbial 'in the end', not result
+38135	大勢	ADD	
+44186	歓喜	ADD	
+80350	要求	ADD	
+24647	誘発	ADD	
+96134	待ち焦がれる	ADD	
+64947	勢い	WRONG	勢い is momentum/vigour, not strength
+53094	届ける	WRONG	届ける is deliver/report, not extradite
+74093	放棄	ADD	
+36695	胸騒ぎ	WRONG	胸騒ぎ is uneasy premonition, not physical malaise
+95724	続ける	WRONG	続ける is transitive continue doing, not remain
+83413	バリエーション	ADD	
+28072	許可	ADD	
+84437	著しい	ADD	
+75660	カウンセラー	WRONG	general counsellor, not summer camp supervisor
+61700	見解	WRONG	見解 is opinion/view, not mindset
+92006	持つ	WRONG	持つ means hold/last, not preserve
+49236	時刻	ADD	
+45050	割合	WRONG	割合 is proportion, not charge per unit
+88612	引出す	ADD	
+43853	野心	ADD	
+38842	心苦しい	WRONG	心苦しい means feeling sorry/guilty, not dreadful
+58215	図案	WRONG	図案 is a design/pattern, not an illustration
+21069	悪化	WRONG	悪化 is deterioration, not comparative worse
+66263	本質	WRONG	本質 is essence, not reality
+72504	討議	ADD	
+60417	速度	ADD	
+56986	引く	WRONG	引く is generic pull, not haul
+95028	検閲	ADD	
+66425	初心者	ADD	
+53760	亭主	WRONG	亭主 is husband/host, not legal owner
+69089	忠告	WRONG	忠告 is advise/warn, not propose a plan
+25309	立案する	ADD	
+50783	想定	ADD	
+79610	付ける	WRONG	付ける means attach, not put in a place
+18091	一緒	WRONG	一緒 means together; not companionship noun
+31398	通貨	ADD	
+79189	任務	WRONG	任務 is assignment, not social obligation
+60091	抑揚	WRONG	抑揚 is intonation, not stress/accent
+81767	かき立てる	ADD	
+52296	弁明	ADD	
+62394	運輸	ADD	
+39185	反感	ADD	
+98478	念願	WRONG	念願 is noun 'cherished wish', not verb yearn
+23000	承認	ADD	
+58749	舞台監督	WRONG	舞台監督 is stage manager, not theatre director
+14247	煽る	ADD	
+51210	出来事	ADD	
+57133	燃焼	ADD	
+40187	取り掛かる	ADD	
+78140	既知	POS	→ 既知の
+79056	広い	ADD	
+73885	離れる	ADD	
+11174	職業	ADD	
+58945	器具	ADD	
+63294	関わる	WRONG	関わる is intransitive be involved, not engage someone
+87763	著す	WRONG	著す is author a book, not formulate in a style
+23752	営み	ADD	
+10927	食事	WRONG	食事 is meal generally, hypernym
+56821	同情	ADD	
+42282	作り話	WRONG	作り話 is fabrication/made-up story, not literary fiction
+57924	要望	ADD	
+88388	人生	WRONG	人生 is whole life, not remaining life
+58351	脅威	WRONG	脅威 is threat, not dread
+49475	知る	POS	→ 知られた / 既知の
+37498	出掛ける	ADD	
+89848	速める	ADD	
+87258	才気	ADD	
+17346	前	WRONG	前 means before/front, not comparative sooner
+51305	内密	ADD	
+34078	規律	ADD	
+75225	侵害	ADD	
+25454	パートナー	ADD	
+77658	拡大	ADD	
+55177	懸念	ADD	
+16952	輪郭	ADD	
+22167	規則	WRONG	規則 is regulation; general principle is 原則/法則
+37958	プラン	WRONG	プラン is plan of action, not layout
+43025	遺失	WRONG	遺失 is losing property, not gambling losses
+87262	差し出す	ADD	
+45405	初期	POS	→ 初期の
+65773	集団	POS	→ 集団の / 集団的な
+94831	引き請ける	ADD	
+58936	弁士	ADD	
+62729	ドレッシーな	POS	attributive form; → ドレッシー
+21768	高める	WRONG	高める is transitive raise; intransitive is 高まる
+47456	提供	ADD	
+85000	持ちこたえる	WRONG	持ちこたえる is hold out/endure, not continue
+99114	ムード	ADD	
+22747	示唆	WRONG	示唆 is hint/suggest, not medical indication
+21201	正直	ADD	
+61994	水	POS	→ 水の / 水性の
+39530	齎す	WRONG	齎す means bring about, not cultivate
+42809	誠実	ADD	
+14264	真面目	ADD	
+51597	プレゼンテーション	ADD	
+29578	触感	WRONG	触感 is tactile feel; faculty is 触覚
+30433	孤独	ADD	
+47418	いい	WRONG	いい is good adjective, not adverb better
+94183	言詞	WRONG	言詞 is wording/speech, not a word unit
+47012	作成	ADD	
+17437	条項	ADD	
+74268	向上	WRONG	向上 is improvement, not development process
+16284	製作	WRONG	製作 is act of making, not a stage production
+61800	作り上げる	ADD	
+91880	安全保障	WRONG	安全保障 is national security policy, not safety state
+20983	離れた	WRONG	離れた means distant/separated, not leftover
+82363	消え入る	ADD	
+28154	配給	ADD	
+54570	得意	ADD	
+93714	渡す	ADD	
+90870	見本	ADD	
+99503	方法	WRONG	方法 is method, not a step/measure
+37723	連邦	POS	→ 連邦の
+85999	ごみ	ADD	
+81677	経費	ADD	
+10731	豊富	WRONG	豊富 is adjectival abundant, not a large amount noun
+72805	基本	WRONG	基本 is basis, not lower limit
+64833	設計	WRONG	設計 is design, not planning a course of action
+53969	空想	WRONG	空想 is fantasy; imagination faculty is 想像力
+99082	変化	ADD	

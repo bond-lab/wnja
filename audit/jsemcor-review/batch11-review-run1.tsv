@@ -1,0 +1,151 @@
+id	word	verdict	reason
+33726	イメージ	WRONG	imagery/mental image, not figure of speech
+40860	降伏	ADD	
+75723	オリジナル	POS	noun; → オリジナルの
+97109	活動	WRONG	hypernym: activity in general
+48726	意図	WRONG	means intend, not plan/devise
+45821	前進	WRONG	advance/move forward, not follow a procedure
+58826	なる	WRONG	generic 'become'; not 'fall into a state'
+96770	解答	ADD	
+78735	相違	ADD	
+25172	具体化	WRONG	make concrete/materialize, not personify a role
+87319	思いめぐらす	ADD	
+77621	配置	ADD	
+40014	セオリー	ADD	
+49444	組合せる	WRONG	combine, not assemble
+33666	無駄	ADD	
+97429	声	WRONG	voice itself, not tone of voice
+39615	転回	ADD	
+46285	不備	WRONG	inadequacy/defect, not lack
+93876	小道	ADD	
+97529	国会	WRONG	national legislature generally (Japanese Diet), not US Congress
+21794	得る	ADD	
+70649	心得る	ADD	
+19994	領国	WRONG	feudal domain, not administrative state
+67716	免れる	WRONG	escape/be exempted, not refrain from
+79245	西	ADD	
+19674	認識	ADD	
+79574	申し渡す	ADD	
+15943	滞在	ADD	
+10914	なる	WRONG	copula rendering
+88603	作戦	WRONG	military operation, not undertaking
+86881	賭ける	ADD	
+47295	言語	ADD	
+80419	候補者	WRONG	candidate, not applicant
+42886	かき交ぜる	ADD	
+65502	観察	ADD	
+84522	受け入れる	WRONG	accept generally, not assume debts
+21424	成しとげる	WRONG	accomplish, not perform a function
+31563	ムード	ADD	
+47375	恩寵	ADD	
+34840	荒廃	WRONG	devastation (state), not a wreck
+42230	一団	ADD	
+33505	発展	WRONG	develop/grow, not devise or work out
+46582	分野	ADD	
+81841	地面	ADD	
+13778	光	WRONG	light itself, not illuminated area
+34426	疑念	ADD	
+29762	一家	ADD	
+14405	規律	WRONG	discipline/rules, not body of law
+91515	荘厳	WRONG	majestic/sublime, not sedate manner
+70507	取り押さえる	WRONG	apprehend physically, not discover unexpectedly
+86663	見つけ出す	ADD	
+60424	異議	ADD	
+10348	上部	ADD	
+75522	配慮	ADD	
+17892	作品	ADD	
+33579	任務	ADD	
+18392	屈する	ADD	
+82876	政治家	WRONG	politician (hypernym), not statesman
+94537	進化	WRONG	evolution, not advancement
+57136	プログラム	ADD	
+52048	意志	WRONG	will/volition, not cheerful compliance
+96279	言う	ADD	
+73372	検討	ADD	
+14188	意見	WRONG	opinion, not content of thought
+77729	外形	ADD	
+48200	工夫	ADD	
+76273	宮殿	WRONG	palace building, not governing group (宮廷)
+93196	管轄	ADD	
+99687	意識	WRONG	be conscious of, not undergo passive experience
+78225	足がかり	ADD	
+79688	良くなる	WRONG	intransitive 'get better'; synset is transitive (→ 良くする)
+32796	権力	WRONG	power as abstraction, not powerful person
+87840	考察	ADD	
+31649	討論	ADD	
+24694	向ける	ADD	
+89702	監督	WRONG	film/sports director; theatre director is 演出家
+67090	目覚しい	ADD	
+40847	開始	ADD	
+97613	協会	WRONG	association, not consortium of companies
+67728	働き	WRONG	working/function, not behaviour
+81804	中間	POS	noun; → 中間の
+43576	開く	ADD	
+40924	振る舞う	WRONG	behave, not perform an action
+44036	集まる	ADD	
+74109	保持	WRONG	retain/maintain, not protect
+81324	違反	WRONG	violation, not misdemeanour
+38997	委員会	ADD	
+86033	アウトにする	WRONG	put out generally; tagging is タッチアウト
+89075	居る	WRONG	be/exist; remain behind is 居残る/残る
+75399	探索	WRONG	search/explore, not physical probing
+44253	論じる	ADD	
+14631	資質	WRONG	innate qualities/aptitude, not usual mood
+36543	描写	WRONG	depiction in text/art, not stage acting
+88227	描写	ADD	
+16883	是認	WRONG	approve; recognising authority is 承認
+85057	寛容	ADD	
+68770	警告	ADD	
+33597	与える	ADD	
+52605	喜ぶ	POS	verb; adjective → 嬉しい / 喜んでいる
+29898	設定	WRONG	configure/fix settings, not found
+89731	絞首台	ADD	
+12331	船	WRONG	ship/boat only; craft includes aircraft
+89764	まさに	ADD	
+75025	思い出	ADD	
+66968	苦艱	ADD	
+76022	推察	ADD	
+67890	警笛	WRONG	alarm/vehicle horn, not party noisemaker
+44464	シーン	WRONG	scene in film/play, not visual percept
+14054	休憩	ADD	
+19507	バルサム	ADD	
+24980	近い	ADD	
+33359	独立	POS	noun; → 独立した / 独立の
+84566	ウェイト	ADD	
+93868	左利き	WRONG	left-handed person, not pitcher
+81203	否認	ADD	
+85954	遠くに	WRONG	physical distance, not degree
+41191	栄光	WRONG	glory, not tangible award
+91687	ツイード	WRONG	noun 'tweed', not rough-surfaced
+29166	増幅	WRONG	amplify, not broaden
+17075	務める	WRONG	serve in a role, not exert oneself
+50764	飛出す	ADD	
+65752	大学	ADD	
+15546	基本	POS	noun; → 基本的
+51203	聖職者	WRONG	cleric generally (hypernym)
+91421	機材	WRONG	equipment, not material
+78872	取り込む	ADD	
+44697	条件	WRONG	requirement/terms, not state
+87161	黒い	ADD	
+75319	大衆	WRONG	the masses/general public, narrower
+21596	人生	ADD	
+95205	世話	WRONG	take care of, not keep under scrutiny
+76919	分かれる	WRONG	intransitive; synset transitive (分ける)
+32491	一部分	ADD	
+59658	銃撃	ADD	
+43401	要請	ADD	
+42524	占拠	WRONG	seize/occupy forcibly, not assume a pose
+30946	最適	POS	noun; → 最適に
+75125	病気	POS	noun; → 病気の
+96377	賃金	WRONG	wages noun; → 有給の
+88103	位置づける	ADD	
+69576	進み	WRONG	progress, not speed
+18014	洗練	POS	noun; → 洗練された
+51392	厄介	ADD	
+63822	位置	POS	noun; → 位置する / 位置した
+71190	カップ	ADD	
+57765	見る	WRONG	not normal for mental understanding
+38356	基礎	POS	noun; → 基礎的
+15520	傷つける	ADD	
+74164	感じる	WRONG	experiencer verb, not 'be felt as'
+88741	言語	ADD	

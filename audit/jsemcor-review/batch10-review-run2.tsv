@@ -1,0 +1,151 @@
+id	word	verdict	reason
+28741	抑制	WRONG	restraint/suppression, not power to direct
+79187	訴える	ADD	
+60643	景色	WRONG	scenery, not background of a picture
+25502	資本	ADD	
+84647	塊	WRONG	lump/chunk, not bar of soap
+63180	探求	WRONG	pursuit/quest, not try to locate
+32765	求める	WRONG	ask/request generally, hypernym
+54071	動揺	ADD	
+78127	終結	ADD	
+27232	要求	WRONG	demand (noun), weaker than command
+44558	分担	WRONG	division of labour/share of burden, not asset share
+41998	盛り込む	ADD	
+84453	抱く	WRONG	harbour (feelings), not possess generally
+53528	思い	WRONG	thought/feeling, not formed judgement
+17008	真実	ADD	
+94109	だらしない	ADD	
+14962	つり下げる	WRONG	suspend (transitive), not be hanging
+97948	相手	WRONG	partner/counterpart, not adversary specifically
+28972	愚かさ	ADD	
+62845	数多	POS	noun; → 数多の
+75215	シフト	ADD	
+88655	鶏	ADD	
+23437	規範	ADD	
+71592	振れる	ADD	
+55278	負担	WRONG	burden/share of cost, not paid
+91763	親しい	ADD	
+84026	移動	ADD	
+63341	さぐり当てる	ADD	
+46905	メリット	ADD	
+73673	奨励	ADD	
+70752	未来	POS	noun; → 未来の
+63611	合併	WRONG	corporate merger, not natural coalescence
+66879	考える	WRONG	hypernym think
+25383	財布	WRONG	wallet, not handbag
+84182	修正	WRONG	amendment/correction, hyponym
+25024	方策	WRONG	measure/policy, not means
+78939	遊ぶ	WRONG	play, not horseplay
+53301	無線	ADD	
+78812	態度	WRONG	attitude/manner, not theatrical pose
+78246	町	WRONG	town, not metropolis
+66652	楽しみ	ADD	
+65096	家畜	WRONG	livestock, hypernym of cattle
+13173	納屋	ADD	
+52033	両立	POS	noun "coexistence"; → 両立する/両立できる
+17167	死	ADD	
+48803	叩く	ADD	
+90767	腰	WRONG	waist/lower back, not pelvis bone
+66783	行く	WRONG	go (physically), not proceed procedurally
+59346	話し合い	WRONG	discussion, not audience with important person
+88318	差し出す	ADD	
+52193	入口	WRONG	entrance, not gate barrier
+49944	辞める	WRONG	quit/resign, not stop an activity generally
+87783	卓越	ADD	
+19148	行程	WRONG	journey/process stage, not route
+42026	報じる	ADD	
+26311	会う	ADD	
+68583	路線	WRONG	transit route, not carrier company
+41764	割り当てる	ADD	
+75881	討論	WRONG	debate, not quarrel
+61999	飲み干す	WRONG	drink up, hyponym of drink
+16811	慣行	WRONG	social custom, not psychological habit
+72352	適確	ADD	
+23811	掴む	ADD	
+78972	目録	WRONG	catalogue list, not collection of resources
+41345	強制	WRONG	coercion, not powerful effect
+81431	解答	WRONG	answer to problem/exam, not reply
+50147	友人	WRONG	friend generally, hypernym of buddy
+96093	情報	ADD	
+61842	博士	WRONG	doctor (person); degree is 博士号
+40916	緑	POS	noun; → 緑の
+18970	訛り	ADD	
+97255	模様	WRONG	decorative pattern, not perceptual form
+58335	広場	WRONG	plaza/square, not open expanse
+81585	静けさ	ADD	
+65234	足	ADD	
+83919	威力	WRONG	might/power, not powerful influence
+31512	具わる	ADD	
+39069	政治家	WRONG	politician, not political
+95132	仕事	ADD	
+65256	吊るす	WRONG	hang (transitive), not be hanging
+84292	止める	MWE	part of 気に止める; 止める ≠ allow
+26079	リズム	ADD	
+19403	取り上げる	WRONG	take up a topic, not consider for exemplification
+22918	更新	WRONG	renewal/update, not revive
+78110	留めおく	ADD	
+27033	偏向	WRONG	bias/deviation, not inclination
+26226	支持	ADD	
+80462	見い出す	WRONG	discover, not get for purpose
+85482	覚え	WRONG	memory/recollection, not general awareness
+69399	侵す	ADD	
+10075	影像	WRONG	image/reflection, not bodily model
+48811	歩む	WRONG	walk, hyponym of travel
+41972	セット	ADD	
+49225	明り	ADD	
+13135	青少年	WRONG	youth/adolescent, not child
+52567	邪悪	ADD	
+32546	公表	ADD	
+18209	上がる	WRONG	rise up generally, not come to surface
+67772	撤退	WRONG	military withdrawal, not emptying
+68987	組織	WRONG	organisation/tissue, not body system
+79528	核	POS	noun; → 核の
+62068	凝らす	MWE	part of 目を凝らす/工夫を凝らす
+28517	苦悩	ADD	
+56726	吊し上げる	WRONG	string up/denounce, not hang up generally
+86743	記者	ADD	
+40250	ひどい	WRONG	severe, not bad quality
+16014	敬意	WRONG	respect shown, not condition of being honoured
+50137	果たす	ADD	
+14080	与える	WRONG	give, not bring about
+69621	閉まる	POS	verb; → 閉まった
+51128	非難	ADD	
+50350	平均	POS	noun; → 平均的 (present)/平均の
+52513	捨去る	ADD	
+75328	度重なる	ADD	
+28773	仕事	WRONG	work/task, not workplace
+71949	男性	WRONG	male, not human species
+37067	女性	POS	noun; → 女性の/雌の
+36567	情熱	WRONG	passion feeling, not object of affection
+48711	前兆	WRONG	omen (event), not feeling of foreboding
+17728	要領	ADD	
+35625	つまらない	ADD	
+56419	画題	WRONG	subject of a painting, hyponym
+71930	目覚ましい	ADD	
+12101	発想	ADD	
+32529	導く	WRONG	lead/guide, not bring about
+93280	灰色	POS	noun; → 灰色の
+83378	自負心	ADD	
+36477	小枝	WRONG	twig, not stick
+79874	実験	POS	noun; → 実験的/実験の
+92889	勤め	WRONG	employment/service, not skilled craft
+40961	セット	ADD	
+35101	転じる	WRONG	turn/change direction, not move around
+16553	終了	ADD	
+95211	追放	ADD	
+23906	与える	WRONG	give, not offer for acceptance
+50118	格付け	ADD	
+51023	キャラクター	WRONG	fictional character, not the role portrayed
+45899	市民	WRONG	citizens of city, not townspeople
+65097	抵抗	WRONG	resist, not elude baffingly
+27678	疑問	WRONG	doubt/question in mind, not interrogative sentence
+53900	軽視	WRONG	make light of, not refuse to acknowledge
+68347	感謝	POS	noun; → 感謝している
+64417	去る	MWE	part of この世を去る
+20353	馬鹿者	POS	noun "fool"; adjective needed e.g. 馬鹿な
+32202	行動	WRONG	act/behave, not engage in
+39260	する	WRONG	light verb rendering
+50260	取り上げる	ADD	
+25814	感覚	POS	noun; → 感覚の
+35751	恥辱	ADD	
+45251	報いる	ADD	

@@ -151,6 +151,6 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
 - **W307**: per-case review of 657 cross-synset duplicate definitions
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
 - **Adjective classes**: Kuroda's classes are merged as Lemma tags (`adjective-class`); 1,116 hand-marked or unclassifiable lines await review in `corrections/kuroda-adjective-review.tsv`
-- **JSemCor suggested senses** (issue #11): `jsemcor_suggestions.py` writes 2,795 candidate (synset, lemma) senses to `corrections/jsemcor-suggestions.tsv` from the aligned JSemCor (`semcor_jpn.zip`) and the traduku database dump (both from Richard Fothergill, in `~/Downloads` until added to the jsemcor repo); to be reviewed like issue #8
+- **JSemCor suggested senses** (issue #11): `jsemcor_suggestions.py` writes 2,785 candidate (synset, lemma) senses to `corrections/jsemcor-suggestions.tsv` from JSemCor 1.1 in `../jsemcor` (the aligned `data/` and `traduku/traduku.sqlite.xz`); reviewed blind twice plus adjudication in `audit/jsemcor-review/` (`uv run python -m audit.jsemcor_review batches|combine`)
 - **Merge TUFS data**
 

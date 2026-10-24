@@ -6,32 +6,35 @@ the Japanese wordnet synonyms of each sense-tagged English word.  When
 they used another word, that word is a candidate new sense of the
 English word's synset.  Two sources record this:
 
-1. The aligned JSemCor (semcor_jpn.zip, 2012): each Japanese term links
-   to the English SemCor token it translates, e.g.
+1. The aligned JSemCor (JSemCor 1.1, ``data/br-*.xml`` in the jsemcor
+   repository): each Japanese term links to the English SemCor token it
+   translates, e.g.
    ``<externalRef resource="Semcor eng 3.0" reference="s72.90.7"/>``
    (pnum 72, snum 90, token 7; tokens are 1-based and include <punc>).
    A term whose word is in the wordnet but has no synset is a candidate:
    the English token's synset plus the Japanese lemma.
-2. The translation database (traduku SQL dump, 2014): ``chosen`` words
-   that were not among the ``word`` candidates offered for that token.
-   Only the phrase, word and chosen tables are read (not users or log,
-   which hold personal data).
+2. The translation database (``traduku/traduku.sqlite.xz`` in the same
+   repository): ``chosen`` words that were not among the ``word``
+   candidates offered for that token.  Its ``file`` table names the
+   Brown file of each phrase; sentence_id is the SemCor snum.
 
-Senses already in wnja-2.0.xml are left out.  Writes
+Senses already in wnja-2.0.xml are left out, as are entries that are not
+words (gloss notes, fragments with punctuation).  Writes
 corrections/jsemcor-suggestions.tsv, one row per (synset, lemma), for
 review.
 
 Usage:
-    uv run python jsemcor_suggestions.py [--aligned ZIP] [--semcor DIR]
-                                         [--traduku SQL.GZ]
+    uv run python jsemcor_suggestions.py [--jsemcor DIR] [--semcor DIR]
 """
 
 import argparse
-import gzip
 import logging
+import lzma
 import re
+import shutil
+import sqlite3
 import sys
-import zipfile
+import tempfile
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -39,9 +42,7 @@ from xml.etree import ElementTree as ET
 
 import wn
 
-DOWNLOADS = Path.home() / "Downloads"
-DEFAULT_ALIGNED = DOWNLOADS / "semcor_jpn.zip"
-DEFAULT_TRADUKU = DOWNLOADS / "2014-01-16-traduku.sql.gz"
+DEFAULT_JSEMCOR = Path("../jsemcor")
 DEFAULT_SEMCOR = Path("/home/bond/papers/students/NTU/liling/semcor/semcor3.0")
 INDEX_SENSE = Path.home() / "nltk_data/corpora/wordnet/index.sense"
 RELEASE = Path("wnja-2.0.xml")
@@ -71,6 +72,18 @@ class Candidate:
     traduku: int = 0
     english: Counter = field(default_factory=Counter)
     example: tuple[str, str] = ("", "")
+
+
+NOT_A_WORD = re.compile(r"[A-Za-z。、．，！？!?\s]")
+
+
+def is_word(lemma: str) -> bool:
+    """False for English gloss text, phrases and fragments with punctuation.
+
+    Translators sometimes typed notes such as ``look up で…`` instead of a
+    word, and a few tokens kept their full stop (抜かした。).
+    """
+    return bool(JAPANESE.search(lemma)) and not NOT_A_WORD.search(lemma)
 
 
 def load_sense_index(path: Path) -> dict[str, str]:
@@ -125,134 +138,84 @@ def sentence(tokens: dict[tuple[int, int], Token], snum: int) -> str:
     return " ".join(words)
 
 
-def from_aligned(zip_path: Path, files: dict[str, Path], keys: dict[str, str],
+def from_aligned(data_dir: Path, files: dict[str, Path], keys: dict[str, str],
                  found: dict[tuple[str, str], Candidate]) -> None:
     """Add candidates from the aligned JSemCor.
 
     Args:
-        zip_path: semcor_jpn.zip, with semcor_jpn/br-*.xml.
+        data_dir: JSemCor 1.1 data directory, with br-*.xml.
         files: Brown file name -> SemCor tagfile.
         keys: Sense key index.
         found: Candidates by (synset, lemma), updated in place.
     """
-    with zipfile.ZipFile(zip_path) as z:
-        for name in sorted(n for n in z.namelist() if n.endswith(".xml")):
-            brown = Path(name).stem
-            tokens = read_semcor(files[brown], keys)
-            root = ET.fromstring(z.read(name))
-            words = {w.get("wid"): (w.get("sent"), w.text or "")
-                     for w in root.iter("wf")}
-            for term in root.iter("term"):
-                refs = term.findall("externalReferences/externalRef")
-                jwn = [r for r in refs if r.get("resource") == "WordNet jpn 1.1"]
-                eng = [r.get("reference") for r in refs
-                       if r.get("resource") == "Semcor eng 3.0"]
-                if not jwn or not eng or any(r.findall("externalRef") for r in jwn):
+    for path in sorted(data_dir.glob("br-*.xml")):
+        tokens = read_semcor(files[path.stem], keys)
+        root = ET.parse(path).getroot()
+        words = {w.get("wid"): (w.get("sent"), w.text or "")
+                 for w in root.iter("wf")}
+        for term in root.iter("term"):
+            refs = term.findall("externalReferences/externalRef")
+            jwn = [r for r in refs if r.get("resource") == "WordNet jpn 1.1"]
+            eng = [r.get("reference") for r in refs
+                   if r.get("resource") == "Semcor eng 3.0"]
+            if not jwn or not eng or any(r.findall("externalRef") for r in jwn):
+                continue
+            for ref in eng:
+                _p, snum, idx = (int(x) for x in ref[1:].split("."))
+                token = tokens.get((snum, idx))
+                if token is None or token.synset is None:
                     continue
-                for ref in eng:
-                    _p, snum, idx = (int(x) for x in ref[1:].split("."))
-                    token = tokens.get((snum, idx))
-                    if token is None or token.synset is None:
-                        continue
-                    cand = found[(token.synset, term.get("lemma"))]
-                    cand.jpos = jwn[0].get("reference").rsplit("-", 1)[1]
-                    cand.aligned += 1
-                    cand.english[token.word] += 1
-                    if not cand.example[0]:
-                        sent = words[term.find("span/target").get("id")][0]
-                        ja = "".join(t for s, t in words.values() if s == sent)
-                        cand.example = (sentence(tokens, snum), ja)
+                cand = found[(token.synset, term.get("lemma"))]
+                cand.jpos = jwn[0].get("reference").rsplit("-", 1)[1]
+                cand.aligned += 1
+                cand.english[token.word] += 1
+                if not cand.example[0]:
+                    sent = words[term.find("span/target").get("id")][0]
+                    ja = "".join(t for s, t in words.values() if s == sent)
+                    cand.example = (sentence(tokens, snum), ja)
 
 
-def mysql_rows(values: str):
-    """Yield rows from the VALUES part of a MySQL INSERT statement."""
-    row: list | None = None
-    cell: list[str] = []
-    quoted = False
-    i = 0
-    while i < len(values):
-        c = values[i]
-        if quoted:
-            if c == "\\":
-                cell.append({"n": "\n", "t": "\t"}.get(values[i + 1], values[i + 1]))
-                i += 1
-            elif c == "'":
-                quoted = False
-            else:
-                cell.append(c)
-        elif c == "'":
-            quoted = True
-        elif c == "(":
-            row, cell = [], []
-        elif c in ",)" and row is not None:
-            text = "".join(cell)
-            row.append(None if text == "NULL" else text)
-            cell = []
-            if c == ")":
-                yield row
-                row = None
-        elif row is not None:
-            cell.append(c)
-        i += 1
+def open_traduku(path: Path, workdir: Path) -> sqlite3.Connection:
+    """Open the traduku database, decompressing a .xz copy into workdir."""
+    if path.suffix == ".xz":
+        plain = workdir / path.stem
+        with lzma.open(path) as src, plain.open("wb") as dst:
+            shutil.copyfileobj(src, dst)
+        path = plain
+    return sqlite3.connect(f"file:{path}?mode=ro", uri=True)
 
 
-def from_traduku(sql_gz: Path, files: dict[str, Path], keys: dict[str, str],
+def from_traduku(db: sqlite3.Connection, files: dict[str, Path],
+                 keys: dict[str, str],
                  found: dict[tuple[str, str], Candidate]) -> None:
     """Add candidates from words translators chose that were not offered.
 
-    The phrase table's file_id is matched to a Brown file through its
-    sentences; sentence_id is the SemCor snum.
-
     Args:
-        sql_gz: The traduku MySQL dump.
+        db: The traduku database (JSemCor 1.1).
         files: Brown file name -> SemCor tagfile.
         keys: Sense key index.
         found: Candidates by (synset, lemma), updated in place.
     """
-    tables: dict[str, list[list]] = defaultdict(list)
-    insert = re.compile(r"INSERT INTO `(phrase|word|chosen)` VALUES (.*);\s*$")
-    with gzip.open(sql_gz, "rt", encoding="utf-8", errors="replace") as fh:
-        for line in fh:
-            m = insert.match(line)
-            if m:
-                tables[m.group(1)].extend(mysql_rows(m.group(2)))
-
     semcor = {name: read_semcor(path, keys) for name, path in files.items()}
-    by_text = {}
-    for name, tokens in semcor.items():
-        for snum in {s for s, _ in tokens}:
-            by_text.setdefault(sentence(tokens, snum).replace(" ", ""), (name, snum))
-    phrases = {}
-    file_of: dict[str, Counter] = defaultdict(Counter)
-    for pid, fid, sid, _lang, text in tables["phrase"]:
-        phrases[pid] = (fid, int(sid))
-        hit = by_text.get(text.replace(" ", "").replace("_", ""))
-        if hit and hit[1] == int(sid):
-            file_of[fid][hit[0]] += 1
-    brown = {fid: c.most_common(1)[0][0] for fid, c in file_of.items()}
-    log.info("traduku: %d of %d files matched to SemCor",
-             len(brown), len({f for f, _ in phrases.values()}))
-
     offered = defaultdict(set)
-    for wid, pid, lang, text in tables["word"]:
-        if lang == "2":
-            offered[(pid, wid)].add(text)
-    for pid, _user, lang, wid, text in tables["chosen"]:
-        if lang != "2" or not text or not JAPANESE.search(text):
+    for pid, wid, text in db.execute(
+            "SELECT phrase_id, id, text FROM word WHERE lang_id = 2"):
+        offered[(pid, wid)].add(text)
+    rows = db.execute(
+        "SELECT c.phrase_id, c.word_id, c.text, f.brown, p.sentence_id "
+        "FROM chosen AS c JOIN phrase AS p ON p.id = c.phrase_id "
+        "JOIN file AS f ON f.file_id = p.file_id WHERE c.lang_id = 2")
+    for pid, wid, text, brown, snum in rows:
+        if not text or not JAPANESE.search(text) or text in offered[(pid, wid)]:
             continue
-        if text in offered[(pid, wid)]:
-            continue
-        fid, snum = phrases[pid]
-        if fid not in brown:
-            continue
-        token = semcor[brown[fid]].get((snum, int(wid)))
+        token = semcor[brown].get((snum, wid))
         if token is None or token.synset is None:
             continue
         cand = found[(token.synset, text)]
         cand.traduku += 1
         cand.english[token.word] += 1
         if not cand.example[0]:
-            cand.example = (sentence(semcor[brown[fid]], snum), "")
+            cand.example = (sentence(semcor[brown], snum), "")
 
 
 def release_senses(path: Path) -> set[tuple[str, str]]:
@@ -281,25 +244,31 @@ def english_synset(en: wn.Wordnet, synset: str) -> tuple[str, str]:
 def main() -> None:
     """Collect the candidates and write the review file."""
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--aligned", type=Path, default=DEFAULT_ALIGNED)
-    ap.add_argument("--semcor", type=Path, default=DEFAULT_SEMCOR)
-    ap.add_argument("--traduku", type=Path, default=DEFAULT_TRADUKU)
+    ap.add_argument("--jsemcor", type=Path, default=DEFAULT_JSEMCOR,
+                    help="jsemcor repository (JSemCor 1.1)")
+    ap.add_argument("--semcor", type=Path, default=DEFAULT_SEMCOR,
+                    help="English SemCor 3.0")
     args = ap.parse_args()
 
     keys = load_sense_index(INDEX_SENSE)
     files = semcor_files(args.semcor)
     found: dict[tuple[str, str], Candidate] = defaultdict(Candidate)
-    from_aligned(args.aligned, files, keys, found)
+    from_aligned(args.jsemcor / "data", files, keys, found)
     log.info("aligned JSemCor: %d candidates", len(found))
-    if args.traduku.exists():
-        from_traduku(args.traduku, files, keys, found)
-        log.info("with traduku: %d candidates", len(found))
+    traduku = args.jsemcor / "traduku" / "traduku.sqlite"
+    if not traduku.exists():
+        traduku = traduku.with_suffix(".sqlite.xz")
+    with tempfile.TemporaryDirectory() as tmp:
+        db = open_traduku(traduku, Path(tmp))
+        from_traduku(db, files, keys, found)
+        db.close()
+    log.info("with traduku: %d candidates", len(found))
 
     known = release_senses(RELEASE)
     en = wn.Wordnet("omw-en:2.0")
     rows = []
     for (synset, lemma), c in found.items():
-        if (synset, lemma) in known:
+        if (synset, lemma) in known or not is_word(lemma):
             continue
         en_lemmas, en_def = english_synset(en, synset)
         source = "+".join(s for s, n in (("aligned", c.aligned),

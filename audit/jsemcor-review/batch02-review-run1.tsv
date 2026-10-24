@@ -1,0 +1,151 @@
+id	word	verdict	reason
+69402	知らせる	WRONG	hypernym: inform generally, not report to authorities
+26675	制止	ADD	
+86974	知る	WRONG	know, not understand
+73402	剥ぎ取る	ADD	
+85310	共犯者	ADD	
+27791	計画	ADD	
+60606	著作	WRONG	hyponym: written work
+33963	解釈	WRONG	解釈 means interpretation, not explanation
+92214	道徳	ADD	
+30202	確かめる	ADD	
+50738	著書	WRONG	hyponym: book
+39934	発生	WRONG	発生 means occur/arise, not come into view
+90012	発表	WRONG	発表 means announce/publish, not make visible
+42702	当惑	POS	intransitive; → 当惑させる
+34877	いい	ADD	
+30771	部分	WRONG	generic part; musical part is パート
+92441	空想	ADD	
+82604	興奮	WRONG	興奮 means excitement, not exuberance
+35767	分析	ADD	
+60883	難局	ADD	
+73244	怒鳴る	WRONG	怒鳴る means shout angrily, not howl
+89106	近所	WRONG	近所 is the area; people are 近所の人
+20288	引継ぐ	ADD	
+65241	書記官	WRONG	書記官 means clerk/embassy secretary, not department head
+16213	根源	WRONG	根源 means root/origin, not inspiration source
+23610	阻止	ADD	
+24293	背面	WRONG	背面 is rear surface generally, not the body's back
+15072	少年	WRONG	少年 means boy, not son
+77155	弁明	ADD	
+43446	調べる	WRONG	調べる means investigate, not put to the test
+41248	天気	WRONG	天気 means weather, not climate
+61329	派生	ADD	
+43683	平穏	ADD	
+65157	鳴りひびく	POS	intransitive; synset is transitive → 鳴らす
+88180	役割り	ADD	
+74356	出所	WRONG	出所 means origin of info/goods, not inspiration
+48461	女	WRONG	女 means woman, not young girl
+78167	航海	ADD	
+32994	装う	ADD	
+19014	落胆	ADD	
+26567	中央	POS	→ 中央の
+39936	歴史	POS	→ 歴史的 / 歴史の
+72822	手段	ADD	
+83317	増額	WRONG	hyponym: increase in money amount
+95656	列	ADD	
+90723	礼義正しい	ADD	
+90517	証言	WRONG	証言 means testimony, not evidence/grounds
+19717	要約	ADD	
+46728	軽視	ADD	
+37839	克ち取る	WRONG	hyponym: win by effort
+36735	表わす	ADD	
+12172	憂き目	ADD	
+19064	削除	ADD	
+45283	非難	WRONG	非難 means blame/criticism, not formal charge
+63926	乱雑	WRONG	乱雑 means untidiness, not behavioural confusion
+68419	理解	ADD	
+42645	音	ADD	
+17924	大人	POS	→ 大人の / 成体の
+16107	的	MWE	注目の的
+33101	コントロール	ADD	
+46957	最初	POS	→ 最初の
+58337	組みこむ	ADD	
+79599	連続	POS	→ 連続した
+84995	専門	POS	→ 専門の / 専門的
+27246	最初	POS	→ 最初の
+22083	気難しい	WRONG	気難しい means hard to please, not glum
+57467	足場	WRONG	足場 means scaffold/foothold, not beachhead
+28141	抑圧	ADD	
+69027	位置	WRONG	位置 means position (be located), not put
+53380	ぶつかる	WRONG	ぶつかる means collide; eyes meeting is figurative
+96105	正直	ADD	
+78411	やって来る	WRONG	やって来る means arrive, not be received
+86603	写真	POS	→ 写真の / 写真的
+28395	ストレート	POS	→ ストレートの
+87316	公式	ADD	
+14598	基礎	POS	→ 基礎的
+12345	用具	ADD	
+72232	組織	WRONG	組織 means tissue/organization, not anatomical structure
+56854	高める	ADD	
+50868	通り	ADD	
+14396	末端	ADD	
+12786	演技	ADD	
+88429	終り	POS	→ 終わりの / 最後の
+93385	認知	WRONG	認知 means cognition, not percept
+19808	伸ばす	ADD	
+73207	疲労困憊	POS	intransitive; → 疲労困憊させる
+18817	殴り付ける	ADD	
+50771	愉快	WRONG	愉快 means pleasantness (adjectival), not fun activity
+51799	規準	ADD	
+27905	川岸	ADD	
+19493	文芸	WRONG	文芸 means literature/arts, not humanities
+19864	説	ADD	
+69387	場	ADD	
+81577	好み	ADD	
+58205	rock-strewn 岩だらけの、石がゴロゴロした	WRONG	English phrase and gloss, not a Japanese lemma
+15828	草原	ADD	
+26979	舞台装置	ADD	
+54776	最適	WRONG	最適 means optimal, not adverb well
+56115	適応	POS	intransitive; → 適応させる
+21131	演技	WRONG	演技 means acting/performance, not a programme number
+99803	輝く	WRONG	shining eyes, not complexion colour
+72033	起源	ADD	
+20180	男	ADD	
+64677	響く	ADD	
+13967	兆候	ADD	
+75526	歩み	WRONG	歩み means walking/progress, not a single step
+85079	掴む	ADD	
+11904	御目に掛かる	ADD	
+91914	攻撃	ADD	
+96804	ひび割れ	ADD	
+60113	形	ADD	
+59699	道路	ADD	
+86372	いる	WRONG	copula rendering
+11631	拒む	WRONG	拒む means refuse, not elude
+89805	棄却	ADD	
+19469	居	MWE	居を構える
+20512	注目	ADD	
+21881	端	WRONG	端 means edge/end, not piece
+93808	視界	ADD	
+25149	温もり	ADD	
+43712	知らせる	WRONG	hypernym: inform, not report findings
+64558	思う	WRONG	思う means think, not visualize
+53273	処方箋	WRONG	written prescription, not prescription drug
+60913	成果	ADD	
+86146	向い合う	ADD	
+69998	エスコート	WRONG	エスコート is the act of escorting, not a date
+67740	完成	WRONG	完成 means complete, not achieve
+70636	勝つ	ADD	
+80942	逃げ失せる	ADD	
+20981	集会	WRONG	集会 means meeting/assembly, not congregation
+77986	下部	ADD	
+77440	優位	POS	→ 優位な
+13904	長老	WRONG	長老 means elder, not Church Father
+50663	識別	ADD	
+21499	十分に	WRONG	十分に means sufficiently, not better
+73039	創作	ADD	
+12921	それ以上	WRONG	それ以上 means beyond that, not far
+40175	いびき	ADD	
+24796	章	ADD	
+75175	転がす	POS	transitive; synset is intransitive → 転がる
+90544	偽造	WRONG	偽造 means forgery, not imitation
+96524	心象	ADD	
+73739	想いだす	WRONG	思い出す means recall, not keep in mind
+43532	一群	ADD	
+11482	批判	WRONG	批判 means criticism, not remark
+58228	経過	ADD	
+49456	入り口	WRONG	hypernym: entrance, not gated entrance
+28772	審査官	ADD	
+98884	読者	WRONG	読者 means reader of a text, not avid reader
+90184	地	WRONG	地 means land/place, not soil

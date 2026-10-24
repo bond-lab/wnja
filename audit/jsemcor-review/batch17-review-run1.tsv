@@ -1,0 +1,151 @@
+id	word	verdict	reason
+40809	警戒	WRONG	警戒 is vigilance, not a precautionary measure
+74560	知っている	WRONG	inflected form; 知る is know facts, not know how
+85925	読者	WRONG	読者 is reader; subscriber is 購読者
+25408	最適	WRONG	最適 means optimal; not 'had best'
+47339	素朴	WRONG	素朴 means simple/naive, not frank
+26145	思う	ADD	
+47550	振り下ろす	WRONG	振り下ろす is swing down, not a sweeping gesture
+20245	金銭	WRONG	金銭 is money, not dollar symbol
+98694	雛形	WRONG	雛形 is template/miniature model, not typical specimen
+94980	教書	WRONG	教書 is official message (e.g. presidential), not content
+69628	切開く	WRONG	切り開く means cut open/pioneer, not become available
+39574	考察	ADD	
+72583	白い	WRONG	racial sense needs 白人の
+60807	読み手	WRONG	読み手 is the one reading, not a book-lover
+36047	複製	ADD	
+64268	代わる	ADD	
+88808	鎮静	ADD	
+38885	精神	WRONG	精神 is mind/spirit, not locus of feelings
+68773	在る	WRONG	existential verb, not have as a feature
+93841	勤務	WRONG	勤務 is work at a job, not moral duty
+18413	守衛	ADD	
+58111	負う	ADD	
+64932	作曲	WRONG	作曲 is the act of composing, not the work
+53685	郷里	WRONG	郷里 is hometown/birthplace, not where you live
+46869	御目にかかる	ADD	
+86584	手が込んでいる	POS	inflected phrase; → 手の込んだ
+96310	条目	ADD	
+45080	注釈	WRONG	注釈 is annotation, not explanation
+48398	勝利	WRONG	勝利 is victory, not success
+96733	種別	WRONG	種別 is classification, not an assortment
+11663	報酬	ADD	
+98088	大きい	ADD	
+90033	側面	ADD	
+42075	総督	WRONG	総督 is governor-general noun, not be in charge
+11982	政治	ADD	
+63940	心臓	WRONG	心臓 is the organ only
+59130	部隊	WRONG	部隊 is a military unit, hyponym
+27323	達する	WRONG	達する means reach a point, not contact
+87765	遠くに	ADD	
+42985	不潔な、汚らわしい	WRONG	two words joined, not a single lemma
+60868	不安定	ADD	
+65134	はるかに	ADD	
+46480	家柄	ADD	
+54770	見る	WRONG	見る is see; imagine only in 夢を見る etc.
+23378	帰還	WRONG	帰還 is return home, not reversal of direction
+87425	手足が長い	WRONG	compositional phrase 'long-limbed', not a lexical item
+23678	取る	MWE	carry out only in 措置を取る etc.
+81555	拡大	WRONG	拡大 is enlarge, not span an interval
+96171	舵取り	ADD	
+23032	騒音	WRONG	騒音 is noise, a hyponym
+69392	花	ADD	
+37424	草	ADD	
+21584	隈	WRONG	隈 is nook/shading, not corner point
+57655	切開く	WRONG	切り開く is cut open, hyponym of cut
+12117	雇う	WRONG	雇う is hire people, not use
+59084	例外	WRONG	例外 is exception case; omission act is 除外
+87361	自由	ADD	
+97711	仕掛け	ADD	
+55071	もたらす	ADD	
+13045	熱気	WRONG	熱気 is heat/excitement of atmosphere, not interest
+97552	多数	POS	→ 多数の
+92968	提示	WRONG	提示 is show/present a document, not publication
+30408	分る	WRONG	分かる means understand, not witness
+71497	よく	WRONG	よく is well, not comparative better
+19508	勉強	WRONG	勉強 is study, hyponym of work
+57414	伝達	ADD	
+32336	異なる	POS	verb; → 異なった / 別個の
+70927	影像	WRONG	影像 is a visual image/reflection, not mental image
+76290	誘う	WRONG	誘う is invite generally; to one's house is 招く
+51423	居る	WRONG	copular rendering
+72867	歓喜	ADD	
+97932	推定	WRONG	推定 is numerical estimate/presumption, not evaluation
+95448	受入れる	WRONG	受け入れる is accept, not assume debts
+89369	成長	WRONG	成長 is growth, hyponym
+17983	教える	WRONG	教える is teach, hypernym of discipline
+39130	帰還	ADD	
+12751	勉強	WRONG	勉強 is study, hyponym of work
+61791	視野	WRONG	視野 is field of view/perspective, not mindset
+66802	念願	WRONG	念願 is a noun 'cherished wish'
+40140	調査	ADD	
+95191	混乱	POS	→ 混乱させる
+80957	範囲	WRONG	範囲 is scope/range, not part of a structure
+24419	近接	POS	→ 近接した
+17536	比較	POS	→ 比較可能な / 比べられる
+18723	なる	WRONG	なる means become, not be identical to
+70585	興味	WRONG	興味 is the feeling of interest, not interestingness
+96007	磨く	WRONG	磨く is polish; brush only for teeth
+62597	章	ADD	
+95991	挑戦	ADD	
+38582	規模	ADD	
+77876	監視	WRONG	監視 is surveillance/monitoring, not attentive looking
+37450	知恵	WRONG	知恵 is wisdom, not traditional lore
+75187	賢明さ	WRONG	賢明さ is wisdom/prudence, not intelligence
+58484	活力	WRONG	活力 is vitality, not vigour of style
+28738	支出	ADD	
+77576	ちりばめられた	POS	inflected; → 散りばめた / ちりばめる
+61726	撃つ	ADD	
+22572	静けさ	WRONG	静けさ is quietness, not calm weather period
+20949	想像	WRONG	想像 is imagine, not daydream
+10472	承認	ADD	
+31869	拡大	ADD	
+95058	遂行	ADD	
+91657	テスト	ADD	
+43214	ひと息	WRONG	ひと息 is a pause/one breath, not breathing
+96947	隣近所	ADD	
+72096	代理	WRONG	代理 is proxy/agent, not deputy sheriff
+25687	もっと	WRONG	もっと means more, not 'as far as'
+66772	回復	WRONG	回復 is recovery, not rallying effort
+30421	もらう	ADD	
+12070	尊敬	WRONG	尊敬 is respect/esteem, not filial obedience
+58616	蒸気	WRONG	蒸気 is vapour substance, not vaporisation
+57996	固形	POS	→ 固形の
+13169	信用	WRONG	信用 is trust/credit-worthiness, not approval
+24272	系列	ADD	
+56020	名誉	WRONG	名誉 is honour/reputation, not tangible award
+64125	共同	POS	→ 共同の
+80239	競争	POS	→ 競争的な / 競争の
+83542	聞分ける	WRONG	聞き分ける is distinguish by ear/heed, not understand
+79948	覚醒	POS	→ 覚醒させる
+24578	箇所	WRONG	箇所 is spot/passage, not region
+22356	経営者	ADD	
+49525	断切る	ADD	
+76495	職	ADD	
+83926	夢幻	WRONG	夢幻 is dreams and illusions (literary), not sleeping dream
+26330	実証	WRONG	実証 is demonstrate (transitive), not turn out
+18878	比較	ADD	
+84432	為す	ADD	
+41177	理由	ADD	
+27002	早く	WRONG	早く means early/quickly, not previously
+96860	研究	ADD	
+21581	引き下げる	ADD	
+76808	革新	ADD	
+77135	自己犠牲	ADD	
+50430	生活	ADD	
+48531	刺激	ADD	
+56237	所有	ADD	
+42345	情報	WRONG	情報 is information, hypernym of material
+87435	真	POS	→ 真の
+64253	発見	ADD	
+71127	脅威	ADD	
+17117	模範	ADD	
+38526	拭く	WRONG	拭く means wipe, not dry
+87184	意見	ADD	
+69203	なる	WRONG	なる means become; copular rendering
+32307	要請	ADD	
+23697	間違い	ADD	
+70211	選ぶ	WRONG	選ぶ means choose, not prefer
+28042	読者	ADD	
+23676	拡散	ADD	
+76029	一瞬	ADD	

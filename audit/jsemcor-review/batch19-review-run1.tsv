@@ -1,0 +1,96 @@
+id	word	verdict	reason
+91974	誤り	ADD	
+19824	飲み込む	POS	→ 飲み込み (noun)
+32607	期待	ADD	
+20939	もっと	MWE	→ もっと遠く
+67739	太陽	POS	→ 太陽の
+99828	戦士	ADD	
+28352	底	MWE	→ 靴底; 底 alone is bottom
+59523	逃げる	ADD	
+68678	守護	ADD	
+98760	下す	WRONG	下す is hand down a decision, not grant
+67262	遂行	ADD	
+25463	中心	ADD	
+68327	解決	WRONG	解決 is resolution; method is 解決策
+51932	牧草	ADD	
+25186	支持	ADD	
+56651	引退する	WRONG	引退する is retire from career, not leave
+97326	連続	ADD	
+81842	初期	ADD	
+24842	多く	ADD	
+62057	単位	ADD	
+50639	指令	ADD	
+95559	症状	WRONG	症状 is symptom, not condition/state
+83426	美徳	WRONG	美徳 is virtue, not goodness/value
+24926	印象付ける	ADD	
+37675	事件	WRONG	事件 is incident/case, not vague matter
+22714	管理	WRONG	管理 is management/administration, not power
+64371	苦労	WRONG	苦労 is hardship/toil, not anxiety
+52486	手法	ADD	
+80297	センス	WRONG	センス is taste/flair, not conscious awareness
+28348	切り取られた	POS	inflected; → 切った / 切られた
+26169	かき乱す	ADD	
+30325	波	ADD	
+45917	家庭	WRONG	家庭 is household/family, not dwelling
+71917	退化	ADD	
+63425	立ち向かう	POS	verb for noun synset; → 抵抗
+14112	視覚	POS	→ 視覚の / 視覚的
+66615	栄誉	WRONG	栄誉 is honour/glory, not 'to your credit'
+59483	早く	WRONG	早く means early, not comparative earlier
+98390	終える	ADD	
+74805	死亡	ADD	
+74700	意義	ADD	
+67244	議題	ADD	
+60855	場所	ADD	
+77045	低下	ADD	
+73139	張裂ける	ADD	
+23792	孤立	ADD	
+82029	空間	ADD	
+31824	支配	ADD	
+86784	技術	POS	→ 技術的な
+52476	生産性	ADD	
+36492	伝える	ADD	
+11931	集団	WRONG	集団 is group generally, hypernym of mob
+55385	応用	ADD	
+31476	強調	ADD	
+95379	憤慨	ADD	
+55842	整え	POS	stem form; → 整える
+59414	相談	WRONG	相談 is consult/seek advice, not talk generally
+87516	儀式	ADD	
+78153	作業	ADD	
+99619	真実	POS	→ 本物の / 真正の
+60928	残って	POS	inflected; → 残りの / 残った
+69348	契約	WRONG	契約 is contract, hypernym; treaty is 条約
+85270	行く	WRONG	行く means go, not arrive
+87176	任務	ADD	
+70591	遭遇	ADD	
+56958	作業	ADD	
+86522	配慮	WRONG	配慮 is consideration/care for others, not anxiety
+29376	効用	ADD	
+72976	進行	ADD	
+61949	疑念	ADD	
+52994	プレー	ADD	
+21850	願い	ADD	
+74160	費用	ADD	
+40616	統制	WRONG	統制 is regulate/control, not organise
+92887	内側	POS	→ 内側の
+44244	別ける	ADD	
+55990	爆発	POS	intransitive; → 爆発させる
+63846	作成	WRONG	作成 is draw up/create, not constitute
+85363	望む	WRONG	望む is wish/hope, not expect
+15914	形成	ADD	
+43692	決議	ADD	
+18411	比較	ADD	
+43397	教育	WRONG	教育 is education, not erudition
+59489	怒鳴る	ADD	
+41880	飲む	ADD	
+37964	悪化	POS	intransitive; → 悪化させる
+66718	逆らう	ADD	
+90954	低下	ADD	
+18551	期限	WRONG	期限 is deadline, not a period
+83338	みにくい	ADD	
+33555	軍隊	ADD	
+64232	満足	POS	→ 満足させる
+79601	総計	ADD	
+69740	移行	WRONG	移行 is transition, not move around
+60688	出す	ADD	

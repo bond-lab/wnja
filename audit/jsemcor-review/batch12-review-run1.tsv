@@ -1,0 +1,151 @@
+id	word	verdict	reason
+27634	興味	ADD	
+28950	情欲	ADD	
+69679	折り合い	WRONG	compromise/getting along, not statement of promises
+78378	事業	WRONG	business undertaking, not an organization
+15141	描く	ADD	
+10438	地所	ADD	
+41538	退職	ADD	
+63720	計画	ADD	
+78889	競走	WRONG	footrace; competition generally is 競争
+28552	管理人	ADD	
+21983	相談	ADD	
+61500	リーダー	WRONG	individual leader, not body of leaders
+82887	態度	WRONG	attitude, not dignified bearing
+49068	調書	WRONG	deposition/investigation record, narrower than report
+71851	調査	ADD	
+65632	見本	WRONG	sample/model, not punishment as warning
+20025	戻る	WRONG	return, not retreat
+14491	顧みる	ADD	
+99109	感受性	ADD	
+90275	頻度	ADD	
+40130	有る	ADD	
+48758	性格	ADD	
+43188	人物	WRONG	person/character, not member of Hominidae
+25577	代理人	WRONG	agent/proxy, not deputy sheriff
+82336	ひどく怒る	WRONG	phrase, not a lexical item
+41677	購入	WRONG	purchase, narrower than procurement
+64832	制御	ADD	
+70497	少し	POS	adverb; → 少しの
+21274	最初	WRONG	means first, not initiatory
+39784	心配	WRONG	worry, not take the trouble
+57710	家系	ADD	
+50475	注意	WRONG	pay attention/warn, not notice
+54177	射撃	ADD	
+90071	きっかり	WRONG	exactly, not unqualified
+38616	親密	ADD	
+15200	園	WRONG	garden as place, and bound morpheme
+31025	放り投げる	ADD	
+62828	願い	WRONG	wish, not grounds for hope
+86707	おかしい	WRONG	strange/amiss, not below standard
+95169	夢想	ADD	
+17670	一族	WRONG	clan/extended family, not household
+54984	様子	WRONG	appearance/state, not aspect
+84370	仲間	WRONG	companions/fellows, not group
+87418	無気力	WRONG	listlessness, not impassivity
+33236	よく	ADD	
+70633	表彰	WRONG	commendation act, not the award object
+61502	発案	ADD	
+37960	勤労者	WRONG	worker generally, not manual labourer
+59955	感触	WRONG	feel/texture, not sense of touch
+59640	響く	ADD	
+16455	一心不乱	WRONG	single-minded devotion, not physically concentrated
+38231	計略	ADD	
+64848	解す	WRONG	means understand, not experience
+55535	好意	WRONG	goodwill, not courteous act
+42307	立つ	MWE	→ 立場に立つ
+34066	件	ADD	
+82030	治療	ADD	
+31478	形成	WRONG	formation generally, not imprint on mind
+72939	対照	WRONG	contrast, not exact opposite
+36692	インテリア	WRONG	interior decoration, not inside region
+62457	振る舞い	ADD	
+38108	恥辱	WRONG	disgrace/humiliation, not embarrassment
+87841	血筋	ADD	
+71303	贈呈	ADD	
+50441	ならず者	ADD	
+71940	遮る	ADD	
+68603	働かせる	ADD	
+74253	分かれ目	WRONG	dividing point/turning point, not junction
+92136	湧き起こる	WRONG	well up, not appear
+99023	設定	WRONG	set a value; not put in a place
+33802	使節団	WRONG	diplomatic delegation, not missionary organization
+73845	極	ADD	
+36815	物音	ADD	
+80821	作品	WRONG	work of art/literature, not artifact product
+60195	苦しみ	ADD	
+64942	費やす	WRONG	spend (time/money), not dedicate
+19539	秘密	POS	noun; → 秘密の
+16181	寄与	POS	noun; → 寄与する / 寄与的
+46240	住む	WRONG	reside, not lead a kind of life
+57555	促進	ADD	
+45981	権力	ADD	
+91391	シート	ADD	
+12433	決定	WRONG	decision generally, not formal resolution
+78013	苦悩	WRONG	mental anguish, not acute pain
+33861	異常	ADD	
+44384	急降下	ADD	
+77125	預ける	ADD	
+61505	散り散り	ADD	
+95125	憶測	ADD	
+38513	指定	WRONG	designate, not ascribe
+45208	卓越	POS	noun; → 卓越した
+23554	独立	POS	noun; → 独立した
+57329	哀しみ	WRONG	sorrow, not distress
+17503	待つ	WRONG	wait, not expect as probable
+30122	動く	WRONG	hypernym move, not jiggle
+57151	鍛える	ADD	
+27968	反対	POS	noun; → 反対の
+41572	認識	WRONG	recognize/cognize, not witness
+25629	哀しみ	ADD	
+12673	作品	WRONG	work (hypernym), not play
+52216	農業	POS	noun; → 農業の
+60385	系統	ADD	
+68973	渇望	WRONG	craving (state), not desired object
+20900	不徳	ADD	
+59987	履行	WRONG	fulfilment of duty, not action
+52631	夕食	ADD	
+43590	記者	WRONG	journalist, hyponym of writer
+78065	闇黒	WRONG	darkness, not night
+97716	興味	WRONG	curiosity interest, not benefit/sake
+17196	監督	ADD	
+49614	積	WRONG	product (multiplication), not calculation
+61638	肉	WRONG	meat generally (hypernym)
+89680	備える	ADD	
+41234	後方	ADD	
+74019	法則	ADD	
+15350	差し換える	WRONG	replace (transitive), not stand in
+34605	範囲	ADD	
+29774	光	WRONG	light itself, not light source device
+77357	検討する	ADD	
+88039	今	POS	noun; → 今の
+26729	部門	ADD	
+14164	ある	ADD	
+37331	増額	WRONG	monetary increase (transitive), narrower
+50931	連結	ADD	
+63829	問いただす	WRONG	interrogate/press, narrower than ask
+65581	シナリオ	ADD	
+72734	宙返り	ADD	
+81301	光り輝く	ADD	
+27826	任務	WRONG	duty/mission, not occupation
+77759	嫌悪	ADD	
+81846	感度	WRONG	instrument sensitivity, not emotional
+44130	防御	ADD	
+51138	含む	ADD	
+69204	背景	ADD	
+97316	裂く	ADD	
+59413	現代	POS	noun; → 現代の
+29292	体得	ADD	
+36844	保証	ADD	
+46745	ぶら下がる	ADD	
+80120	擁護	WRONG	advocate/support, not be on the defensive
+68900	低地	WRONG	lowland generally (hypernym)
+63124	卓越	POS	noun; → 卓越した
+27915	far from 決して～ない	WRONG	not a word; gloss of 'far from'
+60660	潮流	WRONG	tidal current, not watercourse
+77741	設定	ADD	
+56611	言い渡す	ADD	
+39628	溢れ出す	WRONG	intransitive overflow; synset transitive
+23453	重複	WRONG	overlap/redundancy, not copying
+48282	見解	ADD	
+58557	打ち負かす	ADD	

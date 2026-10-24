@@ -1,0 +1,96 @@
+id	word	verdict	reason
+91974	誤り	ADD	
+19824	飲み込む	POS	verb; → 飲み込み (already present)
+32607	期待	ADD	
+20939	もっと	WRONG	means 'more', not farther in distance
+67739	太陽	POS	→ 太陽の (already present)
+99828	戦士	ADD	
+28352	底	WRONG	bottom in general; sole is 靴底
+59523	逃げる	ADD	
+68678	守護	ADD	
+98760	下す	WRONG	hand down/issue, not grant
+67262	遂行	WRONG	carry out, not attain
+25463	中心	ADD	
+68327	解決	WRONG	act of solving; method is 解決策
+51932	牧草	WRONG	pasture grass; hyponym
+25186	支持	ADD	
+56651	引退する	WRONG	means retire, not depart
+97326	連続	ADD	
+81842	初期	WRONG	early period, not the starting point
+24842	多く	ADD	
+62057	単位	ADD	
+50639	指令	ADD	
+95559	症状	WRONG	medical symptom, not general state
+83426	美徳	WRONG	virtue, not goodness/value
+24926	印象付ける	ADD	
+37675	事件	WRONG	incident/case, not vague matter
+22714	管理	WRONG	management/administration, not power to control
+64371	苦労	WRONG	hardship/toil, not anxious feeling
+52486	手法	ADD	
+80297	センス	WRONG	taste/aptitude, not general awareness
+28348	切り取られた	WRONG	passive 'cut off/out'; hyponym phrase
+26169	かき乱す	ADD	
+30325	波	ADD	
+45917	家庭	WRONG	household/family, not dwelling
+71917	退化	ADD	
+63425	立ち向かう	POS	verb for noun synset; noun is 抵抗
+14112	視覚	POS	→ 視覚の or 視覚的 (present)
+66615	栄誉	WRONG	honour/glory, not credit for achievement
+59483	早く	WRONG	non-comparative; より早く already present
+98390	終える	ADD	
+74805	死亡	ADD	
+74700	意義	WRONG	significance/importance, not implied meaning
+67244	議題	WRONG	topic for discussion, not schedule
+60855	場所	WRONG	place in general; hypernym of scene
+77045	低下	ADD	
+73139	張裂ける	ADD	
+23792	孤立	ADD	
+82029	空間	WRONG	abstract space, not reserved area
+31824	支配	ADD	
+86784	技術	POS	→ 技術的 (present) or 技術の
+52476	生産性	ADD	
+36492	伝える	ADD	
+11931	集団	WRONG	group in general; hypernym of mob
+55385	応用	ADD	
+31476	強調	ADD	
+95379	憤慨	ADD	
+55842	整え	WRONG	not a dictionary form; → 整える
+59414	相談	WRONG	consult, not converse
+87516	儀式	ADD	
+78153	作業	ADD	
+99619	真実	WRONG	truth/true; genuine is 本物の
+60928	残って	POS	inflected; → 残った or 残りの
+69348	契約	WRONG	contract; treaty is 条約
+85270	行く	WRONG	means go, not arrive
+87176	任務	ADD	
+70591	遭遇	ADD	
+56958	作業	ADD	
+86522	配慮	WRONG	consideration/care for others, not anxiety
+29376	効用	ADD	
+72976	進行	ADD	
+61949	疑念	ADD	
+52994	プレー	WRONG	play as action, not preset tactical plan
+21850	願い	ADD	
+74160	費用	ADD	
+40616	統制	WRONG	control/regulation, not organize
+92887	内側	POS	→ 内側の
+44244	別ける	WRONG	nonstandard spelling; 分ける means divide
+55990	爆発	POS	intransitive; → 爆発させる (present)
+63846	作成	WRONG	draw up documents, not constitute
+85363	望む	WRONG	wish/desire, not expect
+15914	形成	POS	transitive; → 形成される
+43692	決議	ADD	
+18411	比較	WRONG	comparison; hypernym of contrast
+43397	教育	WRONG	education, not erudition
+59489	怒鳴る	ADD	
+41880	飲む	ADD	
+37964	悪化	POS	intransitive; → 悪化させる (present)
+66718	逆らう	ADD	
+90954	低下	ADD	
+18551	期限	WRONG	deadline, not period of time
+83338	みにくい	WRONG	ugly, not grotesque/distorted
+33555	軍隊	ADD	
+64232	満足	POS	→ 満足させる (present)
+79601	総計	ADD	
+69740	移行	WRONG	transition, not move around
+60688	出す	WRONG	put out/submit in general, not refer for decision

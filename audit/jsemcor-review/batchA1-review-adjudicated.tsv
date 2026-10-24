@@ -1,0 +1,248 @@
+id	word	verdict	reason
+10178	運営	WRONG	運営 is management/running of an organisation, not the activity
+10438	地所	WRONG	地所 is land/real estate, not a vegetated patch
+10507	ビジョン	WRONG	ビジョン is vision/outlook, not imagination
+11237	連続	POS	→ 連続の; noun needs の for adjective synset
+11330	性	WRONG	性 is sex/sexuality, not sexual activity
+11403	終わる	WRONG	intransitive 'come to an end', not 'be the last part of'
+11411	守る	ADD	
+11425	不満	ADD	
+11736	無思慮な	POS	→ 無思慮; drop な for 形容動詞 stem
+11904	御目に掛かる	ADD	
+11982	政治	ADD	
+12101	発想	ADD	
+12213	施策	WRONG	施策 is a policy measure, narrower than plan
+12327	表皮	WRONG	表皮 is epidermis, not hard carapace
+12673	作品	WRONG	作品 is work in general; hypernym of play
+12786	演技	ADD	
+12928	確立	WRONG	確立 is establish firmly, not found
+13020	空想	WRONG	空想 is fantasy/imagining, not vain hope
+13045	熱気	ADD	
+13510	家庭	WRONG	家庭 is household/family, not place of residence
+13778	光	WRONG	光 is light itself, not an illuminated area
+14080	与える	ADD	
+14164	ある	ADD	
+14197	選ぶ	WRONG	選ぶ is choose in general; hypernym of elect
+14491	顧みる	ADD	
+14962	つり下げる	POS	→ つり下がる; synset is intransitive be hanging
+15178	あまた	POS	→ あまたの
+15437	引っ張る	WRONG	引っ張る is pull; hypernym of jerk
+15546	基本	POS	→ 基本的
+15914	形成	POS	→ 形成される; synset is intransitive take shape
+15943	滞在	ADD	
+15955	監視	WRONG	監視 is surveillance/monitoring, narrower than watch
+16060	信条	ADD	
+16107	的	MWE	注目の的; 的 alone is target, not focus
+16213	根源	WRONG	根源 is root/origin, not source of inspiration
+16249	救う	WRONG	救う is save/rescue, stronger than help improve
+16284	製作	WRONG	製作 is the act of making, not a stage production
+16605	市民	WRONG	市民 is citizen/city dweller, narrower than resident
+16714	附する	WRONG	附する is attach/append, not put in a place
+17555	現代	POS	→ 現代の
+17566	推移	ADD	
+17892	作品	WRONG	作品 is any work; hypernym of an author's writings
+18171	連続	WRONG	連続 is continuity/succession, not ordered arrangement
+18209	上がる	WRONG	example is general rising, not coming to the surface
+18411	比較	WRONG	比較 is comparison; hypernym of contrast
+18716	老人	WRONG	老人 is old person of either sex; hypernym
+18787	見付け出す	WRONG	見付け出す is discover by searching, not obtain by effort
+18878	比較	WRONG	比較 is examine and compare, not liken
+19148	行程	ADD	
+19403	取り上げる	ADD	
+19422	掘り起こす	WRONG	掘り起こす is dig up generally; hypernym of exhume
+19469	居	ADD	
+19526	苦難	WRONG	苦難 is hardship, not psychological suffering
+19539	秘密	POS	→ 秘密の
+19717	要約	WRONG	要約 is a general summary, not concluding summation
+19971	負け	ADD	
+20709	起こる	WRONG	起こる is happen/arise, not be the product of
+20849	放つ	MWE	匂いを放つ
+20860	恐怖	WRONG	恐怖 is fear, not a horrible thing
+20939	もっと	WRONG	もっと means more, not farther in distance
+21274	最初	WRONG	最初 is first in order, not initiatory
+21393	たたく	WRONG	たたく is beat/strike; example is press a button
+21430	傾注	ADD	
+21884	ドライブ	WRONG	ドライブ here is a propulsion device, not act of propelling
+21983	相談	ADD	
+22167	規則	ADD	
+22676	思い出す	POS	→ 思い出させる; 思い出す is recall, not remind
+22716	風の強い	ADD	
+22747	示唆	WRONG	示唆 is hint/suggest, not medical indication
+23150	男性	WRONG	男性 is male/man (formal), not colloquial chap
+23217	興奮	POS	→ 興奮させる; 興奮 is intransitive get excited
+23351	平和	MWE	心の平和; 平和 alone is absence of war
+23554	独立	POS	→ 独立した
+23610	阻止	WRONG	阻止 is prevent/block, not intercept
+23678	取る	ADD	
+23870	現実	POS	→ 現実の
+23930	部分	WRONG	部分 is part; hypernym of section
+24781	備える	WRONG	備える is equip/prepare, not supply
+25024	方策	ADD	
+25385	反響	WRONG	反響 is echo/response, not resonant quality
+25502	資本	WRONG	資本 is capital, not funds
+25568	状況	WRONG	状況 is situation/circumstances, not mode of being
+25677	適用	POS	→ 適用される; synset is be applicable
+25976	比重	ADD	
+25981	責任	WRONG	責任 is duty/liability, not the trait of responsibleness
+26093	慣例	WRONG	慣例 is custom/convention, not precedent
+26145	思う	WRONG	思う is general think/contemplate, not keep in mind
+26185	組織	WRONG	組織 is organisation, not an artifact system
+26197	電灯	ADD	
+26226	支持	WRONG	支持 is endorse/back, not financial support
+26412	役者	WRONG	役者 is actor, narrower than performer
+26729	部門	WRONG	部門 is department/division, not sphere of life
+27372	連邦	POS	→ 連邦の
+27534	ある	WRONG	bare ある is existential; copula is である
+27622	終結	POS	→ 終結させる; 終結 is mainly intransitive
+27678	疑問	WRONG	疑問 here is doubt/open question, not interrogative sentence
+27773	フロー	ADD	
+27848	介入	ADD	
+27861	務める	ADD	
+27905	川岸	ADD	
+27915	far from 決して～ない	WRONG	not a word; gloss of 'far from ~ない'
+27968	反対	POS	→ 反対の
+28042	読者	WRONG	読者 is readers; hyponym of audience
+28120	排出	ADD	
+28348	切り取られた	WRONG	切り取られた is cut off/out (passive), narrower than cut
+28352	底	WRONG	底 is bottom in general; sole is 靴底
+28395	ストレート	WRONG	ストレート means without dropping a set/direct, not consecutive
+28580	支持者	ADD	
+28585	好む	WRONG	好む is like/prefer, not cherish
+28772	審査官	WRONG	審査官 is an official examiner; contest judge is 審査員
+28972	愚かさ	WRONG	愚かさ is the quality, not a stupid mistake
+29089	志願	ADD	
+29161	トップ	WRONG	トップ is first place, not the leading margin
+29395	策略	ADD	
+29533	勤める	WRONG	勤める is be employed/serve, not exert oneself
+29750	栄誉	WRONG	栄誉 is abstract honour, not a tangible award
+29774	光	WRONG	光 is light itself, not a light source device
+29904	輝き	WRONG	輝き is shine/sparkle, not a momentary flash
+30288	治療	WRONG	治療 is treatment, not cure
+30295	土地	WRONG	土地 is land, not area set aside for a purpose
+30421	もらう	WRONG	もらう is receive from someone; narrower than get
+30501	鼓吹	WRONG	鼓吹 is inspire/advocate, not act as a stimulant
+30519	商業	WRONG	商業 is commerce as activity, not businesses collectively
+30589	役員	ADD	
+30616	混合物	WRONG	混合物 is a general/chemical mixture, not food concoction
+30618	不精者	ADD	
+30643	知る	WRONG	知る is general know; know-how sense needs ～方を知る
+30787	授業	ADD	
+31078	現代	WRONG	現代 is the present age; hyponym of times
+31974	表われる	WRONG	表われる is manifest (abstract); come into view is 現れる
+32167	昇級	POS	→ 昇級させる; 昇級 is intransitive
+32168	意欲	WRONG	意欲 is motivation/eagerness, not ambition
+32336	異なる	POS	→ 異なった
+32443	打つ	ADD	
+32546	公表	WRONG	公表 is public announcement, not issuing printed matter
+32765	求める	ADD	
+32880	技術	WRONG	技術 is technique/technology, not superior artistry
+33359	独立	POS	→ 独立の / 独立した
+33400	良心	MWE	良心の呵責; 良心 alone is moral sense
+33601	悪口	WRONG	悪口 is badmouthing, not an expletive
+33603	もらい受ける	WRONG	もらい受ける is receive by request; narrower than get
+33963	解釈	WRONG	解釈 is interpretation, not explanation
+34078	規律	WRONG	規律 is rules/order, not the trait of good behaviour
+34188	出る	ADD	
+34323	砕く	ADD	
+34402	抱える	WRONG	抱える is have (burdens, staff), narrower than possess
+34773	始める	POS	→ 始まる; synset is intransitive
+34847	会う	WRONG	会う is general meet; hypernym of meet on arrival
+34930	詐欺師	WRONG	詐欺師 is swindler, narrower than sly person
+35027	細かい	WRONG	細かい is fine/detailed, not infinitesimal
+35101	転じる	WRONG	転じる is turn/change, not move something around
+35401	合成	POS	→ 合成の
+35687	弾力性	WRONG	弾力性 is elasticity; flexibility is 柔軟性
+35767	分析	WRONG	general analysis; hypernym of literary analysis
+35916	取り掛かる	WRONG	取り掛かる is set about; lacks 'with vigour'
+36153	タイプ	ADD	
+36341	不充分	ADD	
+36477	小枝	ADD	
+36503	歪曲	ADD	
+36693	転換	MWE	方向転換; 転換 alone is conversion/switch
+36727	用具	WRONG	用具 is tools/equipment; example is a test instrument
+36773	耐える	WRONG	耐える is bear/tolerate, not undergo
+36844	保証	ADD	
+37067	女性	POS	→ 女性の
+37096	時間	ADD	
+37097	仕始める	ADD	
+37258	邪悪	WRONG	邪悪 is wickedness, not harm/misfortune
+37511	傾倒	WRONG	傾倒 is be devoted to/admire, not dedicate time to
+37825	形作る	WRONG	形作る is shape generally; hypernym of model in clay
+37939	圧力	WRONG	圧力 is the force, not the act of pressing
+37952	統一	WRONG	統一 is unification; wholeness is 統一性/一体性
+37957	聴衆	WRONG	聴衆 is listeners; hyponym of audience
+37998	形作る	POS	→ 形作られる; synset is intransitive take shape
+38356	基礎	POS	→ 基礎的
+38497	上がる	ADD	
+38618	生じる	ADD	
+38843	付ける	ADD	
+38967	営み	WRONG	営み is activity/conduct, not mode of living
+38994	打つ	WRONG	golf 'shoot' is score strokes; 打つ is hit
+39049	落ち合う	WRONG	落ち合う is people meeting up, not converge
+39171	採る	WRONG	採る is collect/adopt, not take into possession
+39260	する	WRONG	grammatical rendering (〜ようにする), not a causative verb
+39949	休会	ADD	
+40250	ひどい	ADD	
+40743	細かい	ADD	
+40769	小飛球を打つ	ADD	
+40847	開始	WRONG	開始 is commencement in general, not founding
+40924	振る舞う	WRONG	振る舞う is behave, not perform an action
+40961	セット	WRONG	セット is set (into apparatus), narrower than put
+41068	本当	POS	→ 本当の
+41277	超える	ADD	
+41371	統一	POS	→ 統一される; 統一 is transitive unify
+41570	消える	WRONG	消える is disappear, not become weaker
+41677	購入	WRONG	購入 is purchase, narrower than procurement
+41757	コメディ	WRONG	コメディ is comedy genre, not a comic incident
+42207	最大	POS	→ 最大の
+42280	旨趣	WRONG	旨趣 is purport/gist, not thought
+42307	立つ	MWE	立場に立つ
+42545	分離	WRONG	分離 is separation; isolation is 隔離
+42832	置換	WRONG	置換 is substitute one thing for another, not take the place of
+43210	声	ADD	
+43278	目	ADD	
+43621	疲労	POS	→ 疲労させる; synset is causative tire
+43712	知らせる	WRONG	知らせる is inform; hypernym of report findings
+44003	設計	ADD	
+44024	計画	ADD	
+44107	死体	WRONG	死体 is corpse; hypernym of dressed carcass
+44244	別ける	ADD	
+44611	服装	ADD	
+44931	根拠	ADD	
+45130	オリジナル	WRONG	original version sense, not firsthand
+45208	卓越	WRONG	卓越 is excellence/superiority, not prominence
+45414	類似	POS	→ 類似した
+45698	解説	ADD	
+45985	演奏	ADD	
+46285	不備	WRONG	不備 is defect/inadequacy, not lack
+46480	家柄	WRONG	家柄 is family pedigree/standing, not descendants
+46595	冷める	WRONG	example is physical cooling; not calm down
+47295	言語	WRONG	言語 is language system, not cognitive process
+47491	力	WRONG	力 is power/strength, not holding office
+47885	異なる	POS	→ 異なった
+48531	刺激	WRONG	刺激 is stimulus, not a moving force
+48552	いう	WRONG	いう is general say; hypernym of remark
+48758	性格	ADD	
+48969	群れ	WRONG	群れ is herd/flock, narrower than group
+49225	明り	ADD	
+49444	組合せる	WRONG	組合せる is combine, not assemble
+49525	断切る	ADD	
+49543	思い	WRONG	思い is thought/feeling, not hope
+49905	救済	ADD	
+50039	突撃	ADD	
+50270	主	POS	→ 主な
+50651	集会	ADD	
+50730	掴み取る	WRONG	掴み取る is grab/seize, not hold firmly
+50738	著書	WRONG	著書 is a written book; hyponym of work
+50771	愉快	WRONG	愉快 is pleasantness (adjectival), not fun activities
+51023	キャラクター	WRONG	キャラクター is fictional character, not role portrayed
+51402	一群	ADD	
+51577	呼吸	WRONG	呼吸 is breathing, not the air breathed
+51630	最高	POS	→ 最高の
+51641	適用	WRONG	適用 is application (of rules), not use
+51799	規準	ADD	
+51932	牧草	WRONG	牧草 is pasture/forage grass; hyponym
+52422	作戦	WRONG	作戦 is strategy/operation, narrower than plan
+52668	類似	POS	→ 類似した / 類似の
+52790	喧騒	WRONG	喧騒 is din/bustle, narrower than noise
+52855	畑	ADD	

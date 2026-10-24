@@ -1,0 +1,151 @@
+id	word	verdict	reason
+30295	土地	WRONG	land in general, not area set aside for a purpose
+28868	内側	POS	→ 内側の
+83968	警護	WRONG	guard/escort a person; hyponym
+78808	男	ADD	
+32758	本源	WRONG	origin/fountainhead, not inspiration source
+63273	生じる	WRONG	intransitive 'arise', not call forth
+91004	続く	ADD	
+90242	類似	WRONG	similarity in general; hypernym
+25589	さらけ出す	ADD	
+64182	事故	WRONG	accident in general; hypernym of crash
+11403	終わる	WRONG	intransitive 'end', not 'form the end of'
+40000	調査	ADD	
+30151	法律	ADD	
+24356	才能	ADD	
+30519	商業	WRONG	commerce as activity, not business sector
+48552	いう	WRONG	say; hypernym of mention
+79609	影響	ADD	
+91082	推し量る	ADD	
+13740	基盤	ADD	
+63078	多彩	ADD	
+24451	道具	ADD	
+74675	すき間	ADD	
+49420	やり遂げる	ADD	
+81196	古い	WRONG	old/aged, not former
+94285	立ち去る	ADD	
+16039	意味	WRONG	meaning in general; hypernym
+61087	同僚	ADD	
+64544	陳述	ADD	
+49253	悪意	ADD	
+20269	結局	WRONG	adverb 'in the end', not result
+38135	大勢	ADD	
+44186	歓喜	ADD	
+80350	要求	ADD	
+24647	誘発	ADD	
+96134	待ち焦がれる	ADD	
+64947	勢い	WRONG	momentum/vigour, not strength
+53094	届ける	WRONG	deliver/report, not extradite
+74093	放棄	ADD	
+36695	胸騒ぎ	WRONG	foreboding, not physical discomfort
+95724	続ける	WRONG	transitive 'continue doing', not remain
+83413	バリエーション	ADD	
+28072	許可	ADD	
+84437	著しい	ADD	
+75660	カウンセラー	WRONG	general counselor; camp counselor is hyponym
+61700	見解	WRONG	opinion/view, not mindset
+92006	持つ	WRONG	last/hold up, not preserve
+49236	時刻	ADD	
+45050	割合	WRONG	ratio/proportion, not charge rate
+88612	引出す	ADD	
+43853	野心	ADD	
+38842	心苦しい	WRONG	means regrettable/painful to oneself, not atrocious
+58215	図案	WRONG	design/pattern, not illustration
+21069	悪化	WRONG	noun 'deterioration', not comparative worse
+66263	本質	WRONG	essence, not reality
+72504	討議	ADD	
+60417	速度	ADD	
+56986	引く	WRONG	general pull; hypernym of haul
+95028	検閲	ADD	
+66425	初心者	ADD	
+53760	亭主	WRONG	husband or innkeeper, not legal owner
+69089	忠告	WRONG	admonish/warn, not propose a plan
+25309	立案する	ADD	lemma normally 立案
+50783	想定	ADD	
+79610	付ける	WRONG	means attach, not put/place
+18091	一緒	WRONG	means together, not companionship
+31398	通貨	ADD	
+79189	任務	WRONG	mission/task, not obligation as force
+60091	抑揚	WRONG	intonation, not stress/accent
+81767	かき立てる	ADD	
+52296	弁明	ADD	
+62394	運輸	ADD	
+39185	反感	ADD	
+98478	念願	WRONG	noun 'long-cherished wish', not verb yearn
+23000	承認	ADD	
+58749	舞台監督	WRONG	stage manager, different role
+14247	煽る	ADD	
+51210	出来事	ADD	
+57133	燃焼	ADD	
+40187	取り掛かる	ADD	
+78140	既知	POS	→ 既知の
+79056	広い	ADD	
+73885	離れる	ADD	
+11174	職業	ADD	
+58945	器具	ADD	
+63294	関わる	WRONG	intransitive 'be involved'; transitive is 巻き込む
+87763	著す	WRONG	write/author a book, not formulate in style
+23752	営み	ADD	
+10927	食事	WRONG	meal in general; hypernym of supper
+56821	同情	ADD	
+42282	作り話	WRONG	made-up story/lie, not literary fiction
+57924	要望	WRONG	request/wish, lacks earnest entreaty sense
+88388	人生	WRONG	life as a whole, not remainder until death
+58351	脅威	WRONG	threat/menace, not apprehension
+49475	知る	POS	→ 知られている (already present)
+37498	出掛ける	ADD	
+89848	速める	ADD	
+87258	才気	ADD	
+17346	前	WRONG	noun 'before/front'; sooner is もっと早く
+51305	内密	ADD	
+34078	規律	WRONG	rules/order, not the trait
+75225	侵害	ADD	
+25454	パートナー	ADD	
+77658	拡大	ADD	
+55177	懸念	ADD	
+16952	輪郭	ADD	
+22167	規則	ADD	
+37958	プラン	WRONG	plan in general, not layout
+43025	遺失	WRONG	losing property, not losses
+87262	差し出す	WRONG	hand over/present, not refer for decision
+45405	初期	POS	→ 初期の (already present)
+65773	集団	POS	→ 集団の or 集団的 (present)
+94831	引き請ける	ADD	
+58936	弁士	ADD	
+62729	ドレッシーな	POS	→ ドレッシー (stem)
+21768	高める	WRONG	transitive raise; synset is intransitive
+47456	提供	ADD	
+85000	持ちこたえる	WRONG	hold out/endure, not continue
+99114	ムード	ADD	
+22747	示唆	ADD	
+21201	正直	ADD	
+61994	水	POS	noun water; → 水の or 水性 (present)
+39530	齎す	WRONG	means bring about, not cultivate
+42809	誠実	ADD	
+14264	真面目	ADD	
+51597	プレゼンテーション	ADD	
+29578	触感	WRONG	tactile feel/texture, not sense of touch
+30433	孤独	ADD	
+47418	いい	WRONG	'good', not comparative adverb
+94183	言詞	WRONG	archaic 'words/speech', not unit word
+47012	作成	ADD	
+17437	条項	ADD	
+74268	向上	WRONG	improvement, not development
+16284	製作	ADD	
+61800	作り上げる	ADD	
+91880	安全保障	WRONG	national security; hyponym
+20983	離れた	WRONG	separated/distant, not leftover
+82363	消え入る	ADD	
+28154	配給	ADD	
+54570	得意	ADD	
+93714	渡す	ADD	
+90870	見本	ADD	
+99503	方法	WRONG	method, not step/measure
+37723	連邦	POS	→ 連邦の
+85999	ごみ	ADD	
+81677	経費	ADD	
+10731	豊富	WRONG	abundant (adjectival), not a large amount
+72805	基本	WRONG	basics, not a lower limit
+64833	設計	WRONG	design, not planning
+53969	空想	ADD	
+99082	変化	WRONG	intransitive change; act of changing is 変更

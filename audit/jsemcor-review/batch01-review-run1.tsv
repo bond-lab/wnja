@@ -1,0 +1,151 @@
+id	word	verdict	reason
+69294	学園	ADD	
+83370	領域	ADD	
+71033	野蛮	WRONG	野蛮 means barbarous/savage, not unrestrained
+69222	考察	WRONG	考察 means consider/study, not interrogate closely
+76563	思い巡らす	ADD	
+86989	シフト	WRONG	physics shift (displacement), not qualitative change
+34890	掛ける	MWE	only with 鍵/掛け金: 鍵を掛ける
+34203	熱い	WRONG	熱い means ardent/passionate, not frantic
+77096	駆ける	ADD	
+72359	パーティ	ADD	
+92559	通知	WRONG	generic notification, not request for payment
+90472	考察	ADD	
+34402	抱える	WRONG	抱える is have (burdens/problems), narrower than possess
+22336	意図	WRONG	意図 means intention, not plan/design
+68535	放出	WRONG	放出 means emission/release of material, not liberation
+49767	近接	POS	noun; → 近接した
+28585	好む	WRONG	好む means like/prefer, not cherish
+21884	ドライブ	WRONG	ドライブ is driving or a drive unit, not act of propelling
+80607	捕まえる	WRONG	捕まえる means capture, not discover unexpectedly
+93158	購入	WRONG	hyponym: purchase
+15489	思いめぐらす	ADD	
+88045	作戦	WRONG	作戦 is military operation/strategy, not task
+61925	含む	ADD	
+69374	配慮	WRONG	配慮 means consideration/care, not be on one's mind
+95710	放棄	ADD	
+90683	惑わす	ADD	
+95206	必ず～でしょう	WRONG	grammatical paraphrase, not a word
+30643	知る	WRONG	know-how needs ～方を知る; 知る is general know
+91674	暗い	WRONG	暗い means gloomy, not wicked
+11966	全体	POS	noun; → 全体の
+79255	制作	WRONG	制作 means produce (artwork), not exert oneself
+18279	北	POS	→ 北の
+17805	一致	POS	→ 一致した / 全会一致の
+14673	集団	WRONG	hypernym: group in general
+34930	詐欺師	WRONG	swindler is narrower (criminal) than crafty person
+41711	活動	WRONG	活動 means be active, not labour
+88593	感覚	WRONG	感覚 is sensation/sense, not vague belief
+13942	相違	ADD	
+70808	源	ADD	
+52767	驚愕	ADD	
+67741	鎮める	ADD	
+87458	切れ端	ADD	
+35601	戦い	ADD	
+78042	前提条件	WRONG	前提条件 means prerequisite, not presupposition
+40624	判断	WRONG	判断 means judge, not scrutinize
+93924	打ちのめす	ADD	
+48555	要求	WRONG	要求 means demand, not desire
+75506	側面	ADD	
+10602	企画	ADD	
+96828	系統	WRONG	系統 means system/lineage; chain only in 指揮系統
+21139	記者	WRONG	hyponym: journalist
+69943	探究	WRONG	探究 means inquire into, not locate
+95826	先ず	POS	adverb; adjective is 最初の
+46459	奔放	ADD	
+63317	読取る	WRONG	読み取る means read/infer, narrower than understand
+82255	庶民	ADD	
+20905	バリエーション	WRONG	バリエーション means variation, not kind
+43291	素振り	ADD	
+51324	合流	ADD	
+40102	機会	WRONG	機会 means opportunity, not critical juncture
+77224	匂い	ADD	
+47885	異なる	POS	verb; → 異なった
+13899	成し遂げる	ADD	
+19204	取る	ADD	
+83812	指示	ADD	
+24146	デザイン	WRONG	design, not scale drawing of a structure
+62481	側面	ADD	
+24129	状況	ADD	
+48129	疑い	ADD	
+60661	見る	ADD	
+18759	範囲	ADD	
+12213	施策	WRONG	施策 is a policy measure, narrower than plan
+99770	支配	ADD	
+10071	不安定	ADD	
+37984	絆	ADD	
+37488	拘留	ADD	
+16858	ヒト	POS	→ 人間の
+71602	食堂	WRONG	hypernym: dining hall generally
+59212	機能	WRONG	機能 means function, not mental faculty
+62091	ある	WRONG	existential copula, not remain
+65022	嵌る	ADD	
+19573	表明	ADD	
+84218	打ち上げる	ADD	
+92503	統一	ADD	
+36016	指名	ADD	
+98461	方針	WRONG	方針 means policy/course, not attitude set
+45360	来る	WRONG	来る means come, not originate
+54157	ついて行く	WRONG	ついて行く means accompany/keep up, not imitate
+21422	皿	ADD	
+50790	思い	ADD	
+53592	戦争	WRONG	hypernym: war, not a combat engagement
+11985	競争	POS	→ 競争的な
+63746	少数	POS	→ 少数の
+25465	捧げる	WRONG	捧げる means dedicate/devote, not offer for acceptance
+27641	開始	ADD	
+42294	眺める	ADD	
+23244	始まる	WRONG	始まる means begin, not date back
+11435	主張	WRONG	主張 means claim, not basic assumption
+17850	指定する	WRONG	指定 means designate, not define precisely
+70940	名士	ADD	
+73808	戦争	WRONG	war, not a battle
+33288	いい	POS	adjective; adverb is よく
+99401	嵌め込む	WRONG	hyponym: inlay/fit in
+83307	期日	ADD	
+34692	現れる	ADD	
+68644	民衆	ADD	
+76698	言語	POS	→ 言語的
+34993	性交	WRONG	sexual intercourse, not pairing for breeding
+27166	基礎	ADD	
+64949	ためらい	WRONG	ためらい means hesitation, not procrastination
+94373	技術	WRONG	技術 means technology/skill, not engineering discipline
+60299	結論	ADD	
+25270	脇	ADD	
+61754	改定	WRONG	改定 means revise, not improve
+65149	中間	POS	→ 中間の
+37900	決議	WRONG	決議 means resolve (by vote), not cast a vote
+10061	斜面	WRONG	斜面 is a slope surface, not degree of slant
+45362	仮説	WRONG	仮説 means hypothesis, not premise
+87691	足	ADD	
+49864	配置	WRONG	配置 means arrangement, not position
+12573	個性	WRONG	個性 means individuality, not moral character
+37618	認識	ADD	
+34550	幕	WRONG	幕 is act division of a play, not a variety number
+61678	栄誉	WRONG	栄誉 means honour, not eminent status
+88907	戦争	WRONG	war, not a fight
+94126	描写	ADD	
+85623	呑む	ADD	
+23150	男性	WRONG	男性 is formal 'male', not colloquial chap
+15519	取付ける	WRONG	hyponym: install/attach
+29183	落度	ADD	
+37950	伏せる	ADD	
+67873	気づく	POS	verb; → 気づいている
+43852	発生	ADD	
+11255	探究	ADD	
+89997	幻想	ADD	
+53116	無視	ADD	
+48839	テーマ	ADD	
+60616	開幕	ADD	
+19620	平静	ADD	
+19736	悲しみ	ADD	
+21811	活動	WRONG	活動 means be active, not cause to work
+37359	オリエンテーション	WRONG	in Japanese mainly an induction session
+86380	端	ADD	
+93438	銃撃	WRONG	銃撃 means fire at, not kill by shooting
+41852	計	WRONG	計 means total, not quantity
+12032	宝物	ADD	
+88811	シリーズ	ADD	
+58322	終幕	WRONG	終幕 means final act/close of play
+58719	承諾	ADD	
+91546	トイレ	ADD	

@@ -1,0 +1,151 @@
+id	word	verdict	reason
+25048	経営	WRONG	経営 is business management, not being in effect
+49780	賛同	ADD	
+94932	式	WRONG	式 is expression/formula; equation is 方程式/等式
+30383	発見	WRONG	発見 is discovery, not catch sight of
+33518	指示	WRONG	指示 is instruction/pointing, not indication
+18171	連続	ADD	
+70130	明確さ	ADD	
+12250	忠告	ADD	
+86554	妨害	WRONG	妨害 is obstruction, not policy of intervention
+73055	騒乱	ADD	
+14767	復活	WRONG	復活 is revival generally; Renaissance is 文芸復興
+50966	遊戯	ADD	
+24244	探し当てる	WRONG	探し当てる is find by searching, not by chance
+35903	村	WRONG	村 is village; hypernym of hamlet
+34188	出る	ADD	
+57096	批難	ADD	
+38490	宿る	WRONG	宿る is lodge/dwell in (spirits), not inhabit
+87116	レース風の	ADD	
+40855	雄	POS	noun; → 雄の
+88646	最後	POS	noun; → 最後の
+71854	最初	POS	noun; → 最初の
+87959	なる	WRONG	copula rendering
+76664	振り回す	ADD	
+39354	営む	ADD	
+67927	勤務	WRONG	勤務 is service/duty at work, not occupation
+34246	気持ち	ADD	
+46839	降伏	WRONG	降伏 is military surrender
+62754	放電	WRONG	electric discharge; hyponym
+32611	組込む	WRONG	組み込む is incorporate (things), not admit people
+50859	申し付ける	ADD	
+92150	バック	WRONG	nonstandard spelling; → バッグ
+81858	職務	WRONG	職務 is duties of a post
+82143	的確	ADD	
+72847	十分に	WRONG	十分に is sufficiently
+44139	抜かした。	WRONG	inflected form; 抜かす is omit, not skip attending
+73538	作り上げる	ADD	
+62771	芝居	WRONG	芝居 is a play/drama, not a short act
+54836	主導権	WRONG	主導権 is leadership/control, not enterprisingness
+96540	手引き	WRONG	手引き is guidance/introduction
+81742	洗濯	WRONG	洗濯 is laundry; narrower
+22113	掛ける	WRONG	掛ける is hang; narrower
+73257	分かる	WRONG	分かる is understand
+38967	営み	ADD	
+62353	影像	ADD	
+16515	スプリット	ADD	
+38497	上がる	ADD	
+27601	ムード	ADD	
+60459	展示	ADD	
+79151	伝承	ADD	
+77609	感じ取る	WRONG	感じ取る is perceive/sense, not undergo emotion
+45985	演奏	WRONG	演奏 is play music; narrower
+17593	幽霊	ADD	
+96186	典型	ADD	
+41144	明瞭	ADD	
+11425	不満	WRONG	不満 is dissatisfaction feeling, not voiced gripe
+71950	最適	WRONG	最適 is optimal
+58701	四苦八苦	ADD	
+68984	監視	ADD	
+42316	納める	WRONG	納める is deliver/pay in
+65238	統一	WRONG	統一 is unify
+89439	道具	ADD	
+30616	混合物	WRONG	混合物 is chemical mixture, not food concoction
+64496	価値	WRONG	価値 is value; not 'a dollar's worth' quantity
+30566	保護	ADD	
+52179	男の子	WRONG	男の子 is boy
+28971	入り口	WRONG	入り口 is entrance, not gate
+44003	設計	ADD	
+77649	能力	WRONG	能力 is ability, not susceptibility
+27185	探り当てる	ADD	
+93488	強烈な	WRONG	強烈 is intense, not heavy armaments
+91198	不安	ADD	
+44931	根拠	ADD	
+77624	沈黙	WRONG	沈黙 is not speaking; absence of sound is 静寂
+80068	諌める	WRONG	諌める is remonstrate/admonish, not rebuke
+16939	内部	POS	noun; → 内部の
+29746	もたらす	WRONG	もたらす is bring about
+84956	係わる	WRONG	係わる is be involved, not make connection
+33370	依存	POS	noun; → 依存した
+10178	運営	WRONG	運営 is management/administration
+36778	理由	WRONG	理由 is reason, not motive
+29533	勤める	WRONG	勤める is be employed/serve
+26831	合意	ADD	
+20803	議会	WRONG	generic assembly; hypernym of US Congress
+56101	向ける	POS	transitive; → 向く
+45379	電気	POS	noun; → 電気の
+90591	組み入れる	ADD	
+79199	個所	WRONG	箇所 is spot/place
+22735	派生	WRONG	派生 is morphological derivation, not etymology
+72927	位置	WRONG	位置 is physical position; → 立場
+71428	ディメンション	ADD	
+20860	恐怖	WRONG	恐怖 is fear, not something horrible
+86891	若者	ADD	
+81225	海	ADD	
+76318	構成	POS	transitive; → 構成される
+49792	繰り返す	ADD	
+12494	観念	ADD	
+34610	曲	WRONG	曲 is a tune/piece; hyponym
+35306	浅い	ADD	
+99421	販売	ADD	
+21920	認める	WRONG	認める is recognize/admit, not identify
+67696	指示	WRONG	指示 is instruct, not medical indication
+37316	生れる	WRONG	生まれる is be born
+14878	町	WRONG	町 is town
+81220	魂	ADD	
+64152	暗い	ADD	
+78900	違反	ADD	
+74773	前兆	ADD	
+30650	家	WRONG	家 is a house, not housing collectively
+50816	指導	WRONG	指導 is teaching/guidance, not steering
+51431	別れる	ADD	
+50730	掴み取る	WRONG	掴み取る is grab, not hold firmly
+63144	通じる	ADD	
+19964	近しい	WRONG	近しい is intimate, not near in space/time
+82927	話す	WRONG	話す is speak; hyponym
+50068	沈着	ADD	
+71240	信念	WRONG	信念 is belief/conviction
+97444	信徒	WRONG	信徒 is believer; hyponym
+18787	見付け出す	WRONG	見つけ出す is discover, not obtain by effort
+57147	仄めかす	WRONG	仄めかす is hint, not entail
+28422	生命	ADD	
+23861	輝かしい	WRONG	輝かしい is brilliant/glorious, not glossy
+97511	偉力	WRONG	偉力 is great might, not controlling influence
+61673	気力	ADD	
+98586	店員	WRONG	店員 is shop clerk, not salesman
+70523	始める	WRONG	始める is begin, not found
+25976	比重	ADD	
+95712	心配	ADD	
+68367	熱狂	WRONG	熱狂 is enthusiasm/frenzy, not a fad
+11618	先端	WRONG	先端 is tip/point, not apex
+59430	誠実	WRONG	誠実 is sincere
+72292	エネルギー	ADD	
+41126	持続	ADD	
+48465	敏速	ADD	
+83939	中尉	ADD	
+24853	視野	WRONG	視野 is field of view
+70042	栄冠	WRONG	栄冠 is laurels/crown
+11372	入替える	WRONG	入れ替える is swap, not supplant
+37096	時間	ADD	
+90749	出版者	WRONG	出版者 is person; firm is 出版社
+29940	最も	WRONG	最も is 'most'
+48062	検証	WRONG	検証 is verification
+92283	近しい	ADD	
+59281	空想	ADD	
+80748	キャンプ	WRONG	キャンプ is camp site/camping, not the group
+49086	内装	WRONG	内装 is interior decoration/fittings
+54222	見る	ADD	
+61406	駆集める	ADD	
+82821	深刻な	WRONG	深刻 is serious
+97384	デモンストレーション	ADD	
+21393	たたく	WRONG	たたく is strike/beat, not hit something moving

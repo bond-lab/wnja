@@ -1,0 +1,151 @@
+id	word	verdict	reason
+43612	吠える	WRONG	吠える is bark/roar, not rumble
+34727	柔軟さ	ADD	
+36207	涸れる	ADD	
+59355	人物	WRONG	人物 is person/character
+24363	映像	ADD	
+53174	過程	WRONG	過程 is process generally, not cognitive process
+50594	知っている	POS	verb phrase; → 既知の
+45888	決意	ADD	
+83768	色	WRONG	色 is colour; hypernym of shade/tint
+71580	ファン	ADD	
+93928	ビーム	WRONG	ビーム is beam generally, not radio guidance beam
+53471	重複	ADD	
+68570	好ましい	WRONG	好ましい is desirable, not satisfactory
+60126	亡失	WRONG	亡失 is the act of losing, not thing lost
+22094	救い出す	WRONG	救い出す is rescue, not save from sin
+23351	平和	WRONG	平和 is peace (no war); not peace of mind
+28457	固体	POS	noun; → 固体の
+91490	苦しめる	WRONG	苦しめる is torment, not inconvenience
+22372	説明	WRONG	説明 is explain verbally, not serve as reason
+27228	飛びだす	ADD	
+98826	要件	ADD	
+92626	周囲	ADD	
+33493	裏付ける	WRONG	裏付ける is corroborate
+33576	現代	POS	noun; → 現代の
+35318	ショー	ADD	
+62727	妨害	ADD	
+14781	引き出す	ADD	
+70707	変遷	ADD	
+21809	広い	ADD	
+23163	呈する	ADD	
+39698	豊富	ADD	
+14241	詳細	WRONG	詳細 is details, not elaboration
+30589	役員	ADD	
+26267	街	ADD	
+66860	初期	POS	noun; → 初期に
+63325	死	POS	noun; → 死んだ
+19526	苦難	WRONG	苦難 is hardship, not psychological suffering
+54781	祖先	POS	ancestor noun; → 先祖伝来の
+65969	煽り立てる	WRONG	煽り立てる is incite/stir up
+77051	更に	WRONG	更に is further/moreover
+28226	安心	WRONG	安心 is relief of a person, not pain eased
+94836	顔つき	ADD	
+36929	静寂	ADD	
+29395	策略	ADD	
+60586	いる	WRONG	copula/existence rendering
+73274	回る	ADD	
+53438	重っ苦しい	WRONG	重苦しい is oppressive, not physically heavy
+64020	芸術家ぶった	ADD	
+91661	差し出す	WRONG	差し出す is hold out/offer
+12021	入手	ADD	
+62521	伝令者	ADD	
+90359	帯びる	WRONG	帯びる is wear/take on, not contain
+51641	適用	WRONG	適用 is application of rules
+42119	交代	WRONG	交代 is replacement/shift change
+96537	音調	ADD	
+89770	気付く	WRONG	気付く is notice
+79454	ヒト	POS	species noun; → 人間的な
+12430	後部	WRONG	後部 is rear part, not either end
+44172	恋人	ADD	
+53386	不服	WRONG	不服 is dissatisfaction, not formal protest
+34741	競合	POS	noun; → 競争的な
+54857	塗り替えた	MWE	→ 記録を塗り替える
+50210	目新しい	ADD	
+95291	華々しい	ADD	
+67833	方策	ADD	
+23930	部分	WRONG	部分 is part; hypernym
+83033	器具	ADD	
+59494	虚偽	ADD	
+36854	目新しい	WRONG	目新しい is novel, not cycle recurring
+76763	昇る	WRONG	昇る is ascend, not come to the surface
+53614	揺さぶる	WRONG	揺さぶる is shake (transitive)
+48466	類似	POS	noun; → 類似した
+23456	統合	POS	noun; → 統合された
+90142	表面	WRONG	表面 is surface generally; Earth's surface is 地表
+30754	美徳	ADD	
+43276	真実	WRONG	真実 is truth, not actuality
+80626	怠慢	ADD	
+49123	到達	WRONG	到達 is reach/arrive
+81860	標識	ADD	
+40659	保管	WRONG	保管 is storage/custody
+56210	触覚	POS	noun; → 触覚の
+90217	適用	POS	transitive; → 適用される
+77298	食する	ADD	
+28580	支持者	WRONG	支持者 is an individual supporter
+85255	広げる	POS	transitive; → 広がる
+35974	ベランダ	WRONG	veranda, not porch
+77637	認識	ADD	
+35847	北部	ADD	
+84366	敷かれ	WRONG	fragment of 敷く, not a word
+13500	制覇	WRONG	制覇 is conquer/win title
+92197	解釈	ADD	
+96434	コロニー	ADD	
+35939	setal base 盗塁	WRONG	garbage prefix; 盗塁 itself would fit
+20910	務める	ADD	
+27861	務める	MWE	→ 役割を務める / 役割を果たす
+42060	飛ぶ	WRONG	飛ぶ is fly; hyponym
+72637	発生	WRONG	発生 is occur/arise
+85561	管理	ADD	
+64722	トレーニング	ADD	
+53722	居る	WRONG	copula rendering
+53146	仮説	ADD	
+22026	戻る	WRONG	intransitive return; give back is 戻す/返す
+57343	物質	POS	noun; → 物質的
+44887	占拠	WRONG	占拠 is occupy by force
+70690	引き取る	WRONG	引き取る is take back/take in
+26256	不服	WRONG	不服 is dissatisfaction
+69282	やり始める	ADD	
+27773	フロー	WRONG	フロー not used for fluid motion; → 流れ
+41277	超える	ADD	
+84622	分る	WRONG	分かる is understand
+81227	落下	WRONG	落下 is fall from height, not toppling
+81584	ある	WRONG	existence verb, not constitute
+83495	果たす	ADD	
+18334	経済	WRONG	経済 is economy; business sector is 経済界
+83445	熟練	POS	noun; → 熟練した
+44651	ゴールする	WRONG	score a goal, not net profit
+32090	忠義	ADD	
+53870	考察	WRONG	考察 is consideration/study
+88840	閲覧	WRONG	閲覧 is browse/read
+29089	志願	ADD	
+26076	引きずる	ADD	
+10497	成る	WRONG	なる is become
+47824	傾向	ADD	
+99793	虐待	WRONG	虐待 is abuse (act)
+57662	田舎者	ADD	
+41570	消える	WRONG	消える is disappear
+85180	考慮	WRONG	考慮 is the act of considering
+57592	弟子	WRONG	弟子 is disciple/apprentice
+31741	結びつける	WRONG	結びつける is connect (transitive)
+34323	砕く	ADD	
+88326	驚愕	POS	intransitive; → 驚愕させる
+81808	白	POS	noun; → 白い
+19997	学習者	WRONG	学習者 is learner generally, not enrolled student
+69552	濃い	ADD	
+14197	選ぶ	WRONG	選ぶ is choose; hypernym
+62873	見る	WRONG	見る is see
+33601	悪口	WRONG	悪口 is badmouthing, not expletive
+96294	従属	ADD	
+28120	排出	ADD	
+50324	件	WRONG	件 is matter/case
+97980	計略	WRONG	計略 is scheme/stratagem
+60022	上	ADD	
+90638	訴え	ADD	
+87581	初期	POS	noun; → 初期の
+12142	受け継ぐ	WRONG	受け継ぐ is inherit
+30781	薬剤	ADD	
+36153	タイプ	ADD	
+64002	威力	WRONG	威力 is might
+71344	持つ	ADD	
+14333	分子	POS	noun; → 分子の

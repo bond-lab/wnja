@@ -1,0 +1,151 @@
+id	word	verdict	reason
+75734	確かめる	ADD	
+40150	手強い	WRONG	means formidable, hard to beat; not ungentle
+59211	証言	WRONG	witness testimony; not general evidence
+88730	探し出す	ADD	
+80932	城	ADD	
+85073	隊列	ADD	
+15578	一連	ADD	
+77532	ならず者	WRONG	means rogue or scoundrel, not loser
+14221	壊す	WRONG	general 'break'; hypernym
+79233	怪しい	WRONG	means suspicious or dubious
+92225	種族	WRONG	mainly ethnic race or tribe, not taxonomic subspecies
+69201	韻律	ADD	
+68564	序列	ADD	
+47247	惹き付ける	ADD	
+87773	分割	WRONG	partition; arithmetic division is 割り算
+16050	運ぶ	ADD	
+87931	話し合い	ADD	
+17156	異常	ADD	
+52563	危険	ADD	
+29913	誕生	WRONG	means birth; founding only figuratively
+80381	社会	WRONG	society; local community is 地域社会
+71431	公正	ADD	
+53009	即興	WRONG	improvisation in general, not a speech
+43552	弁明	ADD	
+91639	利用	ADD	
+51020	人物	WRONG	person/character, not generic human being
+34680	合併	ADD	
+71465	住宅	WRONG	house as building, not place of residence
+82311	し終える	WRONG	transitive 'finish doing', not intransitive 'end'
+62703	熱意	WRONG	means enthusiasm, not willingness
+16876	困難	ADD	
+26605	不明瞭	WRONG	means unclear or indistinct, not ambiguous
+74366	自暴自棄	ADD	
+24555	期待	ADD	
+40686	経費	ADD	
+34500	退く	ADD	
+95095	青白い	WRONG	pale, bluish-white; not light-coloured in general
+28658	引き上げ	ADD	
+25011	基礎	WRONG	foundation, not a lower limit
+23656	気持ち	WRONG	feeling, not the seat of feelings
+77056	権威	WRONG	authority/prestige, not holding office
+43000	識別	ADD	
+44273	望む	ADD	
+18496	シャワー	ADD	
+34236	生涯	WRONG	whole lifetime, not remainder until death
+15016	部局	ADD	
+54882	振り返る	WRONG	look back over one's shoulder
+42861	整える	ADD	
+77850	位置づける	ADD	
+55714	改変	WRONG	act of altering, not difference between states
+69515	向かう	ADD	
+37187	緑青	WRONG	verdigris on copper specifically; hyponym
+80296	黒	POS	noun; → 黒い (already present) or 黒の
+11881	出掛ける	ADD	
+65946	種	ADD	
+35688	見本	ADD	
+74102	持つ	ADD	
+46650	思う	WRONG	means think, not hope
+94371	音響	ADD	
+41264	例	ADD	
+19640	突止める	ADD	
+24060	承認	WRONG	means approval, not admission to enter
+82744	観念	WRONG	means idea/notion, not awareness
+67734	帯びる	ADD	
+74323	意味	WRONG	signify/mean, not entail
+41693	神経	WRONG	nerves (organ); nervousness is 神経質 or 緊張
+19458	関連	WRONG	connection between things, not human relationship
+75097	包む	WRONG	means wrap, not pack into container
+17332	トラック	WRONG	running track or truck, not general path
+81995	鼓舞	ADD	
+18614	妊娠	POS	→ 妊娠した or 妊娠中の
+29892	有る	WRONG	existential rendering of 'have a problem'
+57952	間柄	ADD	
+33400	良心	ADD	
+23151	穴	ADD	
+53745	抑止	WRONG	means deterrence, not suppression by force
+14823	放つ	WRONG	release/emit, not spill from container
+55323	開始	ADD	
+38781	減少	WRONG	quantity decrease, not deterioration in quality
+47815	打ち負かす	ADD	
+25388	群れ	ADD	
+64530	玄関	ADD	
+33816	質素な	POS	inflected form; stem 質素 already in synset
+90527	認可	WRONG	official authorization, not general let/allow
+60938	かける	MWE	電話をかける
+14083	住宅	ADD	
+99375	作業	ADD	
+90878	眺める	ADD	
+71037	一時	WRONG	a while/temporary; not an experience
+74116	運転	WRONG	driving/running a machine, not planned activity
+19422	掘り起こす	WRONG	general dig up; exhume is 発掘 of remains
+21572	幕間	ADD	
+95062	未来	WRONG	future in general; elect is 次期
+37097	仕始める	WRONG	compositional し+始める, intransitive-ish 'begin doing'
+79762	良質な	WRONG	adjective 'good-quality', not adverb better
+92471	期待	ADD	
+51471	耳	ADD	
+35829	削減	ADD	
+97608	鳴る	ADD	
+66461	小包	ADD	
+59573	液体	POS	→ 液体の or 液状の
+12014	試錬	WRONG	試練 means trial/ordeal, not effort
+54509	勧告	ADD	
+51331	仕掛け	ADD	
+92537	動作	WRONG	means bodily movement, not work activity
+46507	明るい	ADD	
+96281	瞬間	WRONG	an instant, not the present moment
+89046	物語る	WRONG	means tell/testify to, not act as spokesperson
+37339	成す	ADD	
+37470	退職	ADD	
+33681	前	POS	→ 前の or 以前の
+26781	冒涜	ADD	
+32480	突き止める	ADD	
+86092	ついて行く	WRONG	follow a person, not travel along a course
+71140	終盤	WRONG	final stage, not the end point
+15420	兵器	ADD	
+26921	探し出す	ADD	
+46468	弟子	WRONG	general disciple; hypernym
+25207	終結	WRONG	means conclusion/termination, not result
+43894	優しい	ADD	
+55090	土地	WRONG	land in general; hypernym of plot
+89956	現在	POS	→ 現在の (already present)
+91638	仮定	ADD	
+56863	優良	ADD	
+50270	主	POS	→ 主な
+35710	見る	ADD	
+11053	身体	ADD	
+19046	新しい	WRONG	ordinary 'new', not unprecedented
+36943	悪魔	ADD	
+57228	比率	WRONG	means ratio, not rate of charge
+50667	実際	POS	→ 実際の
+63511	嘆願	WRONG	means petition/plea, not woo
+36239	引きずり込む	ADD	
+29172	一団	ADD	
+19365	トラブル	ADD	
+92736	男性	WRONG	neutral 'male', not informal guy
+44843	優勝	POS	noun 'championship win'; → 優勝した
+65669	風潮	WRONG	social trend, not personal inclination
+59101	ニュース	ADD	
+90312	思い悩む	ADD	
+63607	十分に	ADD	
+46600	切り離す	ADD	
+69872	一致	ADD	
+27534	ある	WRONG	not the copula; copula is である
+76386	欲求	WRONG	noun 'desire'; not used as verb 'need'
+26197	電灯	WRONG	electric light generally; bulb is 電球
+22459	関わる	ADD	
+55397	引きずる	WRONG	means drag; hyponym of pull
+77349	妄想	ADD	
+64770	悩ます	ADD	

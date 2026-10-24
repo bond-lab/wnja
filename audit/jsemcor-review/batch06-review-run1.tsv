@@ -1,0 +1,151 @@
+id	word	verdict	reason
+74948	働く	WRONG	働く is labour/be employed, not work on a task
+81034	方向	ADD	
+90107	通り道	ADD	
+88192	明瞭	WRONG	明瞭 means clear/distinct, not understandable
+17673	推し測る	ADD	
+66305	関連	POS	noun; → 関連のある
+74819	庭園	ADD	
+65142	ある	WRONG	copula/existence rendering, not 'remain'
+47281	長い	ADD	
+79043	あまた	ADD	
+62241	巣穴	WRONG	burrow/den, not nest
+88359	制限	WRONG	制限 is restriction, not greatest degree
+50946	得る	WRONG	general 'get'; hypernym
+57916	違う	POS	verb; → 違った or 別の
+79521	伴う	WRONG	伴う means accompany
+47453	苦情	ADD	
+73339	訴訟	ADD	
+95866	解説	WRONG	解説 means explain/commentary, not elaborate theories
+45357	判断	WRONG	general 'judge'; hypernym
+83484	有罪	POS	noun; → 有罪の
+47162	述べる	ADD	
+96978	岬	ADD	
+48802	志願	WRONG	志願 means volunteer/apply generally
+13520	対照	ADD	
+11836	奴隷	ADD	
+42115	流行	ADD	
+86783	身体的障害のある	POS	adjectival phrase for verb synset; → 障害を負わせる
+15606	挙げる	ADD	
+92967	面影	WRONG	面影 is a trace/remembered image of a face; narrower
+30524	精神	ADD	
+63582	予算	ADD	
+99696	最も	WRONG	最も is degree 'most', not manner 'best'
+61112	地位	ADD	
+16919	与える	WRONG	general 'give'; hypernym
+51306	造り出す	ADD	
+62136	動機	WRONG	動機 is motive, not incentive
+16574	言い放つ	ADD	
+86250	指揮	ADD	
+51843	反対	POS	noun; → 反対の
+19634	固定	POS	noun; → 固定の / 固定した
+39321	弾く	ADD	
+66297	観客	ADD	
+72601	荷物	ADD	
+42888	統制	WRONG	統制 is control/regulation, not dominance state
+41943	実証主義	WRONG	positivism is a different doctrine
+15955	監視	WRONG	監視 is surveillance/monitoring; narrower
+78597	現在	POS	noun; → 現在の
+22907	産業	POS	noun; → 産業の
+71387	獲得	WRONG	acquire, not receive treatment
+28922	読み取る	ADD	
+42136	壊れた	ADD	
+89118	廃棄	ADD	
+25085	脅す	ADD	
+16605	市民	WRONG	市民 is citizen, not resident
+91821	歯	ADD	
+69728	抜け出る	WRONG	physical escape, not get away with
+25461	良い	WRONG	良い is 'good', not superlative
+36693	転換	MWE	→ 方向転換; 転換 alone is conversion/switch
+16823	等級	WRONG	等級 is grade/rank
+56752	発達	ADD	
+79219	動揺	POS	intransitive; → 動揺させる
+30280	遮断	ADD	
+26295	販路	WRONG	販路 is sales channel/market, not a store
+57618	出かける	ADD	
+68047	寺	WRONG	寺 is Buddhist temple; hyponym
+28321	左	POS	noun; → 左の
+97541	判定	WRONG	判定 is general judging/decision, not court judgment
+64653	置く	ADD	
+69710	高速	POS	noun; → 高速の
+88780	訪問	ADD	
+44357	自制	WRONG	self-control; hypernym of abstinence
+93832	地方	WRONG	地方 is region, not administrative state
+99391	是認	WRONG	是認 means approve/endorse
+64988	いる	ADD	
+57712	持って走る	WRONG	free paraphrase, not a lexeme
+79568	圧力	WRONG	圧力 is pressure (external), not emotional stress
+27953	現実主義	WRONG	現実主義 is practical realism; philosophical is 実在論
+48027	わかる	ADD	
+26891	呪い	ADD	
+41249	口論	ADD	
+73059	左右する	ADD	
+24924	群衆	WRONG	群衆 is neutral crowd, not disorderly mob
+75922	認める	WRONG	認める is approve/consent, not 'let happen'
+50449	役目	ADD	
+76499	重要性	ADD	
+91916	解釈	WRONG	解釈 is interpretation
+57078	変形	ADD	
+46012	いんちき	MWE	→ いんちき医療; いんちき alone is fraud
+45587	良い	WRONG	良い is not comparative 'better/advisable'
+89928	遠くに	WRONG	spatial 'far away', not degree
+99789	謎	WRONG	謎 is mystery, not doubt
+84041	遠くに	WRONG	spatial adverbial, not 'further in degree'
+87552	すり替える	WRONG	すり替える is swap surreptitiously, not stand in
+34906	事件	WRONG	事件 is incident/affair; narrower than event
+92981	味わう	WRONG	味わう is taste/savour, not have for benefit
+46521	絞り取る	WRONG	絞り取る is squeeze out/extort
+41383	最初	POS	noun; → 最初の
+34879	少し	POS	adverb; → 少しの
+42631	氾濫	ADD	
+75817	有罪	ADD	
+95581	見識	WRONG	見識 is insight/judgement, not viewpoint
+35687	弾力性	WRONG	弾力性 is elasticity
+99544	面積	WRONG	面積 is area in general
+15178	あまた	ADD	
+92366	見なす	WRONG	見なす is regard as, not suppose
+17967	構成	ADD	
+11242	部隊	WRONG	部隊 is military unit
+45512	示す	WRONG	示す is show/indicate; hypernym
+44015	帯びる	WRONG	帯びる is take on a tinge/bear
+65730	補完	WRONG	補完 is complement/supplement
+13526	確信	ADD	
+91703	黒い	ADD	
+14986	上面	ADD	
+23430	ふらつく	ADD	
+39171	採る	WRONG	採る is gather/adopt, not take possession
+80994	団体	WRONG	団体 is organization, not any group
+46475	倫理	ADD	
+19501	帯	ADD	
+21330	列	ADD	
+98641	部隊	WRONG	部隊 is military unit; hyponym
+31083	無視	WRONG	無視 is deliberate ignoring, not fail to notice
+82171	興奮	WRONG	興奮 is the state, not the stimulus
+40769	小飛球を打つ	WRONG	descriptive phrase, not a lexeme
+92720	天空	ADD	
+58913	莫大な	WRONG	莫大な is enormous (adj), not intensifier 'very'
+73440	隠れ家	ADD	
+72725	詰め込む	ADD	
+56412	好き	ADD	
+37608	軽減	ADD	
+54335	擁護	WRONG	擁護 is protection/advocacy, not justification
+55049	男	WRONG	男 is man (male), not genus Homo
+74802	理解	WRONG	理解 is understanding, not aesthetic discernment
+27480	応ずる	ADD	
+19744	物質	WRONG	物質 is substance/matter; broader
+25700	関心	WRONG	関心 is interest/concern, not sake
+68629	運ぶ	WRONG	運ぶ is general carry; hypernym
+91753	報酬	ADD	
+37939	圧力	WRONG	圧力 is the force, not act of pressing
+68240	過ち	WRONG	過ち is mistake, not failure
+65621	冷静	ADD	
+43826	素早い	ADD	
+61134	殴る	ADD	
+29750	栄誉	WRONG	栄誉 is abstract honour, not a tangible award
+58359	マスター	ADD	
+30115	見る	WRONG	見る does not mean make certain
+95676	邪悪	ADD	
+88204	手渡す	WRONG	手渡す is hand over, not leave temporarily
+52649	事件	ADD	
+48126	大学	WRONG	大学 is university; hyponym
+81907	老齢	POS	noun; → 老齢の

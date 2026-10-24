@@ -18,7 +18,7 @@ English word's synset.  Two sources record this:
    candidates offered for that token.  Its ``file`` table names the
    Brown file of each phrase; sentence_id is the SemCor snum.
 
-Senses already in build/wnja-2.0.xml are left out, as are entries that are not
+Senses already in build/wnja-VERSION.xml are left out, as are entries that are not
 words (gloss notes, fragments with punctuation).  Writes
 corrections/review/jsemcor-suggestions.tsv, one row per (synset, lemma), for
 review.

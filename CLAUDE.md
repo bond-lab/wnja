@@ -12,7 +12,7 @@ corrections/review/  candidates waiting for review, NOT applied
 audit/            LLM audit code; audit/reviews/ holds review data (issue8/, jsemcor/)
 tests/            pytest
 docs/             the web site (GitHub Pages)
-build/            all output, ignored: wnja-2.0.xml, *.log, reports/, release/
+build/            all output, ignored: wnja-VERSION.xml, *.log, reports/, release/
 ```
 
 ## Build sequence
@@ -22,11 +22,11 @@ uv run python -m scripts.detect_sahen       # only when jamdict data changes
 uv run python -m scripts.rank_readings      # only when vars_tk17.tab changes (~4 min, jamdict)
 uv run python -m scripts.count_jsemcor      # only when ../jsemcor/data changes
 uv run python -m scripts.kuroda_adjectives  # only when adjective_kuroda_2011.tsv changes
-uv run python build_wnja.py                 # -> build/wnja-2.0.xml, build/wnja.log
+uv run python build_wnja.py                 # -> build/wnja-VERSION.xml (VERSION in build_wnja.py), build/wnja.log
 uv run python tweak_wnja.py
 uv run python -m scripts.report_wnja        # optional quality report -> build/reports/
-uv run python package_wnja.py               # -> build/release/wnja-2.0.tar.xz
-uv run pytest tests/                        # ~85 tests; most need a rebuilt build/wnja-2.0.xml
+uv run python package_wnja.py               # -> build/release/wnja-VERSION.tar.xz
+uv run pytest tests/                        # ~85 tests; most need a rebuilt build/wnja-VERSION.xml
 ```
 
 ## Data sources
@@ -99,7 +99,7 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 ```bash
 # Run against the 150-synset dev set (one model at a time — GPU-bound)
 uv run python -m audit.cli \
-    --lmf build/wnja-2.0.xml \
+    --lmf build/wnja-VERSION.xml \
     --ref-lmf wn-ntumc-eng.xml \
     --check definitions \
     --db audit_dev.db \
@@ -128,7 +128,7 @@ uv run python -m audit.dev table --gold audit/dev_set.tsv --db audit_dev.db
 - **Running the eval**:
 ```bash
 uv run python -m audit.cli \
-    --lmf build/wnja-2.0.xml \
+    --lmf build/wnja-VERSION.xml \
     --ref-lmf wn-ntumc-eng.xml \
     --check definitions \
     --db audit_dev.db \

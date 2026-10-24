@@ -9,7 +9,7 @@ Pipeline:
   4. Merge: wn+var entries replace NTU-MC entries for covered synsets;
      uncovered NTU-MC senses are passed through.
   5. Mark sahen (suru) verbs from data/derived/sahen_verbs.txt.
-  6. Export build/wnja-2.0.xml via wn.lmf.dump (no Latin scripts).
+  6. Export build/wnja-VERSION.xml via wn.lmf.dump (no Latin scripts).
 
 All paths are relative to the repository root and defined here; the
 scripts in scripts/ and audit/ import them.
@@ -41,7 +41,7 @@ from wn_edit import (
 # ---------------------------------------------------------------------------
 # Paths & constants
 # ---------------------------------------------------------------------------
-VERSION = "2.0"
+VERSION = "2.1"
 
 SOURCES = Path("data/sources")      # input data, edited by hand or imported
 DERIVED = Path("data/derived")      # made from sources by scripts/

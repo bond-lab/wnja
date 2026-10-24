@@ -28,8 +28,10 @@ from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from build_wnja import OUTPUT
+
 SUGGESTIONS = Path("corrections/review/jsemcor-suggestions.tsv")
-RELEASE = Path("build/wnja-2.0.xml")
+RELEASE = OUTPUT
 REVIEW_DIR = Path("audit/reviews/jsemcor")
 BATCH = 150
 VERDICTS = ("ADD", "POS", "MWE", "WRONG", "UNSURE")

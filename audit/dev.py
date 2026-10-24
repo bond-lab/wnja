@@ -5,7 +5,7 @@ Workflow
 1. Sample::
 
     uv run python -m audit.dev sample \\
-        --lmf build/wnja-2.0.xml \\
+        --lmf build/wnja-VERSION.xml \\
         --ref-lmf /home/bond/git/NTUMC/build/wn-ntumc-eng.xml \\
         --out audit/dev_set.tsv
 
@@ -42,6 +42,7 @@ from pathlib import Path
 
 from audit.checks.definitions import _FEW_SHOT_IDS
 from audit.loader import load_lmf, SynsetData
+from build_wnja import OUTPUT
 
 # Target counts per POS for the 100-synset dev set
 _DEV_TARGET: dict[str, int] = {"n": 40, "v": 20, "a": 20, "r": 10}
@@ -631,7 +632,7 @@ def main(argv: list[str] | None = None) -> None:
 
     # --- sample ---
     sp = sub.add_parser("sample", help="Sample 100 synsets for annotation.")
-    sp.add_argument("--lmf", type=Path, default=Path("build/wnja-2.0.xml"))
+    sp.add_argument("--lmf", type=Path, default=OUTPUT)
     sp.add_argument(
         "--ref-lmf",
         type=Path,
@@ -682,7 +683,7 @@ def main(argv: list[str] | None = None) -> None:
         help="Review unreviewed synsets with an LLM and write a TOML digest.",
     )
     rbp.add_argument("--db", type=Path, default=Path("audit.db"))
-    rbp.add_argument("--lmf", type=Path, default=Path("build/wnja-2.0.xml"))
+    rbp.add_argument("--lmf", type=Path, default=OUTPUT)
     rbp.add_argument(
         "--ref-lmf", type=Path, required=True,
         help="NTU-MC English LMF (e.g. wn-ntumc-eng.xml).",

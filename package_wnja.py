@@ -5,7 +5,7 @@ Writes build/release/wnja/wnja-VERSION.xml with README.md, LICENSE,
 CONTRIBUTORS.md and citation.bib, and build/release/wnja-VERSION.tar.xz.
 
 Usage:
-    uv run python package_wnja.py [--version 2.0]
+    uv run python package_wnja.py [--version VERSION]
 """
 
 import argparse
@@ -13,13 +13,15 @@ import shutil
 import tarfile
 from pathlib import Path
 
+from build_wnja import VERSION
+
 ROOT = Path(__file__).resolve().parent
 
 
 def main() -> None:
     """Entry point."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--version", default="2.0")
+    parser.add_argument("--version", default=VERSION)
     args = parser.parse_args()
 
     xml = ROOT / "build" / f"wnja-{args.version}.xml"

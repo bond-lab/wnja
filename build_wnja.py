@@ -330,8 +330,46 @@ def load_sahen_set(path: Path) -> frozenset[str]:
 # Build output LMF structures
 # ---------------------------------------------------------------------------
 
+def reading(form_list: list[tuple[str, str]]) -> str | None:
+    """The katakana reading in a form list, or None if it has none.
+
+    Args:
+        form_list: [(writtenForm, script), ...] as made by read_vars.
+
+    Returns:
+        The first form with script ``kana``, which is the reading.
+    """
+    return next((f for f, s in form_list if s == "kana"), None)
+
+
+def _merge_key(
+    entry: dict,
+    first: dict[tuple[str, str], tuple[str, str, str | None]],
+) -> tuple[str, str, str | None]:
+    """Key an entry by (writtenForm, partOfSpeech, reading).
+
+    A word is a spelling plus a reading: homographs (e.g. 反る read ソル
+    or カエル) stay separate, while two hno with the same reading are one
+    word.  An entry with no known reading joins the first entry for its
+    lemma.
+
+    Args:
+        entry: LexicalEntry dict, with ``_reading`` set when known.
+        first: First key seen for each (writtenForm, partOfSpeech).
+
+    Returns:
+        The key to merge the entry under.
+    """
+    lf = entry["lemma"]["writtenForm"]
+    pos = entry["lemma"]["partOfSpeech"]
+    yomi = entry.get("_reading")
+    if yomi is None:
+        return first.get((lf, pos), (lf, pos, None))
+    return (lf, pos, yomi)
+
+
 def _merge_by_lemma_pos(entries: list[dict]) -> list[dict]:
-    """Merge LexicalEntry dicts that share (writtenForm, partOfSpeech).
+    """Merge LexicalEntry dicts that share (writtenForm, partOfSpeech, reading).
 
     Combines senses (deduplicated by synset id) and forms (deduplicated by
     writtenForm). The first-seen entry's id and metadata are kept.
@@ -340,15 +378,15 @@ def _merge_by_lemma_pos(entries: list[dict]) -> list[dict]:
         entries: List of LexicalEntry dicts as produced by make_lexical_entry.
 
     Returns:
-        New list with one entry per (writtenForm, partOfSpeech) pair.
+        New list with one entry per (writtenForm, partOfSpeech, reading).
     """
-    merged: dict[tuple[str, str], dict] = {}
+    merged: dict[tuple[str, str, str | None], dict] = {}
+    first: dict[tuple[str, str], tuple[str, str, str | None]] = {}
     for entry in entries:
-        lf = entry["lemma"]["writtenForm"]
-        pos = entry["lemma"]["partOfSpeech"]
-        key = (lf, pos)
+        key = _merge_key(entry, first)
         if key not in merged:
             merged[key] = entry
+            first.setdefault(key[:2], key)
         else:
             existing = merged[key]
             existing_ss = {s["synset"] for s in existing.get("senses", [])}
@@ -431,11 +469,12 @@ def build_entries(
                 senses=sense_objs,
                 meta={"note": note} if note else None,
             )
+            entry["_reading"] = reading(form_list)
             entries.append(entry)
 
     deduped = _merge_by_lemma_pos(entries)
     if len(deduped) < len(entries):
-        log.info("  merged %d entries into %d by (lemma, pos)",
+        log.info("  merged %d entries into %d by (lemma, pos, reading)",
                  len(entries), len(deduped))
     return deduped
 
@@ -513,6 +552,7 @@ def build_passthrough_entries(
             senses=sense_objs,
             meta={"note": note} if note else None,
         )
+        entry["_reading"] = reading(form_list) if (lemma, "0") in forms else None
         seen[key] = len(entries)
         entries.append(entry)
 
@@ -688,7 +728,10 @@ def main() -> None:
     all_entries = _merge_by_lemma_pos(combined)
     n_cross = len(combined) - len(all_entries)
     if n_cross:
-        log.info("  merged %d cross-pipeline duplicate (lemma, pos) entries", n_cross)
+        log.info("  merged %d cross-pipeline duplicate "
+                 "(lemma, pos, reading) entries", n_cross)
+    for entry in all_entries:
+        entry.pop("_reading", None)
 
     # Collect all synset nums referenced by output senses
     all_synset_nums: set[str] = set()

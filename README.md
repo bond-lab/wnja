@@ -8,10 +8,11 @@ Web page: <https://bond-lab.github.io/wnja/>
 
 | | |
 |---|---|
-| Synsets | 67,387 (58,935 with Japanese words) |
-| Words (lexical entries) | 89,549 |
-| Senses | 146,207 |
-| Japanese definitions | 66,944 |
+| Synsets | 67,388 (57,744 with Japanese words) |
+| Words (lexical entries) | 90,617 |
+| Senses | 147,436 |
+| Japanese definitions | 66,943 |
+| Japanese examples | 35,240 |
 
 wnja 2.0 is a WN-LMF 1.4 package built from the Japanese WordNet 1.1
 data (`data/wn+var_tk17.tab`, `data/vars_tk17.tab`) and the Japanese
@@ -27,6 +28,20 @@ wn.Wordnet("wnja:2.0").words("犬")
 ```
 
 Build: see [CLAUDE.md](CLAUDE.md); package with `package_wnja.py`.
+
+### Differences from the GWC 2023 paper
+
+- **No Latin forms.** The paper ([Bond and Kuribayashi
+  2023](https://aclanthology.org/2023.gwc-1.22.pdf), Figure 1 and Table 3)
+  describes romanised forms (`script="latn"` and `latn-hepburn`, e.g.
+  *zisyo*, *jisho*).  They are left out of the release because they make
+  the database much bigger, and they can be generated from the katakana
+  reading (e.g. with [romkan](https://pypi.org/project/romkan/)).
+- **Homographs are separate entries.** A word is a spelling plus a
+  reading, so 反る read ソル "warp" and カエル (= 返る) are two entries.
+  `wn validate` reports these as W203 (redundant entries).
+- **Frequencies are from the NTU-MC only.** The JSemCor counts are not
+  yet included ([#10](https://github.com/bond-lab/wnja/issues/10)).
 
 ## License
 

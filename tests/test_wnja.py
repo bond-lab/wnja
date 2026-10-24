@@ -174,14 +174,12 @@ def test_synset_relations_renamed(synsets_by_id):
 def test_mono_has_two_readings(entries_by_lemma):
     """物(n) should appear twice: once with ブツ reading, once with モノ."""
     mono_entries = entries_by_lemma.get(("物", "n"), [])
-    readings = set()
+    readings = []
     for e in mono_entries:
-        for f in e.findall("Form"):
-            wf = f.get("writtenForm", "")
-            if wf in ("ブツ", "モノ"):
-                readings.add(wf)
-    assert "ブツ" in readings, "物(n) missing ブツ reading entry"
-    assert "モノ" in readings, "物(n) missing モノ reading entry"
+        readings.append({f.get("writtenForm", "") for f in e.findall("Form")}
+                        & {"ブツ", "モノ"})
+    assert {"ブツ"} in readings, "物(n) missing a ブツ reading entry"
+    assert {"モノ"} in readings, "物(n) missing a モノ reading entry"
 
 
 # ---------------------------------------------------------------------------
@@ -409,14 +407,34 @@ def test_greeting_exclamative_synset(synset_id, expected_lemma, def_fragment,
 # Cross-pipeline merge (W203/W202)
 # ---------------------------------------------------------------------------
 
-def test_no_duplicate_lemma_pos(entries_by_lemma):
-    """Each (writtenForm, partOfSpeech) pair must appear in exactly one entry.
+def test_homographs_differ_in_reading(entries_by_lemma):
+    """Entries sharing (writtenForm, partOfSpeech) are homographs, so each
+    must have its own reading (katakana form).
 
-    Duplicates indicate that wn+var and passthrough entries for the same lemma
-    were not merged, causing W203/W202 validation warnings.
+    Two entries with the same reading are the same word left unmerged,
+    e.g. wn+var and passthrough entries for one lemma.
     """
-    dupes = {key for key, entries in entries_by_lemma.items() if len(entries) > 1}
-    assert not dupes, (
-        f"{len(dupes)} duplicate (lemma, pos) pairs found: "
-        + ", ".join(f"{w!r}/{p}" for w, p in sorted(dupes)[:10])
+    clashes = []
+    for key, entries in entries_by_lemma.items():
+        if len(entries) < 2:
+            continue
+        readings = [
+            next((f.get("writtenForm") for f in e.findall("Form")
+                  if f.get("script") == "kana"), None)
+            for e in entries
+        ]
+        if len(set(readings)) < len(readings):
+            clashes.append(key)
+    assert not clashes, (
+        f"{len(clashes)} homograph groups share a reading: "
+        + ", ".join(f"{w!r}/{p}" for w, p in sorted(clashes)[:10])
     )
+
+
+def test_homograph_readings_not_merged(entries_by_lemma):
+    """反る read そる (warp) and かえる (= 返る) are separate entries."""
+    entries = entries_by_lemma.get(("反る", "v"), [])
+    forms = [{f.get("writtenForm") for f in e.findall("Form")} for e in entries]
+    soru = [fs for fs in forms if "そる" in fs]
+    assert len(entries) == 2, f"反る(v) should have 2 entries, got {forms}"
+    assert soru and "かえる" not in soru[0], f"そる entry has かえる: {soru}"

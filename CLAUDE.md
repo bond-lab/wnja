@@ -7,7 +7,7 @@ uv run python detect_sahen.py    # only needed when jamdict data changes
 uv run python build_wnja.py
 uv run python tweak_wnja.py
 uv run python report_wnja.py     # optional quality report → reports/
-uv run pytest tests/             # ~61 tests; test_no_duplicate_lemma_pos requires rebuilt wnja-2.0.xml
+uv run pytest tests/             # ~70 tests; most need a rebuilt wnja-2.0.xml
 ```
 
 ## Data sources
@@ -39,8 +39,8 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 1. `read_vars()` — `{(lemma, hno): [(writtenForm, script), ...]}`
 2. `read_wnvar()` — `{(lemma, hno): [(wnja_synset_id, confidence)]}` + `covered_synsets`
 3. `parse_ntumc_xml()` — NTU-MC entries list + synsets dict
-4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos) by unioning senses AND forms (handles multiple-hno homographs).
-5. `build_passthrough_entries()` — NTU-MC entries for synsets NOT in `covered_synsets` (Japan-specific). A lemma can appear in both pipelines.
+4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos, reading): a word is a spelling plus a reading (katakana form), so homographs such as 反る ソル/カエル stay separate, while two hno with the same reading merge.
+5. `build_passthrough_entries()` — NTU-MC entries for synsets NOT in `covered_synsets` (Japan-specific). A lemma can appear in both pipelines; passthrough entries take the hno 0 reading and merge into that entry (or the first entry for the lemma if it has no vars forms).
 6. Relation-target expansion — adds synsets referenced by relations that have NTU-MC definitions.
 7. `build_synsets()` — deduplicates definition texts; normalises POS `s` → `a`.
 8. `build_stub_synsets()` — stub synsets for still-missing relation targets: ILI from `ili-map-pwn30.tab` + English definition from `omw-en:2.0`. Resolves E401 errors.
@@ -58,15 +58,15 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 - Greetings / exclamatives (x-POS): `wnja-800xxxx-x`
 - Confidence: `hand`=1.0, `mlsn`=0.91, `multi`=0.72, `mono`=0.71
 
-## Current validation status (wn validate, 2026-04-15)
+## Current validation status (wn validate, 2026-10-24)
 
 | Code | Count | Notes |
 |------|------:|-------|
 | E401 | 0 | Fixed: stub synsets for all missing PWN relation targets |
-| W203 | 282 | Cross-pipeline (wn+var + passthrough) overlapping entries |
-| W202 | 308 | Side-effect of same issue |
-| W301 | 8,451 | 5,941 PWN orphans (expected) + 2,510 stubs (empty by design) |
-| W307 | 464 | Cross-synset shared definition texts — data issue |
+| W203 | 1,459 | Homographs (same lemma and pos, different reading) — by design |
+| W202 | 0 | Fixed: cross-pipeline entries merge by (lemma, pos, reading) |
+| W301 | 9,644 | PWN orphans (expected) + 2,510 stubs (empty by design) |
+| W307 | 657 | Cross-synset shared definition texts — data issue |
 | W404 | 2,509 | Stubs have no reverse relations (by design) |
 | W501 | crash | Upstream wn validator bug — filed for reporting |
 
@@ -141,8 +141,8 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
 - **Yojijukugo**: ~364 four-character idiom synsets need Japanese entries in NTU-MC DB
 - **Missing vocabulary**: よいしょ, いただきます, ごちそうさま, よろしく, もったいない,
   木漏れ日, 引きこもり, 過労死, 婚活, 一石二鳥, 一期一会, わびさび, …
-- **Remaining W203/W202**: merge `main_entries + pass_entries` by (lemma, pos) in `main()`
-- **W307**: per-case review of 464 cross-synset duplicate definitions
+- **W307**: per-case review of 657 cross-synset duplicate definitions
+- **JSemCor frequencies**: add to sense counts (issue #10)
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
 - **Adjective types**: merge data on -na/-no adjective
 - **Merge TUFS data**

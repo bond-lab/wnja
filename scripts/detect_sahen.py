@@ -23,6 +23,7 @@ from build_wnja import (
     SAHEN_FILE,
     WNVAR_FILE,
     desuru,
+    fetch_ntumc_xml,
 )
 
 LOG_FILE = BUILD / "detect_sahen.log"
@@ -54,6 +55,7 @@ def collect_verb_lemmas() -> set[str]:
                 verb_lemmas.add(desuru(row[1]))
 
     # From NTU-MC XML: entries with partOfSpeech="v"
+    fetch_ntumc_xml()
     tree = ET.parse(NTUMC_XML)
     root = tree.getroot()
     lexicon = root.find("Lexicon") or root

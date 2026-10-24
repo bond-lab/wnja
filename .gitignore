@@ -7,3 +7,5 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 latex/
+# fetched by build_wnja.py from the NTU-MC release (NTUMC_XML_URL)
+/data/sources/wn-ntumc-jpn.xml

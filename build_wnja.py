@@ -16,8 +16,11 @@ scripts in scripts/ and audit/ import them.
 """
 
 import csv
+import hashlib
 import logging
+import lzma
 import sys
+import urllib.request
 from collections import defaultdict
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -51,7 +54,12 @@ BUILD = Path("build")               # all output (ignored by git)
 
 VARS_FILE = SOURCES / "vars_tk17.tab"
 WNVAR_FILE = SOURCES / "wn+var_tk17.tab"
-NTUMC_XML = SOURCES / "wn-ntumc-jpn.xml"
+NTUMC_XML = SOURCES / "wn-ntumc-jpn.xml"  # not in git: fetched by fetch_ntumc_xml()
+# the NTU-MC export this release is built from (an asset of an NTU-MC release)
+NTUMC_XML_URL = ("https://github.com/bond-lab/NTUMC/releases/download/"
+                 "wn-2026.10/wn-ntumc-jpn.xml.xz")
+NTUMC_XML_XZ_SHA256 = "bb2a2a0c57188a31f3454fb5b9ae7c3530ec4aaf8ede15d932e2053184c7a075"
+NTUMC_XML_SHA256 = "11fe47848e6437a634728504595a4e2027cef2b9eb3f8e2ec5dc8b3d57baa45d"
 KURODA_FILE = SOURCES / "adjective_kuroda_2011.tsv"
 SAHEN_FILE = DERIVED / "sahen_verbs.txt"
 JSEMCOR_FILE = DERIVED / "wn-freq-jpn-jsemcor.tsv"
@@ -927,8 +935,32 @@ def build_stub_synsets(
 # Main
 # ---------------------------------------------------------------------------
 
+def fetch_ntumc_xml(path: Path = NTUMC_XML, url: str = NTUMC_XML_URL,
+                    xz_sha256: str = NTUMC_XML_XZ_SHA256) -> None:
+    """Download and unpack the pinned NTU-MC export to path, unless it is there.
+
+    A file already at path is used as it is (e.g. a fresh export from
+    getwn.py), with a warning if it is not the pinned export.
+
+    Raises:
+        ValueError: if the download does not match xz_sha256.
+    """
+    if path.exists():
+        if hashlib.sha256(path.read_bytes()).hexdigest() != NTUMC_XML_SHA256:
+            log.warning("%s is not the pinned NTU-MC export (%s)", path, url)
+        return
+    log.info("Downloading %s …", url)
+    with urllib.request.urlopen(url) as resp:
+        data = resp.read()
+    if hashlib.sha256(data).hexdigest() != xz_sha256:
+        raise ValueError(f"{url}: checksum mismatch")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(lzma.decompress(data))
+
+
 def main() -> None:
     setup_logging()
+    fetch_ntumc_xml()
     log.info("Reading variant files …")
     forms = read_vars(VARS_FILE)
     l2senses, covered_synsets = read_wnvar(WNVAR_FILE)

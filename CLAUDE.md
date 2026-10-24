@@ -33,7 +33,7 @@ uv run pytest tests/                        # ~85 tests; most need a rebuilt bui
 
 | File | Description |
 |------|-------------|
-| `data/sources/wn-ntumc-jpn.xml` | NTU-MC Japanese export (WN-LMF). Regenerate via `getwn.py` (see below). |
+| `data/sources/wn-ntumc-jpn.xml` | NTU-MC Japanese export (WN-LMF). Not in git: `build_wnja.py` downloads the pinned export (`NTUMC_XML_URL`, checked against `NTUMC_XML_XZ_SHA256`) when it is missing. Regenerate via `getwn.py` (see below). |
 | `data/sources/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
 | `data/sources/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
 | `data/sources/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
@@ -54,6 +54,12 @@ cd /home/bond/git/NTUMC
     --base "omw-en:2.0"
 cp build/wn-ntumc-jpn.xml /home/bond/git/wnja/data/sources/
 ```
+
+For a release, attach `xz -9` of the export to an NTU-MC GitHub release
+(e.g. `wn-2026.10`, with the cmn/ind/zsm exports for COW and Wordnet
+Bahasa) and update `NTUMC_XML_URL`, `NTUMC_XML_XZ_SHA256` and
+`NTUMC_XML_SHA256` in `build_wnja.py`; a local file that differs from the
+pinned one is used with a warning.
 
 Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) to include x-POS entries.
 
@@ -167,6 +173,7 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
 - **W307**: per-case review of 657 cross-synset duplicate definitions
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
 - **Adjective classes**: Kuroda's classes are merged as Lemma tags (`adjective-class`); 1,116 hand-marked or unclassifiable lines await review in `corrections/review/kuroda-adjective-review.tsv`
-- **JSemCor suggested senses** (issue #11): `scripts/jsemcor_suggestions.py` wrote 2,785 candidate (synset, lemma) senses to `corrections/review/jsemcor-suggestions.tsv` from JSemCor 1.1 in `../jsemcor` (the aligned `data/` and `traduku/traduku.sqlite.xz`); reviewed blind twice plus adjudication in `audit/reviews/jsemcor/` (`uv run python -m audit.jsemcor_review batches|combine`)
+- **JSemCor suggested senses** (issue #11): `scripts/jsemcor_suggestions.py` wrote 2,785 candidate (synset, lemma) senses to `corrections/review/jsemcor-suggestions.tsv` from JSemCor 1.1 in `../jsemcor` (the aligned `data/` and `traduku/traduku.sqlite.xz`); reviewed blind twice plus adjudication in `audit/reviews/jsemcor/` (`uv run python -m audit.jsemcor_review batches|combine|apply`). 1,347 accepted senses are `add` rows in `corrections/senses.tsv`; **196 still need a human**: `corrections/review/jsemcor-manual-review.tsv` (179 POS without a single existing corrected form, 17 MWE)
+- **Main NTU-MC database**: the wnja fixes in NTU-MC `scripts/fixwn.py` were applied to the local `build/wn-ntumc.db` only. Run its DEF, EX, SENSE, EXCL and JSEM sections on the main database (they are idempotent; run them with the logging triggers kept)
 - **Merge TUFS data**
 

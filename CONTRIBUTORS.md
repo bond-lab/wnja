@@ -7,10 +7,13 @@
 
 ## Contributors
 
+- Gao Huini Eshley
 - Hitoshi Isahara
 - Kyoko Kanzaki
 - Kow Kuroda
+- Hazel Mok Shu Wen
 - Luís Morgado da Costa
+- Jeanette Yiwen Tan
 - Kiyotaka Uchimoto (内元清貴)
 - Masao Utiyama
 

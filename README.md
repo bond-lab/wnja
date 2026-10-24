@@ -70,9 +70,26 @@ See [LICENSE](LICENSE) (a WordNet-style permissive license).
 
 ## Citation
 
+For wnja 2.0, please cite:
+
+Francis Bond and Takayuki Kuribayashi (2023). The Japanese Wordnet 2.0.
+In *12th International Global Wordnet Conference (GWC2023)*.
+<https://aclanthology.org/2023.gwc-1.22/>
+
+and for the original wordnet:
+
 Hitoshi Isahara, Francis Bond, Kiyotaka Uchimoto, Masao Utiyama and
 Kyoko Kanzaki (2008). Development of the Japanese WordNet. In *LREC
-2008*, Marrakech.  See [citation.bib](citation.bib).
+2008*, Marrakech.
+
+[citation.bib](citation.bib) has these and the papers on parts of the
+wordnet: earlier versions (2008–2010), adjectives (Kanzaki et al. 2010),
+orthographic variants and adjective classes (Kuroda et al. 2011), the
+Japanese SemCor (Bond et al. 2012), numeral classifiers (Mok et al.
+2012), sense-tagged parallel corpora (Bond et al. 2013), pronouns (Seah
+and Bond 2014), exclamatives (Morgado da Costa and Bond 2016),
+derivational relations (Bond and Wei 2019) and the TUFS basic
+vocabulary (Bond et al. 2020).
 
 ## Manual corrections
 

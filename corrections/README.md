@@ -91,3 +91,12 @@ Rows with source `jwordnet bug report` come from error reports sent to
 jwordnet@gmail.com.  They are senses from `data/wn+var_tk17.tab`, which
 fixes in the NTU-MC database cannot reach; definition and example fixes
 from the same reports are in `scripts/fixwn.py` in the NTU-MC repository.
+
+## Review files
+
+Not applied by the build; for review before anything is added:
+
+| File | Contents |
+|------|---------|
+| `kuroda-adjective-review.tsv` | Hand-marked or unclassifiable lines of Kuroda's adjective classes (issue #9) |
+| `jsemcor-suggestions.tsv` | Candidate new senses from the Japanese SemCor, made by `jsemcor_suggestions.py` (issue #11): the English token's synset, the Japanese lemma the translator used, counts from the aligned corpus and the translation database, whether the POS matches, and an example sentence pair |

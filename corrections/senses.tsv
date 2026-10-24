@@ -2463,3 +2463,19 @@ wnja-80001169-x	ええ	lower	0.5	usually yes/surprise; intimidating use doubtful
 wnja-80001169-x	ええっ	lower	0.5	normally surprise; intimidating cry is ええい	audit/issue8+opus (adjudicated)	2026-10-24
 wnja-80001736-n	後	lower	0.5	after/behind; trace/site is usually 跡 but 後 is a variant spelling	audit/issue8+opus (adjudicated)	2026-10-24
 wnja-80002343-n	義兄弟姉妹	remove		in-law or sworn siblings, not half-siblings	audit/issue8+opus (both runs)	2026-10-24
+wnja-00917759-n	文明	remove		civilization, not raising plants or animals	jwordnet bug report	2026-10-24
+wnja-00917759-n	文化	remove		culture (arts/society), not raising plants or animals	jwordnet bug report	2026-10-24
+wnja-00917759-n	人文	remove		humanities, not raising plants or animals	jwordnet bug report	2026-10-24
+wnja-00917759-n	教養	remove		cultivation of the mind, not raising plants or animals	jwordnet bug report	2026-10-24
+wnja-00369864-v	冷やかす	remove		means tease, not lose heat	jwordnet bug report	2026-10-24
+wnja-00369864-v	冷ます	remove		transitive cool (already in 00370412-v), not lose heat	jwordnet bug report	2026-10-24
+wnja-00369864-v	冷やす	remove		transitive cool (already in 00370412-v), not lose heat	jwordnet bug report	2026-10-24
+wnja-09934846-n	鏡台	remove		dressing table; coiffeuse here is a female hairdresser	jwordnet bug report	2026-10-24
+wnja-02935316-n	記念スタンプ	remove		commemorative stamp, not a seal on a letter	jwordnet bug report	2026-10-24
+wnja-04664628-n	電光石火	remove		lightning speed, not alertness	jwordnet bug report	2026-10-24
+wnja-02118840-a	一生懸命	remove		with utmost effort, not humourless earnestness	jwordnet bug report	2026-10-24
+wnja-02603699-v	御座居る	remove		ございる is not a word: only ございます is used (ござる is the archaic verb)	Jim Breen report	2026-10-24
+wnja-02616386-v	御座居る	remove		ございる is not a word: only ございます is used (ござる is the archaic verb)	Jim Breen report	2026-10-24
+wnja-02655135-v	御座居る	remove		ございる is not a word: only ございます is used (ござる is the archaic verb)	Jim Breen report	2026-10-24
+wnja-02690708-v	御座居る	remove		ございる is not a word: only ございます is used (ござる is the archaic verb)	Jim Breen report	2026-10-24
+wnja-02734488-v	御座居る	remove		ございる is not a word: only ございます is used (ござる is the archaic verb)	Jim Breen report	2026-10-24

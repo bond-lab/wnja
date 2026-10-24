@@ -86,3 +86,8 @@ The first 2,464 rows (2026-10-24) come from wnja issue #8: senses flagged
 by an LLM audit were reviewed twice, blind, by Claude Opus, and the
 disagreements adjudicated; see `audit/issue8-opus-review.tsv` and
 `docs/quality-sample/wnja-opus*/` in the NTU-MC repository.
+
+Rows with source `jwordnet bug report` come from error reports sent to
+jwordnet@gmail.com.  They are senses from `data/wn+var_tk17.tab`, which
+fixes in the NTU-MC database cannot reach; definition and example fixes
+from the same reports are in `scripts/fixwn.py` in the NTU-MC repository.

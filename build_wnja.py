@@ -12,6 +12,7 @@ Pipeline:
   6. Export wnja-2.0.xml via wn.lmf.dump (no Latin scripts).
 """
 
+import csv
 import logging
 import sys
 from collections import defaultdict
@@ -45,6 +46,7 @@ SAHEN_FILE = DATA / "sahen_verbs.txt"
 JSEMCOR_FILE = DATA / "wn-freq-jpn-jsemcor.tsv"
 RANK_FILE = DATA / "reading_rank.tsv"
 ADJ_CLASS_FILE = DATA / "adjective_class.tsv"
+SENSES_FILE = Path("corrections/senses.tsv")
 ILI_MAP_FILE = Path("../NTUMC/build/ili-map-pwn30.tab")
 OUTPUT = Path("wnja-2.0.xml")
 LOG_FILE = Path("wnja.log")
@@ -351,6 +353,60 @@ def load_reading_ranks(path: Path) -> dict[tuple[str, str], int]:
             lemma, hno, _reading, score = line.rstrip("\n").split("\t")
             ranks[(lemma, hno)] = int(score)
     return ranks
+
+
+def load_sense_additions(path: Path) -> list[tuple[str, str, float]]:
+    """The ``add`` rows of corrections/senses.tsv.
+
+    Args:
+        path: corrections/senses.tsv.
+
+    Returns:
+        [(wnja_synset_id, lemma, confidence), ...]; empty if no file.
+    """
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as fh:
+        return [(r["synset_id"], r["lemma"], float(r["confidence"] or 1.0))
+                for r in csv.DictReader(fh, delimiter="\t")
+                if r["action"] == "add"]
+
+
+def add_senses(
+    l2senses: dict[tuple[str, str], list[tuple[str, float]]],
+    additions: list[tuple[str, str, float]],
+    forms: dict[tuple[str, str], list[tuple[str, str]]],
+    ranks: dict[tuple[str, str], int],
+) -> int:
+    """Add reviewed new senses to the wn+var senses, before entries are built.
+
+    A spelling with several readings gets the sense on its most frequent
+    reading (JMdict rank, then lowest hno); a word not in vars_tk17.tab
+    gets hno 0 and no extra forms.
+
+    Args:
+        l2senses: {(lemma, hno): [(wnja_synset_id, confidence), ...]},
+            updated in place.
+        additions: From load_sense_additions.
+        forms: {(lemma, hno): [(writtenForm, script), ...]}.
+        ranks: {(lemma, hno): score} from load_reading_ranks.
+
+    Returns:
+        The number of senses added.
+    """
+    hnos: dict[str, list[str]] = defaultdict(list)
+    for lemma, hno in forms:
+        hnos[lemma].append(hno)
+    n = 0
+    for wnja_ss, lemma, conf in additions:
+        hno = min(hnos.get(lemma, ["0"]),
+                  key=lambda h: (ranks.get((lemma, h), 100),
+                                 int(h) if h.isdigit() else 99))
+        senses = l2senses.setdefault((lemma, hno), [])
+        if all(ss != wnja_ss for ss, _ in senses):
+            senses.append((wnja_ss, conf))
+            n += 1
+    return n
 
 
 def count_owners(
@@ -882,14 +938,26 @@ def main() -> None:
     log.info("Loading sahen verb list …")
     sahen_set = load_sahen_set(SAHEN_FILE)
 
+    ranks = load_reading_ranks(RANK_FILE)
+    additions = load_sense_additions(SENSES_FILE)
+    n_add = add_senses(l2senses, additions, forms, ranks)
+    log.info("  %d reviewed senses added from %s", n_add, SENSES_FILE)
+
     counts = {"NTU-MC": ntumc_counts, "JSemCor": load_freq_file(JSEMCOR_FILE)}
-    owners = count_owners(l2senses, load_reading_ranks(RANK_FILE))
+    owners = count_owners(l2senses, ranks)
 
     log.info("Building merged entries from wn+var …")
     main_entries = build_entries(l2senses, forms, counts, owners, sahen_set)
     log.info("  %d entries built", len(main_entries))
 
     log.info("Building pass-through entries from NTU-MC …")
+    # senses added from corrections/senses.tsv may also be in NTU-MC;
+    # the added sense (on the chosen reading) is the one kept
+    added = {(ss[len("wnja-"):], lemma) for ss, lemma, _ in additions}
+    ntumc_entries = [
+        (wid, lemma, pos, [(sn, c) for sn, c in senses if (sn, lemma) not in added])
+        for wid, lemma, pos, senses in ntumc_entries
+    ]
     pass_entries = build_passthrough_entries(
         ntumc_entries,
         covered_synsets,

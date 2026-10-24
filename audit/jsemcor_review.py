@@ -7,6 +7,7 @@ reviewer judges each sense only on its meaning and the example.
 
     uv run python -m audit.jsemcor_review batches   # write batchNN.tsv
     uv run python -m audit.jsemcor_review combine   # runs -> verdicts.tsv
+    uv run python -m audit.jsemcor_review apply     # -> corrections/
 
 Reviewers write ``batchNN-review-<run>.tsv`` next to each batch (columns
 id, word, verdict, reason), with verdict one of:
@@ -20,7 +21,9 @@ id, word, verdict, reason), with verdict one of:
 
 import argparse
 import csv
+import datetime
 import random
+import re
 from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -116,6 +119,80 @@ def combine(runs: list[str]) -> None:
     print(dict(final))
 
 
+SENSES = Path("corrections/senses.tsv")
+MANUAL = Path("corrections/jsemcor-manual-review.tsv")
+NTUMC_SENSES = Path("../NTUMC/scripts/jsemcor-senses.tsv")
+ARROW = re.compile(r"^→\s*([^\s,;(（/]+)")
+SOURCE = "jsemcor review"
+
+
+def known_lemmas(path: Path) -> set[str]:
+    """Lemmas of all entries in the release."""
+    return {el.get("writtenForm")
+            for _ev, el in ET.iterparse(path, events=("start",))
+            if el.tag == "Lemma"}
+
+
+def accepted(rows: list[dict], lemmas: set[str]) -> tuple[list, list]:
+    """Split the verdicts into senses to add and ones for a human.
+
+    ADD is added at confidence 0.9 if both runs agreed, 0.8 if
+    adjudicated.  POS is added at 0.8 in its corrected form when the
+    reason gives one word that is already a wnja lemma.  Other POS and
+    all MWE verdicts are for a human.
+
+    Args:
+        rows: verdicts.tsv rows.
+        lemmas: Lemmas already in the release.
+
+    Returns:
+        (adds as (synset, lemma, confidence, reason), rows for review).
+    """
+    adds, manual = [], []
+    for r in rows:
+        if r["final"] == "ADD":
+            conf = 0.9 if r["decided_by"] == "all runs" else 0.8
+            adds.append((r["synset"], r["lemma"], conf,
+                         f"JSemCor translation ({r['decided_by']})"))
+        elif r["final"] in ("POS", "MWE"):
+            m = ARROW.match(r["reason"].strip())
+            form = m.group(1).rstrip(".;") if m else ""
+            if r["final"] == "POS" and form in lemmas:
+                adds.append((r["synset"], form, 0.8,
+                             f"JSemCor translation {r['lemma']}, POS corrected"))
+            else:
+                manual.append(r)
+    return adds, manual
+
+
+def apply() -> None:
+    """Write the accepted senses as add rows, and the rest for review."""
+    with (REVIEW_DIR / "verdicts.tsv").open(encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh, delimiter="\t"))
+    adds, manual = accepted(rows, known_lemmas(RELEASE))
+    with SENSES.open(encoding="utf-8") as fh:
+        existing = {(r["synset_id"], r["lemma"])
+                    for r in csv.DictReader(fh, delimiter="\t")}
+    today = datetime.date.today().isoformat()
+    new = [(f"wnja-{s}", lemma, conf, why) for s, lemma, conf, why in adds
+           if (f"wnja-{s}", lemma) not in existing]
+    with SENSES.open("a", encoding="utf-8") as out:
+        for sid, lemma, conf, why in sorted(set(new)):
+            out.write(f"{sid}\t{lemma}\tadd\t{conf}\t{why}\t{SOURCE}\t{today}\t\n")
+    with MANUAL.open("w", encoding="utf-8") as out:
+        out.write("synset\tlemma\tverdict\tdecided_by\treason\n")
+        for r in manual:
+            out.write(f"{r['synset']}\t{r['lemma']}\t{r['final']}\t"
+                      f"{r['decided_by']}\t{r['reason']}\n")
+    if NTUMC_SENSES.parent.exists():
+        with NTUMC_SENSES.open("w", encoding="utf-8") as out:
+            out.write("synset\tlemma\tconfidence\n")
+            for s, lemma, conf, _why in sorted(set(adds)):
+                out.write(f"{s}\t{lemma}\t{conf}\n")
+    print(f"{len(set(new))} add rows -> {SENSES}; {len(manual)} for review "
+          f"-> {MANUAL}; {len(set(adds))} senses -> {NTUMC_SENSES}")
+
+
 def main() -> None:
     """Command line entry point."""
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
@@ -123,11 +200,14 @@ def main() -> None:
     sub.add_parser("batches")
     c = sub.add_parser("combine")
     c.add_argument("--runs", nargs="+", default=["run1", "run2"])
+    sub.add_parser("apply")
     args = ap.parse_args()
     if args.cmd == "batches":
         make_batches()
-    else:
+    elif args.cmd == "combine":
         combine(args.runs)
+    else:
+        apply()
 
 
 if __name__ == "__main__":

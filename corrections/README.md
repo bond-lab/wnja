@@ -80,7 +80,10 @@ synset_id	lemma	action	confidence	reason	source	date	new_lemma
 A sense is named by its synset ID and the entry's lemma (written form).
 `action` is `remove` (delete the sense, and the entry if it has no senses
 left), `lower` (set `confidenceScore` to `confidence` unless it is
-already lower) or `rename` (give the sense the written form `new_lemma`).
+already lower), `rename` (give the sense the written form `new_lemma`)
+or `add` (a new sense with confidence `confidence`; applied by
+`build_wnja.py` on the lemma's most frequent reading, the others by
+`tweak_wnja.py`).
 A renamed sense joins an entry with that lemma and part of speech only if
 their hiragana readings match (or one has none), so that homographs such
 as 物 (もの, ぶつ) stay apart, and is dropped if that entry already has the
@@ -109,4 +112,11 @@ Not applied by the build; for review before anything is added:
 | File | Contents |
 |------|---------|
 | `kuroda-adjective-review.tsv` | Hand-marked or unclassifiable lines of Kuroda's adjective classes (issue #9) |
+| `jsemcor-manual-review.tsv` | JSemCor candidates the review marked POS without a single existing corrected form, or MWE: 196 for a human (issue #11) |
 | `jsemcor-suggestions.tsv` | Candidate new senses from the Japanese SemCor, made by `jsemcor_suggestions.py` (issue #11): the English token's synset, the Japanese lemma the translator used, counts from the aligned corpus and the translation database, whether the POS matches, and an example sentence pair |
+
+Rows with source `jsemcor review` (`add`, 2026-10-24) are senses that
+JSemCor translators used, accepted by a blind double Opus review with
+adjudication (`audit/jsemcor-review/`, issue #11): confidence 0.9 where
+both runs agreed, 0.8 if adjudicated or the POS was corrected.  The same
+senses are in NTU-MC `scripts/jsemcor-senses.tsv` (applied by `fixwn.py`).

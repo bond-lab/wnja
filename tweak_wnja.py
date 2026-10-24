@@ -310,6 +310,7 @@ def apply_sense_corrections(
     ``lower`` sets its confidenceScore to the given value unless already
     lower; ``rename`` gives the sense the written form ``new_lemma`` (see
     _rename_senses).  Rows that match no sense are logged and skipped.
+    ``add`` rows are applied earlier, by build_wnja.py.
 
     Returns (removed, lowered).
     """
@@ -320,7 +321,8 @@ def apply_sense_corrections(
     rows: dict[tuple[str, str], dict] = {}
     with tsv.open(encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
-            rows[(row["synset_id"], row["lemma"])] = row
+            if row["action"] != "add":
+                rows[(row["synset_id"], row["lemma"])] = row
     removed = lowered = 0
     seen: set[tuple[str, str]] = set()
     moved: dict[tuple[str, str], list[dict]] = {}  # (entry id, new lemma) -> senses

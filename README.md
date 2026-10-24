@@ -8,11 +8,11 @@ Web page: <https://bond-lab.github.io/wnja/>
 
 | | |
 |---|---|
-| Synsets | 67,388 (57,744 with Japanese words) |
-| Words (lexical entries) | 90,617 |
-| Senses | 147,436 |
-| Japanese definitions | 66,943 |
-| Japanese examples | 35,240 |
+| Synsets | 67,509 (57,885 with Japanese words) |
+| Words (lexical entries) | 90,706 |
+| Senses | 148,703 |
+| Japanese definitions | 67,064 |
+| Japanese examples | 35,359 |
 
 wnja 2.0 is a WN-LMF 1.4 package built from the Japanese WordNet 1.1
 data (`data/wn+var_tk17.tab`, `data/vars_tk17.tab`) and the Japanese

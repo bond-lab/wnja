@@ -438,3 +438,39 @@ def test_homograph_readings_not_merged(entries_by_lemma):
     soru = [fs for fs in forms if "そる" in fs]
     assert len(entries) == 2, f"反る(v) should have 2 entries, got {forms}"
     assert soru and "かえる" not in soru[0], f"そる entry has かえる: {soru}"
+
+
+# ---------------------------------------------------------------------------
+# Corpus counts: one reading per sense, labelled by corpus
+# ---------------------------------------------------------------------------
+
+def test_counts_not_doubled_across_readings(entries_by_lemma):
+    """When readings of a spelling share a synset, only one has counts."""
+    doubled = []
+    for key, entries in entries_by_lemma.items():
+        if len(entries) < 2:
+            continue
+        counted: set[str] = set()
+        for e in entries:
+            for s in e.findall("Sense"):
+                if s.findall("Count"):
+                    if s.get("synset") in counted:
+                        doubled.append((key, s.get("synset")))
+                    counted.add(s.get("synset"))
+    assert not doubled, f"{len(doubled)} senses counted twice: {doubled[:5]}"
+
+
+def test_count_goes_to_common_reading(entries_by_lemma):
+    """音 'sound' (07371293-n) is counted for オト, not ネ."""
+    for e in entries_by_lemma.get(("音", "n"), []):
+        kana = {f.get("writtenForm") for f in e.findall("Form")}
+        for s in e.findall("Sense"):
+            if s.get("synset") == "wnja-07371293-n" and s.findall("Count"):
+                assert "オト" in kana, f"counted for {kana}"
+
+
+def test_counts_name_their_corpus(lexicon):
+    """Every Count says which corpus it is from."""
+    sources = {c.get("{https://globalwordnet.github.io/schemas/dc/}source")
+               or c.get("dc:source") for c in lexicon.iter("Count")}
+    assert sources <= {"NTU-MC", "JSemCor"}, sources

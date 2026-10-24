@@ -40,8 +40,11 @@ Build: see [CLAUDE.md](CLAUDE.md); package with `package_wnja.py`.
 - **Homographs are separate entries.** A word is a spelling plus a
   reading, so 反る read ソル "warp" and カエル (= 返る) are two entries.
   `wn validate` reports these as W203 (redundant entries).
-- **Frequencies are from the NTU-MC only.** The JSemCor counts are not
-  yet included ([#10](https://github.com/bond-lab/wnja/issues/10)).
+- **Frequencies are per corpus.** Each sense has one `<Count>` per
+  corpus, NTU-MC and JSemCor, named in `dc:source`.  The corpora tag
+  spellings, not readings, so when several readings of a spelling share
+  a synset (物 ブツ/モノ) the count goes to the most frequent reading
+  according to JMdict (`data/reading_rank.tsv`), and is not counted twice.
 
 ## License
 

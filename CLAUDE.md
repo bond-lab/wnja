@@ -4,6 +4,8 @@
 
 ```bash
 uv run python detect_sahen.py    # only needed when jamdict data changes
+uv run python rank_readings.py   # only when vars_tk17.tab changes (~4 min, jamdict)
+uv run python count_jsemcor.py   # only when ../jsemcor/data changes
 uv run python build_wnja.py
 uv run python tweak_wnja.py
 uv run python report_wnja.py     # optional quality report → reports/
@@ -18,6 +20,8 @@ uv run pytest tests/             # ~70 tests; most need a rebuilt wnja-2.0.xml
 | `data/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
 | `data/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
 | `data/sahen_verbs.txt` | Pre-computed suru-verb list from detect_sahen.py + jamdict |
+| `data/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (rank_readings.py) |
+| `data/wn-freq-jpn-jsemcor.tsv` | Sense counts from the Japanese SemCor (count_jsemcor.py) |
 | `../NTUMC/build/ili-map-pwn30.tab` | ILI ↔ PWN30 synset number map (used by build_wnja.py for stubs) |
 
 ### Regenerating wn-ntumc-jpn.xml
@@ -39,7 +43,7 @@ Key fix already applied: `getwn.py` line ~405 uses `"nvartux"` (not `"nvartu"`) 
 1. `read_vars()` — `{(lemma, hno): [(writtenForm, script), ...]}`
 2. `read_wnvar()` — `{(lemma, hno): [(wnja_synset_id, confidence)]}` + `covered_synsets`
 3. `parse_ntumc_xml()` — NTU-MC entries list + synsets dict
-4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos, reading): a word is a spelling plus a reading (katakana form), so homographs such as 反る ソル/カエル stay separate, while two hno with the same reading merge.
+4. `build_entries()` — LexicalEntry dicts from wn+var. Merges entries with same (lemma, pos, reading): a word is a spelling plus a reading (katakana form), so homographs such as 反る ソル/カエル stay separate, while two hno with the same reading merge. Corpus counts (NTU-MC, JSemCor; one `<Count dc:source=…>` each) go to one reading per (synset, lemma), chosen by `count_owners()` from `data/reading_rank.tsv`, so they are not counted twice.
 5. `build_passthrough_entries()` — NTU-MC entries for synsets NOT in `covered_synsets` (Japan-specific). A lemma can appear in both pipelines; passthrough entries take the hno 0 reading and merge into that entry (or the first entry for the lemma if it has no vars forms).
 6. Relation-target expansion — adds synsets referenced by relations that have NTU-MC definitions.
 7. `build_synsets()` — deduplicates definition texts; normalises POS `s` → `a`.
@@ -142,7 +146,6 @@ Stage 2 = Qwen3-32B-4bit few-shot (P=0.88). MoE is same speed as 32B on Apple Si
 - **Missing vocabulary**: よいしょ, いただきます, ごちそうさま, よろしく, もったいない,
   木漏れ日, 引きこもり, 過労死, 婚活, 一石二鳥, 一期一会, わびさび, …
 - **W307**: per-case review of 657 cross-synset duplicate definitions
-- **JSemCor frequencies**: add to sense counts (issue #10)
 - **Sense-level antonyms**: temperature antonyms currently synset-level; best practice is sense-level
 - **Adjective types**: merge data on -na/-no adjective
 - **Merge TUFS data**

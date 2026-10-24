@@ -42,6 +42,8 @@ VARS_FILE = DATA / "vars_tk17.tab"
 WNVAR_FILE = DATA / "wn+var_tk17.tab"
 NTUMC_XML = DATA / "wn-ntumc-jpn.xml"
 SAHEN_FILE = DATA / "sahen_verbs.txt"
+JSEMCOR_FILE = DATA / "wn-freq-jpn-jsemcor.tsv"
+RANK_FILE = DATA / "reading_rank.tsv"
 ILI_MAP_FILE = Path("../NTUMC/build/ili-map-pwn30.tab")
 OUTPUT = Path("wnja-2.0.xml")
 LOG_FILE = Path("wnja.log")
@@ -303,6 +305,100 @@ def parse_ntumc_xml(path: Path) -> tuple[
 
 
 # ---------------------------------------------------------------------------
+# Corpus frequencies
+# ---------------------------------------------------------------------------
+
+def load_freq_file(path: Path) -> dict[tuple[str, str], int]:
+    """Load a frequency file (synset, lemma, freq), e.g. from count_jsemcor.py.
+
+    Args:
+        path: Tab-separated file with a header row; lines starting with #
+            are comments.
+
+    Returns:
+        {(synset_num, lemma): count}; empty if the file does not exist.
+    """
+    counts: dict[tuple[str, str], int] = defaultdict(int)
+    if not path.exists():
+        log.warning("%s not found; no counts from it", path)
+        return counts
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            if line.startswith(("#", "synset\t")):
+                continue
+            synset_num, lemma, freq = line.rstrip("\n").split("\t")
+            counts[(synset_num, lemma)] += int(freq)
+    return counts
+
+
+def load_reading_ranks(path: Path) -> dict[tuple[str, str], int]:
+    """Load reading ranks from rank_readings.py: lower is more frequent.
+
+    Args:
+        path: data/reading_rank.tsv (lemma, hno, reading, score).
+
+    Returns:
+        {(lemma, hno): score}; empty if the file does not exist.
+    """
+    ranks: dict[tuple[str, str], int] = {}
+    if not path.exists():
+        log.warning("%s not found; counts go to the lowest hno", path)
+        return ranks
+    with open(path, encoding="utf-8") as fh:
+        next(fh)
+        for line in fh:
+            lemma, hno, _reading, score = line.rstrip("\n").split("\t")
+            ranks[(lemma, hno)] = int(score)
+    return ranks
+
+
+def count_owners(
+    l2senses: dict[tuple[str, str], list[tuple[str, float]]],
+    ranks: dict[tuple[str, str], int],
+) -> dict[tuple[str, str], str]:
+    """Choose which reading of a spelling gets the corpus count of a sense.
+
+    Corpora tag spellings, not readings, so when several readings of a
+    spelling share a synset (物 ブツ/モノ) the count goes to one only, so
+    it is not counted twice: the most frequent reading by JMdict rank,
+    then the lowest hno.
+
+    Args:
+        l2senses: {(lemma, hno): [(wnja_synset_id, confidence), ...]}.
+        ranks: {(lemma, hno): score} from load_reading_ranks.
+
+    Returns:
+        {(synset_num, lemma): hno of the entry that gets the count}.
+    """
+    owners: dict[tuple[str, str], str] = {}
+    best: dict[tuple[str, str], tuple[int, int]] = {}
+    for (lemma, hno), senses in l2senses.items():
+        rank = (ranks.get((lemma, hno), 100), int(hno) if hno.isdigit() else 99)
+        for wnja_ss, _conf in senses:
+            key = (wnja_ss[len("wnja-"):], lemma)
+            if key not in best or rank < best[key]:
+                best[key] = rank
+                owners[key] = hno
+    return owners
+
+
+def make_counts(
+    counts: dict[str, dict[tuple[str, str], int]], key: tuple[str, str],
+) -> list[dict]:
+    """One Count per corpus with a count for this sense.
+
+    Args:
+        counts: {source name: {(synset_num, lemma): count}}.
+        key: (synset_num, lemma).
+
+    Returns:
+        Count dicts, each with its corpus as ``source`` (dc:source).
+    """
+    return [make_count(c[key], meta={"source": source})
+            for source, c in counts.items() if c.get(key)]
+
+
+# ---------------------------------------------------------------------------
 # Sahen (suru-verb) detection
 # ---------------------------------------------------------------------------
 
@@ -389,10 +485,15 @@ def _merge_by_lemma_pos(entries: list[dict]) -> list[dict]:
             first.setdefault(key[:2], key)
         else:
             existing = merged[key]
-            existing_ss = {s["synset"] for s in existing.get("senses", [])}
+            existing_ss = {s["synset"]: s for s in existing.get("senses", [])}
             for sense in entry.get("senses", []):
-                if sense["synset"] not in existing_ss:
-                    existing_ss.add(sense["synset"])
+                if sense["synset"] in existing_ss:
+                    # same word, same synset: keep the counts it carries
+                    kept = existing_ss[sense["synset"]]
+                    kept["counts"] = (kept.get("counts") or []) + (
+                        sense.get("counts") or [])
+                else:
+                    existing_ss[sense["synset"]] = sense
                     existing.setdefault("senses", []).append(sense)
             existing_wf = {
                 existing["lemma"]["writtenForm"],
@@ -408,10 +509,23 @@ def _merge_by_lemma_pos(entries: list[dict]) -> list[dict]:
 def build_entries(
     l2senses: dict[tuple[str, str], list[tuple[str, float]]],
     forms: dict[tuple[str, str], list[tuple[str, str]]],
-    ntumc_counts: dict[tuple[str, str], int],
+    counts: dict[str, dict[tuple[str, str], int]],
+    owners: dict[tuple[str, str], str],
     sahen_set: frozenset[str],
 ) -> list[dict]:
-    """Build wn_edit LexicalEntry dicts for all wn+var entries."""
+    """Build wn_edit LexicalEntry dicts for all wn+var entries.
+
+    Args:
+        l2senses: {(lemma, hno): [(wnja_synset_id, confidence), ...]}.
+        forms: {(lemma, hno): [(writtenForm, script), ...]}.
+        counts: {corpus: {(synset_num, lemma): count}}.
+        owners: {(synset_num, lemma): hno} from count_owners; only that
+            reading's sense gets the counts.
+        sahen_set: Lemmas that are suru-verbs.
+
+    Returns:
+        LexicalEntry dicts, merged by (lemma, pos, reading).
+    """
     entries = []
 
     # Group (lemma, hno) by canonical key, collect senses per pos
@@ -450,14 +564,15 @@ def build_entries(
                 for f, s in form_list[1:]
             ]
 
-            # Senses with counts from NTU-MC
+            # Senses with corpus counts, for one reading only
             sense_objs = []
             for wnja_ss, conf in ps_list:
                 synset_num = wnja_ss[len("wnja-"):]
                 sense_id = f"wnja-{synset_num}-{idx}"
-                count = ntumc_counts.get((synset_num, lemma))
+                key = (synset_num, lemma)
                 meta = {"confidenceScore": conf} if conf < 1.0 else None
-                count_objs = [make_count(count)] if count else []
+                count_objs = (make_counts(counts, key)
+                              if owners.get(key) == hno else [])
                 sense_objs.append(
                     make_sense(sense_id, wnja_ss, counts=count_objs, meta=meta)
                 )
@@ -517,7 +632,8 @@ def build_passthrough_entries(
                     continue
                 existing_ss.add(wnja_ss)
                 sense_id = f"wnja-{sn}-{seen[key]}x"
-                count_objs = [make_count(cnt)] if cnt else []
+                count_objs = ([make_count(cnt, meta={"source": "NTU-MC"})]
+                              if cnt else [])
                 existing["senses"].append(
                     make_sense(sense_id, wnja_ss, counts=count_objs)
                 )
@@ -542,7 +658,8 @@ def build_passthrough_entries(
         for sn, cnt in uncovered:
             wnja_ss = synset_num_to_wnja(sn)
             sense_id = f"wnja-{sn}-{idx}"
-            count_objs = [make_count(cnt)] if cnt else []
+            count_objs = ([make_count(cnt, meta={"source": "NTU-MC"})]
+                          if cnt else [])
             sense_objs.append(make_sense(sense_id, wnja_ss, counts=count_objs))
 
         entry = make_lexical_entry(
@@ -710,8 +827,11 @@ def main() -> None:
     log.info("Loading sahen verb list …")
     sahen_set = load_sahen_set(SAHEN_FILE)
 
+    counts = {"NTU-MC": ntumc_counts, "JSemCor": load_freq_file(JSEMCOR_FILE)}
+    owners = count_owners(l2senses, load_reading_ranks(RANK_FILE))
+
     log.info("Building merged entries from wn+var …")
-    main_entries = build_entries(l2senses, forms, ntumc_counts, sahen_set)
+    main_entries = build_entries(l2senses, forms, counts, owners, sahen_set)
     log.info("  %d entries built", len(main_entries))
 
     log.info("Building pass-through entries from NTU-MC …")

@@ -79,6 +79,36 @@ as `<Tag category="adjective-class">` on the Lemma:
 Untagged adjectives are mostly イ形容詞 ending in (し)い, the default
 class, which was not annotated.
 
+### Agentive nouns
+
+Verb senses are linked to their agentive nouns (運転 "drive" → 運転者
+"driver", 計算 → 計算機 "computer"), from the hand-checked data of [Bond
+and Wei (2019)](https://ieeexplore.ieee.org/abstract/document/8939615).
+Ryan Lim Dao Wei generated 2,340 candidate pairs of a verb and a noun
+made from it with an agentive suffix (者, 人, 手, 員, 士, 家, 機, 器) and
+checked each by hand twice, typing the good ones with the relations of
+Fellbaum et al. (2009).  The 790 pairs accepted by the second check are
+linked as in OEWN: the verb sense has a `SenseRelation` of type `other`
+with the kind in `dc:type`, and the two senses are linked by
+`derivation` both ways:
+
+| `dc:type` | Links | Example |
+|-----------|------:|---------|
+| `agent` | 644 | 運転 → 運転者 |
+| `instrument` | 89 | 吸入 → 吸入器 |
+| `undergoer` | 23 | 登録 → 登録者 "registrant" |
+| `vehicle` | 8 | 飛行 → 飛行機 |
+| `by_means_of` | 3 | 共鳴 → 共鳴器 |
+| `body_part` | 1 | 発声 → 発声器 |
+| `uses` | 1 | 発動 → 発動機 |
+
+Seventeen pairs are not linked, because one of the senses is not in this
+version (most were removed by the corrections).  The data and the
+annotators' report are in `data/sources/` (`agents_240619.xlsx`,
+`agents_tagging_report_2019.docx`); `scripts/agentive_links.py` extracts
+`data/derived/agentive_links.tsv`, which `tweak_wnja.py` applies.  Not
+yet in a release.
+
 ## License
 
 See [LICENSE](LICENSE) (a WordNet-style permissive license).

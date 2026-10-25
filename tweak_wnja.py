@@ -9,6 +9,9 @@ Applies manual corrections that cannot be derived from the NTU-MC export:
      definitions but no entries in the NTU-MC data.
   3. New synsets: add synsets that exist in NTU-MC with definitions but no
      Japanese entries, requiring both a synset and a new lexical entry.
+  4. Agentive nouns: hand-checked links from a verb sense to its agentive
+     noun (運転 other/dc:type=agent 運転者, plus derivation; Bond and Wei
+     2019), from data/derived/agentive_links.tsv (scripts/agentive_links.py).
 
 Run after build_wnja.py:
   uv run python build_wnja.py
@@ -20,9 +23,15 @@ import logging
 import sys
 from pathlib import Path
 
-from wn_edit import WordnetEditor, make_lemma, make_sense, make_lexical_entry
+from wn_edit import (
+    WordnetEditor,
+    make_lemma,
+    make_lexical_entry,
+    make_relation,
+    make_sense,
+)
 
-from build_wnja import OUTPUT
+from build_wnja import AGENT_LINKS_FILE, OUTPUT
 
 # As in build_wnja.py (not imported: its logging setup would truncate the log)
 CORRECTIONS_DIR = Path("corrections")
@@ -364,6 +373,58 @@ def apply_sense_corrections(
     return removed, lowered
 
 
+def _add_sense_link(sense: dict, target: str, rel_type: str, kind: str = "") -> int:
+    """Add a SenseRelation (with dc:type kind, if given) unless present."""
+    for r in sense.get("relations", []):
+        if (r["target"], r["relType"]) == (target, rel_type) and (
+                (r.get("meta") or {}).get("type", "") == kind):
+            return 0
+    rel = make_relation(target, rel_type, validate=False, relation_kind="sense")
+    if kind:
+        rel["meta"] = {"type": kind}
+    sense.setdefault("relations", []).append(rel)
+    return 1
+
+
+def apply_agentive_links(editor: WordnetEditor, tsv: Path) -> int:
+    """Add the agentive noun links of Bond and Wei (2019).
+
+    Each row names a verb sense and a noun sense by synset and written form
+    (the lemma or any form of the entry).  As in OEWN, the verb sense gets
+    ``other`` with the link type in dc:type (agent, instrument, undergoer,
+    ...) to the noun sense, and the two get ``derivation`` both ways.  Every
+    matching verb sense is linked to every matching noun sense, so both
+    readings of a homograph are linked.  Rows whose senses are gone (removed
+    by the corrections) are logged and skipped, as are links already there.
+    Returns the number of typed links added.
+    """
+    if not tsv.exists():
+        log.info("No %s, skipping", tsv)
+        return 0
+    senses: dict[tuple[str, str], list[dict]] = {}
+    for entry in editor._lexicon.get("entries", []):
+        forms = {entry["lemma"]["writtenForm"]}
+        forms |= {f["writtenForm"] for f in entry.get("forms", [])}
+        for sense in entry.get("senses", []):
+            for form in forms:
+                senses.setdefault((sense["synset"], form), []).append(sense)
+    added = 0
+    with tsv.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            verbs = senses.get((row["verb_synset"], row["verb"]), [])
+            nouns = senses.get((row["noun_synset"], row["noun"]), [])
+            if not verbs or not nouns:
+                log.warning("agentive link %s %s -> %s %s: no %s sense, skipping",
+                            row["verb_synset"], row["verb"], row["noun_synset"],
+                            row["noun"], "verb" if not verbs else "noun")
+                continue
+            for verb in verbs:
+                for noun in nouns:
+                    added += _add_sense_link(verb, noun["id"], "other", row["rel_type"])
+                    _add_sense_link(verb, noun["id"], "derivation")
+                    _add_sense_link(noun, verb["id"], "derivation")
+    return added
+
 def main() -> None:
     if not OUTPUT.exists():
         log.error("%s not found — run build_wnja.py first", OUTPUT)
@@ -380,6 +441,10 @@ def main() -> None:
     log.info("Applying sense corrections …")
     removed, lowered = apply_sense_corrections(editor, CORRECTIONS_DIR)
     log.info("  %d senses removed, %d lowered", removed, lowered)
+
+    log.info("Adding agentive noun links …")
+    n = apply_agentive_links(editor, AGENT_LINKS_FILE)
+    log.info("  %d typed agentive links added", n)
 
     log.info("Applying temperature antonyms …")
     n = apply_temperature_antonyms(editor)

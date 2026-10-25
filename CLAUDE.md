@@ -22,6 +22,7 @@ uv run python -m scripts.detect_sahen       # only when jamdict data changes
 uv run python -m scripts.rank_readings      # only when vars_tk17.tab changes (~4 min, jamdict)
 uv run python -m scripts.count_jsemcor      # only when ../jsemcor/data changes
 uv run python -m scripts.kuroda_adjectives  # only when adjective_kuroda_2011.tsv changes
+uv run python -m scripts.agentive_links     # only when agents_240619.xlsx changes
 uv run python build_wnja.py                 # -> build/wnja-VERSION.xml (VERSION in build_wnja.py), build/wnja.log
 uv run python tweak_wnja.py
 uv run python -m scripts.report_wnja        # optional quality report -> build/reports/
@@ -37,9 +38,11 @@ uv run pytest tests/                        # ~85 tests; most need a rebuilt bui
 | `data/sources/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
 | `data/sources/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
 | `data/sources/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
+| `data/sources/agents_240619.xlsx` | Bond and Wei (2019): verb–agentive noun pairs (eng, cmn, jpn), checked twice by hand; method in `agents_tagging_report_2019.docx` |
 | `data/derived/sahen_verbs.txt` | Suru-verb list (scripts/detect_sahen.py + jamdict) |
 | `data/derived/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (scripts/rank_readings.py) |
 | `data/derived/adjective_class.tsv` | Adjective class per lemma: na, no, na-no, no-na, other (scripts/kuroda_adjectives.py) |
+| `data/derived/agentive_links.tsv` | Accepted Japanese verb → agentive noun links, typed (scripts/agentive_links.py); applied by tweak_wnja.py as `other`/dc:type + `derivation` |
 | `data/derived/wn-freq-jpn-jsemcor.tsv` | Sense counts from the Japanese SemCor (scripts/count_jsemcor.py) |
 | `../NTUMC/build/ili-map-pwn30.tab` | ILI ↔ PWN30 synset number map (used by build_wnja.py for stubs) |
 

@@ -16,6 +16,7 @@ dependencies = [
     "tomli-w>=1.0",
     "fugashi>=1.5.2",
     "unidic-lite>=1.0.8",
+    "openpyxl>=3.1.5",
 ]
 
 [tool.uv.sources]

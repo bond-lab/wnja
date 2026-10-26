@@ -87,24 +87,30 @@ and Wei (2019)](https://ieeexplore.ieee.org/abstract/document/8939615).
 Ryan Lim Dao Wei generated 2,340 candidate pairs of a verb and a noun
 made from it with an agentive suffix (者, 人, 手, 員, 士, 家, 機, 器) and
 checked each by hand twice, typing the good ones with the relations of
-Fellbaum et al. (2009).  The 790 pairs accepted by the second check are
-linked as in OEWN: the verb sense has a `SenseRelation` of type `other`
-with the kind in `dc:type`, and the two senses are linked by
-`derivation` both ways:
+Fellbaum et al. (2009).  Of the 790 pairs accepted by the second check,
+720 are used: a blind model review in 2026 judged the other 70 not linked
+this way, mostly because one of the two senses is the wrong sense of its
+word (読み手 as a textbook *reader*, 取得者 as a bank *acquirer*); they are
+listed in `corrections/agentive-removed.tsv`, and the 17 senses that two
+blind runs both judged wrong are removed in `corrections/senses.tsv`
+(another 30 they disagreed on wait in
+`corrections/review/agentive-senses-review.tsv`).  The pairs are linked as
+in OEWN: the verb sense has a `SenseRelation` of type `other` with the kind
+in `dc:type`, and the two senses are linked by `derivation` both ways:
 
 | `dc:type` | Links | Example |
 |-----------|------:|---------|
-| `agent` | 644 | 運転 → 運転者 |
-| `instrument` | 89 | 吸入 → 吸入器 |
-| `undergoer` | 23 | 登録 → 登録者 "registrant" |
+| `agent` | 589 | 運転 → 運転者 |
+| `instrument` | 82 | 吸入 → 吸入器 |
+| `undergoer` | 17 | 登録 → 登録者 "registrant" |
 | `vehicle` | 8 | 飛行 → 飛行機 |
 | `by_means_of` | 3 | 共鳴 → 共鳴器 |
 | `body_part` | 1 | 発声 → 発声器 |
-| `uses` | 1 | 発動 → 発動機 |
+| `uses` | 1 | 緩衝 → 緩衝器 |
 
-Seventeen pairs are not linked, because one of the senses is not in this
-version (most were removed by the corrections).  The data and the
-annotators' report are in `data/sources/` (`agents_240619.xlsx`,
+Pairs whose senses are not in this version (removed by the corrections)
+are not linked.  The data and the annotators' report are in
+`data/sources/` (`agents_240619.xlsx`,
 `agents_tagging_report_2019.docx`); `scripts/agentive_links.py` extracts
 `data/derived/agentive_links.tsv`, which `tweak_wnja.py` applies.  Not
 yet in a release.

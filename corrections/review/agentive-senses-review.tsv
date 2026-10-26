@@ -1,0 +1,31 @@
+synset_id	lemma	english	run1	reason1	run2	reason2
+wnja-00598954-v	発見	learn, hear, get word, get wind, pick up	UNSURE	discover rather than learn accidentally	WRONG	Discovery, not learn/hear
+wnja-00704690-v	工作	plan	UNSURE	scheming or maneuvering, not clearly planning	WRONG	Maneuvering; plan sense is off
+wnja-00813978-v	評議	hash out, discuss, talk over	OK	discuss	WRONG	Hyōgi is deliberation, not hash out
+wnja-00829107-v	教育	teach, learn, instruct	OK	teach	WRONG	Education; learn sense wrong, teach okay
+wnja-00939857-v	解説	clarify, clear up, elucidate	OK	explain or clarify	WRONG	Commentary, not clarify
+wnja-00965035-v	語る	report, describe, account	OK	describe or recount	WRONG	Kataru means tell/narrate, not report/describe account
+wnja-01156115-v	遊ぶ	play	UNSURE	play can mean gamble; loose	OK	Play
+wnja-02154508-v	探知	detect, observe, find, discover, notice	OK	detect	WRONG	Tanchi means detection by instrument, not discover/notice
+wnja-02202928-v	管理	keep	OK	look after	WRONG	Management, not keep
+wnja-02251743-v	会計	pay	UNSURE	bill payment or accounting; pay sense plausible	OK	Accounting payment, pay bill
+wnja-02450505-v	邪魔	prevent, keep	OK	hinder or prevent	WRONG	Hindrance noun; prevent verb sense is mismatched
+wnja-02691890-v	仲介	mediate	UNSURE	mediation, not clearly intermediate position	OK	Mediation
+wnja-03360431-n	輪転機	flatbed press, cylinder press	WRONG	rotary press, not flatbed cylinder press	OK	Rotary press
+wnja-08076253-n	侵入者	raider	WRONG	intruder, not corporate raider	OK	Invader, close enough
+wnja-08180639-n	労働者	labor, labour, working class, proletariat	OK	working class	WRONG	Worker; labor class reading mismatched
+wnja-08419354-n	取得者	acquirer	WRONG	acquirer, not ATM-owning bank	UNSURE	Acquirer noun, plausible but unusual
+wnja-08419562-n	取得者	acquirer	UNSURE	acquirer; financial institution sense unclear	UNSURE	Acquirer noun, plausible but unusual
+wnja-09778392-n	工作員	agent provocateur, provocateur	UNSURE	operative, not clearly agent provocateur	WRONG	Agent provocateur is a specific sense, 工作員 too general
+wnja-09977660-n	仕置者	criminal, felon, crook, outlaw, malefactor	UNSURE	rare word; criminal sense unclear	WRONG	Person punished; not criminal
+wnja-10057714-n	運転手	engineer, locomotive engineer, railroad engineer, engine driver	UNSURE	driver generally, not specifically locomotive engineer	WRONG	Driver, not locomotive engineer; fits engine driver
+wnja-10090020-n	出金者	financier, moneyman	UNSURE	payer, not clearly financier	WRONG	Person paying out money, not financier
+wnja-10098710-n	反対者	foe, enemy	UNSURE	opponent versus personal enemy	WRONG	Opponent, not enemy
+wnja-10118844-n	遊び人	gambler	OK	gambler	WRONG	Idler/playboy, gambler only partially
+wnja-10211036-n	仲介者	interlocutor, middleman	WRONG	go-between, not minstrel interlocutor	OK	Intermediary, go-between
+wnja-10212780-n	解釈者	interpreter	UNSURE	interpreter of meaning; artistic sense unclear	OK	Interpreter of meaning
+wnja-10214637-n	発見者	inventor, discoverer, artificer	WRONG	discoverer, not inventor	WRONG	Discoverer, not inventor/artificer sense
+wnja-10225219-n	審判員	judge, justice, jurist	UNSURE	referee or umpire, not clearly judge	WRONG	Referee/umpire, not a judge of a court
+wnja-10300041-n	航海士	mate, first mate	OK	first mate	WRONG	Navigating officer, not first mate precisely
+wnja-10388924-n	所持者	owner, proprietor	OK	possessor or owner	WRONG	Holder, not proprietor
+wnja-10557854-n	研究家	scholar, scholarly person, bookman, student	OK	scholar or researcher	WRONG	Researcher, not bookman

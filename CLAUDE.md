@@ -22,7 +22,7 @@ uv run python -m scripts.detect_sahen       # only when jamdict data changes
 uv run python -m scripts.rank_readings      # only when vars_tk17.tab changes (~4 min, jamdict)
 uv run python -m scripts.count_jsemcor      # only when ../jsemcor/data changes
 uv run python -m scripts.kuroda_adjectives  # only when adjective_kuroda_2011.tsv changes
-uv run python -m scripts.agentive_links     # only when agents_240619.xlsx changes
+uv run python -m scripts.agentive_links     # only when agents_240619.xlsx or corrections/agentive-removed.tsv changes
 uv run python build_wnja.py                 # -> build/wnja-VERSION.xml (VERSION in build_wnja.py), build/wnja.log
 uv run python tweak_wnja.py
 uv run python -m scripts.report_wnja        # optional quality report -> build/reports/

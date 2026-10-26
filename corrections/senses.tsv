@@ -1173,7 +1173,7 @@ wnja-03139045-a	絶対主義者	remove		noun 'absolutist person', not the adject
 wnja-03146846-n	耕作者	remove		a person who cultivates, not the implement	audit/issue8+opus (both runs)	2026-10-24	
 wnja-03149732-a	一杯	remove		full/a cup, not filled purchase orders	audit/issue8+opus (both runs)	2026-10-24	
 wnja-03149951-n	暁星	remove		morning star, not a curio	audit/issue8+opus (both runs)	2026-10-24	
-wnja-03154073-n	切り手	lower	0.5	usually a person who cuts; tool reading doubtful	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-03154073-n	切り手	remove		not cutter (tool): usually a person who cuts; tool reading doubtful	audit/issue8+opus (adjudicated) + agentive review: 2 blind sonnet (both runs)	2026-10-26	
 wnja-03154073-n	裁断師	remove		cutter (person), not a cutting tool	audit/issue8+opus (both runs)	2026-10-24	
 wnja-03164532-n	塗抹	remove		smearing or painting over; synset is an unskillful painting	audit/issue8+opus (both runs)	2026-10-24	
 wnja-03176763-n	スーパー	remove		supermarket, not department store	audit/issue8+opus (adjudicated)	2026-10-24	
@@ -4061,3 +4061,19 @@ wnja-15272685-n	幕間	add	0.9	JSemCor translation (all runs)	jsemcor review	202
 wnja-15273406-n	永遠	add	0.9	JSemCor translation (all runs)	jsemcor review	2026-10-24	
 wnja-15286249-n	速度	add	0.9	JSemCor translation (all runs)	jsemcor review	2026-10-24	
 wnja-15290337-n	局面	add	0.9	JSemCor translation (all runs)	jsemcor review	2026-10-24	
+wnja-00591111-n	評議員	remove		not councillorship: person, not the position of council member	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-00607405-v	修道	remove		not study: monastic discipline, not general study	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-00688377-v	依頼	remove		not trust: means request, not trust	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-00822367-v	審判	remove		not declare: means judging, not declaring	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-00908351-v	育種	remove		not foster: breeding, not fostering	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-01382083-v	脱穀	remove		not pick: threshing, not picking	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-02153709-v	探検	remove		not search: means expedition or exploration, not searching	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-02462386-v	提案	remove		not vote: means proposal, not voting	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-03170635-n	冷却器	remove		not deep-freeze: cooler, not freezer	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-08151490-n	崇拝者	remove		not cult: worshipper, not cult followers	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-08293831-n	保有機	remove		not fleet: owned aircraft, not fleet group	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-09769929-n	清算人	remove		not adjuster: liquidator, not insurance claims adjuster	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-09774783-n	提案者	remove		not advocate: proposer, not advocate	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-09968845-n	商議員	remove		not counselor: council member, not counselor	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-10025730-n	提出者	remove		not donor: submitter, not donor	agentive review: 2 blind sonnet (both runs)	2026-10-26	
+wnja-10276238-n	先導者	remove		not luminary: leader or guide, not celebrity inspiration	agentive review: 2 blind sonnet (both runs)	2026-10-26	

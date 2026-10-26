@@ -14,6 +14,10 @@ A pair is used if the second check (column ``link_2nd check``) accepted it,
 with the type from the second check, or the first if the second has none.
 Suru-verbs are named by their stem, as in wnja (運転+する -> 運転).
 
+Pairs listed (by S/N) in corrections/agentive-removed.tsv are left out:
+a later review judged that the two senses are not linked this way (often
+because one of them is the wrong sense of its word).
+
 Writes data/derived/agentive_links.tsv, read by tweak_wnja.py, which links
 the verb sense to the noun sense as OEWN does: relType ``other`` with the
 type in dc:type, plus ``derivation`` both ways.  (The GWA agent, patient,
@@ -28,7 +32,9 @@ import logging
 import sys
 from collections import Counter
 
-from build_wnja import AGENT_LINKS_FILE, AGENTS_FILE
+from build_wnja import AGENT_LINKS_FILE, AGENTS_FILE, CORRECTIONS
+
+REMOVED_FILE = CORRECTIONS / "agentive-removed.tsv"
 
 log = logging.getLogger("agentive")
 
@@ -69,7 +75,13 @@ def main() -> None:
     sheet = openpyxl.load_workbook(AGENTS_FILE, read_only=True)["agents"]
     rows = sheet.iter_rows(values_only=True)
     head = next(rows)
-    out = [x for r in rows if (x := link(dict(zip(head, r))))]
+    removed = set()
+    if REMOVED_FILE.exists():
+        with REMOVED_FILE.open(encoding="utf-8") as f:
+            removed = {r["sn"] for r in csv.DictReader(f, delimiter="\t")}
+    out = [x for r in rows
+           if (x := link(dict(zip(head, r)))) and str(x[-1]) not in removed]
+    log.info("%d pairs left out (%s)", len(removed), REMOVED_FILE)
     out.sort(key=lambda x: x[:4])
     with AGENT_LINKS_FILE.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f, delimiter="\t", lineterminator="\n")

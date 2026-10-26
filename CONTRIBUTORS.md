@@ -11,6 +11,7 @@
 - Hitoshi Isahara
 - Kyoko Kanzaki
 - Kow Kuroda
+- Ryan Lim Dao Wei
 - Hazel Mok Shu Wen
 - Luís Morgado da Costa
 - Jeanette Yiwen Tan

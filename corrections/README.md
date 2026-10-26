@@ -14,7 +14,7 @@ resilient to upstream rebuilds.
 |------|---------|
 | `definitions.tsv` | Japanese definition text |
 | `senses.tsv` | Wrong senses: remove, or lower confidence; malformed lemmas: rename |
-| `agentive-removed.tsv` | Agentive noun pairs of Bond and Wei (2019) left out, by S/N (read by `scripts/agentive_links.py`; delete a row to restore the pair) |
+| `agentive-removed.tsv` | Agentive noun pairs of Bond and Lim (2019) left out, by S/N (read by `scripts/agentive_links.py`; delete a row to restore the pair) |
 
 Future files (not yet needed):
 - `lemmas.tsv` — written forms and scripts

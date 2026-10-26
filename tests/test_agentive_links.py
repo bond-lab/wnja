@@ -1,4 +1,4 @@
-"""Tests for the agentive noun links (Bond and Wei 2019)."""
+"""Tests for the agentive noun links (Bond and Lim 2019)."""
 
 from pathlib import Path
 from types import SimpleNamespace

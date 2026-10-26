@@ -38,7 +38,7 @@ uv run pytest tests/                        # ~85 tests; most need a rebuilt bui
 | `data/sources/vars_tk17.tab` | Orthographic forms per (lemma, hno) |
 | `data/sources/wn+var_tk17.tab` | Authoritative (synset, lemma, hno) mappings with confidence scores |
 | `data/sources/adjective_kuroda_2011.tsv` | Kuroda's hand-marked adjective endings, per (synset, lemma) (issue #9) |
-| `data/sources/agents_240619.xlsx` | Bond and Wei (2019): verb–agentive noun pairs (eng, cmn, jpn), checked twice by hand; method in `agents_tagging_report_2019.docx` |
+| `data/sources/agents_240619.xlsx` | Bond and Lim (2019): verb–agentive noun pairs (eng, cmn, jpn), checked twice by hand; method in `agents_tagging_report_2019.docx` |
 | `data/derived/sahen_verbs.txt` | Suru-verb list (scripts/detect_sahen.py + jamdict) |
 | `data/derived/reading_rank.tsv` | JMdict frequency rank of each reading of a homograph (scripts/rank_readings.py) |
 | `data/derived/adjective_class.tsv` | Adjective class per lemma: na, no, na-no, no-na, other (scripts/kuroda_adjectives.py) |

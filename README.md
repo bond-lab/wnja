@@ -83,7 +83,7 @@ class, which was not annotated.
 
 Verb senses are linked to their agentive nouns (運転 "drive" → 運転者
 "driver", 計算 → 計算機 "computer"), from the hand-checked data of [Bond
-and Wei (2019)](https://ieeexplore.ieee.org/abstract/document/8939615).
+and Lim (2019)](https://ieeexplore.ieee.org/abstract/document/8939615).
 Ryan Lim Dao Wei generated 2,340 candidate pairs of a verb and a noun
 made from it with an agentive suffix (者, 人, 手, 員, 士, 家, 機, 器) and
 checked each by hand twice, typing the good ones with the relations of
@@ -139,7 +139,7 @@ orthographic variants and adjective classes (Kuroda et al. 2011), the
 Japanese SemCor (Bond et al. 2012), numeral classifiers (Mok et al.
 2012), sense-tagged parallel corpora (Bond et al. 2013), pronouns (Seah
 and Bond 2014), exclamatives (Morgado da Costa and Bond 2016),
-derivational relations (Bond and Wei 2019) and the TUFS basic
+derivational relations (Bond and Lim 2019) and the TUFS basic
 vocabulary (Bond et al. 2020).
 
 ## Manual corrections

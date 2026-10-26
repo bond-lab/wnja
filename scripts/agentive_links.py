@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract the agentive noun links of Bond and Wei (2019).
+"""Extract the agentive noun links of Bond and Lim (2019).
 
 Ryan Lim Dao Wei generated candidate pairs of a verb sense and a noun
 sense whose lemma is the verb (stem) plus an agentive suffix (者, 人, 手,

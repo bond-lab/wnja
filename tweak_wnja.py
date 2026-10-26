@@ -10,7 +10,7 @@ Applies manual corrections that cannot be derived from the NTU-MC export:
   3. New synsets: add synsets that exist in NTU-MC with definitions but no
      Japanese entries, requiring both a synset and a new lexical entry.
   4. Agentive nouns: hand-checked links from a verb sense to its agentive
-     noun (運転 other/dc:type=agent 運転者, plus derivation; Bond and Wei
+     noun (運転 other/dc:type=agent 運転者, plus derivation; Bond and Lim
      2019), from data/derived/agentive_links.tsv (scripts/agentive_links.py).
 
 Run after build_wnja.py:
@@ -387,7 +387,7 @@ def _add_sense_link(sense: dict, target: str, rel_type: str, kind: str = "") -> 
 
 
 def apply_agentive_links(editor: WordnetEditor, tsv: Path) -> int:
-    """Add the agentive noun links of Bond and Wei (2019).
+    """Add the agentive noun links of Bond and Lim (2019).
 
     Each row names a verb sense and a noun sense by synset and written form
     (the lemma or any form of the entry).  As in OEWN, the verb sense gets

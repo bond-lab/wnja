@@ -14,10 +14,10 @@ resilient to upstream rebuilds.
 |------|---------|
 | `definitions.tsv` | Japanese definition text |
 | `senses.tsv` | Wrong senses: remove, or lower confidence; malformed lemmas: rename |
+| `forms.tsv` | Written forms to add to an entry (e.g. a variant spelling) |
 | `agentive-removed.tsv` | Agentive noun pairs of Bond and Lim (2019) left out, by S/N (read by `scripts/agentive_links.py`; delete a row to restore the pair) |
 
 Future files (not yet needed):
-- `lemmas.tsv` — written forms and scripts
 - `examples.tsv` — usage examples *(format will change when examples move from synset-level to sense-level)*
 
 ## Format: `definitions.tsv`
@@ -69,6 +69,21 @@ Corrections found by the audit pipeline are added automatically with
 `source=audit/*`. Human reviewers can add corrections directly; the `reason`
 field is the place to explain context that would not be obvious from the diff
 alone (e.g. which Japanese term is standard in botanical contexts).
+
+## Format: `forms.tsv`
+
+| Column | Content |
+|--------|---------|
+| `lemma`, `pos`, `reading` | the entry: its lemma, part of speech and a hiragana reading |
+| `form` | the written form to add |
+| `script` | its script (`hira`, `kana`), empty for kanji or mixed |
+| `reason`, `source`, `date` | as in `senses.tsv` |
+
+`tweak_wnja.py` adds the form to every entry that matches, unless it has
+it already; rows that match no entry are logged and skipped.  For example,
+散々 is added as a spelling of 散り散り (ちりぢり), which a native checker
+preferred as the reading of 散々 for *scattering*; the sense stays on 散々
+(さんざん) too, since JMdict gives that reading the meaning.
 
 ## Format: `senses.tsv`
 

@@ -9,7 +9,8 @@ Applies manual corrections that cannot be derived from the NTU-MC export:
      definitions but no entries in the NTU-MC data.
   3. New synsets: add synsets that exist in NTU-MC with definitions but no
      Japanese entries, requiring both a synset and a new lexical entry.
-  4. Agentive nouns: hand-checked links from a verb sense to its agentive
+  4. Forms: written variants added to an entry, from corrections/forms.tsv.
+  5. Agentive nouns: hand-checked links from a verb sense to its agentive
      noun (運転 other/dc:type=agent 運転者, plus derivation; Bond and Lim
      2019), from data/derived/agentive_links.tsv (scripts/agentive_links.py).
 
@@ -377,6 +378,48 @@ def apply_sense_corrections(
     return removed, lowered
 
 
+def apply_form_corrections(editor: WordnetEditor, corrections_dir: Path) -> int:
+    """Add written forms from corrections/forms.tsv.
+
+    Each row names an entry by lemma, part of speech and hiragana reading,
+    and gives a form (and its script, empty for kanji or mixed) to add to
+    it, if it does not have it already.  Rows that match no entry are logged
+    and skipped.
+
+    Args:
+        editor: the loaded wordnet
+        corrections_dir: the directory holding forms.tsv
+
+    Returns:
+        The number of forms added.
+    """
+    tsv = corrections_dir / "forms.tsv"
+    if not tsv.exists():
+        return 0
+    with tsv.open(encoding="utf-8") as f:
+        rows = list(csv.DictReader(f, delimiter="\t"))
+    added = 0
+    for row in rows:
+        hits = [e for e in editor._lexicon.get("entries", [])
+                if e["lemma"]["writtenForm"] == row["lemma"]
+                and e["lemma"]["partOfSpeech"] == row["pos"]
+                and row["reading"] in _readings(e)]
+        if not hits:
+            log.warning("forms.tsv: no entry %s %s %s, skipping",
+                        row["lemma"], row["pos"], row["reading"])
+            continue
+        for e in hits:
+            forms = e.setdefault("forms", [])
+            if any(x["writtenForm"] == row["form"] for x in forms):
+                continue
+            form = {"writtenForm": row["form"]}
+            if row.get("script"):
+                form["script"] = row["script"]
+            forms.append(form)
+            added += 1
+    return added
+
+
 def _add_sense_link(sense: dict, target: str, rel_type: str, kind: str = "") -> int:
     """Add a SenseRelation (with dc:type kind, if given) unless present."""
     for r in sense.get("relations", []):
@@ -445,6 +488,10 @@ def main() -> None:
     log.info("Applying sense corrections …")
     removed, lowered = apply_sense_corrections(editor, CORRECTIONS_DIR)
     log.info("  %d senses removed, %d lowered", removed, lowered)
+
+    log.info("Applying form corrections …")
+    n = apply_form_corrections(editor, CORRECTIONS_DIR)
+    log.info("  %d forms added", n)
 
     log.info("Adding agentive noun links …")
     n = apply_agentive_links(editor, AGENT_LINKS_FILE)

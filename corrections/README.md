@@ -81,10 +81,11 @@ synset_id	lemma	action	confidence	reason	source	date	new_lemma
 A sense is named by its synset ID and the entry's lemma (written form).
 `action` is `remove` (delete the sense, and the entry if it has no senses
 left), `lower` (set `confidenceScore` to `confidence` unless it is
-already lower), `rename` (give the sense the written form `new_lemma`)
-or `add` (a new sense with confidence `confidence`; applied by
+already lower), `rename` (give the sense the written form `new_lemma`),
+`add` (a new sense with confidence `confidence`; applied by
 `build_wnja.py` on the lemma's most frequent reading, the others by
-`tweak_wnja.py`).
+`tweak_wnja.py`) or `keep` (leave the sense as it is: an earlier
+decision reversed, with the row kept for the record).
 A renamed sense joins an entry with that lemma and part of speech only if
 their hiragana readings match (or one has none), so that homographs such
 as 物 (もの, ぶつ) stay apart, and is dropped if that entry already has the

@@ -320,7 +320,8 @@ def apply_sense_corrections(
     ``remove`` deletes the sense (and the entry if it is left with none);
     ``lower`` sets its confidenceScore to the given value unless already
     lower; ``rename`` gives the sense the written form ``new_lemma`` (see
-    _rename_senses).  Rows that match no sense are logged and skipped.
+    _rename_senses); ``keep`` leaves it as it is (a decision reversed, kept
+    for the record).  Rows that match no sense are logged and skipped.
     ``add`` rows are applied earlier, by build_wnja.py.
 
     Returns (removed, lowered).
@@ -347,6 +348,9 @@ def apply_sense_corrections(
                 kept.append(sense)
                 continue
             seen.add((sense["synset"], lemma))
+            if row["action"] == "keep":
+                kept.append(sense)
+                continue
             if row["action"] == "remove":
                 removed += 1
                 continue

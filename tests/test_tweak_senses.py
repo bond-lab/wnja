@@ -65,6 +65,17 @@ def test_lower_only_lowers(tmp_path: Path) -> None:
     assert ed._lexicon["entries"][1]["senses"][0]["meta"]["confidenceScore"] == 0.71
 
 
+def test_keep_leaves_sense(tmp_path: Path) -> None:
+    """keep leaves the sense untouched: a removal reversed by a later check."""
+    ed = editor()
+    d = write(tmp_path, "wnja-mane-n\t髪\tkeep\t\tx\tspot check\t2026-11-05\n")
+
+    removed, lowered = apply_sense_corrections(ed, d)
+
+    assert (removed, lowered) == (0, 0)
+    assert [s["id"] for s in ed._lexicon["entries"][0]["senses"]] == ["s1", "s2"]
+
+
 def kana_entry(eid: str, lemma: str, reading: str, synsets: list[str]) -> dict:
     """An entry with one hiragana reading and senses in the given synsets."""
     return {"id": eid, "lemma": {"writtenForm": lemma, "partOfSpeech": "n"},

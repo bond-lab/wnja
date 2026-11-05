@@ -346,7 +346,7 @@ wnja-00724397-a	明確	remove		明確 means clear/definite, not reliable in oper
 wnja-00725506-n	真ん中	remove		middle, not the basketball center position	audit/issue8+opus (both runs)	2026-10-24	
 wnja-00725506-n	真中	remove		middle or center point; synset is the basketball position	audit/issue8+opus (both runs)	2026-10-24	
 wnja-00731955-a	類同	remove		ruidou = similar/akin, not allied by treaty	audit/issue8+opus (both runs)	2026-10-24	
-wnja-00732552-v	続ける	remove		continue, not observe/keep (a rule)	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-00732552-v	続ける	lower	0.5	observe, keep: the checker judged it OK but his comment (本のページの続き) suggests another sense (was: removed, continue, not observe/keep (a rule))	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-00732746-n	密通	lower	0.5	adultery/secret collusion; a much narrower kind of misconduct	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-00735709-a	袋入り	remove		'in a bag' (from 'sacked' misread), not plundered	audit/issue8+opus (both runs)	2026-10-24	
 wnja-00736196-a	不良	remove		bad/delinquent, not physically fallen/collapsed	audit/issue8+opus (both runs)	2026-10-24	
@@ -585,7 +585,7 @@ wnja-01202029-n	インシュレーション	remove		insulation, not isolation	au
 wnja-01202813-a	ミスターレディー	remove		noun for drag performer; synset is fetishistic adjective	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-01203676-n	適応	lower	0.5	adaptation; only loosely conformity to standards	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-01204021-v	宥め賺す	remove		to coax or soothe; synset is quenching thirst	audit/issue8+opus (both runs)	2026-10-24	
-wnja-01204557-a	でかい	remove		big, not high in elevation	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-01204557-a	でかい	keep		removal reversed: the checker judged it OK (was: big, not high in elevation)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-01205341-n	協調主義	remove		協調主義 is cooperativism, not traitorous collaboration	audit/issue8+opus (both runs)	2026-10-24	
 wnja-01205341-n	御協力	remove		cooperation (polite), not traitorous collaboration	audit/issue8+opus (both runs)	2026-10-24	
 wnja-01205746-a	高級	remove		high-grade or high-class, not high altitude	audit/issue8+opus (both runs)	2026-10-24	
@@ -902,7 +902,7 @@ wnja-02027612-v	人集り	remove		noun 'a crowd', not the verb 'to crowd togethe
 wnja-02030764-v	壊す	remove		destroy; synset is breaking ranks by fleeing	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-02031624-a	中枢的	remove		central/pivotal, not politically centrist	audit/issue8+opus (both runs)	2026-10-24	
 wnja-02031826-v	窄める	remove		narrow/purse, not isolate or shut off	audit/issue8+opus (both runs)	2026-10-24	
-wnja-02034828-a	宜しい	remove		good/all right, not morally right	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-02034828-a	宜しい	keep		removal reversed: the checker judged it OK (was: good/all right, not morally right)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-02034828-a	適当	remove		appropriate/suitable, not morally right	audit/issue8+opus (both runs)	2026-10-24	
 wnja-02036934-a	宜しい	remove		yoroshii = fine/acceptable, not morally upright	audit/issue8+opus (both runs)	2026-10-24	
 wnja-02037110-n	ミヤコドリ族	remove		taxon (family/tribe) name, not the bird itself	audit/issue8+opus (both runs)	2026-10-24	
@@ -1281,7 +1281,7 @@ wnja-03975232-n	字突き	remove		text-pointing stick, not a dial indicator	audi
 wnja-03975232-n	木筆	remove		wooden stylus, not a dial pointer	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-03975232-n	角筆	remove		stylus for marking, not dial pointer	audit/issue8+opus (both runs)	2026-10-24	
 wnja-03998673-n	沈殿剤	remove		a chemical precipitant, not an electrostatic precipitator device	audit/issue8+opus (both runs)	2026-10-24	
-wnja-04008634-n	弾道弾	remove		ballistic missile is self-propelled; synset is non-self-propelled projectile	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-04008634-n	弾道弾	keep		removal reversed: the checker judged it OK (was: ballistic missile is self-propelled; synset is non-self-propelled projectile)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-04009382-n	隆起	remove		protuberance/uplift, not a geometric projection	audit/issue8+opus (both runs)	2026-10-24	
 wnja-04020744-n	曲線引き	remove		curve drawing, not a lay-by	audit/issue8+opus (both runs)	2026-10-24	
 wnja-04030414-n	蓋果	remove		botanical pyxis (capsule), not Greek box	audit/issue8+opus (both runs)	2026-10-24	
@@ -1803,7 +1803,7 @@ wnja-07666733-n	ムートン	remove		in Japanese means sheepskin, not mutton mea
 wnja-07688757-n	散らし広告	remove		handbill (dodger sense), not corn bread	audit/issue8+opus (both runs)	2026-10-24	
 wnja-07697825-n	爆撃機	remove		bomber aircraft, not a sandwich	audit/issue8+opus (both runs)	2026-10-24	
 wnja-07707451-n	草片	lower	0.5	possibly archaic くさびら (vegetables/fungi); unclear	audit/issue8+opus (adjudicated)	2026-10-24	
-wnja-07719839-n	砂糖大根	remove		sugar beet, not red beetroot	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-07719839-n	砂糖大根	keep		removal reversed: the checker judged it OK (was: sugar beet, not red beetroot)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-07722217-n	球茎	remove		corm (botanical), not the onion vegetable	audit/issue8+opus (both runs)	2026-10-24	
 wnja-07731952-n	小麦	remove		wheat, not maize	audit/issue8+opus (both runs)	2026-10-24	
 wnja-07731952-n	豆	remove		beans, not corn	audit/issue8+opus (both runs)	2026-10-24	
@@ -1875,7 +1875,7 @@ wnja-08584914-n	キャッシュサービスコーナー	remove		ATM corner, not 
 wnja-08589351-n	等圧式	lower	0.5	not the usual term for isobar (等圧線)	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-08590172-n	等温式	remove		isotherm equation (adsorption), not a meteorological isogram line	audit/issue8+opus (both runs)	2026-10-24	
 wnja-08617516-n	放列	remove		battery of guns in line, not the path of a projectile	audit/issue8+opus (adjudicated)	2026-10-24	
-wnja-08653873-n	出発	remove		departure, not the starting line	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-08653873-n	出発	keep		removal reversed: the checker judged it OK (was: departure, not the starting line)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-08653873-n	初め	remove		beginning in time, not a starting line	audit/issue8+opus (both runs)	2026-10-24	
 wnja-08653873-n	皮切り	remove		means the first/beginning of something, not a starting line	audit/issue8+opus (both runs)	2026-10-24	
 wnja-08677525-n	競技会場	remove		sports venue, not legal venue	audit/issue8+opus (both runs)	2026-10-24	
@@ -2016,12 +2016,12 @@ wnja-10220080-n	ジャワ語	remove		Javanese language, not a person from Java	a
 wnja-10221162-n	穴掘	remove		digger/gravedigger, not jerry-builder	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10237069-n	母方	remove		maternal side of family, not a female relative	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10242791-n	小母さん	remove		auntie/middle-aged woman, not a noblewoman	audit/issue8+opus (both runs)	2026-10-24	
-wnja-10244913-n	千三屋	remove		real-estate broker (or liar), not an estate administrator	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-10244913-n	千三屋	keep		removal reversed: the checker judged it OK (was: real-estate broker (or liar), not an estate administrator)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-10247250-n	ラッシャ	remove		羅紗 woollen cloth, not a lasher	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-10249011-n	詩神	remove		muse (god of poetry), not a laureate	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10252222-n	リーダー	lower	0.5	university Reader title rarely rendered リーダー	audit/issue8+opus (adjudicated)	2026-10-24	
 wnja-10252222-n	読者	remove		reader of texts, not university lector	audit/issue8+opus (both runs)	2026-10-24	
-wnja-10256537-n	偽者	remove		impostor/fake, not a liar	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-10256537-n	偽者	keep		removal reversed: the checker judged it OK (was: impostor/fake, not a liar)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-10257084-n	革新系	remove		progressive/reformist (left), not a laissez-faire economic liberal	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10266328-n	読書	remove		reading, not a literate person	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10269458-n	ボーダー	remove		border/stripes/snowboarder, not a lodger	audit/issue8+opus (adjudicated)	2026-10-24	
@@ -2047,7 +2047,7 @@ wnja-10393909-n	絵師	remove		artist painter, not house painter	audit/issue8+op
 wnja-10393909-n	絵描き	remove		artist who paints pictures; synset is a house/object painter	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10394141-n	口蓋	remove		palate, not a palatine lord	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10394329-n	口蓋	remove		palate (anatomy), not the Roman official 'palatine'	audit/issue8+opus (both runs)	2026-10-24	
-wnja-10399019-n	落下傘部隊	remove		the paratroop unit, not an individual soldier	audit/issue8+opus (adjudicated)	2026-10-24	
+wnja-10399019-n	落下傘部隊	keep		removal reversed: the checker judged it OK (was: the paratroop unit, not an individual soldier)	audit/issue8+opus (adjudicated) + spot check: native checker	2026-11-05	
 wnja-10400309-n	代議士	remove		member of parliament, not expert in parliamentary procedure	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10407221-n	尊属殺人	remove		the act of killing an ascendant, not the person who kills their father	audit/issue8+opus (both runs)	2026-10-24	
 wnja-10420809-n	プライベートオファーリング	remove		'private offering' (P.O. abbreviation confusion), not petty officer	audit/issue8+opus (both runs)	2026-10-24	
@@ -4077,4 +4077,21 @@ wnja-09774783-n	提案者	remove		not advocate: proposer, not advocate	agentive 
 wnja-09968845-n	商議員	remove		not counselor: council member, not counselor	agentive review: 2 blind sonnet (both runs)	2026-10-26	
 wnja-10025730-n	提出者	remove		not donor: submitter, not donor	agentive review: 2 blind sonnet (both runs)	2026-10-26	
 wnja-10276238-n	先導者	remove		not luminary: leader or guide, not celebrity inspiration	agentive review: 2 blind sonnet (both runs)	2026-10-26	
-wnja-01763159-a	緩やか	remove		not lenient: one says 穏やか, not 緩やか (native checker)	spot check: native checker	2026-11-01	
+wnja-01763159-a	緩やか	lower	0.5	lenient: the two checkers split (穏やか, not 緩やか; but 緩やかな規制)	spot check: native checkers (split)	2026-11-05	
+wnja-00106821-a	空っけつ	remove		not bare/scanty: 豊富さの意味はない	spot check: native checker	2026-11-05	
+wnja-07373277-n	組合	remove		not this union	spot check: native checker	2026-11-05	
+wnja-00635523-v	解答	remove		not answer/resolve (verb)	spot check: native checker	2026-11-05	
+wnja-08344917-n	アイアイエス	remove		not the Iraqi Intelligence Service	spot check: native checker	2026-11-05	
+wnja-14924915-n	ジャーゴン	remove		not jargoon: 辞書で確認できなかった	spot check: native checker	2026-11-05	
+wnja-15135996-n	週労働日数	remove		not workweek: 労働時間数と労働日数は別物	spot check: native checker	2026-11-05	
+wnja-00737070-n	不義	remove		not familiarity/impropriety	spot check: native checker	2026-11-05	
+wnja-02691354-v	擦り寄せる	remove		not nestle	spot check: native checker	2026-11-05	
+wnja-01442361-v	さし通す	remove		not pierce	spot check: native checker	2026-11-05	
+wnja-01202634-a	トランス系	remove		not transsexual	spot check: native checker	2026-11-05	
+wnja-01839690-v	ござ有る	remove		not come	spot check: native checker	2026-11-05	
+wnja-00219748-r	かたずをのんで	remove		not breathlessly	spot check: native checker	2026-11-05	
+wnja-04184701-n	切れ	remove		not shard/fragment	spot check: native checker	2026-11-05	
+wnja-06414849-n	序題	remove		not introduction	spot check: native checker	2026-11-05	
+wnja-04243370-n	スリット	remove		not slot	spot check: native checker	2026-11-05	
+wnja-13346912-n	入院	remove		not hospitalization insurance	spot check: native checker	2026-11-05	
+wnja-13172107-n	いのもとそう科	rename		family names in katakana (イノモトソウ科), like チャセンシダ科	spot check: native checker 2	2026-11-05	イノモトソウ科

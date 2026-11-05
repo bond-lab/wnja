@@ -4086,8 +4086,8 @@ wnja-14924915-n	ジャーゴン	remove		not jargoon: 辞書で確認できなか
 wnja-15135996-n	週労働日数	remove		not workweek: 労働時間数と労働日数は別物	spot check: native checker	2026-11-05	
 wnja-00737070-n	不義	remove		not familiarity/impropriety	spot check: native checker	2026-11-05	
 wnja-02691354-v	擦り寄せる	remove		not nestle	spot check: native checker	2026-11-05	
-wnja-01442361-v	さし通す	remove		not pierce	spot check: native checker	2026-11-05	
-wnja-01202634-a	トランス系	remove		not transsexual	spot check: native checker	2026-11-05	
+wnja-01442361-v	さし通す	keep		removal reversed: on a second look the checker judged it OK	spot check: native checker (second look)	2026-11-05	
+wnja-01202634-a	トランス系	keep		removal reversed: on a second look the checker judged it OK	spot check: native checker (second look)	2026-11-05	
 wnja-01839690-v	ござ有る	remove		not come	spot check: native checker	2026-11-05	
 wnja-00219748-r	かたずをのんで	remove		not breathlessly	spot check: native checker	2026-11-05	
 wnja-04184701-n	切れ	remove		not shard/fragment	spot check: native checker	2026-11-05	
@@ -4095,3 +4095,9 @@ wnja-06414849-n	序題	remove		not introduction	spot check: native checker	2026-
 wnja-04243370-n	スリット	remove		not slot	spot check: native checker	2026-11-05	
 wnja-13346912-n	入院	remove		not hospitalization insurance	spot check: native checker	2026-11-05	
 wnja-13172107-n	いのもとそう科	rename		family names in katakana (イノモトソウ科), like チャセンシダ科	spot check: native checker 2	2026-11-05	イノモトソウ科
+wnja-02989316-a	独特	keep		removal reversed: the checker judged it OK (second look)	audit/issue8+opus (both runs) + spot check: native checker (second look)	2026-11-05	
+wnja-01852548-a	結構	keep		removal reversed: the checker judged it OK (second look)	audit/issue8+opus (both runs) + spot check: native checker (second look)	2026-11-05	
+wnja-05087297-n	散々	keep		lowering reversed: the checker judged it OK (read ちりぢり)	audit/issue8+opus (adjudicated) + spot check: native checker (second look)	2026-11-05	
+wnja-00358431-v	天上	keep		lowering reversed: the checker judged it OK	audit/issue8+opus (adjudicated) + spot check: native checker (second look)	2026-11-05	
+wnja-11802995-n	アオイ	remove		not asarabacca (the checker, second look)	audit/issue8+opus (adjudicated) + spot check: native checker (second look)	2026-11-05	
+wnja-00183716-r	いんぎんに	remove		politely, not blandly (the checker, second look)	spot check: native checker (second look)	2026-11-05	

@@ -12,6 +12,7 @@
 - Kyoko Kanzaki
 - Kow Kuroda
 - Ryan Lim Dao Wei
+- Shumei Mogushi (茂櫛 修明)
 - Hazel Mok Shu Wen
 - Luís Morgado da Costa
 - Jeanette Yiwen Tan

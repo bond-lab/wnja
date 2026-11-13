@@ -63,3 +63,13 @@ Then come 457 `add_sense` records (`scripts/add_back_ntumc.py`): senses
 of the NTU-MC wordnet that the old build dropped because Kuribayashi's
 data did not have them, added back where an NTU-MC annotator added the
 sense (398) or the NTU-MC corpus is tagged with it (109).
+
+## Instance relations turned round (2026-11-13)
+
+In the Princeton data an instance points to its class
+(`instance_hypernym`), but the instance links NTU-MC annotators made
+from new synsets were entered the other way, so the export wrote them
+backwards (AirAsia had airline as its *instance*).  All 447 such links
+were read; 437 are wrong and are listed in omw-mul-ntumc
+`instance-links-turned.tsv`.  Each one in this lexicon is fixed by a
+`remove_relation` and an `add_relation` record, in both directions.

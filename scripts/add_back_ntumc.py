@@ -48,7 +48,8 @@ def main() -> None:
             records.append(changes.Change(
                 id=f"wnja-{BASE_VERSION}-{len(records) + 1}", action="add_sense",
                 lexicon="wnja", synset=row["synset"], lemma=row["lemma"],
-                pos=row["pos"], reading=row["reading"] or None, user="fcbond", date="2026-11-13",
+                pos=row["pos"], reading=row["reading"] or None, user="fcbond",
+                date="2026-11-13",
                 source="; ".join(source), reason=reason, base=f"wnja-{BASE_VERSION}"))
     print(changes.write(CHANGES, records), "records")
 

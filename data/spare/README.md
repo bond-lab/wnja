@@ -1,8 +1,7 @@
 # Japanese definitions and examples for synsets wnja has no word for
 
 wnja only holds synsets that have a Japanese word.  The NTU-MC wordnet
-database also has Japanese definitions and examples (from the Japanese
-WordNet's translation of the Princeton glosses) for synsets with no
+database also has Japanese definitions and examples for synsets with no
 Japanese word.  They are kept here so that a synset added later
 (`add_synset` in `changes/`) can take its definition and examples from
 them and not be written again.

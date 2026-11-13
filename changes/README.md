@@ -56,4 +56,5 @@ They are followed by 69 `reject_sense_relation` records: the Bond and
 Lim pairs a review rejected (`corrections/agentive-removed.tsv`), which
 were never in a release and so made no change
 (`scripts/reject_agentive.py`).  The 70th, S/N 47610, is not recorded:
-the same two senses are linked under another spelling (S/N 47607).
+the same two senses are linked under another spelling (S/N 47607), and
+the link stays (ruled by fcbond, 2026-11-13).

@@ -10,10 +10,16 @@ changes/wnja-BASE_VERSION.jsonl (see changes/README.md).  A change that
 does not fit the base is a conflict: they are listed, and nothing is
 written until they are settled.
 
+Adjective entries that have a class in data/derived/adjective_class.tsv
+(Kuroda et al. 2011) but no adjective-class tag are listed, with the
+set_tag record that would tag them: an entry made by add_sense has no
+tags until a record gives it one.
+
 Uses ntumc.wordnet from a checkout of NTU-MC beside this one (../NTUMC).
 """
 
 import argparse
+import csv
 import hashlib
 import io
 import logging
@@ -26,7 +32,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "NTUMC"))
 
 from ntumc.wordnet import changes, lmf  # noqa: E402
-from ntumc.wordnet.model import Lexicon  # noqa: E402
+from ntumc.wordnet.model import Entry, Item, Lexicon  # noqa: E402
 
 BASE_VERSION = "2.1"
 BASE_URL = ("https://github.com/bond-lab/wnja/releases/download/"
@@ -35,6 +41,8 @@ BASE_XZ_SHA256 = "e6f141db243a78c729f5ef29a0dd2bdf434087dae170ad49b01034f19d9ff5
 BASE_XML_SHA256 = "0e08760cd3fd82ac583b846d210a7db25282378af28e8d6c1612aaac51139919"
 BASE = ROOT / "build" / "base" / f"wnja-{BASE_VERSION}.xml"
 CHANGES = ROOT / "changes" / f"wnja-{BASE_VERSION}.jsonl"
+ADJ_CLASS_FILE = ROOT / "data" / "derived" / "adjective_class.tsv"
+ADJ_CLASS = "adjective-class"
 
 log = logging.getLogger("release")
 
@@ -61,6 +69,44 @@ def fetch_base(path: Path = BASE) -> None:
         raise ValueError(f"{path} is not the released wnja {BASE_VERSION}")
 
 
+def adjective_class(lemma: str, classes: dict[str, str]) -> str | None:
+    """The class of an adjective lemma; one written with its ending takes its stem's.
+
+    Args:
+        lemma: the written form, e.g. 古代の
+        classes: {lemma: class} from data/derived/adjective_class.tsv
+
+    Returns:
+        na, no, na-no, no-na or other; None if the lemma is not classified
+    """
+    stems = [lemma]
+    if lemma[-1:] in ("な", "の"):
+        stems.append(lemma[:-1])
+    if lemma[-2:] in ("たる", "なる"):
+        stems.append(lemma[:-2])
+    return next((classes[s] for s in stems if s in classes), None)
+
+
+def untagged_adjectives(
+    items: list[Item], path: Path = ADJ_CLASS_FILE
+) -> list[tuple[str, str]]:
+    """Adjective entries with a class in Kuroda's data but no class tag.
+
+    Args:
+        items: the lexicon's items
+        path: lemma and class, tab-separated, with a header
+
+    Returns:
+        (lemma, class) for each such entry
+    """
+    with path.open(encoding="utf-8") as f:
+        classes = {r["lemma"]: r["class"] for r in csv.DictReader(f, delimiter="\t")}
+    return [(str(e.lemma), cls) for e in items
+            if isinstance(e, Entry) and e.pos == "a"
+            and not any(t.category == ADJ_CLASS for t in e.tags)
+            and (cls := adjective_class(str(e.lemma), classes))]
+
+
 def release(version: str, out: Path) -> list[str]:
     """Apply the change records to the base and write the new release.
 
@@ -75,6 +121,10 @@ def release(version: str, out: Path) -> list[str]:
     items, conflicts = changes.apply(lmf.read(BASE), changes.read(CHANGES))
     if conflicts:
         return conflicts
+    for lemma, cls in untagged_adjectives(items):
+        log.warning('%s (a) has no %s tag; Kuroda has %s: {"action": "set_tag", '
+                    '"lemma": "%s", "pos": "a", "category": "%s", "new": "%s"}',
+                    lemma, ADJ_CLASS, cls, lemma, ADJ_CLASS, cls)
     next(i for i in items if isinstance(i, Lexicon)).version = version
     lmf.write(out, items)
     return []

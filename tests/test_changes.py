@@ -28,3 +28,28 @@ def test_the_records_apply_to_the_base_without_conflict() -> None:
     _, conflicts = changes.apply(lmf.read(release.BASE), changes.read(release.CHANGES))
     # Assert
     assert conflicts == []
+
+
+def test_adjective_class_falls_back_to_the_stem() -> None:
+    # Arrange
+    classes = {"古代": "no", "堂々": "other"}
+    # Act / Assert
+    assert release.adjective_class("古代の", classes) == "no"
+    assert release.adjective_class("堂々たる", classes) == "other"
+    assert release.adjective_class("赤い", classes) is None
+
+
+def test_untagged_adjectives_lists_only_the_classified(tmp_path) -> None:
+    # Arrange
+    from ntumc.wordnet.model import Entry, Tag
+    path = tmp_path / "classes.tsv"
+    path.write_text("lemma\tclass\n静か\tna\n古代\tno\n", encoding="utf-8")
+    items = [Entry(lemma="静か", pos="a"),
+             Entry(lemma="古代の", pos="a",
+                   tags=[Tag(text="no", category="adjective-class")]),
+             Entry(lemma="古代", pos="n"),
+             Entry(lemma="赤い", pos="a")]
+    # Act
+    found = release.untagged_adjectives(items, path)
+    # Assert
+    assert found == [("静か", "na")]

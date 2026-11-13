@@ -58,3 +58,8 @@ were never in a release and so made no change
 (`scripts/reject_agentive.py`).  The 70th, S/N 47610, is not recorded:
 the same two senses are linked under another spelling (S/N 47607), and
 the link stays (ruled by fcbond, 2026-11-13).
+
+Then come 457 `add_sense` records (`scripts/add_back_ntumc.py`): senses
+of the NTU-MC wordnet that the old build dropped because Kuribayashi's
+data did not have them, added back where an NTU-MC annotator added the
+sense (398) or the NTU-MC corpus is tagged with it (109).

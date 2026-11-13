@@ -15,7 +15,18 @@ docs/             the web site (GitHub Pages)
 build/            all output, ignored: wnja-VERSION.xml, *.log, reports/, release/
 ```
 
-## Build sequence
+## Release (from 2.1 on)
+
+The master is the last release plus `changes/wnja-2.1.jsonl` (see
+`changes/README.md`).  To change wnja, append a change record.
+
+```bash
+uv run python release.py 2.2                # base + changes -> build/wnja-2.2.xml (needs ../NTUMC)
+uv run python package_wnja.py --version 2.2 # -> build/release/wnja-2.2.tar.xz
+uv run pytest tests/test_changes.py
+```
+
+## Build sequence (how 2.1 was made; no longer run for releases)
 
 ```bash
 uv run python -m scripts.detect_sahen       # only when jamdict data changes

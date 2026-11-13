@@ -1,5 +1,10 @@
 # wnja Corrections
 
+> **Frozen on 2026-11-13.**  From wnja 2.1 on, changes are recorded in
+> [`changes/`](../changes/README.md) and applied to the last release by
+> `release.py`.  These files are how 2.1 and the first change log were
+> made; do not add to them.
+
 Manual corrections to the generated `build/wnja-2.0.xml`, applied by `tweak_wnja.py`
 as the final build step.
 

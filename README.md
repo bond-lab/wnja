@@ -144,6 +144,7 @@ vocabulary (Bond et al. 2020).
 
 ## Manual corrections
 
-Definition fixes and other post-build corrections are tracked in
-[`corrections/`](corrections/README.md). See that directory for the format
-and instructions for adding new corrections.
+Changes since the 2.1 release are recorded one per line in
+[`changes/`](changes/README.md), each with who made it, on what evidence
+and why; a release is the last release plus those changes.  The
+corrections applied up to 2.1 are in [`corrections/`](corrections/README.md).

@@ -15,6 +15,13 @@ Adjective entries that have a class in data/derived/adjective_class.tsv
 set_tag record that would tag them: an entry made by add_sense has no
 tags until a record gives it one.
 
+Two lexicons are written: ID-min-VERSION.xml, the minimal lexicon (the
+master), which leaves the English definition and the relations of the
+concepts CILI does not have yet to the shared lexicon omw-ntumc; and
+ID-VERSION.xml, the export, with those put back.  omw-ntumc is read
+from a checkout beside this one, built at its tag
+(uv run build.py SHARED_VERSION).
+
 Uses ntumc.wordnet from a checkout of NTU-MC beside this one (../NTUMC).
 """
 
@@ -31,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "NTUMC"))
 
-from ntumc.wordnet import changes, lmf  # noqa: E402
+from ntumc.wordnet import changes, lmf, shared  # noqa: E402
 from ntumc.wordnet.model import Entry, Item, Lexicon  # noqa: E402
 
 BASE_VERSION = "2.1"
@@ -41,6 +48,9 @@ BASE_XZ_SHA256 = "e6f141db243a78c729f5ef29a0dd2bdf434087dae170ad49b01034f19d9ff5
 BASE_XML_SHA256 = "0e08760cd3fd82ac583b846d210a7db25282378af28e8d6c1612aaac51139919"
 BASE = ROOT / "build" / "base" / f"wnja-{BASE_VERSION}.xml"
 CHANGES = ROOT / "changes" / f"wnja-{BASE_VERSION}.jsonl"
+SHARED_VERSION = "0.1"
+SHARED = ROOT.parent / "omw-ntumc" / "build" / f"omw-ntumc-{SHARED_VERSION}.xml"
+SHARED_SHA256 = "6ee5f6a254907d4fbdaa0e4238dddf0c3012ee92ef27fdd7d79815c46ff7c3f0"
 ADJ_CLASS_FILE = ROOT / "data" / "derived" / "adjective_class.tsv"
 ADJ_CLASS = "adjective-class"
 
@@ -112,10 +122,15 @@ def release(version: str, out: Path) -> list[str]:
 
     Args:
         version: the version of the new release
-        out: the XML file to write; not written if there are conflicts
+        out: the export's XML file; the minimal lexicon goes beside it.
+            Neither is written if there are conflicts
 
     Returns:
         The conflicts, one line each.
+
+    Raises:
+        ValueError: if the export lacks something the lexicon said before
+            it was split.
     """
     fetch_base()
     items, conflicts = changes.apply(lmf.read(BASE), changes.read(CHANGES))
@@ -126,7 +141,7 @@ def release(version: str, out: Path) -> list[str]:
                     '"lemma": "%s", "pos": "a", "category": "%s", "new": "%s"}',
                     lemma, ADJ_CLASS, cls, lemma, ADJ_CLASS, cls)
     next(i for i in items if isinstance(i, Lexicon)).version = version
-    lmf.write(out, items)
+    shared.write_release(items, shared.load(SHARED, SHARED_SHA256), out)
     return []
 
 

@@ -7,9 +7,20 @@ From wnja 2.1 on, the master copy of wnja is
 * `wnja-2.1.jsonl`: every change made since, one per line, in order.
 
 `uv run python release.py 2.2` applies the changes to the base and
-writes `build/wnja-2.2.xml`.  After a release, the new XML is the base
-and a new, empty `wnja-2.2.jsonl` is started; the old file stays as the
-history.
+writes `build/wnja-2.2.xml`.  After a release, a new, empty
+`wnja-2.2.jsonl` is started; the old file stays as the history.
+
+Each lexicon is written twice: the minimal lexicon `ID-min-VERSION.xml`
+(id `ID-min`), which says only what this wordnet itself says, and the
+export `ID-VERSION.xml`, which is what is packaged.  For a concept CILI
+does not have yet, the minimal lexicon holds the words and the
+concept's identifier (`dc:identifier="ntumc00001"`); the English
+definition and the relations are in the shared lexicon `omw-ntumc`, and
+the export puts them back.  `release.py` fails if the export lacks
+anything the wordnet said before it was split.  `omw-ntumc` is read from
+a checkout beside this one, built at the version `release.py` pins
+(`uv run build.py 0.1` at tag `v0.1`).  After a release, the minimal XML
+is the base.
 
 Nothing is rebuilt from the NTU-MC export any more: `build_wnja.py`,
 `tweak_wnja.py` and `corrections/` are how 2.1 and the first change log

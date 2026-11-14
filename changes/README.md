@@ -83,3 +83,7 @@ same concept has the same identifier in every lexicon.  This is the
 first step towards a minimal lexicon whose new concepts keep their
 definition and relations only in omw-ntumc.  The pronoun synsets (ids
 beginning 77) are not linked here: they belong to omw-pronoun.
+
+The pronoun synsets, and the feature synsets they point to, carry
+omw-pronoun's identifiers instead (`dc:identifier="pronoun:1;Sg"`,
+`feature:proximity:Prox`), from its tables for NTU-MC synsets.

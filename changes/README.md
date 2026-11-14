@@ -73,3 +73,13 @@ backwards (AirAsia had airline as its *instance*).  All 447 such links
 were read; 437 are wrong and are listed in omw-ntumc
 `instance-links-turned.tsv`.  Each one in this lexicon is fixed by a
 `remove_relation` and an `add_relation` record, in both directions.
+
+## Linked to omw-ntumc (2026-11-14)
+
+Each synset for a concept that Princeton WordNet does not have now
+carries the concept's identifier from the omw-ntumc registry
+(`dc:identifier="ntumc00392"`), set by a `set_identifier` record.  The
+same concept has the same identifier in every lexicon.  This is the
+first step towards a minimal lexicon whose new concepts keep their
+definition and relations only in omw-ntumc.  The pronoun synsets (ids
+beginning 77) are not linked here: they belong to omw-pronoun.

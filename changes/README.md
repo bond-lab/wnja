@@ -70,6 +70,6 @@ In the Princeton data an instance points to its class
 (`instance_hypernym`), but the instance links NTU-MC annotators made
 from new synsets were entered the other way, so the export wrote them
 backwards (AirAsia had airline as its *instance*).  All 447 such links
-were read; 437 are wrong and are listed in omw-mul-ntumc
+were read; 437 are wrong and are listed in omw-ntumc
 `instance-links-turned.tsv`.  Each one in this lexicon is fixed by a
 `remove_relation` and an `add_relation` record, in both directions.

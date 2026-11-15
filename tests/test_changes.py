@@ -1,12 +1,13 @@
 """The change records must be well formed and fit the base."""
 
 from collections import Counter
+from pathlib import Path
 
 import pytest
 
 release = pytest.importorskip("release", reason="needs ../NTUMC (ntumc.wordnet)")
 
-from ntumc.wordnet import changes, lmf  # noqa: E402
+from ntumc.wordnet import changes, lmf, validate  # noqa: E402
 
 
 def test_every_record_is_well_formed() -> None:
@@ -30,14 +31,18 @@ def test_the_records_apply_to_the_base_without_conflict() -> None:
     assert conflicts == []
 
 
-def test_no_ili_is_on_two_synsets() -> None:
+def test_the_lexicon_passes_the_validation_of_wn(tmp_path: Path) -> None:
     # Arrange
+    pytest.importorskip("wn")
     if not release.BASE.exists():
         pytest.skip("base release not downloaded: run release.py once")
-    # Act
     items, _ = changes.apply(lmf.read(release.BASE), changes.read(release.CHANGES))
+    xml = tmp_path / "changed.xml"
+    lmf.write(xml, items)
+    # Act
+    good = validate.check(xml, release.FAIL)
     # Assert
-    assert changes.shared_ilis(items) == []
+    assert good
 
 
 def test_adjective_class_falls_back_to_the_stem() -> None:

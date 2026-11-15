@@ -38,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "NTUMC"))
 
-from ntumc.wordnet import changes, lmf, shared  # noqa: E402
+from ntumc.wordnet import changes, lmf, shared, validate  # noqa: E402
 from ntumc.wordnet.model import Entry, Item, Lexicon  # noqa: E402
 
 BASE_VERSION = "2.1"
@@ -48,6 +48,10 @@ BASE_XZ_SHA256 = "e6f141db243a78c729f5ef29a0dd2bdf434087dae170ad49b01034f19d9ff5
 BASE_XML_SHA256 = "0e08760cd3fd82ac583b846d210a7db25282378af28e8d6c1612aaac51139919"
 BASE = ROOT / "build" / "base" / f"wnja-{BASE_VERSION}.xml"
 CHANGES = ROOT / "changes" / f"wnja-{BASE_VERSION}.jsonl"
+# wn's checks that stop a release.  Not W203 (two entries for one written
+# form in a synset): there is an entry for each reading, so 物 (ぶつ, もの)
+# is twice in a synset.
+FAIL = ("E", "W202", "W302")
 SHARED_VERSION = "0.1"
 SHARED = ROOT.parent / "omw-ntumc" / "build" / f"omw-ntumc-{SHARED_VERSION}.xml"
 SHARED_SHA256 = "6ee5f6a254907d4fbdaa0e4238dddf0c3012ee92ef27fdd7d79815c46ff7c3f0"
@@ -136,8 +140,6 @@ def release(version: str, out: Path) -> list[str]:
     items, conflicts = changes.apply(lmf.read(BASE), changes.read(CHANGES))
     if conflicts:
         return conflicts
-    if changes.shared_ilis(items):
-        return changes.shared_ilis(items)
     for lemma, cls in untagged_adjectives(items):
         log.warning('%s (a) has no %s tag; Kuroda has %s: {"action": "set_tag", '
                     '"lemma": "%s", "pos": "a", "category": "%s", "new": "%s"}',
@@ -158,6 +160,9 @@ def main() -> None:
     if conflicts:
         for line in conflicts:
             log.error(line)
+        sys.exit(1)
+    small = out.with_name(f"wnja{shared.SUFFIX}-{args.version}.xml")
+    if not all([validate.check(small, FAIL), validate.check(out, FAIL)]):
         sys.exit(1)
     log.info("Wrote %s", out)
 

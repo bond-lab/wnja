@@ -136,6 +136,8 @@ def release(version: str, out: Path) -> list[str]:
     items, conflicts = changes.apply(lmf.read(BASE), changes.read(CHANGES))
     if conflicts:
         return conflicts
+    if changes.shared_ilis(items):
+        return changes.shared_ilis(items)
     for lemma, cls in untagged_adjectives(items):
         log.warning('%s (a) has no %s tag; Kuroda has %s: {"action": "set_tag", '
                     '"lemma": "%s", "pos": "a", "category": "%s", "new": "%s"}',

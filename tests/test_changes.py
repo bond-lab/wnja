@@ -30,6 +30,16 @@ def test_the_records_apply_to_the_base_without_conflict() -> None:
     assert conflicts == []
 
 
+def test_no_ili_is_on_two_synsets() -> None:
+    # Arrange
+    if not release.BASE.exists():
+        pytest.skip("base release not downloaded: run release.py once")
+    # Act
+    items, _ = changes.apply(lmf.read(release.BASE), changes.read(release.CHANGES))
+    # Assert
+    assert changes.shared_ilis(items) == []
+
+
 def test_adjective_class_falls_back_to_the_stem() -> None:
     # Arrange
     classes = {"古代": "no", "堂々": "other"}

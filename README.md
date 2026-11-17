@@ -34,9 +34,11 @@ wn.Wordnet("wnja:2.1").words("犬")
   audit checked twice, blind, by Claude Opus ([issue
   #8](https://github.com/bond-lab/wnja/issues/8)); 16 more removed from
   error reports (`corrections/senses.tsv`)
-- 1,314 senses added from a review of the Japanese SemCor
+- 1,314 senses added from a review of the [Japanese
+  SemCor](https://doi.org/10.5281/zenodo.24314496)
 - Homographs with different readings (物 もの/ぶつ) kept as separate entries;
-  sense counts per reading from the Japanese SemCor 1.1
+  sense counts per reading from the [Japanese SemCor
+  1.1](https://doi.org/10.5281/zenodo.24314650)
 - Lemma forms: full-width digits and letters made half width (ＶＩＰ → VIP),
   katakana okurigana typos fixed (跡取リ → 跡取り)
 - Adjectives tagged with Kuroda's classes (na, no, na-no, no-na)
